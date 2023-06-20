@@ -18,7 +18,6 @@ class BaseConfig(YAMLWizard):
     type: TaskType  # Task type
     path: str  # task data path relative to DATA_PATH
 
-    model_name: str = None
     company: str = None
     module: Optional[str] = None  # Custom task module file, optional
     metrics: List[str] = field(default_factory=list)  # Evaluation metrics
