@@ -38,8 +38,17 @@ pip install -r requirements.txt
 
 In this step, you will need to configure two YAML files:
 
-- `tasks/task.yaml`: this is used to set up your evaluation task.
-- `agents/model.yaml`: this is used to specify your model's configuration.
+-   `configs/tasks/<filename>.yaml`: this is used to set up your evaluation task.
+-   `configs/agents/<filename>.yaml`: this is used to specify your model's configuration.
+
+In each YAML file, you will need to specify the following:
+
+```yaml
+module: "module.path.to.class" # the class that will be used to instantiate your model or task, for example, "src.agents.DoNothingAgent"
+parameters: # the parameters that will be passed to your model or task's constructor
+    "key_1": "value_1"
+    "key_2": "value_2"
+```
 
 ### 3. Place data files
 
@@ -57,7 +66,6 @@ Replace `<your task yaml file>` and `<your model yaml file>` with your specific 
 
 This command will evaluate your model on your specified task, and the results will be saved in the output directory.
 
-
 For example, just try:
 
 ```
@@ -67,4 +75,3 @@ python evaluate.py --task configs/tasks/example.yaml --agent configs/agents/do_n
 ### 5. Check the results
 
 The evaluation and prediction results will be stored in the `output/` directory. Check this directory to view your model's performance.
-
