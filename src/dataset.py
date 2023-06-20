@@ -13,7 +13,7 @@ from typing import List, Union
 from abc import ABC, abstractmethod
 
 from .configs import BaseConfig, GenerationTaskConfig
-from .prompt import PromptGenerate
+from .prompt import create_prompt_generator
 
 from copy import deepcopy
 
@@ -27,7 +27,7 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
     If [MASK] not in context, will append [MASK] after text
     """
 
-    def __init__(self, path: Union[str, List[str]], model, config: BaseConfig):
+    def __init__(self, path: Union[str, List[str]], model, **config):
         self.path = path if isinstance(path, list) else [path]
         self.model = model
         self.config = config
@@ -101,8 +101,8 @@ class GenerationTaskDataset(EvaluationDataset):
         if item.get("label") in self.label_list:
             self.label = item.get("label")
             id_ = item.get("id") # save id
-            prompt_generate = PromptGenerate(item.get("label"), self.config.language)
-            input = prompt_generate.get_input(item)
+            prompt_generate = create_prompt_generator(item.get("label"), self.config.language)
+            input = prompt_generate.generate_prompt(item)
             targets = prompt_generate.get_answer(item)
             if self.label == "MUL" or self.label == "NLI":
                 choices = prompt_generate.get_choices(item)
@@ -132,54 +132,3 @@ class GenerationTaskDataset(EvaluationDataset):
     def __getitem__(self, idx):
         item = self.data[idx]
         return item
-
-'''
-class LanguageModelTaskDataset(EvaluationDataset):
-    config: LanguageModelTaskConfig
-    left_weights: List[int]
-    weights: List[int]
-
-    def process_single_file(self, path):
-        num_sequences = []
-        with open(os.path.join(path), "r", encoding="utf-8") as file:
-            raw_text = file.read()
-            tokens = self.tokenizer.tokenize(raw_text)
-            self.data.append(
-                {
-                    "raw_text": tokens,
-                    "num_original_tokens": len(raw_text.strip().split(" ")),
-                    "num_sequences": max(
-                        math.ceil(
-                            max(len(tokens) - (self.config.max_seq_length - 1), 0) / self.config.generation_length
-                        )
-                        + 1,
-                        1,
-                    ),
-                }
-            )
-            num_sequences.append(self.data[-1]["num_sequences"])
-        self.weights = list(accumulate(num_sequences))
-        self.left_weights = [0] + self.weights[:-1]
-
-    def process_single_item(self, item):
-        pass
-
-    def __len__(self):
-        return self.data[0]["num_sequences"]
-
-    def __getitem__(self, idx):
-        document_idx = bisect_right(self.weights, idx)
-        idx = idx - self.left_weights[document_idx]
-        start_idx = idx * self.config.generation_length
-        end_idx = start_idx + self.config.max_seq_length - 1  # for additional [gMASK]
-        tokens = self.data[document_idx]["raw_text"][start_idx:end_idx]
-
-        return self.model.build_language_model_sample(
-            tokens,
-            is_first_segment=idx == 0,
-            max_seq_length=self.config.max_seq_length,
-            generation_length=self.config.generation_length,
-            unidirectional=self.config.unidirectional,
-            use_gmask=self.config.use_task_mask,
-        )
-'''
