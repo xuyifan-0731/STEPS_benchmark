@@ -18,8 +18,13 @@ import argparse
 from os.path import join, isdir, isfile, relpath
 from glob import glob
 
-# TODO evaluation is not implemented now.
-from evaluation import BaseConfig, DEFAULT_CLASS, print_rank_0
+from evaluation import BaseConfig, DEFAULT_CLASS, print_rank_0, AgentConfig
+"""
+TODO
+    Load Agent by:
+    agent = AgentConfig.create_agent_from_yaml("agents/do_nothing_agent.yaml")
+
+"""
 
 
 def add_evaluation_specific_args(parser):
@@ -62,12 +67,12 @@ def initialize(extra_args_provider):
 def main():
     args = initialize(extra_args_provider=add_evaluation_specific_args)
 
-    args.task = find_all_tasks(args.task)
+    tasks = find_all_tasks(args.task)
 
     task_classes = []
     print_rank_0("> Loading task configs")
 
-    for task_config_path in args.task:
+    for task_config_path in tasks:
         config = BaseConfig.from_yaml_file(task_config_path)
         if config.module:
             path = ".".join(config.module.split(".")[:-1])
@@ -85,7 +90,7 @@ def main():
     # model = ModelForEvaluation(model, args.position_encoding_2d)
 
     start = time.time()
-    evaluate_all_tasks(args.data_path, model, args.task, task_classes)
+    evaluate_all_tasks(args.data_path, model, tasks, task_classes)
     print_rank_0(f"Finish {len(task_classes)} task{'s' if len(task_classes) > 1 else ''} in {time.time() - start:.1f}s")
 
 

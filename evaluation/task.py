@@ -53,12 +53,9 @@ class BaseTask(ABC):
     def metrics(self) -> Dict[str, Callable]:
         return {metric: DEFAULT_METRICS[metric] for metric in self.config.metrics}
 
-    def __init__(self, model, tokenizer, config: BaseConfig):
-        self.model_name = model
-        self.model = get_model_api(model, config.workers)
+    def __init__(self, config: BaseConfig):
         self.tokenizer = []
         self.config = config
-        self.config.model_name = self.model_name
         self.config.metrics = list(self.metrics.keys())
 
         self.file_groups = self.get_file_groups()
@@ -85,8 +82,6 @@ class BaseTask(ABC):
             for name, pattern in pattern_group.items()
         }
 
-
-
     def evaluate(self):
         agent = self.get_agent()
         start = time.time()
@@ -108,7 +103,7 @@ class BaseTask(ABC):
                     self.save_prediction_to_file(file, prediction, dataset.data)
 
                 try:
-                    ## evaluation
+                    # evaluation
                     result_dict = {}
                     for key, metric in self.metrics.items():
                         metric_result = metric(prediction, dataset.data, self.config)
@@ -204,6 +199,7 @@ class BaseTask(ABC):
     def get_agent(self):
         pass
 
+
 class GenerationTask(BaseTask, ABC):
     config: GenerationTaskConfig
 
@@ -232,8 +228,8 @@ class GenerationTask(BaseTask, ABC):
             f.write(json.dumps(res_dict, indent=2))
             f.close()
 
-    def __init__(self, model, tokenizer=[], config=[]):
-        super(GenerationTask, self).__init__(model, tokenizer, config)
+    def __init__(self, config=[]):
+        super(GenerationTask, self).__init__(config)
 
     def predict_single_batch(self, batch) -> List[List[int]]:
         import pdb
@@ -245,8 +241,8 @@ class GenerationTask(BaseTask, ABC):
 class SingleRoundTask(GenerationTask, ABC):
     config: GenerationTaskConfig
 
-    def __init__(self, model, tokenizer=[], config=[]):
-        super(GenerationTask, self).__init__(model, tokenizer, config)
+    def __init__(self, config=[]):
+        super(GenerationTask, self).__init__(config)
 
     def get_result_with_retry(self, prompt, session, retries=3, timeout=180):
         for attempt in range(retries):
@@ -294,4 +290,3 @@ class SingleRoundTask(GenerationTask, ABC):
                 results[index] = future.result()
 
         return results
-
