@@ -46,8 +46,8 @@ In each YAML file, you will need to specify the following:
 ```yaml
 module: "module.path.to.class" # the class that will be used to instantiate your model or task, for example, "src.agents.DoNothingAgent"
 parameters: # the parameters that will be passed to your model or task's constructor
-    "key_1": "value_1"
-    "key_2": "value_2"
+    key_1: "value_1"
+    key_2: "value_2"
 ```
 
 ### 3. Place data files
