@@ -1,8 +1,6 @@
-import os, json, sys, time, re, math, random, datetime, argparse, requests
-from flask import request, jsonify, abort
 import flask
+from flask import request, jsonify, abort
 
-from typing import List, Dict, Tuple, Optional, Union, Any, Callable, Iterable, Iterator, Set
 from model_server import *
 from models import *
 
@@ -40,7 +38,8 @@ with open('./admin_keys.txt', 'r', encoding='utf-8') as f:
 
 from utils import log as _log
 
-def log(action:str, **kwargs):
+
+def log(action: str, **kwargs):
     _log({
         "action": action,
         "key": request.headers.get('Authorization', None),
@@ -51,14 +50,15 @@ def log(action:str, **kwargs):
         "addtional": kwargs
     })
 
+
 app = flask.Flask(__name__)
+
 
 @app.before_request
 def before_request():
-    
     if request.method != "POST":
         return abort(405, "Method Not Allowed")
-    
+
     # check authorization header
     header = request.headers
     if "Authorization" not in header:
@@ -69,7 +69,7 @@ def before_request():
     if request.full_path.startswith("/api/"):
         if header["Authorization"] not in available_keys:
             return abort(403, "Access Denied")
-    
+
     # check data structure
     data = dict(request.get_json())
     msg = data.pop("messages", None)
@@ -90,6 +90,7 @@ def before_request():
     if data:
         return abort(400, "Unknown Fields in Request Body.")
 
+
 @app.route('/api/v1/<model_server_name>/activate', methods=['POST'])
 def activate(model_server_name):
     # key is in header.Authorization
@@ -102,6 +103,7 @@ def activate(model_server_name):
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
+
 
 @app.route('/api/v1/<model_server_name>/deactivate', methods=['POST'])
 def deactivate(model_server_name):
@@ -116,6 +118,7 @@ def deactivate(model_server_name):
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
+
 @app.route('/api/v1/<model_server_name>/status', methods=['POST'])
 def status(model_server_name):
     # key is in header.Authorization
@@ -127,6 +130,7 @@ def status(model_server_name):
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
+
 @app.route('/api/v1/<model_server_name>/call', methods=['POST'])
 def call(model_server_name):
     """
@@ -137,7 +141,7 @@ def call(model_server_name):
     3. Register the message, temperature and callback into the model server. And wait for the callback to be called.
     4. when callback is called, return the result.
     """
-    
+
     # record key, request, ip, time, model_server_name
     log("call", model_server_name=model_server_name)
     try:
@@ -147,24 +151,24 @@ def call(model_server_name):
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
         if server.models[model_server_name]["device"] is None:
-            return jsonify({"status": -1, "message": "model server %s is not active"%(model_server_name)})
+            return jsonify({"status": -1, "message": "model server %s is not active" % (model_server_name)})
         data = request.get_json()
         if "messages" not in data:
             return abort(403, "Not Messages")
         messages = data["messages"]
         temperature = data.get("temperature", None)
-        
+
         lock = threading.Lock()
         result = {}
-        
+
         def callback(result_):
             nonlocal result
             lock.acquire()
             result["result"] = result_
             lock.release()
-        
+
         server.register(model_server_name, messages, temperature, callback)
-        
+
         while True:
             lock.acquire()
             if "result" in result:
@@ -177,17 +181,20 @@ def call(model_server_name):
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
+
 @app.route('/api/v1/', methods=['POST'])
 def global_status():
     log("global-status")
     return jsonify({"status": 0, "info": server.status(request.headers.get('Authorization', None))})
+
 
 @app.route('/admin/ipython', methods=['POST'])
 def start_ipython():
     import IPython
     IPython.embed()
     return jsonify({"status": 0})
-    
+
+
 def load_config_entries(root_dir):
     entries = {}
     for file_name in os.listdir(root_dir):
@@ -199,6 +206,7 @@ def load_config_entries(root_dir):
             f.close()
         entries[config["model_name"]] = ConfigEntry(config_path)
     return entries
+
 
 if __name__ == '__main__':
     entries = {}
@@ -216,11 +224,10 @@ if __name__ == '__main__':
         # 'repeat': RepeatEntry(),
         # 'vicuna-7b': ConfigEntry("configs/vicuna.json")
         **entries
-    }, ["cuda:%d"%(i) for i in range(8)])
+    }, ["cuda:%d" % (i) for i in range(8)])
     server.start()
     app.run(host="0.0.0.0", port=9999, debug=False, threaded=True)
-    
-    
+
 """ 
 
 TODO

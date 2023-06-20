@@ -1,9 +1,6 @@
-import os, json, sys, time, re, math, random, datetime, argparse, requests
 import threading
-
-from typing import List, Dict, Tuple, Optional, Union, Any, Callable, Iterable, Iterator, Set
-
-from utils import log
+import time
+from typing import List, Dict, Any
 
 """
 
@@ -25,23 +22,25 @@ In this file, two classes are defined:
 
 """
 
+
 class ModelServerError(ValueError):
     pass
+
 
 class ModelServerEntry:
     def __init__(self) -> None:
         pass
-    
+
     def activate(self, device: str) -> None:
         raise NotImplementedError
-    
+
     def deactivate(self) -> None:
         raise NotImplementedError
-    
+
     def inference(self, batch: List[List[Dict[str, str]]], temperature: float) -> List[str]:
         pass
-    
-    
+
+
 class ModelServer:
     def __init__(self, models: Dict[str, ModelServerEntry], available_devices: List[str]) -> None:
         self.active = False
@@ -50,33 +49,33 @@ class ModelServer:
         self.devices = dict()
         for model in models:
             self.models[model] = {
-                "entry" : models[model],
-                "device" : None,
-                "lock" : threading.Lock(),
-                "keys" : set(),
-                "pending": [], # list of (message, temperature, callback)
-                "last_used" : 0, # time.time()
-                "batch_size" : 6, # number of messages in one batch
+                "entry": models[model],
+                "device": None,
+                "lock": threading.Lock(),
+                "keys": set(),
+                "pending": [],  # list of (message, temperature, callback)
+                "last_used": 0,  # time.time()
+                "batch_size": 6,  # number of messages in one batch
             }
         for device in available_devices:
             self.devices[device] = {
-                "model" : None,
+                "model": None,
             }
-    
+
     def activate(self, model_name: str, key: str) -> str:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found"%(model_name))
-        
+            raise ModelServerError("Model %s not found" % (model_name))
+
         with self.models[model_name]["lock"]:
             # check if already activated
             device = self.models[model_name]["device"]
             if device:
                 self.models[model_name]["keys"].add(key)
                 return device
-            
+
             # update last_used
             self.models[model_name]["last_used"] = time.time()
-            
+
             # find a device
             for device in self.devices:
                 if self.devices[device]["model"] is None:
@@ -85,33 +84,33 @@ class ModelServer:
                     self.models[model_name]["keys"].add(key)
                     self.models[model_name]["entry"].activate(device)
                     return device
-            
+
             raise ModelServerError("No available device")
-        
+
     def force_deactivate(self, model_name: str) -> None:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found"%(model_name))
-        
+            raise ModelServerError("Model %s not found" % (model_name))
+
         device = self.models[model_name]["device"]
         if device is None:
-            raise ModelServerError("Model %s is not activated"%(model_name))
+            raise ModelServerError("Model %s is not activated" % (model_name))
         self.models[model_name]["entry"].deactivate()
         self.models[model_name]["device"] = None
         self.devices[device]["model"] = None
         self.models[model_name]["pending"] = []
         self.models[model_name]["keys"] = set()
         return
-    
+
     def deactivate(self, model_name: str, key: str) -> None:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found"%(model_name))
-        
+            raise ModelServerError("Model %s not found" % (model_name))
+
         with self.models[model_name]["lock"]:
             device = self.models[model_name]["device"]
             if device is None:
-                raise ModelServerError("Model %s is not activated"%(model_name))
+                raise ModelServerError("Model %s is not activated" % (model_name))
             if key not in self.models[model_name]["keys"]:
-                raise ModelServerError("Key %s is not activated"%(key))
+                raise ModelServerError("Key %s is not activated" % (key))
             self.models[model_name]["keys"].remove(key)
             if len(self.models[model_name]["keys"]) == 0:
                 self.models[model_name]["entry"].deactivate()
@@ -119,43 +118,43 @@ class ModelServer:
                 self.devices[device]["model"] = None
                 self.models[model_name]["pending"] = []
             return
-    
+
     def status(self, key: str) -> Dict[str, Any]:
-        models = dict() # { active: bool, keys: int, your_status: bool }
+        models = dict()  # { active: bool, keys: int, your_status: bool }
         for model in self.models:
             models[model] = {
-                "active" : self.models[model]["device"] is not None,
-                "keys" : len(self.models[model]["keys"]),
-                "your_status" : key in self.models[model]["keys"],
+                "active": self.models[model]["device"] is not None,
+                "keys": len(self.models[model]["keys"]),
+                "your_status": key in self.models[model]["keys"],
             }
         available_device_count = len([device for device in self.devices if self.devices[device]["model"] is None])
         return {
-            "models" : models,
-            "available_device_count" : available_device_count,
+            "models": models,
+            "available_device_count": available_device_count,
         }
-    
+
     def register(self, model, messages, temperature, callback):
         with self.models[model]["lock"]:
             if self.models[model]["device"] is None:
-                raise ModelServerError("Model %s is not activated"%(model))
+                raise ModelServerError("Model %s is not activated" % (model))
             self.models[model]["pending"].append((messages, temperature, callback))
-            
+
     def start(self):
         with self.lock:
             if self.active:
                 raise ModelServerError("Server is already running.")
             self.active = True
-            
+
         def work():
             print("Model server started.")
-            
+
             def start_model_entry(model):
                 while True:
                     time.sleep(0.2)
                     with self.lock:
                         if not self.active:
                             break
-                        
+
                     with self.models[model]["lock"]:
                         if self.models[model]["device"] is None:
                             continue
@@ -169,7 +168,7 @@ class ModelServer:
                             #     })
                             #     self.force_deactivate(model)
                             continue
-                        
+
                         # update last_used
                         self.models[model]["last_used"] = time.time()
                         batch_size = self.models[model]["batch_size"]
@@ -187,6 +186,7 @@ class ModelServer:
                         messages = list(messages)
                         temperature = temperature[0]
                         callback = list(callback)
+
                         def process_inference(msgs, temp, cbs):
                             try:
                                 ret = self.models[model]["entry"].inference(msgs, temp)
@@ -197,21 +197,21 @@ class ModelServer:
                                 traceback.print_exc()
                                 for cb in cbs:
                                     cb(None)
+
                         threading.Thread(target=process_inference, args=(messages, temperature, callback)).start()
 
             model_threads = dict()
-            
+
             for model in self.models:
                 model_threads[model] = threading.Thread(target=start_model_entry, args=(model,))
                 model_threads[model].start()
-            
+
             for model in model_threads:
                 model_threads[model].join()
-        
-            
+
         self.thread = threading.Thread(target=work)
         self.thread.start()
-            
+
     def stop(self):
         with self.lock:
             if not self.active:
@@ -219,7 +219,7 @@ class ModelServer:
             self.active = False
 
         self.thread.join()
-        
+
     def __del__(self):
         with self.lock:
             if self.active:
@@ -229,8 +229,6 @@ class ModelServer:
                 if self.models[model]["device"] is None:
                     continue
                 self.models[model]["entry"].deactivate()
-
-
 
 
 if __name__ == '__main__':
