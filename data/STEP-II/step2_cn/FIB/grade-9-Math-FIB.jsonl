@@ -1,0 +1,13 @@
+{"question": "|-3|=[]", "answer": "3", "original": "3", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "若反比例函数y=$$ \\\\frac {k-2}{x}$$的图象位于第一、三象限，正比例函数y=(2k-10)x的图象经过第二、四象限，则k的整数值是[]", "answer": "3，4", "original": "3，4", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "a是$$ \\\\sqrt {10}$$的整数部分，b是$$ \\\\sqrt {5}$$的整数部分，则$$a^2+b^2$$=[]", "answer": "13", "original": "13", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "计算：3a+2a=[]", "answer": "5a", "original": "5a", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "分解因式：9a﹣ab2=[]", "answer": "a(3+b)(3-b)", "original": "a（3+b）（3﹣b）", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "已知R和r是两圆半径，且两圆的圆心距为6，已知|R-7|与|r-2|互为相反数，那么这两圆的位置关系是[]", "answer": "相交", "original": "相交", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "计算：$$|- \\sqrt {3}|$$-(-4)-1+$$()^{0}$$-2cos30°=[]", "answer": "$$ \\frac {5}{4}$$", "original": "解：原式=$$ \\sqrt {3}$$+$$ \\frac {1}{4}$$+1-2×$$ \\frac { \\sqrt {3}}{3}$$=$$ \\frac {5}{4}$$．", "type": "解答题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "已知a、b、c均为实数，且$$ \\sqrt {a-2}$$+|b+1|+(c+3)2=0，求方程ax2+bx+c=0的根[]", "answer": "x1=$$ \\frac {3}{2}$$，x2=-1", "original": "解：根据分析得：  a-2=0，b+1=0，c+3=0  a=2，b=-1，c=-3  方程ax2+bx+c=0  即为2x2-x-3=0  ∴x1=$$ \\frac {3}{2}$$，x2=-1．", "type": "解答题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "函数y=$$ \\frac { \\sqrt {x-1}}{ \\sqrt {x+2}}$$中，自变量x的取值范围是[]．", "answer": "x≥1", "original": "x≥1", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "若点(m，m+3)在函数y=-$$ \\frac {1}{2}$$x+2的图象上，则m=[]．", "answer": "$$- \\frac {2}{3}$$", "original": "$$- \\frac {2}{3}$$", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "因式分解：9x2-y2-4y-4=[]．", "answer": "(3x+y+2)(3x-y-2)", "original": "(3x+y+2)(3x-y-2)", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "若两个图形的对应点连线被同一条直线垂直平分，则这两个图形关于这条直线[]．", "answer": "对称", "original": "对称", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "若不等式组$$ \\begin{cases}  x>a \\\\ x-3\\leq 0\\end{cases}$$只有三个整数解，求a的取值范围[]．", "answer": "0≤a＜1", "original": "0≤a＜1", "type": "填空题", "grade": "九年级", "course": "数学", "difficulty": "困难", "label": "QA"}
