@@ -151,7 +151,7 @@ def call(model_server_name):
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
         if server.models[model_server_name]["device"] is None:
-            return jsonify({"status": -1, "message": "model server %s is not active" % (model_server_name)})
+            return jsonify({"status": -1, "message": "model server %s is not active" % model_server_name})
         data = request.get_json()
         if "messages" not in data:
             return abort(403, "Not Messages")
@@ -224,7 +224,7 @@ if __name__ == '__main__':
         # 'repeat': RepeatEntry(),
         # 'vicuna-7b': ConfigEntry("configs/vicuna.json")
         **entries
-    }, ["cuda:%d" % (i) for i in range(8)])
+    }, ["cuda:%d" % i for i in range(8)])
     server.start()
     app.run(host="0.0.0.0", port=9999, debug=False, threaded=True)
 

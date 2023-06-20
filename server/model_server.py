@@ -15,10 +15,12 @@ In this file, two classes are defined:
 
 2. ModelServer: the model server, which controls the deployment of all models
 
-- __init__(models: dict[str, ModelServerEntry], available_devices: list[str]): constructor, `models` is a dict of model entry name to ModelServerEntry, `available_devices` is a list of available devices
-- models: property, the list of entries
-- activate(model_name: str, key: str): method, deploy the model `model_name`, return the device name
-- deactivate(model_name: str, key: str): method, remove key from all keys. If not key is left, the model will be deactivated
+- __init__(models: dict[str, ModelServerEntry], available_devices: list[str]): constructor, `models` is a dict of 
+model entry name to ModelServerEntry, `available_devices` is a list of available devices 
+- models: property, the list of entries 
+- activate(model_name: str, key: str): method, deploy the model `model_name`, return the device name 
+- deactivate(model_name: str, key: str): method, remove key from all keys. If not key is left, the model will be 
+deactivated
 
 """
 
@@ -64,7 +66,7 @@ class ModelServer:
 
     def activate(self, model_name: str, key: str) -> str:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % (model_name))
+            raise ModelServerError("Model %s not found" % model_name)
 
         with self.models[model_name]["lock"]:
             # check if already activated
@@ -89,11 +91,11 @@ class ModelServer:
 
     def force_deactivate(self, model_name: str) -> None:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % (model_name))
+            raise ModelServerError("Model %s not found" % model_name)
 
         device = self.models[model_name]["device"]
         if device is None:
-            raise ModelServerError("Model %s is not activated" % (model_name))
+            raise ModelServerError("Model %s is not activated" % model_name)
         self.models[model_name]["entry"].deactivate()
         self.models[model_name]["device"] = None
         self.devices[device]["model"] = None
@@ -103,14 +105,14 @@ class ModelServer:
 
     def deactivate(self, model_name: str, key: str) -> None:
         if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % (model_name))
+            raise ModelServerError("Model %s not found" % model_name)
 
         with self.models[model_name]["lock"]:
             device = self.models[model_name]["device"]
             if device is None:
-                raise ModelServerError("Model %s is not activated" % (model_name))
+                raise ModelServerError("Model %s is not activated" % model_name)
             if key not in self.models[model_name]["keys"]:
-                raise ModelServerError("Key %s is not activated" % (key))
+                raise ModelServerError("Key %s is not activated" % key)
             self.models[model_name]["keys"].remove(key)
             if len(self.models[model_name]["keys"]) == 0:
                 self.models[model_name]["entry"].deactivate()
@@ -136,7 +138,7 @@ class ModelServer:
     def register(self, model, messages, temperature, callback):
         with self.models[model]["lock"]:
             if self.models[model]["device"] is None:
-                raise ModelServerError("Model %s is not activated" % (model))
+                raise ModelServerError("Model %s is not activated" % model)
             self.models[model]["pending"].append((messages, temperature, callback))
 
     def start(self):
@@ -192,7 +194,7 @@ class ModelServer:
                                 ret = self.models[model]["entry"].inference(msgs, temp)
                                 for idx, cb in enumerate(cbs):
                                     cb(ret[idx])
-                            except Exception as e:
+                            except Exception:
                                 import traceback
                                 traceback.print_exc()
                                 for cb in cbs:
