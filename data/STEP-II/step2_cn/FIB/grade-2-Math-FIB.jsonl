@@ -1,0 +1,13 @@
+{"question": "14是7的[]倍", "answer": "2", "original": "14÷7=2", "type": "计算题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "芳芳给明明8个皮球后，两人就一样多，原来两人差[]个皮球。", "answer": "16", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小青有9个苹果，张明比他的2倍多5个，张明有[]个苹果？", "answer": "23（个）", "original": "9×2+5=23（个）；23+9=32（个）", "type": "解答题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "两人一共有[]个？", "answer": "32（个）", "original": "9×2+5=23（个）；23+9=32（个）", "type": "解答题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "仓库上午运走159袋大米，下午比上午多运走72袋。仓库一天运走[]袋大米", "answer": "390", "original": "159+72+159=390（袋）", "type": "解答题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "620克[]600克", "answer": "<", "background": "在[]里填上“>”、“<”或“=”。", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "800克[]8千克", "answer": "<", "background": "在[]里填上“>”、“<”或“=”。", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "570克[]57千克", "answer": "<", "background": "在[]里填上“>”、“<”或“=”。", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "3700克[]3千克", "answer": ">", "background": "在[]里填上“>”、“<”或“=”。", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "480克[]500克", "answer": "<", "background": "在[]里填上“>”、“<”或“=”。", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个口罩3元，王阿姨买了7个后还剩79元，她原来有[]钱", "answer": "100（元）", "original": "3×7+79=100（元）", "type": "解答题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一（1）班第一组的同学站成一排，从左往右数1号～9号是男生，11号～15号也是男生，这个小组有[]名男生", "answer": "14", "original": "15﹣11+1=5（名）9+5=14（名）", "type": "应用题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "育英学校三年级共有学生298人，四年级共有学生203人，两个年级大约有[]人。", "answer": "500", "type": "填空题", "grade": "二年级", "course": "数学", "difficulty": "一般", "label": "QA"}
