@@ -11,6 +11,12 @@ import argparse
 import requests
 
 
+from dataclass_wizard import YAMLWizard
+from dataclasses import dataclass, field
+from enum import Enum
+from typing import Optional, List, Dict
+
+
 class Session:
     def __init__(self, model_inference, history=None) -> None:
         self.history: list[dict] = history or []
@@ -39,6 +45,30 @@ class Session:
         return result
 
 
+class TaskType(Enum):
+    MULTICHOICE = "mul"
+    GENERATION = "gen"
+    LANGUAGE_MODEL = "lm"
+    OTHER = "other"
+
+
+@dataclass
+class AgentConfig(YAMLWizard):
+    module: str = None  # Agent module
+    parameters: dict = field(default_factory=dict)  # Agent parameters
+
+    @classmethod
+    def create_agent(cls, module, parameters={}) -> "Agent":
+        path = ".".join(module.split(".")[:-1])
+        mod = __import__(path, fromlist=[module.split(".")[-1]])
+        return getattr(mod, module.split(".")[-1])(**parameters)
+
+    @classmethod
+    def create_agent_from_yaml(cls, yaml_path) -> "Agent":
+        config = cls.from_yaml_file(yaml_path)
+        return cls.create_agent(config.module, config.parameters)
+
+
 class Agent:
     def __init__(self) -> None:
         pass
@@ -51,10 +81,10 @@ class Agent:
 
 
 class LocalAgent(Agent):
-    def __init__(self, url, parameters) -> None:
+    def __init__(self, url, **kwargs) -> None:
         super().__init__()
         self.url = url
-        self.parameters = parameters
+        self.parameters = kwargs
 
     def inference(self, history: List[dict]) -> str:
         resp = requests.post(self.url, json={
@@ -67,3 +97,13 @@ class LocalAgent(Agent):
             return resp.json()
         except:
             raise Exception(f"Invalid response:\n\n{resp.text}")
+
+
+class DoNothingAgent(Agent):
+    """This agent is a test agent, which does nothing. (return empty string for each action)"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def inference(self, history: List[dict]) -> str:
+        return ""
