@@ -1,22 +1,3 @@
-'''
-from .agent import Agent, Session
-
-
-class TaskConfig:
-    pass
-
-
-class Task:
-    def evaluate(self, agent: Agent):
-        raise NotImplementedError
-
-    def predict_all(self, agent: Agent, dataset):
-        pass
-
-    def predict_single(self, session: Session, data):
-        raise NotImplementedError
-'''
-
 import os
 import time
 import json
@@ -37,7 +18,6 @@ from .configs import BaseConfig, GenerationTaskConfig, LanguageModelTaskConfig, 
 from .dataset import EvaluationDataset, GenerationTaskDataset
 from .utils import print_rank_0
 from .metrics import DEFAULT_METRICS
-# from .model_api import get_model_api
 from .agent import Agent, Session
 
 

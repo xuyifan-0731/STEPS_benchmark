@@ -1,18 +1,13 @@
-from types import resolve_bases
 import jsonlines
-import re
 import math
 import string
-import functools
 from rouge import Rouge
 from rouge_chinese import Rouge as Rouge_chinese
 import jieba
 import numpy as np
 from bert_score import BERTScorer
 from typing import List
-from collections import Counter
 from collections import defaultdict
-# from SwissArmyTransformer import get_tokenizer
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
 import re
@@ -164,7 +159,6 @@ def acc_for_multi(predictions, ground_truths, config):
         if is_correct:
             continue
         choices_bleu = []
-        # 选择题经常是短选项，因此使用字母计算bleu。后续可考虑改成glm token F1 score
         for choice in ground_truth[0].get("choices"):
             choice = normalize_answer(choice)
             choices_bleu.append(word_bleu_score(choice, prediction))
@@ -225,17 +219,4 @@ DEFAULT_METRICS.update(
         "BERTScore": bert_score_metric,
     }
 )
-
-if __name__ == "__main__":
-    hypothesis = "###刚刚发声，A股这种情况十分罕见！大聪明逆市抄底330亿，一篇研报引爆全球，市场逻辑生变？"
-    print(list(jieba.cut(hypothesis)))
-    hypothesis = ' '.join(jieba.cut(hypothesis))
-
-    reference = "刚刚过去的这个月，美股总市值暴跌了将近6万亿美元（折合人民币超过40万亿），这背后的原因可能不仅仅是加息这么简单。最近瑞士信贷知名分析师Zoltan Polzsar撰写了一篇极其重要的文章，详细分析了现有世界秩序的崩坏本质以及美国和西方将要采取的应对策略。在该文中，Zoltan Polzsar直指美国通胀的本质和其长期性。同期，A股市场亦出现了大幅杀跌的情况。"
-    reference = ' '.join(jieba.cut(reference))
-
-    rouge = Rouge_chinese()
-    scores = rouge.get_scores(hypothesis, reference)
-
-    print(scores)
 

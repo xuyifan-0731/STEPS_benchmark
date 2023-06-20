@@ -23,3 +23,41 @@ Large language models (LLMs) aligned with humans are reshaping AI research and a
 | koala-13b              | 28.1 | 27.1 | 41.8 | 11.1 | 0.7  | 21.8 |
 | moss-moon-003-sft      | 26.5 | 26.2 | 40.9 | 9.8  | 0.1  | 20.7 |
 | oasst-sft-4-pythia-12b | 26.2 | 28.3 | 40.5 | 7.9  | 0.5  | 20.7 |
+
+## Quick Start
+
+### 1. Install requirements.txt
+
+First, you need to install the necessary dependencies. These are listed in `requirements.txt`. To install them, use pip:
+
+```
+pip install -r requirements.txt
+```
+
+### 2. Configure YAML files
+
+In this step, you will need to configure two YAML files:
+
+- `tasks/task.yaml`: this is used to set up your evaluation task.
+- `agents/model.yaml`: this is used to specify your model's configuration.
+
+### 3. Place data files
+
+You should place your data files according to the data paths specified in your `tasks/task.yaml` file. Make sure the data is correctly placed so it can be accessed by the program.
+
+### 4. Run the evaluation script
+
+Now, you can run the `evaluate.py` script with the following command:
+
+```
+python evaluate.py --task tasks/<your task yaml file> --agent agents/<your model yaml file>
+```
+
+Replace `<your task yaml file>` and `<your model yaml file>` with your specific YAML files.
+
+This command will evaluate your model on your specified task, and the results will be saved in the output directory.
+
+### 5. Check the results
+
+The evaluation and prediction results will be stored in the `output/` directory. Check this directory to view your model's performance.
+
