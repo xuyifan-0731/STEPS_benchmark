@@ -1,0 +1,10 @@
+module: "src.tasks.single-round.SingleRoundTask"
+parameters:
+    name: "Example Evaluation ARC"
+    datapath: "data/STEP-I/"
+    language: "en"
+    filepattern:
+        ARC-challenge: "**/ai2_arcARC-Challenge.jsonl"
+        ARC-easy: "**/ai2_arcARC-Easy.jsonl"
+    workers: 20
+    shot: 0

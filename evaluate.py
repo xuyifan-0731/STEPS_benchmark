@@ -72,6 +72,7 @@ def main():
     task_classes = []
     print_rank_0("> Loading task configs")
 
+<<<<<<< Updated upstream
     for task_config_path in tasks:
         config = BaseConfig.from_yaml_file(task_config_path)
         if config.module:
@@ -93,6 +94,13 @@ def main():
     evaluate_all_tasks(args.data_path, model, tasks, task_classes)
     print_rank_0(f"Finish {len(task_classes)} task{'s' if len(task_classes) > 1 else ''} in {time.time() - start:.1f}s")
 
+=======
+    agent = YAMLConfig.create_from_yaml(args.agent)
+
+    start = time.time()
+    evaluate_all_tasks(tasks, agent)
+    print_rank_0(f"Finish {len(tasks)} task{'s' if len(tasks) > 1 else ''} in {time.time() - start:.1f}s")
+>>>>>>> Stashed changes
 
 if __name__ == "__main__":
     main()
