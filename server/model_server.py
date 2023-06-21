@@ -54,7 +54,6 @@ class ModelServer:
                 "entry": models[model],
                 "device": None,
                 "lock": threading.Lock(),
-                "keys": set(),
                 "pending": [],  # list of (message, temperature, callback)
                 "last_used": 0,  # time.time()
                 "batch_size": 6,  # number of messages in one batch
@@ -64,7 +63,7 @@ class ModelServer:
                 "model": None,
             }
 
-    def activate(self, model_name: str, key: str) -> str:
+    def activate(self, model_name: str) -> str:
         if model_name not in self.models:
             raise ModelServerError("Model %s not found" % model_name)
 
@@ -72,7 +71,6 @@ class ModelServer:
             # check if already activated
             device = self.models[model_name]["device"]
             if device:
-                self.models[model_name]["keys"].add(key)
                 return device
 
             # update last_used
@@ -83,27 +81,12 @@ class ModelServer:
                 if self.devices[device]["model"] is None:
                     self.devices[device]["model"] = model_name
                     self.models[model_name]["device"] = device
-                    self.models[model_name]["keys"].add(key)
                     self.models[model_name]["entry"].activate(device)
                     return device
 
             raise ModelServerError("No available device")
 
-    def force_deactivate(self, model_name: str) -> None:
-        if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % model_name)
-
-        device = self.models[model_name]["device"]
-        if device is None:
-            raise ModelServerError("Model %s is not activated" % model_name)
-        self.models[model_name]["entry"].deactivate()
-        self.models[model_name]["device"] = None
-        self.devices[device]["model"] = None
-        self.models[model_name]["pending"] = []
-        self.models[model_name]["keys"] = set()
-        return
-
-    def deactivate(self, model_name: str, key: str) -> None:
+    def deactivate(self, model_name: str) -> None:
         if model_name not in self.models:
             raise ModelServerError("Model %s not found" % model_name)
 
@@ -111,23 +94,17 @@ class ModelServer:
             device = self.models[model_name]["device"]
             if device is None:
                 raise ModelServerError("Model %s is not activated" % model_name)
-            if key not in self.models[model_name]["keys"]:
-                raise ModelServerError("Key %s is not activated" % key)
-            self.models[model_name]["keys"].remove(key)
-            if len(self.models[model_name]["keys"]) == 0:
-                self.models[model_name]["entry"].deactivate()
-                self.models[model_name]["device"] = None
-                self.devices[device]["model"] = None
-                self.models[model_name]["pending"] = []
+            self.models[model_name]["entry"].deactivate()
+            self.models[model_name]["device"] = None
+            self.devices[device]["model"] = None
+            self.models[model_name]["pending"] = []
             return
 
-    def status(self, key: str) -> Dict[str, Any]:
+    def status(self) -> Dict[str, Any]:
         models = dict()  # { active: bool, keys: int, your_status: bool }
         for model in self.models:
             models[model] = {
                 "active": self.models[model]["device"] is not None,
-                "keys": len(self.models[model]["keys"]),
-                "your_status": key in self.models[model]["keys"],
             }
         available_device_count = len([device for device in self.devices if self.devices[device]["model"] is None])
         return {

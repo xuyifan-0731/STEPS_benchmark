@@ -1,3 +1,7 @@
+import datetime
+import json
+import os
+
 import flask
 from flask import request, jsonify, abort
 
@@ -14,7 +18,6 @@ action：
     deactivate：撤下模型
     status：查看是否已部署
 Header:
-Authorization: KEY
 JSON for "call"
 {
     "messages": [
@@ -30,19 +33,12 @@ temperature
 
 """
 
-with open('./available_keys.txt', 'r', encoding='utf-8') as f:
-    available_keys = [line.split()[0] for line in f.readlines()]
-
-with open('./admin_keys.txt', 'r', encoding='utf-8') as f:
-    admin_keys = [line.split()[0] for line in f.readlines()]
-
 from utils import log as _log
 
 
 def log(action: str, **kwargs):
     _log({
         "action": action,
-        "key": request.headers.get('Authorization', None),
         "request": request.get_json(),
         "ip": request.remote_addr,
         # format 
@@ -58,17 +54,6 @@ app = flask.Flask(__name__)
 def before_request():
     if request.method != "POST":
         return abort(405, "Method Not Allowed")
-
-    # check authorization header
-    header = request.headers
-    if "Authorization" not in header:
-        return abort(403, "Access Denied")
-    if request.full_path.startswith("/admin/"):
-        if header["Authorization"] not in admin_keys:
-            return abort(403, "Access Denied")
-    if request.full_path.startswith("/api/"):
-        if header["Authorization"] not in available_keys:
-            return abort(403, "Access Denied")
 
     # check data structure
     data = dict(request.get_json())
@@ -93,13 +78,11 @@ def before_request():
 
 @app.route('/api/v1/<model_server_name>/activate', methods=['POST'])
 def activate(model_server_name):
-    # key is in header.Authorization
     log("activate", model_server_name=model_server_name)
     try:
-        key = request.headers.get('Authorization', None)
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.activate(model_server_name, key)
+        server.activate(model_server_name)
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -107,13 +90,11 @@ def activate(model_server_name):
 
 @app.route('/api/v1/<model_server_name>/deactivate', methods=['POST'])
 def deactivate(model_server_name):
-    # key is in header.Authorization
     log("deactivate", model_server_name=model_server_name)
     try:
-        key = request.headers.get('Authorization', None)
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.deactivate(model_server_name, key)
+        server.deactivate(model_server_name)
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -121,7 +102,6 @@ def deactivate(model_server_name):
 
 @app.route('/api/v1/<model_server_name>/status', methods=['POST'])
 def status(model_server_name):
-    # key is in header.Authorization
     log("status", model_server_name=model_server_name)
     try:
         if model_server_name not in server.models:
@@ -145,9 +125,6 @@ def call(model_server_name):
     # record key, request, ip, time, model_server_name
     log("call", model_server_name=model_server_name)
     try:
-        key = request.headers.get('Authorization', None)
-        if key not in available_keys:
-            return abort(403, "Access Denied")
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
         if server.models[model_server_name]["device"] is None:
@@ -185,7 +162,7 @@ def call(model_server_name):
 @app.route('/api/v1/', methods=['POST'])
 def global_status():
     log("global-status")
-    return jsonify({"status": 0, "info": server.status(request.headers.get('Authorization', None))})
+    return jsonify({"status": 0, "info": server.status()})
 
 
 @app.route('/admin/ipython', methods=['POST'])
