@@ -117,5 +117,5 @@ class Task(Generic[T_INPUT, T_TARGET]):
     def get_data(self) -> Dataset[T_INPUT, T_TARGET]:
         raise NotImplementedError
 
-    def predict_single(self, session: Session, data_item):
+    def predict_single(self, session: Session, data_item: T_INPUT):
         raise NotImplementedError
