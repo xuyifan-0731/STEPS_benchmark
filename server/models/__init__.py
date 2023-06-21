@@ -8,6 +8,7 @@ from .config_entry import ConfigEntry
 from .dolly import DollyEntry
 
 from .Koala import KoalaEntry
+from .Vicuna import VicunaEntry
 
 
 class OssatEntry(ModelServerEntry):
