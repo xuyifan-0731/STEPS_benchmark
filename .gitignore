@@ -1,2 +1,10 @@
 __pycache__
 %*
+src/AquaWarAI/replay.json
+src/AquaWarAI/*/__pycache__
+src/AquaWarAI/doc/
+src/AquaWarAI/result
+src/AquaWarAI/AI_SDK/Python/guess_process_1.jsonl
+src/AquaWarAI/AI_SDK/Python/guess_process_2.jsonl
+src/AquaWarAI/AI_SDK/Python/thinking_process_1.jsonl
+src/AquaWarAI/AI_SDK/Python/thinking_process_2.jsonl
