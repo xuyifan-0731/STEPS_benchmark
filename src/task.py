@@ -44,7 +44,6 @@ import argparse
 import requests
 
 from .utils import print_rank_0
-from .metrics import DEFAULT_METRICS
 # from .model_api import get_model_api
 from .agent import Agent, Session
 
