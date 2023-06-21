@@ -5,5 +5,5 @@ We use WebShop project for this part. Please refer to
 
 ## Modification
 
-Based on the original repo, we added LLM agents and modified the envs/run_web_agent_text_env.py to run the tests.
+Based on the original repo, we added LLM agents and modified the `run_envs/run_web_agent_text_env.py` to run the tests.
 Specifically, we used `text` mode to demonstrate the environment to the agent.
