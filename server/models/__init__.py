@@ -7,6 +7,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from .config_entry import ConfigEntry
 from .dolly import DollyEntry
 
+from .Koala import KoalaEntry
+
 
 class OssatEntry(ModelServerEntry):
     def __init__(self, model_path) -> None:
@@ -63,65 +65,6 @@ class OssatEntry(ModelServerEntry):
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature=None) -> List[str]:
         return self.inference_moss(self.construct_prompt(batch))
-
-
-class KoalaEntry(ModelServerEntry):
-    def __init__(self, model_path) -> None:
-        self.tokenizer = None
-        self.model = None
-        self.model_path = model_path
-
-    def inference_koala(self, prompts):
-        inputs = self.tokenizer(prompts, return_tensors="pt", padding=True)
-        inputs = inputs.to(self.model.device)
-        input_length = len(inputs.input_ids[0])  # length of padded sentences
-
-        with torch.no_grad():
-            try:
-                output_ids = self.model.generate(
-                    input_ids=inputs.input_ids,
-                    attention_mask=inputs.attention_mask,
-                    max_length=2048, do_sample=True
-                )
-            except Exception as e:
-                print(f"exception inference {e}")
-                return [""] * len(prompts)
-        output_ids = [outputs[input_length:] for outputs in output_ids]
-        outputs = self.tokenizer.batch_decode(output_ids, skip_special_tokens=True)
-        return outputs
-
-    def construct_prompt(self, batch: List[List[Dict[str, str]]]) -> List[str]:
-        prompts = []
-        for item in batch:
-            prompt = "BEGINNING OF CONVERSATION:"
-            for utter in item:
-                if utter["role"] == "user":
-                    prompt += " USER: {prompt}".format(prompt=utter["content"])
-                elif utter["role"] == "assistant":
-                    prompt += " GPT: {prompt}".format(prompt=utter["content"])
-            prompt += " GPT:"
-            prompts.append(prompt)
-        return prompts
-
-    def activate(self, device: str) -> None:
-        model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True).half().to(device)
-        model = model.eval()
-        tokenizer = AutoTokenizer.from_pretrained(self.model_path, trust_remote_code=True, padding_side="left")
-        tokenizer.pad_token_id = 0
-        self.model = model
-        self.tokenizer = tokenizer
-        print("model and tokenizer loaded")
-
-    def deactivate(self) -> None:
-        del self.model
-        del self.tokenizer
-        self.model = None
-        self.tokenizer = None
-        torch.cuda.empty_cache()
-        print("model and tokenizer cleared")
-
-    def inference(self, batch: List[List[Dict[str, str]]], temperature=None) -> List[str]:
-        return self.inference_koala(self.construct_prompt(batch))
 
 
 class MOSSEntry(ModelServerEntry):
