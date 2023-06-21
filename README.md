@@ -124,3 +124,7 @@ Now, you can run the `evaluate.py` script with the following command:
 ```
 python evaluate.py --task configs/tasks/wn_task.yaml --agent configs/agents/<your model yaml file>
 ```
+
+### 4. Suggestions
+
+-   Suggestions for the data path if needed: `data/<task_name>/*.jsonl`.
