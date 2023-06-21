@@ -174,10 +174,7 @@ class KoalaEntry(ModelServerEntry):
         self.model = None
         self.model_path = model_path
 
-    def inference_koala(self, text):
-        # input_length = len(inputs.input_ids[0])  # length of padded sentences
-        text = [text]
-
+    def inference_koala(self, text, temperature):
         inputs = self.prefix_tokenizer(
             text,
             padding='max_length',
@@ -195,7 +192,8 @@ class KoalaEntry(ModelServerEntry):
                 output = self.model.generate(
                     input_ids=input_tokens,
                     attention_mask=input_mask,
-                    max_length=2048, do_sample=True
+                    max_length=2048, do_sample=True,
+                    temperature=temperature
                 )
             except Exception as e:
                 print(f"exception inference {e}")
@@ -245,6 +243,7 @@ class KoalaEntry(ModelServerEntry):
     def deactivate(self) -> None:
         del self.model
         del self.tokenizer
+        del self.prefix_tokenizer
         self.model = None
         self.tokenizer = None
         self.prefix_tokenizer = None
@@ -252,4 +251,4 @@ class KoalaEntry(ModelServerEntry):
         print("model and tokenizer cleared")
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature=None) -> List[str]:
-        return self.inference_koala(self.construct_prompt(batch))
+        return self.inference_koala(self.construct_prompt(batch), temperature)
