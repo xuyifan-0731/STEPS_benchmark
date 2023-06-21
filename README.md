@@ -52,7 +52,7 @@ parameters: # the parameters that will be passed to your model or task's constru
 
 ### 3. Place data files
 
-You should place your data files according to the data paths specified in your `tasks/task.yaml` file. Make sure the data is correctly placed so it can be accessed by the program.
+You should place your data files according to the data paths specified in your `configs/tasks/<task_name>.yaml` file. Make sure the data is correctly placed so it can be accessed by the program.
 
 ### 4. Run the evaluation script
 
@@ -75,3 +75,52 @@ python evaluate.py --task configs/tasks/example.yaml --agent configs/agents/do_n
 ### 5. Check the results
 
 The evaluation and prediction results will be stored in the `output/` directory. Check this directory to view your model's performance.
+
+## How to add you own tasks?
+
+### 1. Create a new task class
+
+First, you need to create a new task class. This class should inherit from the `Task` class in `src/task.py`.
+
+You can create a file `src/tasks/own_task.py` to override the following methods:
+
+```python
+class YourOwnTask(Task):
+    def __init__(self, **config): # Change the constructor parameters if necessary
+        super().__init__()
+
+    @property
+    def metrics(self): # Change the metrics if necessary
+        return {"EM": lambda outputs, targets: len([1 for o, t in zip(outputs, targets) if o == t]) / min(len(outputs), len(targets))}
+
+    def get_data(self): # Change the data loading process
+        raise NotImplementedError
+
+    def predict_single(self, session, data_item): # Change the prediction process
+        raise NotImplementedError
+```
+
+And then, add the following code to the `src/tasks/__init__.py` file:
+
+```python
+from .own_task import YourOwnTask
+```
+
+### 2. Create a new task YAML file
+
+Next, you need to create a new YAML file to configure your task. You can create a file `configs/taskso/wn_task.yaml` to specify your task's configuration:
+
+```yaml
+module: "src.tasks.YourOwnTask"
+parameters: # the parameters in YourOwnTask's constructor
+    key: value
+    key2: value2
+```
+
+### 3. Run the evaluation script
+
+Now, you can run the `evaluate.py` script with the following command:
+
+```
+python evaluate.py --task configs/tasks/wn_task.yaml --agent configs/agents/<your model yaml file>
+```
