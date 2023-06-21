@@ -1,0 +1,3 @@
+/workspace/hanyu/hanyu/AquaWarAI/AI_SDK/Python/sdk/build/CMakeFiles/ai_client.dir
+/workspace/hanyu/hanyu/AquaWarAI/AI_SDK/Python/sdk/build/CMakeFiles/edit_cache.dir
+/workspace/hanyu/hanyu/AquaWarAI/AI_SDK/Python/sdk/build/CMakeFiles/rebuild_cache.dir

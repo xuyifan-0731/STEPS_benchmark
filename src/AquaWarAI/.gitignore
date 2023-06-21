@@ -1,0 +1,8 @@
+replay.json
+*/__pycache__
+doc/
+result
+AI_SDK/Python/guess_process_1.jsonl
+AI_SDK/Python/guess_process_2.jsonl
+AI_SDK/Python/thinking_process_1.jsonl
+AI_SDK/Python/thinking_process_2.jsonl
