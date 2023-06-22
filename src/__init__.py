@@ -3,3 +3,4 @@ from .task import *
 from .configs import *
 from .utils import print_rank_0
 from .agents import *
+from .apibench import Apibench
