@@ -1,0 +1,6 @@
+module: "src.tasks.HumanEvalGenerationTask"
+parameters:
+    name: "Humaneval-X Generation"
+    datapath: "data/STEP-IV/coding"
+    num_samples: 20
+    language: "js"

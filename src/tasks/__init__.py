@@ -1,1 +1,3 @@
 from .example_task import ExampleTask
+from .coding.task_generation import HumanEvalGenerationTask
+from .coding.task_translation import HumanEvalTranslationTask

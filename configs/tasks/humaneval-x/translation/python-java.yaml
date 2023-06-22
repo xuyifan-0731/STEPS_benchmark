@@ -1,0 +1,7 @@
+module: "src.tasks.HumanEvalXTranslationTask"
+parameters:
+    name: "Humaneval-X Translation"
+    datapath: "data/STEP-IV/coding"
+    num_samples: 10
+    src_lang: "python"
+    tgt_lang: "java"
