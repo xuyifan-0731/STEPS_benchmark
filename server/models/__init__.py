@@ -10,6 +10,7 @@ from .dolly import DollyEntry
 from .Koala import KoalaEntry
 from .Vicuna import VicunaEntry
 from .Moss import MossEntry
+from .ChatGLM import ChatGLMEntry
 
 
 class OssatEntry(ModelServerEntry):
