@@ -5,7 +5,7 @@ import os
 import flask
 from flask import request, jsonify, abort
 
-from model_server import *
+from server.models.model_server import *
 from models import *
 
 """ 

@@ -5,7 +5,7 @@ import sentencepiece as spm
 import torch
 from transformers import AutoModelForCausalLM, PreTrainedTokenizer
 
-from server.model_server import ModelServerEntry
+from server.models.model_server import ModelServerEntry
 
 
 class LLaMATokenizer(PreTrainedTokenizer):
@@ -175,6 +175,7 @@ class KoalaEntry(ModelServerEntry):
         self.model_path = model_path
 
     def inference_koala(self, text, temperature):
+        print(text)
         inputs = self.prefix_tokenizer(
             text,
             padding='max_length',
@@ -182,6 +183,7 @@ class KoalaEntry(ModelServerEntry):
             max_length=1024,
             return_tensors='pt',
         ).to(self.model.device)
+        print(inputs)
         input_tokens = inputs.input_ids
         input_mask = inputs.attention_mask
         input_tokens[:, 0] = self.tokenizer.bos_token_id
@@ -192,20 +194,24 @@ class KoalaEntry(ModelServerEntry):
                 output = self.model.generate(
                     input_ids=input_tokens,
                     attention_mask=input_mask,
-                    max_length=2048, do_sample=True,
+                    max_length=2048,
+                    do_sample=True,
                     temperature=temperature
-                )
+                )[:, input_tokens.shape[1]:]
             except Exception as e:
                 print(f"exception inference {e}")
                 return [""] * len(text)
 
+        print(output)
         output_text = []
         for text in list(self.tokenizer.batch_decode(output)):
+            print(text)
             if self.tokenizer.eos_token in text:
                 text = text.split(self.tokenizer.eos_token, maxsplit=1)[0]
             output_text.append(text)
-
-        return output_text[0]
+        print(output_text[0])
+        print(input_tokens.shape, output.shape)
+        return output_text
 
     def construct_prompt(self, batch: List[List[Dict[str, str]]]) -> List[str]:
         prompts = []
@@ -221,23 +227,24 @@ class KoalaEntry(ModelServerEntry):
         return prompts
 
     def activate(self, device: str) -> None:
-        model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True).half().to(device)
-        model = model.eval()
-        self.model = model
+        vocab_file = "models/tokenizer.model"
         self.prefix_tokenizer = LLaMATokenizer(
-            vocab_file='',
+            vocab_file=vocab_file,
             add_bos_token=False,
             add_eos_token=False,
             padding_side="left",
             truncation_side="left",
         )
         self.tokenizer = LLaMATokenizer(
-            vocab_file='',
+            vocab_file=vocab_file,
             add_bos_token=False,
             add_eos_token=False,
             padding_side="right",
             truncation_side="right",
         )
+        model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True).half().to(device)
+        model = model.eval()
+        self.model = model
         print("model and tokenizer loaded")
 
     def deactivate(self) -> None:
@@ -251,4 +258,4 @@ class KoalaEntry(ModelServerEntry):
         print("model and tokenizer cleared")
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature=None) -> List[str]:
-        return self.inference_koala(self.construct_prompt(batch), temperature)
+        return self.inference_koala(self.construct_prompt(batch), temperature or 0.7)

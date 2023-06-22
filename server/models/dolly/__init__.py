@@ -2,7 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from .instruct_pipeline import InstructionTextGenerationPipeline
-from ...model_server import ModelServerEntry
+from server.models.model_server import ModelServerEntry
 
 
 class DollyEntry(ModelServerEntry):

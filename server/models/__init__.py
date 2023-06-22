@@ -1,7 +1,7 @@
 from typing import List, Dict
 
 import torch
-from ..model_server import ModelServerEntry
+from server.models.model_server import ModelServerEntry
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from .config_entry import ConfigEntry
