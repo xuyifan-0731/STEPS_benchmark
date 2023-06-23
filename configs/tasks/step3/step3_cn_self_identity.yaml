@@ -7,4 +7,4 @@ parameters:
   model_name: gpt-3.5-turbo
   module: tasks.step3_cn.identity_task.IdentityTask
   name: step3_cn
-  path: step3_cn/data
+  path: data/step3_cn/data

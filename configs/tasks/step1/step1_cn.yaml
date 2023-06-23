@@ -54,4 +54,4 @@ parameters:
     traditional/sentimental-analysis/emo: '**/traditional/sentimental-analysis/emo.jsonl'
   language: cn
   name: step1_cn
-  path: step1_cn/data
+  path: data/step1_cn/data

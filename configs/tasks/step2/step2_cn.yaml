@@ -186,4 +186,4 @@ parameters:
     mmlu/world_religions: '**/mmlu/world_religions.jsonl'
   language: cn
   name: step2_cn
-  path: step2_cn/data
+  path: data/step2_cn/data

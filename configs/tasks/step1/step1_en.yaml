@@ -114,4 +114,4 @@ parameters:
     traditional/summary/xsum: '**/traditional/summary/xsum.jsonl'
   language: en
   name: step1_en
-  path: step1_en/data
+  path: data/step1_en/data

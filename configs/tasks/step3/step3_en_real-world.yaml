@@ -7,4 +7,4 @@ parameters:
     real-world/rgb: '**/real-world/rgb.jsonl'
   language: en
   name: step3_en
-  path: step3_en/data
+  path: data/step3_en/data

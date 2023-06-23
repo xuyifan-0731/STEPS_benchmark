@@ -7,5 +7,5 @@ parameters:
     traditional.summary.wanfang_data: '**/traditional/summary/wanfang_data.jsonl'
   language: cn
   name: step1_cn-traditional-summary
-  path: step1_cn/data
+  path: data/step1_cn/data
   prompt: "{content} 总结："

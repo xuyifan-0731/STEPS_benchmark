@@ -5,4 +5,4 @@ parameters:
   language: cn
   module: tasks.step3_cn.disambiguity_task.disambiguityQA
   name: step3_cn
-  path: step3_cn/data
+  path: data/step3_cn/data

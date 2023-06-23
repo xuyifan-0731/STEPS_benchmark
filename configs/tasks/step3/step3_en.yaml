@@ -23,4 +23,4 @@ parameters:
     self-identity/role-play: '**/self-identity/role-play.jsonl'
   language: en
   name: step3_en
-  path: step3_en/data
+  path: data/step3_en/data

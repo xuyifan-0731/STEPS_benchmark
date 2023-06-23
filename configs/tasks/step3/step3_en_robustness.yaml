@@ -13,5 +13,5 @@ parameters:
   language: cn
   module: tasks.step3_en.robustness_task.RobustnessTask
   name: step3_en
-  path: step3_en/data
+  path: data/step3_en/data
   prompt: '{question} Answer:'
