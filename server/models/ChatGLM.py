@@ -14,8 +14,7 @@ class ChatGLMEntry(ModelServerEntry):
         self.model_path = model_path
 
     def activate(self, device: str) -> None:
-        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True).half().to(device)
-        model = model.eval()
+        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True, device=device).eval()
         tokenizer = AutoTokenizer.from_pretrained(self.model_path, trust_remote_code=True)
         self.model = model
         self.tokenizer = tokenizer
@@ -40,5 +39,9 @@ class ChatGLMEntry(ModelServerEntry):
             else:
                 history.append(entry["content"])
                 expecting = "user" if expecting == "assistant" else "user"
-        response, history = self.model.chat(self.tokenizer, history[-1], history=history[:-1])
+        history_paired = [(history[i], history[i + 1]) for i in range(0, len(history) - 1, 2)]
+        response, history = self.model.chat(self.tokenizer,
+                                            history[-1],
+                                            history=history_paired,
+                                            temperature=temperature)
         return [response]

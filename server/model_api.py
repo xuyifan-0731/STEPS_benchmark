@@ -195,7 +195,7 @@ if __name__ == '__main__':
     entries["dolly-v2-12b"] = DollyEntry("/workspace/xuyifan/checkpoints/dolly-v2-12b")
     entries["oasst-sft-4-pythia-12b"] = OssatEntry("/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5")
     entries["koala-13B-HF"] = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
-    entries["chatglm_6b_v2"] = ChatGLMEntry("workspace/xuyifan/chatglm-6b-v2")
+    entries["chatglm_6b_v2"] = ChatGLMEntry("/workspace/xuyifan/chatglm-6b-v2")
     # entries["moss-moon-003-sft"] = MOSSEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
     server = ModelServer({
         # 'you-are-right': ReturnYouAreRightEntry(),
