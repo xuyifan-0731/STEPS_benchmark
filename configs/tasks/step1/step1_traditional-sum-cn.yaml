@@ -1,0 +1,11 @@
+module: src.tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    traditional.summary.lcsts_data: '**/traditional/summary/lcsts_data.jsonl'
+    traditional.summary.nlpcc_data: '**/traditional/summary/nlpcc_data.jsonl'
+    traditional.summary.thucnews_data: '**/traditional/summary/thucnews_data.jsonl'
+    traditional.summary.wanfang_data: '**/traditional/summary/wanfang_data.jsonl'
+  language: cn
+  name: step1_cn-traditional-summary
+  path: step1_cn/data
+  prompt: "{content} 总结："

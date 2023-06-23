@@ -1,0 +1,12 @@
+{"question": "这头野牛重[]千克", "answer": "697", "background": "一只东北虎重245千克,一头野牛的体重比东北虎的3倍少38千克", "original": "245×3＝735（千克）\\n\\n 735－38＝697（千克）\\n\\n答：这头野牛重697千克。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "3个书架一共可以放[]本书", "answer": "600", "background": "每个书架有5层,每层放40本书", "original": "5×40＝200（本）\\n\\n 3×200＝600（本）\\n\\n答：3个书架一共可以放600本书。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "如果按每条5角计费，他两个季度的彩信费用是[]元", "answer": "45", "background": "小黑叔叔平均每月发送彩信15条", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "对折3次后的绳子长度是5厘米，这根绳子长是[]厘米", "answer": "40", "original": "5×40＝200（本）\\n\\n 3×200＝600（本）\\n\\n答：3个书架一共可以放600本书。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "小光买了一个价格是2.3元的卷笔到刀，付了5元钱，应找回[]元", "answer": "2.7", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "买回的桔子是苹果和梨的总数的4倍，水果店买回桔子多少千克？", "answer": "150＋123＝273（千克）\\n\\n 4×123＝492（千克）\\n\\n答：水果店买回桔子492千克", "background": "水果店买回苹果150千克,买回梨123千克。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "甲地到乙地相距多少千米？", "answer": "51×4＝204（千米）\\n\\n答：甲地到乙地相距204千米。", "background": "一辆汽车从甲地送货到乙地,去的时候是51千米／时,用了4小时,返回时只用了3小时", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "掷一下落在地上后，朝上的面色的可能性最大的是[]．", "answer": "黄", "background": "一个正方体3面涂黄色,2面涂绿色,1面涂红色", "original": "解：因为3＞2＞1，所以朝下面黄色的可能性最大", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个正方形的周长是20米，它的面积是[]平方米", "answer": "20", "original": "解：20÷4=5（米），5×5=25（平方米）；答：正方形的面积是25平方米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "307比最大的两位数多[]", "answer": "208", "original": "307-99=208．答：307比最大的两位数多208．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "丹霞山的门票每张100元，小明和他的爸爸、妈妈一起去游览，买门票需要多少钱？", "answer": "3×100=300（元），答：买门票需要300元．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "计算 27×93=[]（45+14）×34=[]", "answer": "解：（1）27×93=2511；（2）（45+14）×34=59×34=2006．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}

@@ -1,0 +1,13 @@
+name: "step1_cn-traditional-summary"
+type: "gen"
+path: "step1_cn/data"
+language: "cn"
+prompt: "{content} 答案:"
+file-pattern:
+  traditional.summary.lcsts_data:  "**/traditional/summary/lcsts_data.jsonl"
+  traditional.summary.nlpcc_data:  "**/traditional/summary/nlpcc_data.jsonl"
+  traditional.summary.thucnews_data:  "**/traditional/summary/thucnews_data.jsonl"
+  traditional.summary.wanfang_data:  "**/traditional/summary/wanfang_data.jsonl"
+
+workers: 10
+shot: 0

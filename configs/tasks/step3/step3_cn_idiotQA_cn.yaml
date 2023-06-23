@@ -1,0 +1,8 @@
+module: tasks.step3_cn.Idiot_task.IdiotQATask
+parameters:
+  file-pattern:
+    disinformation.IdiotQA: '**/disinformation/IdiotQA.jsonl'
+  language: cn
+  module: tasks.step3_cn.Idiot_task.IdiotQATask
+  name: step3_cn
+  path: step3_cn/data
