@@ -1,4 +1,4 @@
-module: "src.tasks.ExampleTask"
+module: "src.tasks.SingleRoundTask"
 parameters:
     name: "Example Evaluation"
     count: 10

@@ -27,9 +27,8 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
     If [MASK] not in context, will append [MASK] after text
     """
 
-    def __init__(self, path: Union[str, List[str]], model, **config):
+    def __init__(self, path: Union[str, List[str]], config: BaseConfig):
         self.path = path if isinstance(path, list) else [path]
-        self.model = model
         self.config = config
         self.label_list = ["SUM","QA","MUL","NLI"]
         self.label = None
@@ -105,7 +104,7 @@ class GenerationTaskDataset(EvaluationDataset):
             input = prompt_generate.generate_prompt(item)
             targets = prompt_generate.get_answer(item)
             if self.label == "MUL" or self.label == "NLI":
-                choices = prompt_generate.get_choices(item)
+                choices = item.get("choices", None)
                 return [{"id": id_, "text": instruction + input, "targets": targets, "choices":choices, **kwargs}]
         else:
             input = item.get("input")

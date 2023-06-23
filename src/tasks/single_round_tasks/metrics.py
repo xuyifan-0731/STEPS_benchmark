@@ -221,8 +221,8 @@ DEFAULT_METRICS.update(
         "BLEU": bleu_score,
         "ROUGE": rouge_score,
         "ACC": acc_for_multi,
-        "PPL": calculate_perplexity,
-        "BERTScore": bert_score_metric,
+        # "PPL": calculate_perplexity,
+        # "BERTScore": bert_score_metric,
     }
 )
 

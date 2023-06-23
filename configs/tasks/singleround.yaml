@@ -1,0 +1,9 @@
+module: "src.tasks.SingleRoundTask"
+parameters:
+    name: "Example SingleRound Evaluation"
+    path: "data"
+    language: "en"
+    shot: 0
+    file-pattern:
+        bbh_test1:  "**/bbh/boolean_expressions.jsonl"
+        bbh_test2:  "**/bbh/causal_judgement.jsonl"
