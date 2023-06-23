@@ -196,6 +196,7 @@ if __name__ == '__main__':
     entries["oasst-sft-4-pythia-12b"] = OssatEntry("/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5")
     entries["koala-13B-HF"] = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
     entries["chatglm_6b_v2"] = ChatGLMEntry("/workspace/xuyifan/chatglm-6b-v2")
+    entries["vicuna-7b"] = VicunaEntry("/workspace/xuyifan/checkpoints/vicuna/7B")
     # entries["moss-moon-003-sft"] = MOSSEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
     server = ModelServer({
         # 'you-are-right': ReturnYouAreRightEntry(),
@@ -204,7 +205,7 @@ if __name__ == '__main__':
         **entries
     }, ["cuda:%d" % i for i in range(8)])
     server.start()
-    app.run(host="0.0.0.0", port=9999, debug=False, threaded=True)
+    app.run(host="0.0.0.0", port=9998, debug=False, threaded=True)
 
 """ 
 

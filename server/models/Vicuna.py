@@ -200,7 +200,7 @@ class VicunaEntry(ModelServerEntry):
         self.tokenizer = None
         self.model_path = model_path
 
-    def inference(self, batch: List[List[Dict[str, str]]], temperature: float) -> List[str]:
+    def inference(self, batch: List[List[Dict[str, str]]], temperature: float = 0.7) -> List[str]:
         gen_params = {
             "model": self.model_path,
             "prompt": self.get_prompt(batch),
@@ -213,9 +213,9 @@ class VicunaEntry(ModelServerEntry):
         output_text = ""
         for outputs in output_stream:
             output_text = outputs["text"]
-        return output_text
+        return [output_text]
 
-    def get_prompt(self, batch: List[List[Dict[str, str]]]):
+    def get_prompt(self, batch: List[List[Dict[str, str]]]) -> str:
         seps = [" ", "</s>"]
         system = "A chat between a curious user and an artificial intelligence assistant. "\
                  "The assistant gives helpful, detailed, and polite answers to the user's questions."
@@ -229,6 +229,7 @@ class VicunaEntry(ModelServerEntry):
                 ret += role + ": " + message + seps[i % 2]
             else:
                 ret += role + ":"
+        return ret
 
     def activate(self, device: str) -> None:
         self.tokenizer = AutoTokenizer.from_pretrained(
