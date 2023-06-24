@@ -43,5 +43,6 @@ class ChatGLMEntry(ModelServerEntry):
         response, history = self.model.chat(self.tokenizer,
                                             history[-1],
                                             history=history_paired,
-                                            temperature=temperature)
+                                            temperature=temperature if temperature else 0.7,
+                                            do_sample=temperature != 0)
         return [response]
