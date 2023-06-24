@@ -6,9 +6,9 @@ from tqdm.auto import tqdm
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from evaluator.utils import IMPORT_HELPER
-from evaluator.metric import estimate_pass_at_k
-from evaluator.execution import check_correctness
+from .utils import IMPORT_HELPER
+from .metric import estimate_pass_at_k
+from .execution import check_correctness
 
 LANGUAGE_NAME = {
     "cpp"   : "CPP",

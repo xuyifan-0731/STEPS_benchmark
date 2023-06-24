@@ -8,7 +8,7 @@ from src.agent import Agent
 from src import print_rank_0
 
 from .utils import cleanup_code, parse_code_from_chat, stream_jsonl, process_extra_prompt
-from evaluator.evaluate import evaluate_functional_correctness
+from .evaluator.evaluate import evaluate_functional_correctness
 
 InputType = Tuple[str, str, str, str, str, str]
 
