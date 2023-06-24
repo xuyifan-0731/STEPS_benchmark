@@ -199,7 +199,7 @@ if __name__ == '__main__':
         **entries
     }, ["cuda:%d" % i for i in range(8)])
     server.start()
-    app.run(host="0.0.0.0", port=9999, debug=False, threaded=True)
+    app.run(host="0.0.0.0", port=9998, debug=False, threaded=True)
 
 """ 
 

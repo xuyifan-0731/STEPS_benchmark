@@ -33,11 +33,11 @@ class ModelServerError(ValueError):
 
 class ModelServer:
     def __init__(self, models: Dict[str, ModelServerEntry], available_devices: List[str]) -> None:
+        self.model_threads = {}
         self.active = False
         self.lock = threading.Lock()
         self.models = dict()
         self.devices = dict()
-        self.thread = None
         for model in models:
             self.models[model] = {
                 "entry": models[model],
@@ -45,7 +45,6 @@ class ModelServer:
                 "lock": threading.Lock(),
                 "pending": [],  # list of (message, temperature, callback)
                 "last_used": .0,  # time.time()
-                "batch_size": 6,  # number of messages in one batch
             }
         for device in available_devices:
             self.devices[device] = {
@@ -71,6 +70,9 @@ class ModelServer:
                     self.devices[device]["model"] = model_name
                     self.models[model_name]["device"] = device
                     self.models[model_name]["entry"].activate(device)
+                    t = threading.Thread(target=self.start_model_entry, args=(model_name,))
+                    t.start()
+                    self.model_threads[model_name] = t
                     return device
 
             raise ModelServerError("No available device")
@@ -107,51 +109,44 @@ class ModelServer:
                 raise ModelServerError("Model %s is not activated" % model)
             self.models[model]["pending"].append((messages, temperature, callback))
 
+    def start_model_entry(self, model):
+        while True:
+            with self.lock:
+                if not self.active:
+                    break
+
+            with self.models[model]["lock"]:
+                if self.models[model]["device"] is None:
+                    continue
+                if len(self.models[model]["pending"]) == 0:
+                    time.sleep(0.1)
+                    continue
+
+                # update last_used
+                self.models[model]["last_used"] = time.time()
+                while self.models[model]["pending"]:
+                    message, temperature, callback = self.models[model]["pending"].pop(0)
+                    try:
+                        ret = self.models[model]["entry"].inference([message], temperature)
+                        callback(ret[0])
+                    except Exception:
+                        import traceback
+                        traceback.print_exc()
+                        callback(None)
+
     def start(self):
         with self.lock:
             if self.active:
                 raise ModelServerError("Server is already running.")
             self.active = True
 
-        def work():
-            print("Model server started.")
+        print("Model server started.")
 
-            def start_model_entry(model):
-                while True:
-                    with self.lock:
-                        if not self.active:
-                            break
-
-                    with self.models[model]["lock"]:
-                        if self.models[model]["device"] is None:
-                            continue
-                        if len(self.models[model]["pending"]) == 0:
-                            time.sleep(0.1)
-                            continue
-
-                        # update last_used
-                        self.models[model]["last_used"] = time.time()
-                        batch_size = self.models[model]["batch_size"]
-                        for message, temperature, callback in self.models[model]["pending"]:
-                            try:
-                                ret = self.models[model]["entry"].inference(message, temperature)
-                                callback(ret[0])
-                            except Exception:
-                                import traceback
-                                traceback.print_exc()
-                                callback(None)
-
-            model_threads = dict()
-
-            for model in self.models:
-                model_threads[model] = threading.Thread(target=start_model_entry, args=(model,))
-                model_threads[model].start()
-
-            for model in model_threads:
-                model_threads[model].join()
-
-        self.thread = threading.Thread(target=work)
-        self.thread.start()
+        for model in self.models:
+            if not self.models[model]["device"]:
+                continue
+            self.model_threads[model] = threading.Thread(target=self.start_model_entry, args=(model,))
+            self.model_threads[model].start()
 
     def stop(self):
         with self.lock:
@@ -159,7 +154,8 @@ class ModelServer:
                 raise RuntimeError("Server is not running.")
             self.active = False
 
-        self.thread.join()
+        for thread in self.model_threads:
+            self.model_threads[thread].join()
 
     def __del__(self):
         with self.lock:
