@@ -2,6 +2,8 @@ import threading
 import time
 from typing import List, Dict, Any
 
+from server.models import ModelServerEntry
+
 """
 
 In this file, two classes are defined:
@@ -29,33 +31,20 @@ class ModelServerError(ValueError):
     pass
 
 
-class ModelServerEntry:
-    def __init__(self) -> None:
-        pass
-
-    def activate(self, device: str) -> None:
-        raise NotImplementedError
-
-    def deactivate(self) -> None:
-        raise NotImplementedError
-
-    def inference(self, batch: List[List[Dict[str, str]]], temperature: float) -> List[str]:
-        pass
-
-
 class ModelServer:
     def __init__(self, models: Dict[str, ModelServerEntry], available_devices: List[str]) -> None:
         self.active = False
         self.lock = threading.Lock()
         self.models = dict()
         self.devices = dict()
+        self.thread = None
         for model in models:
             self.models[model] = {
                 "entry": models[model],
                 "device": None,
                 "lock": threading.Lock(),
                 "pending": [],  # list of (message, temperature, callback)
-                "last_used": 0,  # time.time()
+                "last_used": .0,  # time.time()
                 "batch_size": 6,  # number of messages in one batch
             }
         for device in available_devices:
@@ -129,7 +118,6 @@ class ModelServer:
 
             def start_model_entry(model):
                 while True:
-                    time.sleep(0.2)
                     with self.lock:
                         if not self.active:
                             break
@@ -138,44 +126,20 @@ class ModelServer:
                         if self.models[model]["device"] is None:
                             continue
                         if len(self.models[model]["pending"]) == 0:
-                            # if time.time() - self.models[model]["last_used"] > 600:
-                            #     # check last_used, if 10 minutes ago, deactivate
-                            #     log({
-                            #         "system": "deactivate because of timeout",
-                            #         "model": model,
-                            #         "device": self.models[model]["device"],
-                            #     })
-                            #     self.force_deactivate(model)
+                            time.sleep(0.1)
                             continue
 
                         # update last_used
                         self.models[model]["last_used"] = time.time()
                         batch_size = self.models[model]["batch_size"]
-                        batch = []
-                        if len(batch) < batch_size and len(self.models[model]["pending"]) > 0:
-                            # in one batch, all messages should have the same temperature
-                            messages, temperature, callback = self.models[model]["pending"][0]
-                            batch.append((messages, temperature, callback))
-                            self.models[model]["pending"].pop(0)
-                        if len(batch) == 0:
-                            continue
-                        messages, temperature, callback = zip(*batch)
-                        messages = list(messages)
-                        temperature = temperature[0]
-                        callback = list(callback)
-
-                        def process_inference(msgs, temp, cbs):
+                        for message, temperature, callback in self.models[model]["pending"]:
                             try:
-                                ret = self.models[model]["entry"].inference(msgs, temp)
-                                for idx, cb in enumerate(cbs):
-                                    cb(ret[idx])
+                                ret = self.models[model]["entry"].inference(message, temperature)
+                                callback(ret[0])
                             except Exception:
                                 import traceback
                                 traceback.print_exc()
-                                for cb in cbs:
-                                    cb(None)
-
-                        threading.Thread(target=process_inference, args=(messages, temperature, callback)).start()
+                                callback(None)
 
             model_threads = dict()
 

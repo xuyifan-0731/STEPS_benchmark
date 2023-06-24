@@ -3,7 +3,7 @@ from typing import List, Dict
 import json
 import torch
 
-from server.models.model_server import ModelServerEntry
+from .Entry import ModelServerEntry
 
 
 def default_prompt(messages, args):

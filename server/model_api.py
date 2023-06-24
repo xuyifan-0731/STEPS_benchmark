@@ -5,8 +5,9 @@ import os
 import flask
 from flask import request, jsonify, abort
 
-from server.models.model_server import *
+from server.model_server import *
 from models import *
+from server.models.Ossat import OssatEntry
 
 """ 
 
@@ -154,7 +155,7 @@ def call(model_server_name):
                 lock.release()
                 return jsonify({"status": 0, "result": ret})
             lock.release()
-            time.sleep(0.2)
+            time.sleep(0.05)
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
@@ -188,20 +189,13 @@ def load_config_entries(root_dir):
 if __name__ == '__main__':
     entries = {}
     entries.update(load_config_entries("./configs"))
-    # with open("./configs/MOSS.json", "r") as f:
-    #     config = json.load(f)
-    #     f.close()
-    # entries[config["model_name"]] = ConfigEntry("./configs/MOSS.json")
     entries["dolly-v2-12b"] = DollyEntry("/workspace/xuyifan/checkpoints/dolly-v2-12b")
     entries["oasst-sft-4-pythia-12b"] = OssatEntry("/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5")
     entries["koala-13B-HF"] = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
     entries["chatglm_6b_v2"] = ChatGLMEntry("/workspace/xuyifan/chatglm-6b-v2")
     entries["vicuna-7b"] = VicunaEntry("/workspace/xuyifan/checkpoints/vicuna/7B")
-    # entries["moss-moon-003-sft"] = MOSSEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
+    entries["moss-moon-003-sft"] = MossEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
     server = ModelServer({
-        # 'you-are-right': ReturnYouAreRightEntry(),
-        # 'repeat': RepeatEntry(),
-        # 'vicuna-7b': ConfigEntry("configs/vicuna.json")
         **entries
     }, ["cuda:%d" % i for i in range(8)])
     server.start()

@@ -5,7 +5,7 @@ import sentencepiece as spm
 import torch
 from transformers import AutoModelForCausalLM, PreTrainedTokenizer
 
-from server.models.model_server import ModelServerEntry
+from .Entry import ModelServerEntry
 
 
 class LLaMATokenizer(PreTrainedTokenizer):
