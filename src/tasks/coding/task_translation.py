@@ -78,7 +78,7 @@ class HumanEvalXTranslationTask(Task[InputType, str]):
     
     def predict_single(self, session: Session, data_item: InputType):
         result = session.action({"role": "user", "content": data_item[1]})
-        result = parse_code_from_chat(result, data_item[2], self.language)
+        # result = parse_code_from_chat(result, data_item[2], self.language)
         result = cleanup_code(result, self.language)
         return result
     
