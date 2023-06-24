@@ -152,11 +152,9 @@ class ModelServer:
                         self.models[model]["last_used"] = time.time()
                         batch_size = self.models[model]["batch_size"]
                         batch = []
-                        while len(batch) < batch_size and len(self.models[model]["pending"]) > 0:
+                        if len(batch) < batch_size and len(self.models[model]["pending"]) > 0:
                             # in one batch, all messages should have the same temperature
                             messages, temperature, callback = self.models[model]["pending"][0]
-                            if len(batch) > 0 and batch[0][1] != temperature:
-                                break
                             batch.append((messages, temperature, callback))
                             self.models[model]["pending"].pop(0)
                         if len(batch) == 0:
