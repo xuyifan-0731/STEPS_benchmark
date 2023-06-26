@@ -1,6 +1,6 @@
-import threading
+import multiprocessing as mp
 import time
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Callable
 
 from server.models import ModelServerEntry
 
@@ -31,122 +31,86 @@ class ModelServerError(ValueError):
     pass
 
 
+class ModelManager:
+    def __init__(self, entry_class: type[ModelServerEntry]) -> None:
+        self.entry_class = entry_class
+        self.lock = mp.Lock()
+        self.entities = {}
+        self.queue = mp.Queue()
+
+    def process(self, entry: ModelServerEntry):
+        while True:
+            data, temperature, callback = self.queue.get()
+            result = entry.inference(data, temperature)
+            callback(result)
+
+    def add(self, device: str):
+        model = self.entry_class()
+        model.activate(device)
+        p = mp.Process(target=self.process, args=(model,))
+        p.start()
+        with self.lock:
+            self.entities[device] = (model, p)
+
+    def remove(self, device: str = None):
+        model, p = self.entities[device]
+        p.terminate()
+        model.deactivate()
+        with self.lock:
+            del self.entities[device]
+
+    def enqueue(self, data: list[dict[str, str]], temperature: float, callback: Callable[[str], None]):
+        self.queue.put((data, temperature, callback))
+
+
 class ModelServer:
-    def __init__(self, models: Dict[str, ModelServerEntry], available_devices: List[str]) -> None:
-        self.model_threads = {}
+    def __init__(self, models: Dict[str, type[ModelServerEntry]], available_devices: List[str]) -> None:
         self.active = False
-        self.lock = threading.Lock()
-        self.models = dict()
-        self.devices = dict()
-        for model in models:
-            self.models[model] = {
-                "entry": models[model],
-                "device": None,
-                "lock": threading.Lock(),
-                "pending": [],  # list of (message, temperature, callback)
-                "last_used": .0,  # time.time()
-            }
-        for device in available_devices:
-            self.devices[device] = {
-                "model": None,
-            }
+        self.lock = mp.Lock()
+        self.models: dict[str, type[ModelServerEntry]] = models
+        self.model_devices: dict[str, list] = {}
+        self.devices: dict[str, [str]] = {device: None for device in available_devices}
+        self.managers = {}
 
-    def activate(self, model_name: str) -> str:
-        if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % model_name)
-
-        with self.models[model_name]["lock"]:
-            # check if already activated
-            device = self.models[model_name]["device"]
-            if device:
-                return device
-
-            # update last_used
-            self.models[model_name]["last_used"] = time.time()
-
-            # find a device
+    def find_device(self) -> str:
+        with self.lock:
             for device in self.devices:
-                if self.devices[device]["model"] is None:
-                    self.devices[device]["model"] = model_name
-                    self.models[model_name]["device"] = device
-                    self.models[model_name]["entry"].activate(device)
-                    t = threading.Thread(target=self.start_model_entry, args=(model_name,))
-                    t.start()
-                    self.model_threads[model_name] = t
+                if not self.devices[device]:
                     return device
+            raise ModelServerError("All devices occupied")
 
-            raise ModelServerError("No available device")
+    def add(self, model_name: str) -> None:
+        with self.lock:
+            if model_name not in self.managers:
+                if model_name not in self.models:
+                    raise ModelServerError("Model not found")
+                manager = ModelManager(self.models[model_name])
+                self.managers[model_name] = manager
+            else:
+                manager = self.managers[model_name]
+        device = self.find_device()
+        manager.add(device)
+        with self.lock:
+            self.devices[device] = model_name
+            self.model_devices.setdefault(model_name, []).append(device)
 
-    def deactivate(self, model_name: str) -> None:
-        if model_name not in self.models:
-            raise ModelServerError("Model %s not found" % model_name)
+    def remove(self, model_name: str) -> None:
+        with self.lock:
+            if model_name not in self.managers:
+                raise ModelServerError("No model activated")
+            manager = self.managers[model_name]
+            device = self.model_devices[model_name].pop()
+        manager.remove(device)
+        with self.lock:
+            self.devices[device] = None
 
-        with self.models[model_name]["lock"]:
-            device = self.models[model_name]["device"]
-            if device is None:
-                raise ModelServerError("Model %s is not activated" % model_name)
-            self.models[model_name]["entry"].deactivate()
-            self.models[model_name]["device"] = None
-            self.devices[device]["model"] = None
-            self.models[model_name]["pending"] = []
-            return
-
-    def status(self) -> Dict[str, Any]:
-        models = dict()  # { active: bool, keys: int, your_status: bool }
-        for model in self.models:
-            models[model] = {
-                "active": self.models[model]["device"] is not None,
-            }
-        available_device_count = len([device for device in self.devices if self.devices[device]["model"] is None])
-        return {
-            "models": models,
-            "available_device_count": available_device_count,
-        }
+    def status(self, model_name: str = None) -> Dict[str, Any]:
+        if not model_name:
+            return self.model_devices
+        return {model_name: self.model_devices[model_name]}
 
     def register(self, model, messages, temperature, callback):
-        with self.models[model]["lock"]:
-            if self.models[model]["device"] is None:
-                raise ModelServerError("Model %s is not activated" % model)
-            self.models[model]["pending"].append((messages, temperature, callback))
-
-    def start_model_entry(self, model):
-        while True:
-            with self.lock:
-                if not self.active:
-                    break
-
-            with self.models[model]["lock"]:
-                if self.models[model]["device"] is None:
-                    continue
-                if len(self.models[model]["pending"]) == 0:
-                    time.sleep(0.1)
-                    continue
-
-                # update last_used
-                self.models[model]["last_used"] = time.time()
-                while self.models[model]["pending"]:
-                    message, temperature, callback = self.models[model]["pending"].pop(0)
-                    try:
-                        ret = self.models[model]["entry"].inference([message], temperature)
-                        callback(ret[0])
-                    except Exception:
-                        import traceback
-                        traceback.print_exc()
-                        callback(None)
-
-    def start(self):
-        with self.lock:
-            if self.active:
-                raise ModelServerError("Server is already running.")
-            self.active = True
-
-        print("Model server started.")
-
-        for model in self.models:
-            if not self.models[model]["device"]:
-                continue
-            self.model_threads[model] = threading.Thread(target=self.start_model_entry, args=(model,))
-            self.model_threads[model].start()
+        self.managers[model].enqueue(messages, temperature, callback)
 
     def stop(self):
         with self.lock:
@@ -154,25 +118,19 @@ class ModelServer:
                 raise RuntimeError("Server is not running.")
             self.active = False
 
-        for thread in self.model_threads:
-            self.model_threads[thread].join()
+        for manager in self.managers.values():
+            manager.remove()
 
     def __del__(self):
         with self.lock:
             if self.active:
                 self.stop()
-        for model in self.models:
-            with self.models[model]["lock"]:
-                if self.models[model]["device"] is None:
-                    continue
-                self.models[model]["entry"].deactivate()
 
 
 if __name__ == '__main__':
     model_server = ModelServer({"test": None}, ["cpu"])
     # server_thread = threading.Thread(target=model_server.start)
     # server_thread.start()
-    model_server.start()
     time.sleep(2)
     print(model_server.status("test"))
     model_server.stop()
