@@ -4,4 +4,4 @@ This is a lite weight server for local models.
 ```bash
 PYTHONPATH="/path/to/server/" python -m model_api.py
 ```
-You can add your own models by implementing `Entry` in `models/Entry.py`.
+You can add your own models by implementing `Entry` in `models/Entry.py`.z

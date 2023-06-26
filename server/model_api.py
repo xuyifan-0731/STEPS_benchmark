@@ -1,13 +1,13 @@
 import datetime
 import json
 import os
+import multiprocessing as mp
 
 import flask
 from flask import request, jsonify, abort
 
-from server.model_server import *
 from models import *
-from server.models.Ossat import OssatEntry
+from server.model_server import ModelServer, ModelServerError
 
 """ 
 
@@ -83,7 +83,20 @@ def activate(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.activate(model_server_name)
+        if model_server_name not in server.model_devices:
+            server.add(model_server_name)
+        return jsonify({"status": 0})
+    except ModelServerError as e:
+        return jsonify({"status": -1, "message": str(e)})
+
+
+@app.route('/api/v1/<model_server_name>/add', methods=['POST'])
+def add(model_server_name):
+    log("add", model_server_name=model_server_name)
+    try:
+        if model_server_name not in server.models:
+            return abort(403, "Invalid Model Name")
+        server.add(model_server_name)
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -95,7 +108,19 @@ def deactivate(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.deactivate(model_server_name)
+        server.remove(model_server_name)
+        return jsonify({"status": 0})
+    except ModelServerError as e:
+        return jsonify({"status": -1, "message": str(e)})
+
+
+@app.route('/api/v1/<model_server_name>/remove', methods=['POST'])
+def remove(model_server_name):
+    log("remove", model_server_name=model_server_name)
+    try:
+        if model_server_name not in server.models:
+            return abort(403, "Invalid Model Name")
+        server.remove(model_server_name)
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -107,7 +132,7 @@ def status(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        return jsonify({"status": 0, "model_server_status": server.models[model_server_name]["device"] is not None})
+        return jsonify({"status": 0, "model_server_status": server.status(model_server_name)})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
@@ -128,7 +153,7 @@ def call(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        if server.models[model_server_name]["device"] is None:
+        if not server.model_devices[model_server_name]:
             return jsonify({"status": -1, "message": "model server %s is not active" % model_server_name})
         data = request.get_json()
         if "messages" not in data:
@@ -136,26 +161,17 @@ def call(model_server_name):
         messages = data["messages"]
         temperature = data.get("temperature", None)
 
-        lock = threading.Lock()
-        result = {}
+        queue = mp.Queue()
 
         def callback(result_):
-            nonlocal result
-            lock.acquire()
-            result["result"] = result_
-            lock.release()
+            nonlocal queue
+            queue.put(result_)
 
         server.register(model_server_name, messages, temperature, callback)
 
-        while True:
-            lock.acquire()
-            if "result" in result:
-                ret = result["result"]
-                log("call-result", result=ret)
-                lock.release()
-                return jsonify({"status": 0, "result": ret})
-            lock.release()
-            time.sleep(0.05)
+        ret = queue.get()
+        log("call-result", result=ret)
+        return jsonify({"status": 0, "result": ret})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
@@ -198,7 +214,6 @@ if __name__ == '__main__':
     server = ModelServer({
         **entries
     }, ["cuda:%d" % i for i in range(8)])
-    server.start()
     app.run(host="0.0.0.0", port=9998, debug=False, threaded=True)
 
 """ 
