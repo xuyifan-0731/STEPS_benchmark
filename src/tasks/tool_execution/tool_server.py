@@ -36,10 +36,14 @@ class ToolServerEntry:
         # if __init__.py exists, import calling from it as self.__call__
         tool_path = os.path.join(folder_path, '__init__.py')
         if os.path.exists(tool_path):
-            spec = importlib.util.spec_from_file_location("tool_server_entry", tool_path)
+            src_path = os.path.join(folder_path, '../../src')
+            sys.path.append(src_path)
+            spec = importlib.util.spec_from_file_location("server_entry", tool_path)
+            # spec.submodule_search_locations
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             self.__call__ = getattr(module, 'calling')
+            sys.path.remove(src_path)
 
     # def __call__(self, parameters) -> str:
     #     raise NotImplementedError()
@@ -77,7 +81,7 @@ class ToolServerEntry:
 
 
 class ToolServer:
-    def __init__(self, tools: List[ToolServerEntry]):
+    def __init__(self, tools: List[ToolServerEntry], host, port):
         self.app = Flask(__name__)
         CORS(self.app, supports_credentials=True)
 
@@ -89,6 +93,8 @@ class ToolServer:
 
         self.register_endpoints(self.endpoints)
         self.app.add_url_rule('/', '/', self.index)
+        self.host = host
+        self.port = port
 
     def index(self):
         ret = []  # {name: str, meta_url: str, call_url: str}
@@ -108,18 +114,35 @@ class ToolServer:
 
             self.app.add_url_rule(route_name, route_name, handler, methods=methods)
 
-    def run(self, host, port, debug):
-        self.app.run(host=host, port=port, debug=debug)
+    def run(self):
+        self.app.run(host=self.host, port=self.port)
+
+    def wait_for_ready(self, timeout=10, request_interval=0.3):
+        start_time = time.time()
+        while True:
+            if time.time() - start_time > timeout:
+                raise TimeoutError("Tool server is not ready in %d seconds." % (timeout))
+            url = "http://localhost:%d/" % (self.port)
+            try:
+                resp = requests.get(url)
+                if resp.status_code == 200:
+                    return
+            except:
+                pass
+            time.sleep(request_interval)
 
 
 def create_server_process(tool_root_dir, host, port):
     # tool_root_dir = 'data/tool_execution/server'
     tools = []
-    for tool_dir in glob.glob(os.path.join(tool_root_dir, '*')):
+    for tool_dir in glob.glob(os.path.join(tool_root_dir, "tools", '*')):
+        # print(">", tool_dir)
         tools.append(ToolServerEntry(tool_dir))
+    # print(">", "Initialize Tool Server")
+    tool_server = ToolServer(tools, host, port)
+    # print(">", "Finish Tool Server")
 
-    tool_server = ToolServer(tools)
-
-    p = multiprocessing.Process(target=tool_server.run, kwargs={"host": host, "port": port})
+    p = multiprocessing.Process(target=tool_server.run)
     p.start()
+    tool_server.wait_for_ready()
     return p

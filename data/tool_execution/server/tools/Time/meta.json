@@ -1,0 +1,12 @@
+{
+    "name": "Time",
+    "description": "This API returns current time in %Y-%m-%d %H:%M:%S format",
+    "parameters": [],
+    "return": "current time in %Y-%m-%d %H:%M:%S format",
+    "example": [
+        {
+            "input": {},
+            "output": "2017-11-22 15:00:00"
+        }
+    ]
+}

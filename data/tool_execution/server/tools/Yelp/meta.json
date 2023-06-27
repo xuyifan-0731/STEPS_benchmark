@@ -1,0 +1,32 @@
+{
+    "name": "Yelp",
+    "description": "This API arrange merchant reviews.",
+    "parameters": [
+        {
+            "name": "location",
+            "type": "str",
+            "description": "The location of merchant."
+        },
+        {
+            "name": "place",
+            "type": "str",
+            "description": "The name of merchant"
+        },
+        {
+            "name": "key",
+            "type": "str",
+            "description": "Type of queries."
+        }
+    ],
+    "return": "merchant information",
+    "example": [
+        {
+            "input": {
+                "location": "new york",
+                "place": "% Arabica",
+                "key": "phone"
+            },
+            "output": "(718) 865-2551"
+        }
+    ]
+}

@@ -70,7 +70,7 @@ class ToolPrediction:
         }
 
 
-class ToolExecution(Task[int, str]):
+class ToolExecution(Task[ToolEvaluationData, ToolPrediction, ToolEvaluationData]):
     def _load_glob_data(self, glob_dir):
         configs = []
         for dir_path in glob.glob(glob_dir):
@@ -92,31 +92,139 @@ class ToolExecution(Task[int, str]):
 
         return configs
 
-    def __init__(
-        self, name=None, workers=1,
-        tool_root_dir="data/tool_execution/server", host="0.0.0.0", port=10001,
-        data_paths="data/tool_execution/data/*",
-        max_stage=3,
-    ):
-        super().__init__(name, workers)
+    def __init__(self, **kwargs):
+        tool_root_dir = kwargs.pop("tool_root_dir", "data/tool_execution/server")
+        host = kwargs.pop("host", "localhost")
+        port = kwargs.pop("port", 10024)
+        data_paths = kwargs.pop("data_paths", "data/tool_execution/data/*")
+        max_stage = kwargs.pop("max_stage", 3)
+        # print("> Load Server")
         self.tool_server_process = create_server_process(tool_root_dir, host, port)
-        self.tool_pool = ToolClient("http://%s:%d" % (host, port))
+        # print("> Finish Server")
+        self.tool_pool = ToolClient("http://%s:%d" % (("localhost" if host == "0.0.0.0" else host), port))
         self.configs = [
             (ToolEvaluationData(config) if isinstance(config, dict) else config)
-                for config in self._load_glob_data(data_paths)
+            for config in self._load_glob_data(data_paths)
         ]
         self.max_stage = max_stage
-        assert max_stage <= 3 and max_stage > 0 
+        assert max_stage <= 3 and max_stage > 0
         for config in self.configs:
             for tool_usage in config.tool_usage:
                 # print(tool_usage["tool"])
                 assert tool_usage["tool"] in self.tool_pool
-        
-        
+        super().__init__(**kwargs)
+
+    def __del__(self):
+        self.tool_server_process.kill()
+
+    def metric(self, prediction: List[ToolPrediction], target: List[ToolEvaluationData]):
+        """
+        We should return a detailed result for each stage and each tool.
+        {
+            "final": [
+                {
+                    "score": int,
+                    "total": int,
+                    "normalized": float
+                }
+            ],
+            "tools": {
+                "<tool_name>": [
+                    {
+                        "score": int,
+                        "total": int,
+                        "normalized": float
+                    }
+                ],
+            }
+        }
+        """
+        assert len(prediction) == len(target)
+
+        tools = {}
+        final = [{
+            "score": 0,
+            "total": 0,
+        } for _ in range(0, self.max_stage)]
+
+        def record_tool(tool_name, stage, score_plus, total_plus=1):
+            # print(">> Record Tool ", tool_name, stage, score_plus, total_plus)
+            if tool_name not in tools:
+                tools[tool_name] = [{
+                    "score": 0,
+                    "total": 0,
+                } for _ in range(0, self.max_stage)]
+            tools[tool_name][stage]["score"] += score_plus
+            tools[tool_name][stage]["total"] += total_plus
+
+        for pred, config in zip(prediction, target):
+
+            max_stage = min(self.max_stage, config.get_max_stage())
+
+            for i in range(0, max_stage):
+                final[i]["total"] += 1
+                for tool in config.tool_usage:
+                    record_tool(tool["tool"], i, 0, 1)
+
+            # stage 1
+
+            if max_stage < 1:
+                continue
+
+            if pred.choosing in [tool_usage["tool"] for tool_usage in config.tool_usage]:
+                final[0]["score"] += 1
+                for tool in config.tool_usage:
+                    record_tool(tool["tool"], 0, 1, 0)
+
+            # stage 2
+
+            if max_stage < 2:
+                continue
+
+            # print("PRD T", pred.calling, config.tool_usage)s
+            if pred.calling is not None:
+                for tool_usage in config.tool_usage:
+                    if tool_usage["tool"] == pred.choosing and tool_usage == pred.calling:
+                        final[1]["score"] += 1
+                        for tool in config.tool_usage:
+                            record_tool(tool["tool"], 1, 1, 0)
+                        break
+
+            # stage 3
+
+            if max_stage < 3:
+                continue
+
+            if pred.reasoning is not None:
+                try:
+                    score_plus = config.reasoning(config.config, pred.reasoning)
+                    final[2]["score"] += score_plus
+                    for tool in config.tool_usage:
+                        record_tool(tool["tool"], 2, score_plus, 0)
+                except Exception as e:
+                    pred.message = "Error occurs when calling the reasoning function: %s" % str(e)
+                    print(">>>> Warning <<<<", pred.message)
+
+        return {
+            "final": [{
+                "score": item["score"],
+                "total": item["total"],
+                "normalized": item["score"] / item["total"] if item["total"] > 0 else 0
+            } for item in final],
+            "tools": {
+                tool_name: [{
+                    "score": item["score"],
+                    "total": item["total"],
+                    "normalized": item["score"] / item["total"] if item["total"] > 0 else 0
+                } for item in tool] for tool_name, tool in tools.items()
+            }
+        }
 
     @property
     def metrics(self) -> Dict[str, Callable[[List[ToolPrediction], List[ToolEvaluationData]], float]]:
-        return {"EM": lambda outputs, targets: len([1 for o, t in zip(outputs, targets) if o == t]) / min(len(outputs), len(targets))}
+        return {
+            "score": self.metric,
+        }
 
     def get_data(self) -> Dataset[ToolEvaluationData, ToolEvaluationData]:
         ret = Dataset()
@@ -140,10 +248,10 @@ class ToolExecution(Task[int, str]):
             break
         else:
             return result
-        
+
         if result.choosing not in [tool_usage["tool"] for tool_usage in data_item.tool_usage]:
             return result
-        
+
         for _ in range(0, 3):
             try:
                 if self.max_stage < 2:
@@ -158,7 +266,7 @@ class ToolExecution(Task[int, str]):
             break
         else:
             return result
-        
+
         flag = False
         for tool_usage in data_item.tool_usage:
             if tool_usage["tool"] == result.choosing and tool_usage == result.calling:
@@ -167,7 +275,7 @@ class ToolExecution(Task[int, str]):
         if not flag:
             # result.calling = None
             return result
-        
+
         for _ in range(0, 3):
             try:
                 if self.max_stage < 3:
@@ -222,7 +330,7 @@ class ToolExecution(Task[int, str]):
             return True
 
         return False
-    
+
     def tool_calling(self, result: ToolPrediction) -> bool:
         """ 
         Input: session, tool, target_parameters
@@ -256,7 +364,7 @@ class ToolExecution(Task[int, str]):
 
         result.calling = ret
         return True
-    
+
     def reasoning(self, result: ToolPrediction) -> bool:
         """ 
         Input: session, target_reasoning

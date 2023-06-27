@@ -32,7 +32,7 @@ def parse_args():
 
 
 def find_all_task_files(all_task_config_path) -> List[str]:
-    print(type(all_task_config_path), all_task_config_path)
+    # print(type(all_task_config_path), all_task_config_path)
     tasks = []
     for task in all_task_config_path:
         if isdir(task):

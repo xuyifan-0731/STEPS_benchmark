@@ -76,6 +76,9 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
         self.output_root_dir = None
         assert isinstance(self.workers, int) and self.workers > 0
         assert isinstance(self.name, str)
+        if kwargs:
+            for key in kwargs:
+                print(f"Warning: Unknown argument '{key}' for the task.")
 
     def evaluate(self, agent: Agent) -> Dict[str, float]:
         print(f"Evaluating task '{self.name}' ...")

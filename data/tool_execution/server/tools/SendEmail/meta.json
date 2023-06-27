@@ -1,0 +1,50 @@
+{
+    "name": "SendEmail",
+    "description": "This tool sends an given email to given receivers",
+    "parameters": [
+        {
+            "name": "username",
+            "type": "str",
+            "description": "User's username."
+        },
+        {
+            "name": "password",
+            "type": "str",
+            "description": "User's password."
+        },
+        {
+            "name": "receiver",
+            "type": "str",
+            "description": "The email addresses of receivers. If there are multiple receivers, use \";\" to separate their addresses."
+        },
+        {
+            "name": "cc",
+            "type": "str",
+            "description": "The email addresses of the CC objects, if there are multiple CC objects, use \";\" to separate their addresses. Can be empty (null), indicating no cc."
+        },
+        {
+            "name": "subject",
+            "type": "str",
+            "description": "The subject of the email."
+        },
+        {
+            "name": "content",
+            "type": "str",
+            "description": "The content of the email."
+        }
+    ],
+    "return": "success or failure",
+    "example": [
+        {
+            "input": {
+                "username": "JohnDoe",
+                "password": "pass123",
+                "receiver": "john@example.com",
+                "cc": null,
+                "subject": "Meeting Reminder",
+                "content": "Don't forget our meeting tomorrow at 2pm."
+            },
+            "output": "The email has been sent successfully."
+        }
+    ]
+}
