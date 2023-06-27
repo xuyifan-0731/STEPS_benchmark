@@ -11,12 +11,12 @@ import argparse
 import requests
 
 
-class ExampleTask(Task[str, int]):
-    def __init__(self, name=None, workers=1, count=100, range_min=0, range_max=100):
-        super().__init__(name, workers)
-        self.count = count
-        self.range_min = range_min
-        self.range_max = range_max
+class ExampleTask(Task[str, str, int]):
+    def __init__(self, **configs):
+        self.count = configs.pop("count", 10)
+        self.range_min = configs.pop("range_min", 0)
+        self.range_max = configs.pop("range_max", 100)
+        super().__init__(**configs)
 
     def get_data(self) -> Dataset[str, int]:
         data = Dataset()
