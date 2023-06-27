@@ -1,7 +1,9 @@
 from __future__ import annotations
 from dataclass_wizard import YAMLWizard
 from dataclasses import dataclass, field
-
+from typing import List, Dict, Any, Optional, Union, Tuple, Callable, Type, TypeVar
+from src.agent import Agent
+from src.task import Task
 
 @dataclass
 class YAMLConfig(YAMLWizard):
@@ -14,6 +16,6 @@ class YAMLConfig(YAMLWizard):
         return getattr(mod, self.module.split(".")[-1])(**self.parameters)
 
     @classmethod
-    def create_from_yaml(cls, yaml_path: str):
+    def create_from_yaml(cls, yaml_path: str) -> Union[Agent, Task]:
         config = cls.from_yaml_file(yaml_path)
         return config.create()

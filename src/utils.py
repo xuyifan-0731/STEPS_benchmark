@@ -1,7 +1,26 @@
+import pprint
+import requests
+import random
+import logging
+import json
 import torch
 import torch.distributed as dist
 
-#from SwissArmyTransformer import mpu, get_tokenizer
+# from SwissArmyTransformer import mpu, get_tokenizer
+
+
+def serialize(obj):
+    """
+        dump into json, including only basic types, list types and dict types. If other types are included, they will be converted into string.
+    """
+    if isinstance(obj, (int, float, str, bool, type(None))):
+        return obj
+    elif isinstance(obj, list):
+        return [serialize(item) for item in obj]
+    elif isinstance(obj, dict):
+        return {str(key): serialize(obj[key]) for key in obj}
+    else:
+        return str(obj)
 
 
 def print_rank_0(*args, **kwargs):
@@ -32,6 +51,7 @@ def build_data_loader(dataset, micro_batch_size, num_workers, drop_last, collate
 
     return data_loader
 
+
 '''
 def gather_result(prediction, total_length, micro_batch_size):
     """
@@ -53,6 +73,7 @@ def gather_result(prediction, total_length, micro_batch_size):
     return prediction
 '''
 
+
 def get_tokenized_input(item, key):
     if key in item:
         return item[key]
@@ -67,18 +88,13 @@ def get_tokenized_input(item, key):
     else:
         return tokenizer.tokenize(item[pretokenized_key])
 
+
 """
 Server Side Events (SSE) client for Python.
 Provides a generator of SSE received through an existing HTTP response.
 """
-import json
 # Copyright (C) 2016-2017 SignalFx, Inc. All rights reserved.
 
-import logging
-import random
-
-import requests
-import pprint
 
 __author__ = "Maxime Petazzoni <maxime.petazzoni@bulix.org>"
 __email__ = "maxime.petazzoni@bulix.org"
@@ -86,6 +102,7 @@ __copyright__ = "Copyright (C) 2016-2017 SignalFx, Inc. All rights reserved."
 __all__ = ["SSEClient"]
 
 _FIELD_SEPARATOR = ":"
+
 
 class SSEClient(object):
     """Implementation of a SSE client.
