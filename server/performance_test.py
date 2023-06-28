@@ -9,7 +9,7 @@ def request(_):
             "messages": [
                 {"role": "user", "content": "Hello!"},
                 {"role": "assistant", "content": "Hi."},
-                {"role": "assistant", "content": "Introduce yourself"}
+                {"role": "user", "content": "Introduce yourself"}
             ]
         })
 

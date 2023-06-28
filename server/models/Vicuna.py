@@ -4,7 +4,7 @@ from typing import Iterable, List, Dict
 import torch
 from transformers import LogitsProcessorList, TemperatureLogitsWarper, AutoTokenizer, AutoModelForCausalLM
 
-from .Entry import ModelServerEntry
+from Entry import ModelServerEntry
 
 
 def is_partial_stop(output, stop_str):
@@ -16,7 +16,7 @@ def is_partial_stop(output, stop_str):
 
 
 def prepare_logits_processor(
-    temperature: float
+        temperature: float
 ) -> LogitsProcessorList:
     processor_list = LogitsProcessorList()
     # TemperatureLogitsWarper doesn't accept 0.0, 1.0 makes it a no-op so we skip two cases.
@@ -26,7 +26,7 @@ def prepare_logits_processor(
 
 
 def generate_stream(
-    model, tokenizer, params, device, context_len=2048, stream_interval=2
+        model, tokenizer, params, device, context_len=2048, stream_interval=2
 ):
     prompt = params["prompt"]
     len_prompt = len(prompt)
@@ -217,7 +217,7 @@ class VicunaEntry(ModelServerEntry):
 
     def get_prompt(self, batch: List[List[Dict[str, str]]]) -> str:
         seps = [" ", "</s>"]
-        system = "A chat between a curious user and an artificial intelligence assistant. "\
+        system = "A chat between a curious user and an artificial intelligence assistant. " \
                  "The assistant gives helpful, detailed, and polite answers to the user's questions."
         ret = system + seps[0]
         history = batch[0]
@@ -229,6 +229,7 @@ class VicunaEntry(ModelServerEntry):
                 ret += role + ": " + message + seps[i % 2]
             else:
                 ret += role + ":"
+        ret += "ASSISTANT:"
         return ret
 
     def activate(self, device: str) -> None:
@@ -249,3 +250,13 @@ class VicunaEntry(ModelServerEntry):
         gc.collect()
         torch.cuda.empty_cache()
         print("model and tokenizer cleared")
+
+
+if __name__ == '__main__':
+    entry = VicunaEntry("/workspace/xuyifan/checkpoints/vicuna/7B")
+    entry.activate("cuda:1")
+    print(entry.inference([[
+        {"role": "user", "content": "Hello!"},
+        {"role": "assistant", "content": "Hi."},
+        {"role": "user", "content": "Introduce yourself"}
+    ]], 0.3))

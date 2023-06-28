@@ -86,8 +86,7 @@ class ModelManager:
         else:
             model = self.entry_class(**self.params)
         model.activate(device)
-        model = dill.dumps(model)
-        p = mp.Process(target=process, args=(self.batched_queue, model))
+        p = mp.Process(target=process, args=(self.batched_queue, dill.dumps(model)))
         p.start()
         with self.lock:
             self.entities[device] = (model, p)
