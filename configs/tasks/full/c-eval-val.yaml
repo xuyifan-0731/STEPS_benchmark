@@ -1,4 +1,4 @@
-module: src.tasks.SingleRoundTask
+module: src.tasks.single_round_tasks.SingleRoundTask
 parameters:
   file-pattern:
     basic_medicine: "**/basic_medicine_prompt.jsonl"

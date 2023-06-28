@@ -60,7 +60,6 @@ class SingleRoundTask(Task[str, str, str]):
                 
                 # second stage: extract answer
                 extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
-                print("check_example: ", extract_inputs[0])
                 results = self.predict_all(agent, extract_inputs)
                 for data, result in zip(dataset.data, results):
                     data["prediction"] = result
@@ -111,15 +110,16 @@ class SingleRoundTask(Task[str, str, str]):
 
     def save_prediction_to_file(self, file, data, agent_name):
         file = ".".join(file.split(".")[:-1])
-        filename = os.path.join("outputs", self.config.name, agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
+        filename = os.path.join(self.output_dir, self.config.name, agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with jsonlines.open(filename, "w") as file:
             for output_data in data:
                 file.write(output_data)
+            file.close()
     
     def save_evaluation_to_file(self, file, res_dict, agent_name):
         file = ".".join(file.split(".")[:-1])
-        filename = os.path.join("outputs", self.config.name, agent_name, "evaluation", f"{agent_name}.{file}.evaluate.json")
+        filename = os.path.join(self.output_dir, self.config.name, agent_name, "evaluation", f"{agent_name}.{file}.evaluate.json")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename, "w", encoding="utf-8") as f:
             f.write(json.dumps(res_dict, indent=2))

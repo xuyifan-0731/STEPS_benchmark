@@ -12,7 +12,7 @@ import torch
 from typing import List, Union
 from abc import ABC, abstractmethod
 
-from .configs import BaseConfig, GenerationTaskConfig
+from .configs import BaseConfig
 from .prompt import create_prompt_generator
 
 from copy import deepcopy
@@ -39,13 +39,6 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
             
         if self.config.shot > 0:
             self.few_shot(self.config.shot)
-
-    @property
-    def has_collate_fn(self) -> bool:
-        return False
-
-    def collate_fn(self, samples):
-        return None
     
     def few_shot(self, shots):
         assert shots < self.__len__(), "number of shots should lower than size of your dataset"
@@ -86,7 +79,7 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
 
 
 class GenerationTaskDataset(EvaluationDataset):
-    config: GenerationTaskConfig
+    config: BaseConfig
     def create_prompt(self, template: str, values: dict) -> str:
         keys = re.findall(r"{(.*?)}", template)
         for key in keys:
@@ -120,10 +113,6 @@ class GenerationTaskDataset(EvaluationDataset):
     def construct_extract_prompt(self, item):
         prompt_generate = create_prompt_generator("EXT", self.config.language)
         return prompt_generate.generate_prompt(item)
-
-    @property
-    def has_collate_fn(self) -> bool:
-        return False
 
     def __getitem__(self, idx):
         item = self.data[idx]

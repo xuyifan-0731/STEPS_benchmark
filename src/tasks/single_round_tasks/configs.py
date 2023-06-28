@@ -4,22 +4,13 @@ from dataclass_wizard import JSONSerializable, property_wizard
 from enum import Enum
 from typing import Optional, List, Dict
 
-
-class TaskType(Enum):
-    MULTICHOICE = "mul"
-    GENERATION = "gen"
-    LANGUAGE_MODEL = "lm"
-    OTHER = "other"
-
-
 @dataclass
 class BaseConfig(JSONSerializable, metaclass=property_wizard):
     name: str  # Task name
     path: str  # task data path relative to DATA_PATH
 
-    type: Optional[str] = None
     module: Optional[str] = None  # Custom task module file, optional
-    metrics: List[str] = field(default_factory=list)  # Evaluation metrics
+    metrics: List[str] = field(default_factory=lambda: ["ACC", "BLEU", "ROUGE"])  # Evaluation metrics
     save_prediction: bool = True
     save_evaluation: bool = True
     file_pattern: str | Dict[str, str] = "**/*.json*"  # Organize data file in groups
@@ -30,29 +21,4 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
     max_length: int = 512 # 2048 words
     language: str = "en"
 
-    cot: Optional[str] = None
-
-    company: Optional[str] = None
-    model_name: Optional[str] = None
-
     acc_type: str = "EM" # MUL MATHQA EM
-
-    #def __post_init__(self):
-        #pass
-
-
-@dataclass
-class MultiChoiceTaskConfig(BaseConfig):
-    module = "evaluation.MultiChoiceTask"
-    metrics: List[str] = field(default_factory=lambda: ["ACC"])
-
-
-@dataclass
-class GenerationTaskConfig(BaseConfig):
-    module = "evaluation.GenerationTask"
-    metrics: List[str] = field(default_factory=lambda: ["ACC", "BLEU", "ROUGE"])
-
-@dataclass
-class LanguageModelTaskConfig(BaseConfig):
-    module = "evaluation.LanguageModelTask"
-    metrics: List[str] = field(default_factory=lambda: ["PPL"])
