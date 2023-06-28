@@ -1,0 +1,10 @@
+module: src.tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    gsm8k_cn: "**/gsm8k_cn.jsonl"
+  language: cn
+  name: gsm8k_cn_zero_shot_cot
+  path: data/full/gsm8k_cn
+  shot: 0
+  workers: 6
+  acc_type: MATHQA

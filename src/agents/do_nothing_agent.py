@@ -22,4 +22,4 @@ class DoNothingAgent(Agent):
     def inference(self, history: List[dict]) -> str:
         if self.sleep:
             time.sleep(self.sleep)
-        return ""
+        return "AAAAA"

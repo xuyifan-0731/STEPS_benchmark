@@ -16,9 +16,9 @@ from src.tasks.single_round_tasks.dataset import GenerationTaskDataset
 from src.tasks.single_round_tasks.metrics import DEFAULT_METRICS
 
 
-class SingleRoundTask(Task[str, int]):
+class SingleRoundTask(Task[str, str, str]):
     def __init__(self, **kwargs):
-        super().__init__(kwargs.get("name"), kwargs.get("workers", 1))
+        super().__init__(**kwargs)
         self.config = BaseConfig.from_dict(kwargs)
         self.file_groups = self.get_file_groups()
 
@@ -51,11 +51,22 @@ class SingleRoundTask(Task[str, int]):
             for file in filelist:
                 dataset = self.build_dataset(file) 
                 prediction = [""] * len(dataset)        
-                inputs = [piece[0]["text"] for piece in dataset]
-                results = self.predict_all(agent, inputs)
+                inputs = [piece["text"] for piece in dataset]
+                raw_results = self.predict_all(agent, inputs)
+
+                # first stage: get model predictions
+                for data, raw_result in zip(dataset.data, raw_results):
+                    data["raw_answer"] = raw_result
+                
+                # second stage: extract answer
+                extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
+                print("check_example: ", extract_inputs[0])
+                results = self.predict_all(agent, extract_inputs)
+                for data, result in zip(dataset.data, results):
+                    data["prediction"] = result
                 
                 if self.config.save_prediction: # first save and evaluate 
-                    self.save_prediction_to_file(file, results, dataset.data, agent.name)
+                    self.save_prediction_to_file(file, dataset.data, agent.name)
                 
                 try:
                     ## evaluation
@@ -98,14 +109,12 @@ class SingleRoundTask(Task[str, int]):
     def build_dataset(self, relative_path):
         return GenerationTaskDataset(os.path.join(self.config.path, relative_path), self.config)
 
-    def save_prediction_to_file(self, file, prediction, data, agent_name):
+    def save_prediction_to_file(self, file, data, agent_name):
         file = ".".join(file.split(".")[:-1])
         filename = os.path.join("outputs", self.config.name, agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with jsonlines.open(filename, "w") as file:
-            for item, org_data in zip(prediction, data):
-                output_data = org_data[0]
-                output_data["prediction"] = item
+            for output_data in data:
                 file.write(output_data)
     
     def save_evaluation_to_file(self, file, res_dict, agent_name):

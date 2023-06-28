@@ -96,16 +96,11 @@ class GenerationTaskDataset(EvaluationDataset):
 
     def process_single_item(self, item, **kwargs):
         instruction = item.get("instruction", "")
-        item["cot"] = self.config.cot
         if item.get("label") in self.label_list:
             self.label = item.get("label")
-            id_ = item.get("id") # save id
             prompt_generate = create_prompt_generator(item.get("label"), self.config.language)
             input = prompt_generate.generate_prompt(item)
             targets = prompt_generate.get_answer(item)
-            if self.label == "MUL" or self.label == "NLI":
-                choices = item.get("choices", None)
-                return [{"id": id_, "text": instruction + input, "targets": targets, "choices":choices, **kwargs}]
         else:
             input = item.get("input")
             if item.get("targets"):
@@ -115,14 +110,16 @@ class GenerationTaskDataset(EvaluationDataset):
             assert not (item.get("targets") and item.get("answer")),'targets and answer should not be in dataset simultaneously. Chose one of these as your answer.'
             if self.config.prompt is not None:
                 input = self.create_prompt(self.config.prompt, item)
-            cot = item.get("cot", None)
-            if cot == "default":
-                input += self.prompt_template.math_cot_prompt[self.language]
-            elif cot:
-                input += cot
         assert input is not None, "Error: question or input does not exist, check your jsonl key"
         input = self.cut_exceed_length(input)
-        return [{"text": instruction + input, "targets": targets, **kwargs}]
+        processed_doc = {"text": instruction + input, "targets": targets, **kwargs}
+        if item.get("choices", None) is not None:
+            processed_doc.update({"choices": item.get("choices")})
+        return processed_doc
+
+    def construct_extract_prompt(self, item):
+        prompt_generate = create_prompt_generator("EXT", self.config.language)
+        return prompt_generate.generate_prompt(item)
 
     @property
     def has_collate_fn(self) -> bool:

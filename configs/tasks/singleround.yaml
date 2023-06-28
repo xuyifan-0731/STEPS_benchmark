@@ -1,9 +1,12 @@
-module: "src.tasks.SingleRoundTask"
+module: src.tasks.SingleRoundTask
 parameters:
-    name: "Example SingleRound Evaluation"
-    path: "data"
-    language: "en"
-    shot: 0
-    file-pattern:
-        bbh_test1:  "**/bbh/boolean_expressions.jsonl"
-        bbh_test2:  "**/bbh/causal_judgement.jsonl"
+  file-pattern:
+    math/ape_210k_en: '**/math/ape_210k_en.jsonl'
+    math/math_qa: '**/math/math_qa.jsonl'
+    math/NumGLUE-Type1: '**/math/NumGLUE-Type1.jsonl'
+    inference/logic/boolean_expressions: '**/inference/logic/boolean_expressions.jsonl'
+  language: en
+  name: singleround_test
+  path: data/step1_en/data
+  workers: 5
+  acc_type: EM

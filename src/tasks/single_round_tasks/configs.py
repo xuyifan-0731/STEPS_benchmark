@@ -35,6 +35,8 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
     company: Optional[str] = None
     model_name: Optional[str] = None
 
+    acc_type: str = "EM" # MUL MATHQA EM
+
     #def __post_init__(self):
         #pass
 

@@ -81,7 +81,13 @@ class EnglishPromptTemplate(PromptTemplate):
     def sum_instruction_before_article(self):
         return "TL;DR: \n"
 
+    def mul_extract_prompt(self, question, answer, len):
+        start_choice = "A"
+        end_choice = chr(65+(len-1)%26)
+        return f"Question: {question} \nAnswer: {answer} \nAmong {start_choice} to {end_choice}, the answer is "
 
+    def qa_extract_prompt(self, question, answer):
+        return f"Question: {question} \nAnswer: {answer} \nTherefore, the answer is "
 
 
 class ChinesePromptTemplate(PromptTemplate):
@@ -108,6 +114,14 @@ class ChinesePromptTemplate(PromptTemplate):
 
     def sum_instruction_before_article(self):
         return "请总结以上文章的内容： \n"
+    
+    def mul_extract_prompt(self, question, answer, len):
+        start_choice = "A"
+        end_choice = chr(65+(len-1)%26)
+        return f"问题：{question}\n回答： {answer}\n在 {start_choice} 到 {end_choice} 这几个选项中，正确答案是"
+
+    def qa_extract_prompt(self, question, answer):
+        return f"问题：{question}\n回答： {answer}\n因此，正确答案是"
 
 
 
@@ -218,6 +232,22 @@ class NLIPromptGenerate(PromptGenerate):
     # Implement the specific prompt generation for NLI
     # ...
 
+class ExtractGenerate(PromptGenerate):
+    def __init__(self, prompt_template):
+        super().__init__("EXT", prompt_template)
+
+    def generate_prompt(self, item):
+        question = item.get("text", None)
+        answer = item.get("raw_answer", None)
+        assert(question is not None)
+        assert(answer is not None)
+        choices = item.get("choices", None)
+        if choices is None:
+            return self.prompt_template.qa_extract_prompt(question, answer)
+        else:
+            return self.prompt_template.mul_extract_prompt(question, answer, len(choices))
+        
+
 def create_prompt_generator(prompt_label, language):
     # Map the language to corresponding PromptTemplate
     language_template_map = {
@@ -230,7 +260,8 @@ def create_prompt_generator(prompt_label, language):
         "QA": QAPromptGenerate,
         "SUM": SUMPromptGenerate,
         "MUL": MULPromptGenerate,
-        "NLI": MULPromptGenerate
+        "NLI": MULPromptGenerate,
+        "EXT": ExtractGenerate,
     }
 
     assert language in language_template_map, "Unsupported language"
