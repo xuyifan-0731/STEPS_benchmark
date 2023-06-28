@@ -1,9 +1,11 @@
+from typing import Callable
+
 from Interaction import Container
 import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBTask(Task):
+class DBTask(Task[dict, (str, str), str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
@@ -56,7 +58,7 @@ COMMIT;
 """
         return sql
 
-    def predict_single(self, session: Session, data_item: dict) -> str:
+    def predict_single(self, session: Session, data_item: dict) -> (str, str):
         entry = data_item
         container = self.container
         init = self.build_sql(entry)
@@ -96,4 +98,30 @@ COMMIT;
             # md5 = entry["answer_md5"]
             answer = container.execute(md5_query, db)
         container.execute(f"drop database `{db}`")
-        return answer
+        return str(answer), entry["type"][0]
+
+    def metrics(self) -> dict[str, Callable[[list[(str, str)], list[str]], float]]:
+        def factory(typ):
+            def acc(inp: list[(str, str)], tar: list[str]) -> float:
+                correct = 0
+                total = 0
+                for (ans, t), cor in zip(inp, tar):
+                    if t != typ:
+                        continue
+                    if t in ("INSERT", "DELETE", "UPDATE"):
+                        correct += ans == t
+                    else:
+                        correct += set(eval(ans)) == set(eval(t))
+                    total += 1
+                return correct / total
+
+            return acc
+
+        types = ['other', 'counting', 'comparison', 'ranking', 'aggregation-SUM', 'aggregation-MIN', 'aggregation-MAX',
+                 'aggregation-AVG', 'INSERT', 'DELETE', 'UPDATE']
+
+        ret = {}
+        for typ in types:
+            ret[typ + "_accuracy"] = factory(typ)
+
+        return ret
