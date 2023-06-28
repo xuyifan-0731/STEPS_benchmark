@@ -1,8 +1,9 @@
 import multiprocessing as mp
 import time
+import dill
 from typing import List, Dict, Any, Callable
 
-from server.models import ModelServerEntry
+from .models import *
 
 """
 
@@ -31,23 +32,32 @@ class ModelServerError(ValueError):
     pass
 
 
+def process(queue, dic, key):
+    model = dill.loads(dic[key])
+    while True:
+        data, temperature, callback = queue.get()
+        result = model.inference(data, temperature)
+        callback.send(result[0])
+
+
 class ModelManager:
-    def __init__(self, entry_class: type[ModelServerEntry]) -> None:
+    def __init__(self, entry_class: type[ModelServerEntry], params: [dict | list]) -> None:
+        self.params = params
         self.entry_class = entry_class
         self.lock = mp.Lock()
         self.entities = {}
-        self.queue = mp.Queue()
-
-    def process(self, entry: ModelServerEntry):
-        while True:
-            data, temperature, callback = self.queue.get()
-            result = entry.inference(data, temperature)
-            callback(result)
+        self.queue = mp.SimpleQueue()
+        self.manager = mp.Manager()
+        self.shared_dict = self.manager.dict()
 
     def add(self, device: str):
-        model = self.entry_class()
+        if type(self.params) is list:
+            model = self.entry_class(*self.params)
+        else:
+            model = self.entry_class(**self.params)
         model.activate(device)
-        p = mp.Process(target=self.process, args=(model,))
+        self.shared_dict[device] = dill.dumps(model)
+        p = mp.Process(target=process, args=(self.queue, self.shared_dict, device))
         p.start()
         with self.lock:
             self.entities[device] = (model, p)
@@ -59,15 +69,15 @@ class ModelManager:
         with self.lock:
             del self.entities[device]
 
-    def enqueue(self, data: list[dict[str, str]], temperature: float, callback: Callable[[str], None]):
-        self.queue.put((data, temperature, callback))
+    def enqueue(self, data: list[dict[str, str]], temperature: float, callback):
+        self.queue.put(([data], temperature, callback))
 
 
 class ModelServer:
-    def __init__(self, models: Dict[str, type[ModelServerEntry]], available_devices: List[str]) -> None:
+    def __init__(self, models: Dict[str, Dict[str, str]], available_devices: List[str]) -> None:
         self.active = False
         self.lock = mp.Lock()
-        self.models: dict[str, type[ModelServerEntry]] = models
+        self.models = models
         self.model_devices: dict[str, list] = {}
         self.devices: dict[str, [str]] = {device: None for device in available_devices}
         self.managers = {}
@@ -84,7 +94,7 @@ class ModelServer:
             if model_name not in self.managers:
                 if model_name not in self.models:
                     raise ModelServerError("Model not found")
-                manager = ModelManager(self.models[model_name])
+                manager = ModelManager(eval(self.models[model_name]["name"]), self.models[model_name]["params"])
                 self.managers[model_name] = manager
             else:
                 manager = self.managers[model_name]
