@@ -38,26 +38,93 @@ pip install -r requirements.txt
 
 In this step, you will need to configure two YAML files:
 
-- `tasks/task.yaml`: this is used to set up your evaluation task.
-- `agents/model.yaml`: this is used to specify your model's configuration.
+-   `configs/tasks/<filename>.yaml`: this is used to set up your evaluation task.
+-   `configs/agents/<filename>.yaml`: this is used to specify your model's configuration.
+
+In each YAML file, you will need to specify the following:
+
+```yaml
+module: "module.path.to.class" # the class that will be used to instantiate your model or task, for example, "src.agents.DoNothingAgent"
+parameters: # the parameters that will be passed to your model or task's constructor
+    key_1: "value_1"
+    key_2: "value_2"
+```
 
 ### 3. Place data files
 
-You should place your data files according to the data paths specified in your `tasks/task.yaml` file. Make sure the data is correctly placed so it can be accessed by the program.
+You should place your data files according to the data paths specified in your `configs/tasks/<task_name>.yaml` file. Make sure the data is correctly placed so it can be accessed by the program.
 
 ### 4. Run the evaluation script
 
 Now, you can run the `evaluate.py` script with the following command:
 
 ```
-python evaluate.py --task tasks/<your task yaml file> --agent agents/<your model yaml file>
+python evaluate.py --task configs/tasks/<your task yaml file> --agent configs/agents/<your model yaml file>
 ```
 
 Replace `<your task yaml file>` and `<your model yaml file>` with your specific YAML files.
 
 This command will evaluate your model on your specified task, and the results will be saved in the output directory.
 
+For example, just try:
+
+```
+python evaluate.py --task configs/tasks/example.yaml --agent configs/agents/do_nothing.yaml
+```
+
 ### 5. Check the results
 
 The evaluation and prediction results will be stored in the `output/` directory. Check this directory to view your model's performance.
 
+## How to add you own tasks?
+
+### 1. Create a new task class
+
+First, you need to create a new task class. This class should inherit from the `Task` class in `src/task.py`.
+
+You can create a file `src/tasks/own_task.py` to override the following methods:
+
+```python
+class YourOwnTask(Task):
+    def __init__(self, **config): # Change the constructor parameters if necessary
+        super().__init__()
+
+    @property
+    def metrics(self): # Change the metrics if necessary
+        return {"EM": lambda outputs, targets: len([1 for o, t in zip(outputs, targets) if o == t]) / min(len(outputs), len(targets))}
+
+    def get_data(self): # Change the data loading process
+        raise NotImplementedError
+
+    def predict_single(self, session, data_item): # Change the prediction process
+        raise NotImplementedError
+```
+
+And then, add the following code to the `src/tasks/__init__.py` file:
+
+```python
+from .own_task import YourOwnTask
+```
+
+### 2. Create a new task YAML file
+
+Next, you need to create a new YAML file to configure your task. You can create a file `configs/taskso/wn_task.yaml` to specify your task's configuration:
+
+```yaml
+module: "src.tasks.YourOwnTask"
+parameters: # the parameters in YourOwnTask's constructor
+    key: value
+    key2: value2
+```
+
+### 3. Run the evaluation script
+
+Now, you can run the `evaluate.py` script with the following command:
+
+```
+python evaluate.py --task configs/tasks/wn_task.yaml --agent configs/agents/<your model yaml file>
+```
+
+### 4. Suggestions
+
+-   Suggestions for the data path if needed: `data/<task_name>/*.jsonl`.

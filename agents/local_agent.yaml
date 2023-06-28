@@ -1,4 +1,0 @@
-module: "evaluation.agent.LocalAgent"
-parameters:
-  url: "http://localhost:29998"
-  temperature: 0.9
