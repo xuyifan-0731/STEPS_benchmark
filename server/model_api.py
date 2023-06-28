@@ -167,9 +167,11 @@ def call(model_server_name):
             nonlocal queue
             queue.put(result_)
 
-        server.register(model_server_name, messages, temperature, callback)
+        main_conn, sub_conn = mp.Pipe()
 
-        ret = queue.get()
+        server.register(model_server_name, messages, temperature, sub_conn)
+
+        ret = main_conn.recv()
         log("call-result", result=ret)
         return jsonify({"status": 0, "result": ret})
     except ModelServerError as e:
@@ -203,17 +205,12 @@ def load_config_entries(root_dir):
 
 
 if __name__ == '__main__':
+    mp.set_start_method("spawn")
     entries = {}
     entries.update(load_config_entries("./configs"))
-    entries["dolly-v2-12b"] = DollyEntry("/workspace/xuyifan/checkpoints/dolly-v2-12b")
-    entries["oasst-sft-4-pythia-12b"] = OssatEntry("/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5")
-    entries["koala-13B-HF"] = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
-    entries["chatglm_6b_v2"] = ChatGLMEntry("/workspace/xuyifan/chatglm-6b-v2")
-    entries["vicuna-7b"] = VicunaEntry("/workspace/xuyifan/checkpoints/vicuna/7B")
-    entries["moss-moon-003-sft"] = MossEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
-    server = ModelServer({
-        **entries
-    }, ["cuda:%d" % i for i in range(8)])
+    with open("config.json") as f:
+        models = json.load(f)
+    server = ModelServer(models, ["cuda:%d" % i for i in range(8)])
     app.run(host="0.0.0.0", port=9998, debug=False, threaded=True)
 
 """ 
