@@ -4,7 +4,7 @@ from typing import Iterable, List, Dict
 import torch
 from transformers import LogitsProcessorList, TemperatureLogitsWarper, AutoTokenizer, AutoModelForCausalLM
 
-from Entry import ModelServerEntry
+from .Entry import ModelServerEntry
 
 
 def is_partial_stop(output, stop_str):

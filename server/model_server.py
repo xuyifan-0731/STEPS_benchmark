@@ -34,10 +34,12 @@ class ModelServerError(ValueError):
     pass
 
 
-def process(queue, model):
+def process(queue, model, expected_q_length: mp.Value, signal: mp.Event):
     model = dill.loads(model)
     while True:
         batch = queue.get()
+        if queue.qsize() < expected_q_length.value:   # this number can be further optimized
+            signal.set()
         data, temperature, conns = list(zip(*batch))
         print("batch size", len(data))
         try:
@@ -49,8 +51,10 @@ def process(queue, model):
             conn.send(r)
 
 
-def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int):
+def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int, signal: mp.Event):
     while True:
+        signal.wait()   # avoid running too quickly and making too much small batches; instead, wait for models
+        signal.clear()
         tmp = [queue_in.get()]  # block until not empty
         while not queue_in.empty():
             tmp.append(queue_in.get_nowait())
@@ -75,9 +79,10 @@ class ModelManager:
         self.entities = {}
         self.queue = mp.Queue()
         self.batched_queue = mp.Queue()
-        self.manager = mp.Manager()
-        self.shared_dict = self.manager.dict()
-        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 4))
+        self.batching_signal = mp.Event()
+        self.batching_signal.set()
+        self.entity_num = mp.Value("i", 0)
+        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 4, self.batching_signal))
         self.batcher.start()
 
     def add(self, device: str):
@@ -86,10 +91,12 @@ class ModelManager:
         else:
             model = self.entry_class(**self.params)
         model.activate(device)
-        p = mp.Process(target=process, args=(self.batched_queue, dill.dumps(model)))
+        p = mp.Process(target=process, args=(self.batched_queue, dill.dumps(model),
+                                             self.entity_num, self.batching_signal))
         p.start()
         with self.lock:
             self.entities[device] = (model, p)
+            self.entity_num.value = len(self.entities)
 
     def remove(self, device: str = None):
         model, p = self.entities[device]
@@ -97,6 +104,7 @@ class ModelManager:
         model.deactivate()
         with self.lock:
             del self.entities[device]
+            self.entity_num.value = len(self.entities)
 
     def enqueue(self, data: list[dict[str, str]], temperature: float, conn):
         if temperature is None:
