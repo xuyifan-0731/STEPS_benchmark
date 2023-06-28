@@ -1,7 +1,9 @@
 import multiprocessing as mp
 import time
+import traceback
+from typing import List, Dict, Any
+
 import dill
-from typing import List, Dict, Any, Callable
 
 from .models import *
 
@@ -32,12 +34,37 @@ class ModelServerError(ValueError):
     pass
 
 
-def process(queue, dic, key):
-    model = dill.loads(dic[key])
+def process(queue, model):
+    model = dill.loads(model)
     while True:
-        data, temperature, callback = queue.get()
-        result = model.inference(data, temperature)
-        callback.send(result[0])
+        batch = queue.get()
+        data, temperature, conns = list(zip(*batch))
+        print("batch size", len(data))
+        try:
+            result = model.inference(data, temperature[0])
+        except Exception:
+            traceback.print_exc()
+            result = [None]
+        for conn, r in zip(conns, result):
+            conn.send(r)
+
+
+def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int):
+    while True:
+        tmp = [queue_in.get()]  # block until not empty
+        while not queue_in.empty():
+            tmp.append(queue_in.get_nowait())
+        tmp.sort(key=lambda x: x[1])    # sorut by temperature
+        t = tmp[0][1]
+        batch = []
+        for i in tmp:
+            if i[1] == t and len(batch) < batch_size:
+                batch.append(i)
+            else:
+                queue_out.put(batch)
+                batch = [i]
+                t = i[1]
+        queue_out.put(batch)
 
 
 class ModelManager:
@@ -46,9 +73,12 @@ class ModelManager:
         self.entry_class = entry_class
         self.lock = mp.Lock()
         self.entities = {}
-        self.queue = mp.SimpleQueue()
+        self.queue = mp.Queue()
+        self.batched_queue = mp.Queue()
         self.manager = mp.Manager()
         self.shared_dict = self.manager.dict()
+        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 4))
+        self.batcher.start()
 
     def add(self, device: str):
         if type(self.params) is list:
@@ -56,8 +86,8 @@ class ModelManager:
         else:
             model = self.entry_class(**self.params)
         model.activate(device)
-        self.shared_dict[device] = dill.dumps(model)
-        p = mp.Process(target=process, args=(self.queue, self.shared_dict, device))
+        model = dill.dumps(model)
+        p = mp.Process(target=process, args=(self.batched_queue, model))
         p.start()
         with self.lock:
             self.entities[device] = (model, p)
@@ -69,8 +99,11 @@ class ModelManager:
         with self.lock:
             del self.entities[device]
 
-    def enqueue(self, data: list[dict[str, str]], temperature: float, callback):
-        self.queue.put(([data], temperature, callback))
+    def enqueue(self, data: list[dict[str, str]], temperature: float, conn):
+        if temperature is None:
+            temperature = 0.7
+        self.queue.put((data, temperature, conn))
+        print(self.queue.qsize())
 
 
 class ModelServer:
@@ -82,10 +115,11 @@ class ModelServer:
         self.devices: dict[str, [str]] = {device: None for device in available_devices}
         self.managers = {}
 
-    def find_device(self) -> str:
+    def find_device(self, model_name: str) -> str:
         with self.lock:
             for device in self.devices:
                 if not self.devices[device]:
+                    self.devices[device] = model_name
                     return device
             raise ModelServerError("All devices occupied")
 
@@ -98,10 +132,9 @@ class ModelServer:
                 self.managers[model_name] = manager
             else:
                 manager = self.managers[model_name]
-        device = self.find_device()
+        device = self.find_device(model_name)
         manager.add(device)
         with self.lock:
-            self.devices[device] = model_name
             self.model_devices.setdefault(model_name, []).append(device)
 
     def remove(self, model_name: str) -> None:
