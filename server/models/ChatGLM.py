@@ -3,7 +3,7 @@ from typing import List, Dict
 import torch
 from transformers import AutoTokenizer, AutoModel
 
-from Entry import ModelServerEntry
+from .Entry import ModelServerEntry
 
 
 class ChatGLMEntry(ModelServerEntry):
