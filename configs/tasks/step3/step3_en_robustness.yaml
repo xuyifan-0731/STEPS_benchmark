@@ -1,0 +1,17 @@
+module: tasks.step3_en.robustness_task.RobustnessTask
+parameters:
+  file-pattern:
+    robustness.ai2_arcARC-Easy: '**/robustness/ai2_arcARC-Easy/*.jsonl'
+    robustness.cnn_dailymail3.0.0: '**/robustness/cnn_dailymail3.0.0/*.jsonl'
+    robustness.commonsense_qa: '**/robustness/commonsense_qa/*.jsonl'
+    robustness.imdb: '**/robustness/imdb/*.jsonl'
+    robustness.math_qa: '**/robustness/math_qa/*.jsonl'
+    robustness.multi_nli: '**/robustness/multi_nli/*.jsonl'
+    robustness.nq_open: '**/robustness/nq_open/*.jsonl'
+    robustness.piqa: '**/robustness/piqa/*.jsonl'
+    robustness.wiki_qa: '**/robustness/wiki_qa/*.jsonl'
+  language: cn
+  module: tasks.step3_en.robustness_task.RobustnessTask
+  name: step3_en
+  path: data/step3_en/data
+  prompt: '{question} Answer:'
