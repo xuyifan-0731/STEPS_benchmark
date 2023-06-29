@@ -3,7 +3,7 @@ from typing import List, Dict
 import torch
 from transformers import AutoTokenizer, AutoModel
 
-from .Entry import ModelServerEntry
+from Entry import ModelServerEntry
 
 
 class ChatGLMEntry(ModelServerEntry):
@@ -40,13 +40,16 @@ class ChatGLMEntry(ModelServerEntry):
                     history[-1] += entry["content"]
                 else:
                     history.append(entry["content"])
-                    expecting = "user" if expecting == "assistant" else "user"
+                    expecting = "user" if expecting == "assistant" else "assistant"
             history_paired = [(history[i], history[i + 1]) for i in range(0, len(history) - 1, 2)]
 
             prompt = ""
             for i, (old_query, response) in enumerate(history_paired):
                 prompt += "[Round {}]\n\n问：{}\n\n答：{}\n\n".format(i + 1, old_query, response)
-            prompt += "[Round {}]\n\n问：{}\n\n答：".format(len(history) + 1, history[-1])
+            if text[-1]["role"] == "user":
+                prompt += "[Round {}]\n\n问：{}\n\n答：".format(len(history_paired) + 1, history[-1])
+            else:
+                prompt = prompt.strip()  # remove /n/n at the end
             ret.append(prompt)
         return self.tokenizer(ret, padding=True, return_tensors="pt").to(self.model.device)
 
