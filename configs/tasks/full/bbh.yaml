@@ -53,9 +53,9 @@ parameters:
     operating_system: "**/operating_system_prompt.jsonl"
     chinese_language_and_literature: "**/chinese_language_and_literature_prompt.jsonl"
     law: "**/law_prompt.jsonl"
-  language: cn
-  name: c_eval_test_zero_shot
-  path: data/full/c-eval_test_zero_shot
+  language: en
+  name: bbh_few_shot_cot
+  path: data/full/BBH_en_few_shot_cot
   shot: 0
-  workers: 30
+  workers: 25
   acc_type: MUL

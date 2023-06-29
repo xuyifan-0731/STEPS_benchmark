@@ -245,8 +245,7 @@ class ExtractGenerate(PromptGenerate):
         if choices is None:
             return self.prompt_template.qa_extract_prompt(question, answer)
         else:
-            return self.prompt_template.mul_extract_prompt(question, answer, len(choices))
-        
+            return self.prompt_template.mul_extract_prompt(question, answer, len(choices))        
 
 def create_prompt_generator(prompt_label, language):
     # Map the language to corresponding PromptTemplate

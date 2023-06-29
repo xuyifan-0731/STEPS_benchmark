@@ -7,6 +7,7 @@ import jsonlines
 import random
 
 import numpy as np
+from pandas._config import config
 import torch
 
 from typing import List, Union
@@ -87,6 +88,17 @@ class GenerationTaskDataset(EvaluationDataset):
                 template = template.replace("{" + key + "}", str(values[key]))
         return template
 
+    def add_cot_prefix(self, text: str, cot_mode: str) -> str:
+        if cot_mode == "default":
+            if self.config.language == "en":
+                return text.strip() + " Let's think step by step."
+            elif self.config.language == "cn":
+                return text.strip() + " 让我们一步一步给出思考过程。"
+            else:
+                raise NotImplementedError("unsupported language {lan}".format(lan=self.config.language))
+        else:
+            return text.strip() + " " + cot_mode
+
     def process_single_item(self, item, **kwargs):
         instruction = item.get("instruction", "")
         if item.get("label") in self.label_list:
@@ -104,6 +116,8 @@ class GenerationTaskDataset(EvaluationDataset):
             if self.config.prompt is not None:
                 input = self.create_prompt(self.config.prompt, item)
         assert input is not None, "Error: question or input does not exist, check your jsonl key"
+        if self.config.cot is not None:
+            input = self.add_cot_prefix(input, self.config.cot)
         input = self.cut_exceed_length(input)
         processed_doc = {"text": instruction + input, "targets": targets, **kwargs}
         if item.get("choices", None) is not None:

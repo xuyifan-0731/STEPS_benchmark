@@ -17,6 +17,7 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
 
     workers: int = 1
     prompt: str = None
+    cot: str = None
     shot: int = 0
     max_length: int = 512 # 2048 words
     language: str = "en"
