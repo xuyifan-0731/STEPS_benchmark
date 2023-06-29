@@ -123,5 +123,6 @@ COMMIT;
         ret = {}
         for typ in types:
             ret[typ + "_accuracy"] = factory(typ)
+        ret["all"] = factory(None)
 
         return ret
