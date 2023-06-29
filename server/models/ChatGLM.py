@@ -14,7 +14,8 @@ class ChatGLMEntry(ModelServerEntry):
         self.model_path = model_path
 
     def activate(self, device: str) -> None:
-        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True, device=device).eval()
+        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True, device=device,
+                                          torch_dtype=torch.bfloat16).eval()
         tokenizer = AutoTokenizer.from_pretrained(self.model_path, trust_remote_code=True)
         self.model = model
         self.tokenizer = tokenizer
