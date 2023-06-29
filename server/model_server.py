@@ -82,7 +82,7 @@ class ModelManager:
         self.batching_signal = mp.Event()
         self.batching_signal.set()
         self.entity_num = mp.Value("i", 0)
-        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 4, self.batching_signal))
+        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 8, self.batching_signal))
         self.batcher.start()
 
     def add(self, device: str):
