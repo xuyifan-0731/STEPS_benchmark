@@ -1,0 +1,26 @@
+{
+    "name": "QueryAlarm",
+    "description": "This API finds all the alarm clocks that the user has set.",
+    "parameters": [
+        {
+            "name": "username",
+            "type": "str",
+            "description": "Username of the user's device"
+        },
+        {
+            "name": "password",
+            "type": "str",
+            "description": "Password of the user's device"
+        }
+    ],
+    "return": "All alarms that have been set by the user",
+    "example": [
+        {
+            "input": {
+                "username": "JohnDoe",
+                "password": "pass123"
+            },
+            "output": "You have set the following alarms: \n2023-03-16 07:00:00 \n2023-03-18 19:00:00 \n"
+        }
+    ]
+}

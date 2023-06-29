@@ -1,0 +1,14 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    humanities: "**/humanities/*.jsonl"
+    stem: "**/stem/*.jsonl"
+    social_sciences: "**/social_sciences/*.jsonl"
+    other: "**/other/*.jsonl"
+  language: en
+  name: mmlu_zero_shot_cot
+  path: data/full/mmlu-zero-shot
+  shot: 0
+  workers: 30
+  acc_type: MUL
+  cot: default
