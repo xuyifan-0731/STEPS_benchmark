@@ -111,8 +111,6 @@ def check_correctness(
 
             except TimeoutException:
                 result.append("timed out")
-
-            shutil.rmtree(tmp_dir)
         elif "js" in language_type.lower():
             import os
             import shutil
@@ -150,8 +148,6 @@ def check_correctness(
 
             except TimeoutException:
                 result.append("timed out")
-
-            shutil.rmtree(tmp_dir)
         elif "cpp" in language_type.lower():
             import os
             import shutil
@@ -208,8 +204,6 @@ def check_correctness(
                         result.append(f"failed: {err}")
                 except TimeoutException:
                     result.append("timed out")
-
-            shutil.rmtree(tmp_dir)
 
         elif "java" in language_type.lower():
             assert tmp_dir is not None, "Java should be evaluated in a temporary dir."
@@ -270,8 +264,6 @@ def check_correctness(
                 except BaseException as e:
                     res = f"failed: {e}"
             result.append(res)
-
-            shutil.rmtree(tmp_dir)
 
     manager = multiprocessing.Manager()
     result = manager.list()

@@ -5,6 +5,7 @@ from typing import *
 from tqdm.auto import tqdm
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import shutil
 
 from .utils import IMPORT_HELPER
 from .metric import estimate_pass_at_k
@@ -72,7 +73,7 @@ def process_humaneval_test(sample):
 
 def evaluate_functional_correctness(
         samples,
-        tmp_dir: str = "./",
+        tmp_dir: str = "src/tasks/coding/env",
         n_workers: int = 32,
         timeout: float = 500.0,
         k: List[int] = [1, 10, 100],
@@ -84,13 +85,14 @@ def evaluate_functional_correctness(
         n_samples = 0
         results = defaultdict(list)
 
+        os.makedirs(os.path.join(tmp_dir, 'tmp'), exist_ok=True)
         print("Reading samples...")
         for sample in tqdm(samples):
             task_id = sample["task_id"]
             lang = task_id.split("/")[0].lower()
             if lang == "javascript":
                 lang = "js"
-            tmp_dir_ = os.path.join(tmp_dir, lang, "evaluation")
+            # tmp_dir_ = os.path.join(tmp_dir, lang, "evaluation")
             sample["task_id"] = task_id
             sample["test_code"] = process_humaneval_test(sample)
             if sample["test_code"] is None:
@@ -99,7 +101,7 @@ def evaluate_functional_correctness(
                 completion_id_ = sample["completion_id"]
             else:
                 completion_id_ = completion_id[task_id]
-            args = (task_id, sample, lang, timeout, tmp_dir_, completion_id_)
+            args = (task_id, sample, lang, timeout, tmp_dir, completion_id_)
             future = executor.submit(check_correctness, *args)
             futures.append(future)
             completion_id[task_id] += 1
@@ -111,6 +113,7 @@ def evaluate_functional_correctness(
         for future in tqdm(as_completed(futures), total=len(futures)):
             result = future.result()
             results[result["task_id"]].append((result["completion_id"], result))
+        shutil.rmtree(os.path.join(tmp_dir, 'tmp'))
 
     # Calculate pass@k.
     total, correct = [], []

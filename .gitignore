@@ -2,3 +2,5 @@ __pycache__
 %*
 .idea
 .vscode
+src/tasks/coding/env/vendor
+logs
