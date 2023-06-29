@@ -57,5 +57,5 @@ parameters:
   name: bbh_few_shot_cot
   path: data/full/BBH_en_few_shot_cot
   shot: 0
-  workers: 25
-  acc_type: MUL
+  workers: 30
+  acc_type: EM

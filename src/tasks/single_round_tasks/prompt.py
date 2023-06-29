@@ -209,19 +209,27 @@ class MULPromptGenerate(PromptGenerate):
         if isinstance(answer, int):
             if answer < 0:
                 answer = len(item.get("choices")) + answer
-            return [item.get("choices")[answer], number_to_uppercase_word(answer)]
+            return [number_to_uppercase_word(answer)]
         if isinstance(answer, str):
+            letter_set = [chr(65+i) for i in range(len(item.get("choices", None)))] # legal choices
+            if answer in letter_set:
+                return [answer]
             assert answer in item.get("choices"), "The answer should be one of the choices"
-            return [answer, number_to_uppercase_word(item.get("choices").index(answer))]
+            return [number_to_uppercase_word(item.get("choices").index(answer))]
         if isinstance(answer, list):
             answer_list = []
             for answer_int in answer:
                 if isinstance(answer_int, str):
-                    answer_list.append(answer_int)
+                    letter_set = [chr(65+i) for i in range(len(item.get("choices", None)))] # legal choices
+                    if answer in letter_set:
+                        answer_list.append(answer)
+                    elif answer in item.get("choices"):
+                        answer_list.append(number_to_uppercase_word(item.get("choices").index(answer_int)))
+                    else:
+                        raise("invalid targets: should be legal capital letter or one of the choices")
                 else:
                     if answer_int < 0:
                         answer_int = len(item.get("choices")) + answer_int
-                    answer_list.append(item.get("choices")[answer_int])
                     answer_list.append(number_to_uppercase_word(answer_int))
             return answer_list
 

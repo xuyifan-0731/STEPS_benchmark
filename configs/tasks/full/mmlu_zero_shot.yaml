@@ -6,8 +6,9 @@ parameters:
     social_sciences: "**/social_sciences/*.jsonl"
     other: "**/other/*.jsonl"
   language: en
-  name: mmlu_zero_shot
+  name: mmlu_zero_shot_cot
   path: data/full/mmlu-zero-shot
   shot: 0
-  workers: 6
+  workers: 30
   acc_type: MUL
+  cot: default
