@@ -2,8 +2,10 @@ import datetime
 import json
 import os
 import multiprocessing as mp
+import argparse
 
 import flask
+import torch.cuda
 from flask import request, jsonify, abort
 
 from models import *
@@ -210,8 +212,16 @@ if __name__ == '__main__':
     entries.update(load_config_entries("./configs"))
     with open("config.json") as f:
         models = json.load(f)
-    server = ModelServer(models, ["cuda:%d" % i for i in range(8)])
-    app.run(host="0.0.0.0", port=9999, debug=False, threaded=True)
+    server = ModelServer(models, ["cuda:%d" % i for i in range(torch.cuda.device_count())])
+    parse = argparse.ArgumentParser()
+    parse.add_argument("--port", type=int, default=9999)
+    parse.add_argument("--model", type=str, default="")
+    parse.add_argument("--device", action="extend", nargs="+", type=str, default=[])
+    args = parse.parse_args()
+    if args.model:
+        for d in args.device:   # could be further optimized with mp
+            server.add(args.model, d)
+    app.run(host="0.0.0.0", port=args.port, debug=False, threaded=True)
 
 """ 
 

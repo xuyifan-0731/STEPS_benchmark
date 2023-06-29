@@ -130,7 +130,7 @@ class ModelServer:
                     return device
             raise ModelServerError("All devices occupied")
 
-    def add(self, model_name: str) -> None:
+    def add(self, model_name: str, device: str = None) -> None:
         with self.lock:
             if model_name not in self.managers:
                 if model_name not in self.models:
@@ -139,7 +139,11 @@ class ModelServer:
                 self.managers[model_name] = manager
             else:
                 manager = self.managers[model_name]
-        device = self.find_device(model_name)
+        if not device:
+            device = self.find_device(model_name)
+        else:
+            with self.lock:
+                self.devices[device] = model_name
         manager.add(device)
         with self.lock:
             self.model_devices.setdefault(model_name, []).append(device)
