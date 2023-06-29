@@ -69,7 +69,11 @@ This command will evaluate your model on your specified task, and the results wi
 For example, just try:
 
 ```
-python evaluate.py --task configs/tasks/example.yaml --agent configs/agents/do_nothing.yaml
+python evaluate.py \
+    --task \
+        configs/tasks/example.yaml \
+        configs/tasks/singleround.yaml \
+    --agent configs/agents/do_nothing.yaml
 ```
 
 ### 5. Check the results
