@@ -152,7 +152,7 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
         return os.path.join(self.output_root_dir, self.name or self.category or "default")
 
     @property
-    def metrics(self) -> Dict[str, Callable[[List[T_OUTPUT], List[T_TARGET]], float]]:
+    def metrics(self) -> Dict[str, Callable[[List[T_OUTPUT], List[T_TARGET]], Any]]:
         return {"EM": lambda outputs, targets: len([1 for o, t in zip(outputs, targets) if o == t]) / min(len(outputs), len(targets))}
 
     def get_data(self) -> Dataset[T_INPUT, T_TARGET]:
