@@ -1,4 +1,0 @@
-module: "src.agents.ChatGLM_6b_v2"
-parameters:
-  name: "ChatGLM_6b_v2"
-  url: "http://166.111.5.162:39999/api/v1/chatglm_6b_v2/call"
