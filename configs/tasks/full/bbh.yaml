@@ -58,4 +58,6 @@ parameters:
   path: data/full/BBH_en_few_shot_cot
   shot: 0
   workers: 30
-  acc_type: EM
+  acc_type: RE
+  extract_answer: False
+  extract_template: (?<=the answer is ).*

@@ -155,6 +155,10 @@ class PromptGenerate:
 
     def get_answer(self, item):
         answer = item.get("answer")
+        if isinstance(answer, int):
+            answer = str(answer)
+        elif isinstance(answer, list):
+            answer = [str(ans) for ans in answer]
         assert answer is not None, "Answer missing"
         return answer
 
@@ -221,12 +225,12 @@ class MULPromptGenerate(PromptGenerate):
             for answer_int in answer:
                 if isinstance(answer_int, str):
                     letter_set = [chr(65+i) for i in range(len(item.get("choices", None)))] # legal choices
-                    if answer in letter_set:
-                        answer_list.append(answer)
-                    elif answer in item.get("choices"):
+                    if answer_int in letter_set:
+                        answer_list.append(answer_int)
+                    elif answer_int in item.get("choices"):
                         answer_list.append(number_to_uppercase_word(item.get("choices").index(answer_int)))
                     else:
-                        raise("invalid targets: should be legal capital letter or one of the choices")
+                        raise Exception("invalid targets: should be legal capital letter or one of the choices")
                 else:
                     if answer_int < 0:
                         answer_int = len(item.get("choices")) + answer_int

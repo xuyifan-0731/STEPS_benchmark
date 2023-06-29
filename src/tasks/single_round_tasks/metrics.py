@@ -151,6 +151,17 @@ def find_first_number(prediction):
     else:
         return ""
 
+def re_extract_last_sentence(prediction, re_extractor):
+    prediction = prediction.strip().lower()
+    prediction = prediction.split("\n")[0]
+    prediction = prediction.split(".")[0]
+    match = re.search(re_extractor, prediction)
+    if match:
+        answer = match.group(0)
+    else:
+        answer = ""
+    return answer
+
 def acc_for_multi_choices(predictions, ground_truths, config=None):
     '''
     calculate accuracy for multi choices 
@@ -221,6 +232,26 @@ def acc_for_general_short_cloze(predictions, ground_truths, config=None):
         
     return acc / tt
 
+def acc_for_re_extraction(predictions, ground_truths, config=None):
+    '''
+    calculate accuracy for general short cloze: Exact Match
+    '''
+    extract_template = re.compile(config.extract_template)
+    acc = 0
+    tt = len(predictions)
+    if tt == 0:
+        return 0
+    for prediction, ground_truth in zip(predictions, ground_truths):
+        normal_prediction = re_extract_last_sentence(prediction, extract_template)
+        if not normal_prediction:
+            normal_prediction = prediction
+        for exact_answer in ground_truth['targets']:
+            if normal_prediction == exact_answer.strip().lower():
+                acc += 1
+                break
+        
+    return acc / tt
+
 def acc(predictions, ground_truths, config):
     '''
     calculate accuracy for multi-choices and short-cloze
@@ -229,7 +260,8 @@ def acc(predictions, ground_truths, config):
     acc_metrics = {
         "MUL": acc_for_multi_choices,
         "MATHQA": acc_for_math_short_cloze,
-        "EM": acc_for_general_short_cloze
+        "EM": acc_for_general_short_cloze,
+        "RE": acc_for_re_extraction,
     }
     acc_type = config.acc_type
     if acc_type not in acc_metrics:
@@ -290,7 +322,7 @@ DEFAULT_METRICS = {
 
 if __name__ == "__main__":
 
-    data_file = "/data/share/leixy/STEPS_benchmark/outputs/gsm8k_en_zero_shot_cot/ChatGLM_6b_v2/prediction/ChatGLM_6b_v2.gsm8k_en.predict.jsonl"
-    save_file = "test.json"
-    evaluate_file(data_file, save_file, metrics=["ACC"])
-
+    pattern = "(?<=the answer is ).*"
+    extract_template = re.compile(pattern)
+    text = "sdajsdal sdjai sdk therefore, the answer is (A))d, \nis it right?"
+    print(re_extract_last_sentence(text, extract_template))

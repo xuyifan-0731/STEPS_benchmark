@@ -49,20 +49,21 @@ class SingleRoundTask(Task[str, str, str]):
 
             result_dict_group = {}
             for file in filelist:
-                dataset = self.build_dataset(file) 
-                prediction = [""] * len(dataset)        
+                dataset = self.build_dataset(file)         
                 inputs = [piece["text"] for piece in dataset]
                 raw_results = self.predict_all(agent, inputs)
 
                 # first stage: get model predictions
                 for data, raw_result in zip(dataset.data, raw_results):
                     data["raw_answer"] = raw_result
+                    data["prediction"] = raw_result
                 
                 # second stage: extract answer
-                extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
-                results = self.predict_all(agent, extract_inputs)
-                for data, result in zip(dataset.data, results):
-                    data["prediction"] = result
+                if self.config.extract_answer == True:
+                    extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
+                    results = self.predict_all(agent, extract_inputs)
+                    for data, result in zip(dataset.data, results):
+                        data["prediction"] = result
                 
                 if self.config.save_prediction: # first save and evaluate 
                     self.save_prediction_to_file(file, dataset.data, agent.name)
@@ -70,8 +71,9 @@ class SingleRoundTask(Task[str, str, str]):
                 try:
                     ## evaluation
                     result_dict = {}
+                    predictions = [dat["prediction"] for dat in dataset.data]
                     for key, metric in self.metrics.items():
-                        metric_result = metric(prediction, dataset.data, self.config)
+                        metric_result = metric(predictions, dataset.data, self.config)
                         if isinstance(metric_result,dict):
                             for sub_key, sub_metric in metric_result.items():
                                 result_dict[sub_key] = sub_metric
@@ -134,12 +136,6 @@ class SingleRoundTask(Task[str, str, str]):
         with open(filename, "w", encoding="utf-8") as f:
             f.write(json.dumps(results_all, cls=JsonEncoder, indent=2))
             f.close()
-
-    def report_single_metrics(self, file: str, result_dict: Dict[str, float]):
-        output_str = f"        Finish {file}"
-        for key, value in result_dict.items():
-            output_str += f", {key} = {value:.3f}"
-        print_rank_0(output_str)
 
     def report_single_metrics(self, file: str, result_dict: Dict[str, float]):
         output_str = f"        Finish {file}"

@@ -22,4 +22,6 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
     max_length: int = 512 # 2048 words
     language: str = "en"
 
-    acc_type: str = "EM" # MUL MATHQA EM
+    acc_type: str = "EM" # MUL MATHQA EM RE
+    extract_answer: bool = True # whether to perform second stage
+    extract_template: str = None # to extract answer only valid when choose acc_type == RE
