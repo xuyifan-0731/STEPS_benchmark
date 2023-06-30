@@ -47,6 +47,7 @@ def find_all_task_files(all_task_config_path) -> List[str]:
 def evaluate_all_tasks(tasks: List[Task], agent: Agent):
     for task in tasks:
         task.evaluate(agent)
+        del task
 
 
 def main():
