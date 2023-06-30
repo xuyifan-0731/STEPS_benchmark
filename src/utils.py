@@ -22,7 +22,7 @@ class JsonEncoder(json.JSONEncoder):
             return super(JsonEncoder, self).default(obj)
 
 
-def serialize(obj, max_depth=3):
+def serialize(obj, max_depth=5):
     """
         dump into json, including only basic types, list types and dict types. If other types are included, they will be converted into string.
     """
@@ -34,8 +34,10 @@ def serialize(obj, max_depth=3):
         return [serialize(item, max_depth-1) for item in obj]
     elif isinstance(obj, dict):
         return {str(key): serialize(obj[key], max_depth-1) for key in obj}
-    else:
+    elif hasattr(obj, '__dict__'):
         return serialize(obj.__dict__, max_depth)
+    else:
+        return str(obj)
 
 
 def print_rank_0(*args, **kwargs):
