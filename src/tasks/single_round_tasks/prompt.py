@@ -155,10 +155,6 @@ class PromptGenerate:
 
     def get_answer(self, item):
         answer = item.get("answer")
-        if isinstance(answer, int):
-            answer = str(answer)
-        elif isinstance(answer, list):
-            answer = [str(ans) for ans in answer]
         assert answer is not None, "Answer missing"
         return answer
 

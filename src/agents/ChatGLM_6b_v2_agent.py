@@ -17,6 +17,7 @@ class ChatGLM_6b_v2(Agent):
         super().__init__(name)
         self.url = url
         self.parameters = kwargs
+        self.timeout = kwargs.pop("timeout", 60)
 
     def inference(self, history: List[dict]) -> str:
         headers = {
@@ -26,7 +27,7 @@ class ChatGLM_6b_v2(Agent):
         resp = requests.post(self.url, json={
             "messages": history,
             **self.parameters
-        }, headers=headers)
+        }, headers=headers, timeout=self.timeout)
         if resp.status_code != 200:
             raise Exception(f"Invalid status code {resp.status_code}:\n\n{resp.text}")
         try:
