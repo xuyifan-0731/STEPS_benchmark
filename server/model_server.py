@@ -34,8 +34,12 @@ class ModelServerError(ValueError):
     pass
 
 
-def process(queue, model, expected_q_length: mp.Value, signal: mp.Event):
-    model = dill.loads(model)
+def process(queue, entry_class: type(ModelServerEntry), params, device, expected_q_length: mp.Value, signal: mp.Event):
+    if type(params) is list:
+        model = entry_class(*params)
+    else:
+        model = entry_class(**params)
+    model.activate(device)
     while True:
         batch = queue.get()
         if queue.qsize() < expected_q_length.value:   # this number can be further optimized
@@ -58,7 +62,7 @@ def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int, signal:
         tmp = [queue_in.get()]  # block until not empty
         while not queue_in.empty():
             tmp.append(queue_in.get_nowait())
-        tmp.sort(key=lambda x: x[1])    # sorut by temperature
+        tmp.sort(key=lambda x: x[1])    # sort by temperature
         t = tmp[0][1]
         batch = []
         for i in tmp:
@@ -86,16 +90,11 @@ class ModelManager:
         self.batcher.start()
 
     def add(self, device: str):
-        if type(self.params) is list:
-            model = self.entry_class(*self.params)
-        else:
-            model = self.entry_class(**self.params)
-        model.activate(device)
-        p = mp.Process(target=process, args=(self.batched_queue, dill.dumps(model),
+        p = mp.Process(target=process, args=(self.batched_queue, self.entry_class, self.params, device,
                                              self.entity_num, self.batching_signal))
         p.start()
         with self.lock:
-            self.entities[device] = (model, p)
+            self.entities[device] = p
             self.entity_num.value = len(self.entities)
 
     def remove(self, device: str = None):
@@ -110,6 +109,8 @@ class ModelManager:
         if temperature is None:
             temperature = 0.7
         self.queue.put((data, temperature, conn))
+        if self.batched_queue.qsize() < len(self.entities):
+            self.batching_signal.set()
         print(self.queue.qsize())
 
 
