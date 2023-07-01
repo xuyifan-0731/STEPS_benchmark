@@ -2,11 +2,10 @@ import requests
 from rouge import Rouge
 import os
 
-# TODO: change this into official implementation
 
 def api(params: dict):
     params['api_key'] = os.environ['SERPAPI_KEY']
-    res = requests.get(url='http://40.74.217.35:10003/search.json', params=params)
+    res = requests.get(url='https://serpapi.com/search.json', params=params)
     if res.status_code == 200:
         return res.json()
     else:
