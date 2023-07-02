@@ -1,0 +1,7 @@
+module: "src.tasks.CompositeTask"
+parameters:
+    name: "Resourcefulness"
+    workers: 5
+    tasks:
+        - src: "./example.yaml"
+          category: "example"
