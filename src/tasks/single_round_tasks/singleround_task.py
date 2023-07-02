@@ -109,7 +109,8 @@ class SingleRoundTask(Task[str, str, str]):
         self.save_overall_results(result_dict_all, cal_results, agent.name)
 
         print_rank_0(f"Finish task {self.config.name} in {time.time() - start:.1f}s.")
-        return cal_results
+        # return cal_results
+        # TODO: change this into a json object (only containing basic types, list, or dict, with no numpy types)
 
     def build_dataset(self, relative_path):
         return GenerationTaskDataset(os.path.join(self.config.path, relative_path), self.config)
