@@ -114,7 +114,8 @@ class ToolExecution(Task[ToolEvaluationData, ToolPrediction, ToolEvaluationData]
                 assert tool_usage["tool"] in self.tool_pool
         super().__init__(**kwargs)
 
-    def __del__(self):
+    def release(self):
+        # print("> Kill Server")
         self.tool_server_process.kill()
 
     def metric(self, prediction: List[ToolPrediction], target: List[ToolEvaluationData]):

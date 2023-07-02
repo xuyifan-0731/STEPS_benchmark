@@ -47,6 +47,7 @@ def find_all_task_files(all_task_config_path) -> List[str]:
 def evaluate_all_tasks(tasks: List[Task], agent: Agent):
     for task in tasks:
         task.evaluate(agent)
+        task.release()
         del task
 
 
@@ -90,7 +91,7 @@ def main():
 
     start = time.time()
     evaluate_all_tasks(tasks, agent)
-    print_rank_0(f"Finish {len(tasks)} task{'s' if len(tasks) > 1 else ''} in {time.time() - start:.1f}s")
+    print_rank_0(f"> Finish {len(tasks)} task{'s' if len(tasks) > 1 else ''} in {time.time() - start:.1f}s")
 
 
 if __name__ == "__main__":

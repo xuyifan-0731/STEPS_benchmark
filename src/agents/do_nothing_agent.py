@@ -15,8 +15,8 @@ import requests
 class DoNothingAgent(Agent):
     """This agent is a test agent, which does nothing. (return empty string for each action)"""
 
-    def __init__(self, name=None, sleep=None) -> None:
-        super().__init__(name)
+    def __init__(self, sleep=None, **kwargs) -> None:
+        super().__init__(**kwargs)
         self.sleep = sleep
 
     def inference(self, history: List[dict]) -> str:

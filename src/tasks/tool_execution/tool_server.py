@@ -132,6 +132,12 @@ class ToolServer:
             time.sleep(request_interval)
 
 
+def _run_server(tool_server: ToolServer):
+    sys.stdout = open(os.devnull, 'w')
+    sys.stderr = open(os.devnull, 'w')
+    tool_server.run()
+
+
 def create_server_process(tool_root_dir, host, port):
     # tool_root_dir = 'data/tool_execution/server'
     tools = []
@@ -142,7 +148,7 @@ def create_server_process(tool_root_dir, host, port):
     tool_server = ToolServer(tools, host, port)
     # print(">", "Finish Tool Server")
 
-    p = multiprocessing.Process(target=tool_server.run)
+    p = multiprocessing.Process(target=_run_server, args=(tool_server,))
     p.start()
     tool_server.wait_for_ready()
     return p

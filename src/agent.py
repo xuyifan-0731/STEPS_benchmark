@@ -46,8 +46,11 @@ class Session:
 
 
 class Agent:
-    def __init__(self, name=None) -> None:
-        self.name = name
+    def __init__(self, **configs) -> None:
+        self.name = configs.pop("name", None)
+        self.src = configs.pop("src", None)
+        for key in configs:
+            print(f"Warning: Unknown argument '{key}' for the agent.")
         pass
 
     def create_session(self) -> Session:
