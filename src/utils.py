@@ -1,7 +1,43 @@
+import pprint
+import requests
+import random
+import logging
+import json
 import torch
 import torch.distributed as dist
+import numpy as np
 
-#from SwissArmyTransformer import mpu, get_tokenizer
+# from SwissArmyTransformer import mpu, get_tokenizer
+
+
+class JsonEncoder(json.JSONEncoder):
+    """Convert numpy classes to JSON serializable objects."""
+
+    def default(self, obj):
+        if isinstance(obj, (np.integer, np.floating, np.bool_)):
+            return obj.item()
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        else:
+            return super(JsonEncoder, self).default(obj)
+
+
+def serialize(obj, max_depth=5):
+    """
+        dump into json, including only basic types, list types and dict types. If other types are included, they will be converted into string.
+    """
+    if max_depth <= 0:
+        return str(obj)
+    if isinstance(obj, (int, float, str, bool, type(None))):
+        return obj
+    elif isinstance(obj, list):
+        return [serialize(item, max_depth-1) for item in obj]
+    elif isinstance(obj, dict):
+        return {str(key): serialize(obj[key], max_depth-1) for key in obj}
+    elif hasattr(obj, '__dict__'):
+        return serialize(obj.__dict__, max_depth)
+    else:
+        return str(obj)
 
 
 def print_rank_0(*args, **kwargs):
@@ -32,6 +68,7 @@ def build_data_loader(dataset, micro_batch_size, num_workers, drop_last, collate
 
     return data_loader
 
+
 '''
 def gather_result(prediction, total_length, micro_batch_size):
     """
@@ -53,6 +90,7 @@ def gather_result(prediction, total_length, micro_batch_size):
     return prediction
 '''
 
+
 def get_tokenized_input(item, key):
     if key in item:
         return item[key]
@@ -67,18 +105,13 @@ def get_tokenized_input(item, key):
     else:
         return tokenizer.tokenize(item[pretokenized_key])
 
+
 """
 Server Side Events (SSE) client for Python.
 Provides a generator of SSE received through an existing HTTP response.
 """
-import json
 # Copyright (C) 2016-2017 SignalFx, Inc. All rights reserved.
 
-import logging
-import random
-
-import requests
-import pprint
 
 __author__ = "Maxime Petazzoni <maxime.petazzoni@bulix.org>"
 __email__ = "maxime.petazzoni@bulix.org"
@@ -86,6 +119,7 @@ __copyright__ = "Copyright (C) 2016-2017 SignalFx, Inc. All rights reserved."
 __all__ = ["SSEClient"]
 
 _FIELD_SEPARATOR = ":"
+
 
 class SSEClient(object):
     """Implementation of a SSE client.

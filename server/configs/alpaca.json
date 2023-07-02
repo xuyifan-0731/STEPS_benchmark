@@ -1,0 +1,10 @@
+{
+    "model_path": "/workspace/xuyifan/checkpoints/stanford_alpaca",
+    "model_name": "alpaca-7B",
+    "init_prompt": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\r\n\r\n Instruction:\r\nAnswer the following question",
+    "seperator": "\r\n\r\n### ",
+    "user_name": "Input",
+    "assistant_name": "Response",
+    "pad_token_id": 0,
+    "temperature": 0.7
+}

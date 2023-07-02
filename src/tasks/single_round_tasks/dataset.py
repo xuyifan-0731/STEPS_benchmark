@@ -7,12 +7,13 @@ import jsonlines
 import random
 
 import numpy as np
+from pandas._config import config
 import torch
 
 from typing import List, Union
 from abc import ABC, abstractmethod
 
-from .configs import BaseConfig, GenerationTaskConfig
+from .configs import BaseConfig
 from .prompt import create_prompt_generator
 
 from copy import deepcopy
@@ -27,9 +28,8 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
     If [MASK] not in context, will append [MASK] after text
     """
 
-    def __init__(self, path: Union[str, List[str]], model, **config):
+    def __init__(self, path: Union[str, List[str]], config: BaseConfig):
         self.path = path if isinstance(path, list) else [path]
-        self.model = model
         self.config = config
         self.label_list = ["SUM","QA","MUL","NLI"]
         self.label = None
@@ -40,13 +40,6 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
             
         if self.config.shot > 0:
             self.few_shot(self.config.shot)
-
-    @property
-    def has_collate_fn(self) -> bool:
-        return False
-
-    def collate_fn(self, samples):
-        return None
     
     def few_shot(self, shots):
         assert shots < self.__len__(), "number of shots should lower than size of your dataset"
@@ -87,7 +80,7 @@ class EvaluationDataset(torch.utils.data.Dataset, ABC):
 
 
 class GenerationTaskDataset(EvaluationDataset):
-    config: GenerationTaskConfig
+    config: BaseConfig
     def create_prompt(self, template: str, values: dict) -> str:
         keys = re.findall(r"{(.*?)}", template)
         for key in keys:
@@ -95,18 +88,24 @@ class GenerationTaskDataset(EvaluationDataset):
                 template = template.replace("{" + key + "}", str(values[key]))
         return template
 
+    def add_cot_prefix(self, text: str, cot_mode: str) -> str:
+        if cot_mode == "default":
+            if self.config.language == "en":
+                return text.strip() + " Let's think step by step."
+            elif self.config.language == "cn":
+                return text.strip() + " 让我们一步一步给出思考过程。"
+            else:
+                raise NotImplementedError("unsupported language {lan}".format(lan=self.config.language))
+        else:
+            return text.strip() + " " + cot_mode
+
     def process_single_item(self, item, **kwargs):
         instruction = item.get("instruction", "")
-        item["cot"] = self.config.cot
         if item.get("label") in self.label_list:
             self.label = item.get("label")
-            id_ = item.get("id") # save id
             prompt_generate = create_prompt_generator(item.get("label"), self.config.language)
             input = prompt_generate.generate_prompt(item)
             targets = prompt_generate.get_answer(item)
-            if self.label == "MUL" or self.label == "NLI":
-                choices = prompt_generate.get_choices(item)
-                return [{"id": id_, "text": instruction + input, "targets": targets, "choices":choices, **kwargs}]
         else:
             input = item.get("input")
             if item.get("targets"):
@@ -116,18 +115,18 @@ class GenerationTaskDataset(EvaluationDataset):
             assert not (item.get("targets") and item.get("answer")),'targets and answer should not be in dataset simultaneously. Chose one of these as your answer.'
             if self.config.prompt is not None:
                 input = self.create_prompt(self.config.prompt, item)
-            cot = item.get("cot", None)
-            if cot == "default":
-                input += self.prompt_template.math_cot_prompt[self.language]
-            elif cot:
-                input += cot
         assert input is not None, "Error: question or input does not exist, check your jsonl key"
+        if self.config.cot is not None:
+            input = self.add_cot_prefix(input, self.config.cot)
         input = self.cut_exceed_length(input)
-        return [{"text": instruction + input, "targets": targets, **kwargs}]
+        processed_doc = {"text": instruction + input, "targets": targets, **kwargs}
+        if item.get("choices", None) is not None:
+            processed_doc.update({"choices": item.get("choices")})
+        return processed_doc
 
-    @property
-    def has_collate_fn(self) -> bool:
-        return False
+    def construct_extract_prompt(self, item):
+        prompt_generate = create_prompt_generator("EXT", self.config.language)
+        return prompt_generate.generate_prompt(item)
 
     def __getitem__(self, idx):
         item = self.data[idx]

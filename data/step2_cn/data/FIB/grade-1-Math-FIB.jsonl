@@ -1,0 +1,13 @@
+{"question": "正方形纸沿两条对角连线对折,得到的图形是2个同样大小的[]形。", "answer": "三角形", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "个位上是6,十位上是3的数是[]。", "answer": "36", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "18-9=[]+8", "answer": "9", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "把他们三个按风车的数量由少到多排列起来：[]", "answer": "王杰，张萌，李心", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "李心做了[]个风车", "answer": "17", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "老师又送给张萌5个风车，张萌现在有[]个风车", "answer": "14", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "王杰做了[]个风车", "answer": 7.0, "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小红看一本故事书,前天看了6页,昨天看了8页,今天小红应该从[]页开始看", "answer": "15", "original": "6+8=14，应该从第15页开始看。", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "有一盒糖,让小丽吃了9棵糖,还剩21棵。盒里原来有[]棵糖", "answer": "30", "original": "9+21=30（棵）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "池塘里原来有12只鸭,有5只鸭上岸后,池塘里还有[]只鸭", "answer": "7", "original": "12-5=7（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "8在[]的前面。", "answer": "9", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "玲玲的左边有8人,右边有4人,从左边移[]人到玲玲的右边,玲玲就站在正中间", "answer": "2", "original": "移2人（8-2= 4+2）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一年（4）班有47人,还有7人没有检查视力。[]个同学已经检查了视力。", "answer": "40", "original": "47-7= 40（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}

@@ -43,11 +43,14 @@ import datetime
 import argparse
 import requests
 
-from .utils import print_rank_0
+# from .utils import print_rank_0
 # from .model_api import get_model_api
 from .agent import Agent, Session
+from .utils import serialize
+
 
 T_INPUT = TypeVar('T_INPUT')
+T_OUTPUT = TypeVar('T_OUTPUT')
 T_TARGET = TypeVar('T_TARGET')
 
 
@@ -65,15 +68,24 @@ class Dataset(Generic[T_INPUT, T_TARGET], List[DataPiece[T_INPUT, T_TARGET]]):
         return [item.target for item in self]
 
 
-class Task(Generic[T_INPUT, T_TARGET]):
-    def __init__(self, name=None, workers=1):
-        assert isinstance(workers, int)
-        assert workers > 0
-        self.name = name
-        self.workers = workers
+class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
+    def __init__(self, **kwargs):
+        self.name = kwargs.pop("name", None)
+        self.workers = kwargs.pop("workers", 1)
+        self.category = kwargs.pop("category", None)
+        self.src = kwargs.pop("src", None)
+        self.output_root_dir = None
+        assert isinstance(self.workers, int) and self.workers > 0
+        assert isinstance(self.name, str)
+        if kwargs:
+            for key in kwargs:
+                print(f"Warning: Unknown argument '{key}' for the task.")
 
-    def evaluate(self, agent: Agent):
-        print_rank_0(f"Evaluating task '{self.name}' ...")
+    def release(self):
+        pass
+
+    def evaluate(self, agent: Agent) -> Dict[str, Any]:
+        print(f"Evaluating task '{self.name}' ...")
         data = self.get_data()
         inputs = data.get_inputs()
         targets = data.get_targets()
@@ -81,10 +93,11 @@ class Task(Generic[T_INPUT, T_TARGET]):
         result_dict = {}
         for metric in self.metrics:
             result_dict[metric] = self.metrics[metric](results, targets)
-        print_rank_0(f"Task '{self.name}' evaluation results: {result_dict}")
+        print(f"Task '{self.name}' evaluation finished. The results are saved in '{self.get_output_dir()}'")
+        self.save_runs_all(inputs, results, targets, result_dict)
         return result_dict
 
-    def predict_all(self, agent: Agent, inputs: List[T_INPUT]) -> List:
+    def predict_all(self, agent: Agent, inputs: List[T_INPUT]) -> List[T_OUTPUT]:
         print(f"Start Predicting All ...")
 
         executor = ThreadPoolExecutor(self.workers)
@@ -95,6 +108,7 @@ class Task(Generic[T_INPUT, T_TARGET]):
         def call_wrap(data_item, index):
             try:
                 result = self.predict_single(agent.create_session(), data_item)
+                self.save_single(index, data_item, result)
             except:
                 pass
             results[index] = result
@@ -109,12 +123,51 @@ class Task(Generic[T_INPUT, T_TARGET]):
 
         return results
 
+    def save_single(self, index: int, input: T_INPUT, output: T_OUTPUT):
+        save_obj = {
+            "index": index,
+            "input": serialize(input),
+            "output": serialize(output)
+        }
+        if not os.path.exists(self.get_output_dir()):
+            os.makedirs(self.get_output_dir())
+        with open(os.path.join(self.get_output_dir(), "generation.jsonl"), "a", encoding="utf-8") as f:
+            f.write(json.dumps(save_obj) + "\n")
+
+    def save_runs_all(self, inputs: List[T_INPUT], outputs: List[T_OUTPUT], targets: List[T_TARGET], metrics: Dict[str, Any] = None):
+        if not os.path.exists(self.get_output_dir()):
+            os.makedirs(self.get_output_dir())
+        for idx, (input, output, target) in enumerate(zip(inputs, outputs, targets)):
+            save_obj = {
+                "index": idx,
+                "input": serialize(input),
+                "output": serialize(output),
+                "target": serialize(target)
+            }
+            with open(os.path.join(self.get_output_dir(), "runs.jsonl"), "a", encoding="utf-8") as f:
+                f.write(json.dumps(save_obj) + "\n")
+        self.save_metrics_all(metrics)
+
+    def save_metrics_all(self, metrics: Dict[str, Any]):
+        if not os.path.exists(self.get_output_dir()):
+            os.makedirs(self.get_output_dir())
+        with open(os.path.join(self.get_output_dir(), "results.json"), "w", encoding="utf-8") as f:
+            f.write(json.dumps(metrics, indent=4))
+
+    def get_output_dir(self) -> str:
+        """
+            Default output directory is: outputs/{time_str}/{name or category}
+        """
+        if not self.output_root_dir:
+            self.output_root_dir = "outputs/%s" % datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        return os.path.join(self.output_root_dir, self.category or self.name or "default")
+
     @property
-    def metrics(self) -> Dict[str, Callable[[List[T_INPUT], List[T_TARGET]], float]]:
+    def metrics(self) -> Dict[str, Callable[[List[T_OUTPUT], List[T_TARGET]], Any]]:
         return {"EM": lambda outputs, targets: len([1 for o, t in zip(outputs, targets) if o == t]) / min(len(outputs), len(targets))}
 
     def get_data(self) -> Dataset[T_INPUT, T_TARGET]:
         raise NotImplementedError
 
-    def predict_single(self, session: Session, data_item: T_INPUT):
+    def predict_single(self, session: Session, data_item: T_INPUT) -> T_OUTPUT:
         raise NotImplementedError

@@ -1,0 +1,13 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    math/ape_210k_en: '**/math/ape_210k_en.jsonl'
+    math/math_qa: '**/math/math_qa.jsonl'
+    math/NumGLUE-Type1: '**/math/NumGLUE-Type1.jsonl'
+    inference/logic/boolean_expressions: '**/inference/logic/boolean_expressions.jsonl'
+  language: en
+  name: singleround_test
+  path: data/step1_en/data
+  workers: 5
+  acc_type: EM
+  cot: default

@@ -1,0 +1,31 @@
+{
+    "name": "GoogleScolar",
+    "description": "This API sets an alarm for the given time.",
+    "parameters": [
+        {
+            "name": "paper",
+            "type": "str",
+            "description": "The paper to search. (optional)"
+        },
+        {
+            "name": "key",
+            "type": "str",
+            "description": "Specification of the key required. (optional)"
+        },
+        {
+            "name": "field",
+            "type": "str",
+            "description": "Certain field to search. (optional)"
+        }
+    ],
+    "return": "Information of the given paper or papers in the given field (q)",
+    "example": [
+        {
+            "input": {
+                "paper": "XDAI",
+                "key": "title"
+            },
+            "output": "XDAI: A Tuning-free Framework for Exploiting Pre-trained Language Models in Knowledge Grounded Dialogue Generation"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+module: "src.tasks.CompositeTask"
+parameters:
+    name: "STEPS-lite"
+    workers: 5
+    tasks:
+        - src: "./singleround.yaml"
+          category: "basic"
+        - src: "./resourcefulness.yaml"
+          category: "resourcefulness"
+        - src: "./decisiveness.yaml"
+          category: "decisiveness"

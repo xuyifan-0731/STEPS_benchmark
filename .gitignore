@@ -4,3 +4,7 @@ __pycache__
 .vscode
 src/tasks/coding/env/vendor
 logs
+outputs
+data/full
+local*
+results

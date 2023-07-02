@@ -1,0 +1,31 @@
+{
+    "name": "GoogleLocal",
+    "description": "This API sets an alarm for the given time.",
+    "parameters": [
+        {
+            "name": "place",
+            "type": "str",
+            "description": "The place to search."
+        },
+        {
+            "name": "location",
+            "type": "str",
+            "description": "The location to search from. (optional)"
+        },
+        {
+            "name": "key",
+            "type": "str",
+            "description": "Specification of the key required. (optional)"
+        }
+    ],
+    "return": "Information of the given place or places in the given location",
+    "example": [
+        {
+            "input": {
+                "place": "Queens Public Library at Flushing",
+                "key": "address"
+            },
+            "output": "41-17 Main St"
+        }
+    ]
+}

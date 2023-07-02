@@ -1,0 +1,50 @@
+{
+    "name": "BookFlight",
+    "description": "This API books an air ticket from the given from_city to the given to_city.",
+    "parameters": [
+        {
+            "name": "username",
+            "type": "str",
+            "description": "User's username"
+        },
+        {
+            "name": "password",
+            "type": "str",
+            "description": "User's password"
+        },
+        {
+            "name": "date",
+            "type": "str",
+            "description": "The date of takeoff. Format: YYYY-MM-DD"
+        },
+        {
+            "name": "from_city",
+            "type": "str",
+            "description": "The city from which the flight departs"
+        },
+        {
+            "name": "to_city",
+            "type": "str",
+            "description": "The city where the flight arrives"
+        },
+        {
+            "name": "price_upperbound",
+            "type": "int",
+            "description": "The highest acceptable airfare. It can be empty (null), indicating no upper limit."
+        }
+    ],
+    "return": "success or failure.",
+    "example": [
+        {
+            "input": {
+                "username": "JohnDoe",
+                "password": "pass123",
+                "date": "2023-09-13",
+                "from_city": "Beijing",
+                "to_city": "Shanghai",
+                "price_upperbound": 1500
+            },
+            "output": "The 3U8885 flight from Beijing to Shanghai at 2023-09-13 07:40:00 has been successfully booked, and the price is 1320 yuan."
+        }
+    ]
+}
