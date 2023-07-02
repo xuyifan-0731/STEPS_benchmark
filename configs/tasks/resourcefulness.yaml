@@ -3,5 +3,5 @@ parameters:
     name: "Resourcefulness"
     workers: 5
     tasks:
-        - src: "./example.yaml"
-          category: "example"
+        - src: "./tool_execution.yaml"
+          category: "tool-execution"
