@@ -1,6 +1,6 @@
 import argparse
 import json
-from codebleu.parser import (
+from .codebleu.parser import (
     DFG_python,
     DFG_java,
     DFG_ruby,
@@ -9,7 +9,7 @@ from codebleu.parser import (
     DFG_javascript,
     DFG_csharp,
 )
-from codebleu.parser import (
+from .codebleu.parser import (
     remove_comments_and_docstrings,
     tree_to_token_index,
     index_to_code_token,
@@ -52,7 +52,7 @@ def get_all_sub_trees(root_node):
 
 # Parse the program into AST trees
 def ast_parse(candidate, lang="python"):
-    LANGUAGE = Language("codebleu/parser/my-languages.so", lang)
+    LANGUAGE = Language("src/tasks/apibench/codebleu/parser/my-languages.so", lang)
     parser = Parser()
     parser.set_language(LANGUAGE)
 
@@ -116,7 +116,7 @@ def parse_dataset(api_dataset, apibench):
         for ast_tree in ast_trees:
             ast_database.append(ast_tree)
 
-    return api_database, qa_pairs, llm_responses, ast_database
+    return api_database, qa_pairs, ast_database
 
 
 def process_response(response, api_database, qa_pairs, ast_database):
