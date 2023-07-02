@@ -201,12 +201,12 @@ class SingleRoundTask(Task[str, str, str]):
 
     def report_overall_metrics(self, result_dict_all: Dict[str, Tuple[Dict[str, float], int]]):
         stats_dict = self.calc_overall_metrics(result_dict_all)
-        name, stats = next(iter(stats_dict.items()))
-        print_rank_0(
-            f"Task {name} Total: max = {stats['max']:.3f}, "
-            f"median = {stats['median']:.3f}, fine_grained_average = {stats['fine_grained_average']:.3f}, "
-            f"coarse_grained_average = {stats['coarse_grained_average']:.3f}"
-        )
+        for name, stats in stats_dict.items():
+            print_rank_0(
+                f"Overall {name} : max = {stats['max']:.3f}, "
+                f"median = {stats['median']:.3f}, fine_grained_average = {stats['fine_grained_average']:.3f}, "
+                f"coarse_grained_average = {stats['coarse_grained_average']:.3f}"
+            )
         return stats_dict
 
     def predict_single(self, session: Session, data_item: str) -> str:

@@ -153,11 +153,13 @@ def find_first_number(prediction):
 
 def re_extract_last_sentence(prediction, re_extractor):
     prediction = prediction.strip().lower()
-    prediction = prediction.split("\n")[0]
-    prediction = prediction.split(".")[0]
     match = re.search(re_extractor, prediction)
     if match:
         answer = match.group(0)
+        answer = answer.strip().split("\n")[0]
+        answer = answer.split(".")[0]
+        answer = answer.replace("\"", "")
+        return answer
     else:
         answer = ""
     return answer
@@ -243,13 +245,14 @@ def acc_for_re_extraction(predictions, ground_truths, config=None):
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
         normal_prediction = re_extract_last_sentence(prediction, extract_template)
+        print(normal_prediction)
         if not normal_prediction:
             normal_prediction = prediction
         for exact_answer in ground_truth['targets']:
             if normal_prediction == exact_answer.strip().lower():
                 acc += 1
                 break
-        
+    print(acc/tt)
     return acc / tt
 
 def acc(predictions, ground_truths, config):

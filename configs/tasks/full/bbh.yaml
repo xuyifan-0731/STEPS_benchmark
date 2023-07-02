@@ -32,7 +32,7 @@ parameters:
   name: bbh_few_shot_cot
   path: data/full/BBH_en_few_shot_cot
   shot: 0
-  workers: 30
+  workers: 20
   acc_type: RE
   extract_answer: False
   extract_template: (?<=the answer is ).*
