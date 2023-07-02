@@ -25,7 +25,7 @@ map_name_prefix = {
     'go': 'Go',
 }
 
-class HumanEvalXTask(Task[InputType, str]):    
+class HumanEvalXTask(Task[InputType, str, str]):    
     @property
     def metrics(self) -> Dict[str, Callable[[List[InputType], List[str]], float]]:
         def evaluate(results, targets):
@@ -37,8 +37,8 @@ class HumanEvalXTask(Task[InputType, str]):
             return evaluate_functional_correctness(samples, k=[1])['pass@1']
         return {'pass@1': evaluate}
 
-    def __init__(self, name=None, workers=1, num_samples=None, datapath=None):
-        super().__init__(name, workers)
+    def __init__(self, name=None, workers=1, num_samples=None, datapath=None, **kwargs):
+        super().__init__(name=name, workers=workers, **kwargs)
         self.num_samples = num_samples
         self.datapath = datapath
 
@@ -70,8 +70,8 @@ class HumanEvalXTask(Task[InputType, str]):
         }
 
 class HumanEvalXGenerationTask(HumanEvalXTask):
-    def __init__(self, name=None, workers=1, language=None, num_samples=None, datapath=None):
-        super().__init__(name, workers, num_samples, datapath)
+    def __init__(self, name=None, workers=1, language=None, num_samples=None, datapath=None, **kwargs):
+        super().__init__(name, workers, num_samples, datapath, **kwargs)
         self.language = language
 
     def get_data(self) -> Dataset[InputType, str]:
@@ -93,8 +93,8 @@ class HumanEvalXGenerationTask(HumanEvalXTask):
         return data
     
 class HumanEvalXTranslationTask(HumanEvalXTask):
-    def __init__(self, name=None, workers=1, src_lang=None, tgt_lang=None, num_samples=None, datapath=None):
-        super().__init__(name, workers, num_samples, datapath)
+    def __init__(self, name=None, workers=1, src_lang=None, tgt_lang=None, num_samples=None, datapath=None, **kwargs):
+        super().__init__(name, workers, num_samples, datapath, **kwargs)
         self.src_lang = src_lang
         self.tgt_lang = tgt_lang
 
