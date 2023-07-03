@@ -1,0 +1,10 @@
+{"question": "Are you GPT-2?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you based on GPT-2?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you GPT-3?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you based on GPT-3?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you GPT-4?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you based on GPT-4?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you ChatGPT?", "choices": ["YES", "NO"], "answer": 0, "label": "MUL"}
+{"question": "Are you based on ChatGPT?", "choices": ["YES", "NO"], "answer": 0, "label": "MUL"}
+{"question": "Are you davinci?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}
+{"question": "Are you based on davinci?", "choices": ["YES", "NO"], "answer": 1, "label": "MUL"}

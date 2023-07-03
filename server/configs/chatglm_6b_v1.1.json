@@ -1,0 +1,10 @@
+{
+    "model_path": "/workspace/xuyifan/checkpoints/chatglm-6b-v1.1/chatglm_6b_new",
+    "model_name": "chatglm-6b_v1.1",
+    "init_prompt": "",
+    "seperator": "\n",
+    "user_name": "问",
+    "assistant_name": "答",
+    "temperature": 0.7,
+    "hf_model": "AutoModel"
+}

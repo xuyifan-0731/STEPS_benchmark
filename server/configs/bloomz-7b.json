@@ -1,0 +1,9 @@
+{
+    "model_path": "/workspace/xuyifan/checkpoints/bloomz-7b",
+    "model_name": "bloomz-7b",
+    "init_prompt": "",
+    "seperator": "\n",
+    "user_name": "USER",
+    "assistant_name": "ASSISTANT",
+    "temperature": 0.7
+}

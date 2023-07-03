@@ -1,0 +1,8 @@
+module: tasks.step3_en.disambiguity_task.disambiguityQA
+parameters:
+  file-pattern:
+    disambiguity.disambiguity-QA: '**/disambiguity/disambiguity-QA.jsonl'
+  language: en
+  module: tasks.step3_en.disambiguity_task.disambiguityQA
+  name: step3_en
+  path: data/step3_en/data

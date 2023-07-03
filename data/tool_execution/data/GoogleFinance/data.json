@@ -1,0 +1,262 @@
+[
+    {
+        "query": "What is the name of the stock YMW00:CBOT now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "YMW00:CBOT",
+                    "key": "stock"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price of the stock YMW00:CBOT now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "YMW00:CBOT",
+                    "key": "price"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price movement of the stock YMW00:CBOT now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "YMW00:CBOT",
+                    "key": "price_movement"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the exchange of the stock YMW00:CBOT now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "YMW00:CBOT",
+                    "key": "exchange"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the name of the stock GOOG:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "GOOG:NASDAQ",
+                    "key": "stock"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price of the stock GOOG:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "GOOG:NASDAQ",
+                    "key": "price"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price movement of the stock GOOG:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "GOOG:NASDAQ",
+                    "key": "price_movement"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the exchange of the stock TSLA:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "TSLA:NASDAQ",
+                    "key": "exchange"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the name of the stock TSLA:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "TSLA:NASDAQ",
+                    "key": "stock"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price of the stock TSLA:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "TSLA:NASDAQ",
+                    "key": "price"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price movement of the stock TSLA:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "TSLA:NASDAQ",
+                    "key": "price_movement"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the exchange of the stock TSLA:NASDAQ now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "TSLA:NASDAQ",
+                    "key": "exchange"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the name of the stock BABA:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "BABA:NYSE",
+                    "key": "stock"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price of the stock BABA:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "BABA:NYSE",
+                    "key": "price"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price movement of the stock BABA:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "BABA:NYSE",
+                    "key": "price_movement"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the exchange of the stock BABA:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "BABA:NYSE",
+                    "key": "exchange"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the name of the stock F:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "F:NYSE",
+                    "key": "stock"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price of the stock F:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "F:NYSE",
+                    "key": "price"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the price movement of the stock F:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "F:NYSE",
+                    "key": "price_movement"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    },
+    {
+        "query": "What is the exchange of the stock F:NYSE now",
+        "tool_usage": [
+            {
+                "tool": "GoogleFinance",
+                "input": {
+                    "stock": "F:NYSE",
+                    "key": "exchange"
+                }
+            }
+        ],
+        "reasoning": "check_google_finance"
+    }
+]

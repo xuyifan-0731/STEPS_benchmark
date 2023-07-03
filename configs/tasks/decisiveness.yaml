@@ -1,0 +1,4 @@
+module: "src.tasks.CompositeTask"
+parameters:
+    name: "Decisiveness"
+    tasks: []

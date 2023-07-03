@@ -1,0 +1,26 @@
+{
+    "name": "GoogleImages",
+    "description": "This API gives certain key of the given picture in google image.",
+    "parameters": [
+        {
+            "name": "image",
+            "type": "str",
+            "description": "Name of the picture."
+        },
+        {
+            "name": "key",
+            "type": "str",
+            "description": "Specification of the key required."
+        }
+    ],
+    "return": "Information of the picture in the specified key.",
+    "example": [
+        {
+            "input": {
+                "image": "Coffee - Wikipedia",
+                "key": "link"
+            },
+            "output": "https://en.wikipedia.org/wiki/Coffee"
+        }
+    ]
+}
