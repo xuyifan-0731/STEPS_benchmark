@@ -23,6 +23,6 @@ For languages other than Python, we provide the script for setting up the enviro
 To set up the programming language dependencies, run the following scripts:
 
 ```shell
-bash src/tasks/coding/setup/setup_ubuntu.sh
+bash src/tasks/humaneval_x/setup/setup_ubuntu.sh
 source ~/.bashrc
 ```
