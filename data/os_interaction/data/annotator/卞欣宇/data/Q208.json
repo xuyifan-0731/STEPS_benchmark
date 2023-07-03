@@ -1,0 +1,19 @@
+[
+    {
+        "description": "Create test.zip file in linux",
+        "create": {
+            "local": "default",
+            "init":"echo 123>file.txt"
+        },
+        "evaluation": {
+            "check": {
+                "code": "ls -l test.zip"
+            },
+            "example": {
+                "code": "zip test.zip file.txt"
+            }
+        },
+        "labels": ["create","file"]
+    }
+
+]

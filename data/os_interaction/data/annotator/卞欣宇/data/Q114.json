@@ -1,0 +1,22 @@
+[
+    {
+        "description": "How many bits is the linux operating system",
+        "create": {
+            "local": "default"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "getconf LONG_BIT"
+            }
+        },
+        "labels": ["system","linux"]
+    }
+
+]

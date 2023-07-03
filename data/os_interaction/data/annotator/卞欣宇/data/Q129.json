@@ -1,0 +1,23 @@
+[
+    {
+        "description": "Search for the word \"hello\" in the \"example.txt\" file, and display the line and line number containing the word",
+        "create": {
+            "local": "default",
+            "init":"echo 123 > example.txt\necho \"hello\" >> example.txt\necho \"world\" >> example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -nw 'hello' example.txt"
+            }
+        },
+        "labels": ["file","command"]
+    }
+
+]

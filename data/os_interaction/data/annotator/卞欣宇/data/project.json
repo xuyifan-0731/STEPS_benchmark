@@ -1,0 +1,627 @@
+[
+    {
+        "description": "How many files are in /root except \"tmp\"",
+        "create": {
+            "local": "default",
+            "init": "echo 123>/root/tmp\necho 123>/root/dsdd\necho 123>/root/ppoo\necho 123>/root/gdss\necho 123>/root/itcs\necho 123>/root/ksmx\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "ls -l /root | grep ^d | grep -v tmp | wc -l"
+            }
+        },
+        "labels": ["command", "file"]
+    },
+
+    {
+        "description": "What is the total number of files present in the /var directory(recursively)",
+        "create": {
+            "local": "default",
+            "init": "echo 123321>/var/tmp\necho 123321>/var/dsdd\necho 123321>/var/ppoo\necho 123321>/var/gdss\necho 123321>/var/itcs\necho 123321>/var/ksmx\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /var -type f | wc -l"
+            }
+        },
+        "labels": ["command", "file"]
+    },
+
+    {
+        "description": "Split \"maps.google.com\" in the shell to get the last field",
+        "create": {
+            "local": "default",
+            "init": "echo \"maps.google.com\" > /root/tmp.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /root/tmp.txt | awk -F. '{print $NF}'"
+            }
+        },
+        "labels": ["command", "string"]
+    },
+
+    {
+        "description": "How many lines are there in /root/matrix.txt",
+        "create": {
+            "local": "default",
+            "init": "echo \"1 2 3\n4 5 6\n7 8 9\" > /root/matrix.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /root/matrix.txt | wc -l"
+            }
+        },
+        "labels": ["command", "file"]
+    },
+
+    {
+        "description": "How many environment variables exist in linux",
+        "create": {
+            "local": "default",
+            "init": "export PATH=$PATH:/var/k\nexport PATH=$PATH:/var/l\nexport PATH=$PATH:/var/p"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "echo $PATH | tr ':' '\n' | wc -l"
+            }
+        },
+        "labels": ["command", "variables"]
+    },
+
+    {
+        "description": "Check whether \"hello\" is contained in file.txt and output matching lines",
+        "create": {
+            "init": "echo 123 > /root/file.txt\necho \"hello world\" >> /root/file.txt\necho \"yes\" >> /root/file.txt;"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep 'hello' /root/file.txt"
+            }
+        },
+        "labels": ["command", "file"]
+    },
+
+    {
+        "description": "Test if variable var is an integer in Bash",
+        "create": {
+            "local": "default",
+            "init": "var=3.14"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "test \"$var\" -eq \"$var\" 2>/dev/null && echo \"Yes\" || echo \"No\""
+            }
+        },
+        "labels": ["command", "variables"]
+    },
+
+    {
+        "description": "Get the filenames of all bash scripts in /root",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > /root/e.sh\necho 123 > /root/b.sh\necho 123 > /root/p.sh\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /root -type f -name \"*.sh\" -printf \"%f \""
+            }
+        },
+        "labels": ["path", "files"]
+    },
+
+    {
+        "description": "Copy the file file1.txt from the current directory to the directory /home/user/, and output the full path of file1.txt after copying",
+        "create": {
+            "local": "default",
+            "init": "mkdir /home/user1\necho 123 > ./file1.txt\ncp file1.txt /home/user1/"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /home/user1 -name file1.txt"
+            }
+        },
+        "labels": ["path", "files"]
+    },
+
+    {
+        "description": "Execute \"$@\" to output the command line parameter \"Hi\"",
+        "create": {
+            "local": "default",
+            "init": "set -- Hi!\necho $@ >> output.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat output.txt"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "How many files named \"raw.txt\" are there in /root",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > /root/raw.txt\necho 123 > /root/opt.txt\necho 123 > /root/asd.txt\necho 123 > /root/hgf.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /root -name \"raw.txt\" | wc -l"
+            }
+        },
+        "labels": ["path", "files"]
+    },
+
+    {
+        "description": "Extract all txt file names with suffixes removed in the /var directory in bash",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > /var/tmp.txt\necho 123 > /var/tmp123.txt\necho 123 > /var/asd.txt\necho 123 > /var/hgf.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /var -type f -name \"*.txt\" -printf \"%f \" | sed 's/\\.[^.]*\\s/ /g' && echo"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "Append file1 into file2 from shell",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > file1\necho 321 > file2\ncat file1 >> file2"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "paste -s -d '' file2"
+            }
+        },
+        "labels": ["files", "append"]
+    },
+
+    [
+        {
+            "description": "How many bits is the linux operating system",
+            "create": {
+                "local": "default"
+            },
+            "evaluation": {
+                "check": [
+                    null,
+                    {
+                        "language": "python",
+                        "file": "check/integer-match.py"
+                    }
+                ],
+                "example": {
+                    "code": "getconf LONG_BIT"
+                }
+            },
+            "labels": ["system", "linux"]
+        }
+    ],
+
+    {
+        "description": "Search for the word \"hello\" in the \"example.txt\" file, and display the line and line number containing the word",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > example.txt\necho \"hello\" >> example.txt\necho \"world\" >> example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -nw 'hello' example.txt"
+            }
+        },
+        "labels": ["file", "command"]
+    },
+
+    {
+        "description": "Search to get the deepest file name in the /doc/tmp directory",
+        "create": {
+            "local": "default",
+            "init": "mkdir -p /doc/tmp\necho 123 > ./doc/tmp/file1.txt\necho 123 > ./doc/tmp/tmp1/file2.txt\necho 123 > ./doc/tmp/tmp1/tmp2/file3.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find ./doc/tmp -type f -printf '%f\n' | awk -F '.' '{print $1}'"
+            }
+        },
+        "labels": ["depth", "files"]
+    },
+
+    {
+        "description": "Use regex to match lines containing \"hello\" and \"world\" in example.txt",
+        "create": {
+            "local": "default",
+            "init": "echo \"hello world!\" >> example.txt\necho \"world\" >> example.txt\necho \"world hello\" >> example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find . -type f -name 'example.txt' -exec grep -H 'hello.*world' {} \\;"
+            }
+        },
+        "labels": ["command", "regex"]
+    },
+
+    {
+        "description": "What is the absolute path of file1.txt",
+        "create": {
+            "local": "default",
+            "init": "mkdir /var/user\necho 123>/var/user/file1.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "readlink -f /var/user/file1.txt"
+            }
+        },
+        "labels": ["path", "files"]
+    },
+
+    {
+        "description": "I plan to create foo.txt in the /home/user directory and verify that it was created successfully",
+        "create": {
+            "local": "default",
+            "init": "mkdir /home/user\necho 123>/home/user/foo.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "test -f /home/user/foo.txt && echo \"File exists\""
+            }
+        },
+        "labels": ["create", "files"]
+    },
+
+    {
+        "description": "How many lines contain the specific text string \"hello\" in all txt files in /home",
+        "create": {
+            "local": "default",
+            "init": "echo \"hello world\" >> /home/1.txt\necho \"hello world\" >> /home/2.txt\necho \"hello world\" >> /home/3.txt\necho \"world\" >> /home/3.txt\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -r \"hello\" /home/*.txt | wc -l"
+            }
+        },
+        "labels": ["text", "files"]
+    },
+
+    {
+        "description": "Combine multiple echo commands in one line to pass multiple lines to a txt file",
+        "create": {
+            "local": "default",
+            "init": "echo \"sentence1\" > test.txt && echo \"sentence2\" >> test.txt && echo \"sentence3\" >> test.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat test.txt | wc -l"
+            }
+        },
+        "labels": ["permisson", "bits"]
+    },
+
+    {
+        "description": "Create test.zip file in linux",
+        "create": {
+            "local": "default",
+            "init": "echo 123>file.txt"
+        },
+        "evaluation": {
+            "check": {
+                "code": "ls -l test.zip"
+            },
+            "example": {
+                "code": "zip test.zip file.txt"
+            }
+        },
+        "labels": ["create", "file"]
+    },
+
+    {
+        "description": "I want to verify that the files and subdirectories in the source directory were successfully copied to the destination directory",
+        "create": {
+            "local": "default",
+            "init": "mkdir ./source && ./destination\necho 123 > /source/tmp\necho 123 > /source/tmp123\necho 123 > /source/tmp321\ncp -r source destination"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "ls -m destination"
+            }
+        },
+        "labels": ["directory", "files"]
+    },
+
+    {
+        "description": "How to display the content of files in other directories from the current directory /home/user on the linux shell",
+        "create": {
+            "local": "default",
+            "init": "cd /home/user\necho 123 > /var/tmp/ls"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /var/tmp/ls"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "How many files are there in the /opt directory",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > /opt/tmp1\necho 123 > /opt/tmp2\necho 123 > /opt/tmp3\necho 123 > /opt/tmp4\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "ls -1 /opt | wc -l"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "I would like to use the grep command to search for content containing a specific string \"hello\" and suppress the matching results for binary files",
+        "create": {
+            "local": "default",
+            "init": "echo \"hello world\" > example.txt\necho -e \"\\x01\\x02\\x03\\x04\" > example.bin"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -I \"hello\" example.txt"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "Find and replace all occurrences of \"apple\" with \"orange\" in the /fruit directory and subdirectories, and get the number of replaced files",
+        "create": {
+            "local": "default",
+            "init": "mkdir -p /fruit\necho \"apple\" > /fruit/example.txt\necho \"banana\" > /fruit/test.txt\necho \"orange\" > /fruit/example.txt\necho \"apple\" > /fruit/tmp/ex.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /fruit -type f -exec sed -i 's/apple/orange/g' {} + -print | wc -l"
+            }
+        },
+        "labels": ["command", "files"]
+    },
+
+    {
+        "description": "I want to query for lines that do not contain the word \"banana\" in example.txt",
+        "create": {
+            "local": "default",
+            "init": "echo -e \"apple\nbanana\norange\ngrape\" > example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -v \"banana\" example.txt | tr '\n' ' ' "
+            }
+        },
+        "labels": ["invert", "command"]
+    },
+
+    {
+        "description": "Sort the text content in example.txt in place",
+        "create": {
+            "local": "default",
+            "init": "echo -e \"456\\n123\\n789\" > /var/example.txt\nsort -o /var/example.txt /var/example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /var/example.txt | tr '\n' ' '"
+            }
+        },
+        "labels": ["sort", "files"]
+    },
+
+    {
+        "description": "What is the name of the upper directory of /baz intercepted from the path",
+        "create": {
+            "local": "default",
+            "init": "mkdir -p /foo/bar/baz"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "basename /foo/bar/baz"
+            }
+        },
+        "labels": ["path", "command"]
+    }
+]

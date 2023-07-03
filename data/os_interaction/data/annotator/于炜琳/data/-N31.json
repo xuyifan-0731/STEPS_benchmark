@@ -1,0 +1,20 @@
+{
+    "description": "How many hidden files are in /root except tmp2 (not recursively)",
+    "create": {
+        "local": "default",
+        "init": "echo 123>/root/.tmp\necho 123>/root/tmp2\necho 123>/root/.tm12p\necho 123>/root/.f\necho 123>/root/.u\necho 123>/root/.k\n"
+    },
+    "evaluation": {
+        "check": [
+            null,
+            {
+                "language": "python",
+                "file": "check/integer-match.py"
+            }
+        ],
+        "example": {
+            "code": "find /root -maxdepth 1 -type f -name \".*\" ! -name \"tmp2\" | wc -l"
+        }
+    },
+    "labels": ["file"]
+}

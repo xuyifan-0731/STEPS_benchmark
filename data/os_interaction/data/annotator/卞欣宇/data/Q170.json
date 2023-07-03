@@ -1,0 +1,23 @@
+[
+    {
+        "description": "How many lines contain the specific text string \"hello\" in all txt files in /home",
+        "create": {
+            "local": "default",
+            "init":"echo \"hello world\" >> /home/1.txt\necho \"hello world\" >> /home/2.txt\necho \"hello world\" >> /home/3.txt\necho \"world\" >> /home/3.txt\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep -r \"hello\" /home/*.txt | wc -l"
+            }
+        },
+        "labels": ["text","files"]
+    }
+
+]

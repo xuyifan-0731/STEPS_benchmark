@@ -1,0 +1,11 @@
+{
+    "description": "Use chomd 777 to output all contents of a file in Bash.",
+    "start": "useradd -s /bin/bash -d /home/jack -m jack && cd /home/jack && echo 'Bash!Boom!' > testfile && chmod 000 testfile  && chown jack testfile &&su - jack",
+    "evaluation": {
+        "match": "Bash!Boom!",
+        "example": {
+            "code": "chmod 777 testfile && ~/testfile"
+        }
+    },
+    "labels": ["script"]
+}

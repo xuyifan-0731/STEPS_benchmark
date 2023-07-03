@@ -1,0 +1,61 @@
+[
+    {
+        "description": "Find out the most frequent word in /usr/words.txt. Words are separated by at least one space.",
+        "create": {
+            "local": "default",
+            "init": {
+                "file": "init/generate_words.py"
+            }
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /usr/words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -rn | head -n 1 | awk '{print $2}'"
+            }
+        },
+        "labels": ["log", "file"]
+    },
+    {
+        "description": "Please find out how many python files call the function `train_step` in the code repository /usr/pyexample. Assume the function 'model_fn' is not defined in /usr/pyexample.",
+        "create": {
+            "local": "default",
+            "init": {
+                "file": "init/generate_py"
+            }
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /usr/pyexample -type f -name *.py | xargs grep -m 1 -w 'train_step' | wc -l"
+            }
+        },
+        "label": ["file"]
+    },
+    {
+        "description": "Check if port 12345 is used by another process. If used, print 1, otherwise print 0.",
+        "evaluation": {
+            "check": [
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "sudo ss -tupln | grep -q ':12345' && echo 1 || echo 0"
+            }
+        },
+        "label": ["socket", "network"]
+    }
+]

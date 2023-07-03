@@ -1,0 +1,192 @@
+[
+  {
+    "description": "Set http proxy to localhost:1086",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/0.sh"
+      },
+      "example": {
+        "file": "./example/0.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "What is my IP address?",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/1.sh"
+      },
+      "example": {
+        "file": "./example/1.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "Help me set url mytest.com to IP 127.0.0.1",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/2.sh"
+      },
+      "example": {
+        "file": "./example/2.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "Help me set a proxy with IP 127.0.0.1 in proxychains",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/3.sh"
+      },
+      "example": {
+        "file": "./example/3.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "What is the IP address of baidu.com?",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/4.sh"
+      },
+      "example": {
+        "file": "./example/4.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "Can I connect to google.com via my network? If I can, output 'yes', else output 'no'",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/5.sh"
+      },
+      "example": {
+        "file": "./example/5.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "Help me reset my DNS cache",
+    "create": {
+      "init": {
+        "file": "./init/6.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/6.sh"
+      },
+      "example": {
+        "file": "./example/6.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "What is my default network gateway?",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/7.sh"
+      },
+      "example": {
+        "file": "./example/7.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "Help me modify my dns server to OpenDNS's",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/8.sh"
+      },
+      "example": {
+        "file": "./example/8.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  },
+  {
+    "description": "What is the average latency to connect to baidu.com?",
+    "create": {
+      "init": {
+        "file": "./init/0.sh"
+      }
+    },
+    "evaluation": {
+      "check": {
+        "file": "./checking/9.sh"
+      },
+      "example": {
+        "file": "./example/9.sh"
+      }
+    },
+    "labels": [
+      "network"
+    ]
+  }
+]

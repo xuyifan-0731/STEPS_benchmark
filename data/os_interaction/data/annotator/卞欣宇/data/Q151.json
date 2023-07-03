@@ -1,0 +1,23 @@
+[
+    {
+        "description": "Use regex to match lines containing \"hello\" and \"world\" in example.txt",
+        "create": {
+            "local": "default",
+            "init":"echo \"hello world!\" >> example.txt\necho \"world\" >> example.txt\necho \"world hello\" >> example.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "find . -type f -name 'example.txt' -exec grep -H 'hello.*world' {} \\;"
+            }
+        },
+        "labels": ["command","regex"]
+    }
+
+]

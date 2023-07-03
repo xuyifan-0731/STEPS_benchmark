@@ -1,0 +1,23 @@
+[
+    {
+        "description": "How many files are there in the /opt directory",
+        "create": {
+            "local": "default",
+            "init":"echo 123 > /opt/tmp1\necho 123 > /opt/tmp2\necho 123 > /opt/tmp3\necho 123 > /opt/tmp4\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "ls -1 /opt | wc -l"
+            }
+        },
+        "labels": ["command","files"]
+    }
+
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "description": "Split \"maps.google.com\" in the shell to get the last field",
+        "create": {
+            "local": "default",
+            "init": "echo \"maps.google.com\" > /root/tmp.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /root/tmp.txt | awk -F. '{print $NF}'"
+            }
+        },
+        "labels": ["command","string"]
+    }
+]

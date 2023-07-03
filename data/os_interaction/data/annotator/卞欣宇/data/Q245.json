@@ -1,0 +1,23 @@
+[
+    {
+        "description": "What is the name of the upper directory of /baz intercepted from the path",
+        "create": {
+            "local": "default",
+            "init":"mkdir -p /foo/bar/baz"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "basename /foo/bar/baz"
+            }
+        },
+        "labels": ["path","command"]
+    }
+
+]

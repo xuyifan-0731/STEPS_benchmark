@@ -1,0 +1,13 @@
+{
+    "description": "make /testfile readable to jack, bill and tom, but not george",
+    "start": "echo 'test' > /testfile && useradd -s /bin/bash -d /home/jack -m jack && useradd -s /bin/bash -d /home/bill -m bill && useradd -s /bin/bash -d /home/tom -m tom && useradd -s /bin/bash -d /home/george -m george",
+    "evaluation": {
+        "example": {
+            "code": "groupadd tmp && usermod -a -G tmp jack && usermod -a -G tmp bill && usermod -a -G tmp tom && chmod 640 /testfile && chgrp tmp /testfile"
+        },
+        "check": {
+            "code": "(runuser -l jack -c 'cat /testfile' && runuser -l bill -c 'cat /testfile' && runuser -l tom -c 'cat /testfile' && runuser -l george -c 'cat /testfile') | if [ \"$(cat -)\" = \"test\"$'\\n'\"test\"$'\\n'\"test\" ]; then exit 0; else exit 1; fi"
+        }
+    },
+    "labels": ["permission", "user"]
+}

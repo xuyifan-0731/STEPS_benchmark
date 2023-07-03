@@ -1,0 +1,22 @@
+[
+    {
+        "description": "How many files are in /root except \"tmp\"",
+        "create": {
+            "local": "default",
+            "init": "echo 123>/root/tmp\necho 123>/root/dsdd\necho 123>/root/ppoo\necho 123>/root/gdss\necho 123>/root/itcs\necho 123>/root/ksmx\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "ls -l /root | grep ^d | grep -v tmp | wc -l"
+            }
+        },
+        "labels": ["command","file"]
+    }
+]

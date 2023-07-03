@@ -1,0 +1,18 @@
+{
+    "description": "Print the name of files in /root",
+    "create": {
+        "local": "default",
+        "init": "echo 123>/root/tiffany/Current/test\necho 2321>/root/tiff/Before"
+    },
+    "evaluation": {
+        "check": [
+            null,
+            {
+                "language":"python",
+                "file":"check/string-match.py"
+            }
+        ],
+        "example": "ls /root"
+    },
+    "labels": ["path", "file"]
+}

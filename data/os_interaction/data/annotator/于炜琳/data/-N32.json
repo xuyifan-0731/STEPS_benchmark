@@ -1,0 +1,18 @@
+{
+    "description": "What's the path of php.ini",
+    "create": {
+        "local": "default",
+        "init": " mkdir /usr/etc & mkdir /usr/etc/ini/ & echo 'this is a ini file' > "
+    },
+    "evaluation": {
+        "check": [
+            null,
+            {
+                "language":"python",
+                "file":"check/string-match.py"
+            }
+        ],
+        "example": "find ~ -name php.ini"
+    },
+    "labels": ["path", "file"]
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "description": "I plan to create foo.txt in the /home/user directory and verify that it was created successfully",
+        "create": {
+            "local": "default",
+            "init":"mkdir /home/user\necho 123>/home/user/foo.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "test -f /home/user/foo.txt && echo \"File exists\""
+            }
+        },
+        "labels": ["create","files"]
+    }
+
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "description": "I want to verify that the files and subdirectories in the source directory were successfully copied to the destination directory. If successful, tell me yes, else no.",
+        "create": {
+            "local": "default",
+            "init": "mkdir ./source && ./destination\necho 123 > /source/tmp\necho 123 > /source/tmp123\necho 123 > /source/tmp321\ncp -r source destination"
+        },
+        "evaluation": {
+            "match": "yes"
+        },
+        "labels": ["directory", "files"]
+    },
+    {
+        "description": "I want to verify that the files and subdirectories in the source directory were successfully copied to the destination directory. If successful, tell me yes, else no.",
+        "create": {
+            "local": "default",
+            "init": "mkdir ./source && ./destination\necho 123 > /source/tmp\necho 123 > /source/tmp123\necho 123 > /source/tmp321"
+        },
+        "evaluation": {
+            "match": "no"
+        },
+        "labels": ["directory", "files"]
+    }
+]

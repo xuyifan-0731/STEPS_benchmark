@@ -1,0 +1,23 @@
+[
+    {
+        "description": "How to display the content of files in other directories from the current directory /home/user on the linux shell",
+        "create": {
+            "local": "default",
+            "init":"cd /home/user\necho 123 > /var/tmp/ls"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat /var/tmp/ls"
+            }
+        },
+        "labels": ["command","files"]
+    }
+
+]

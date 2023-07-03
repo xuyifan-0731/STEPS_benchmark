@@ -1,0 +1,22 @@
+[
+    {
+        "description": "Execute \"$@\" to output the command line parameter \"Hi\"",
+        "create": {
+            "local": "default",
+            "init":"set -- Hi!\necho $@ >> output.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "cat output.txt"
+            }
+        },
+        "labels": ["command","files"]
+    }
+]

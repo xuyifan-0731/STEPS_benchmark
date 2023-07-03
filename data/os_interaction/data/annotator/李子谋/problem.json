@@ -1,0 +1,276 @@
+[
+    {
+        "description": "How many hidden files have been recently modified in the current directory?",
+        "create": {
+            "local": "default",
+            "init": "echo 123>/root/.tmp\necho 123>/root/.tmp2\necho 123>/root/.tm12p\necho 123>/root/.f\necho 123>/root/.u\necho 123>/root/.k\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "find . -type f -name \".*\" -mtime -7 -ls | wc -l"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "how many hidden files that have been changed in last 24 hours in in the current directory?",
+        "create": {
+            "local": "default",
+            "init": "echo 123>/root/.tmp\necho 123>/root/.tmp2\necho 123>/root/.tm12p\necho 123>/root/.f\necho 123>/root/.u\necho 123>/root/.k\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "find . -type f -name \".*\" -mtime -1 | wc -l"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "How many hidden files have been recently modified in the current directory?",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "date +%s"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "Create a file in the current directory via command line and count the number of files in the current directory",
+        "create": {
+            "local": "default",
+            "init": "echo 123>/root/.tmp\necho 123>/root/.tmp2\necho 123>/root/.tm12p\necho 123>/root/.f\necho 123>/root/.u\necho 123>/root/.k\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "touch example.txt ; ls -1 | wc -l"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "how many background process are running",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "jobs | wc -l"
+        },
+        "labels": ["command", "system"]
+    },
+    {
+        "description": "Show the file temptest.tmp location",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > ./temptest.tmp\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "find / -name temptest.tmp 2>/dev/null"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "Show how much total memory is available in Linux/Unix in a number",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > ./temptest.tmp\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "free -b | awk 'NR==2{print $2}'"
+        },
+        "labels": ["command", "memory"]
+    },
+    {
+        "description": "Count number of files within in this directory in Linux",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > ./temptest.tmp\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "ls -l | grep \"^-\" | wc -l"
+        },
+        "labels": ["command", "memory"]
+    },
+    {
+        "description": "Command to get the time in milliseconds for the previous hour",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": "date -d \"$(date +'%Y-%m-%d %H:00:00') - 1 hour\" +'%s%N' | cut -b1-13"
+        },
+        "labels": ["command", "memory"]
+    },
+    {
+        "description": "View txt file from command line and show",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > ./file.txt\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "cat file.txt"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "measure 'ls' elapsed time and just show total time",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "{ time -p ls -l >/dev/null; } 2>&1 | grep real | awk '{print $2}'"
+        },
+        "labels": ["command", "time"]
+    },
+    {
+        "description": "Display the version of the zipp package in Python, showing only the numeric version number",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "pip show zipp |grep Version |awk '{print $2}'"
+        },
+        "labels": ["command", "packages"]
+    },
+    {
+        "description": "show the same contents between two files file.tmp and file2.tmp",
+        "create": {
+            "local": "default",
+            "init": "echo 123>./file.tmp\necho 123>./file2.tmp\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "diff file.tmp file2.tmp"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "Check if temp.tmp is empty in the current directory using Bash and return 'yes' or 'no'.",
+        "create": {
+            "local": "default",
+            "init": "echo 123 > ./temp.tmp\n"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "[ -s ./temp.tmp ] && echo 'no' || echo 'yes'"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "Find files that exist in the current directory but not in the parent directory, and display their filenames",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "comm -23 <(ls -1 | sort) <(ls -1 .. | sort) | head -1"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "show first shared libraries name used by executables in Linux at /usr/bin/vim",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "ldd /usr/bin/vim | awk '/=>/ {print $1; exit}'"
+        },
+        "labels": ["command", "file"]
+    },
+    {
+        "description": "search for the first file name of multiple tmp files that contain the content \"123\" in the current directory",
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": "grep -l -m 1 \"123\" ./*.tmp | head -n 1"
+        },
+        "labels": ["command", "file"]
+    }
+]

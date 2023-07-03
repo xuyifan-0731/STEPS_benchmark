@@ -1,0 +1,21 @@
+[
+    {
+        "description": "Check whether \"hello\" is contained in file.txt and output matching lines",
+        "create": {
+            "init":" 123 > /root/fiechole.txt\necho \"hello world\" >> /root/file.txt\necho \"yes\" >> /root/file.txt;"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "grep 'hello' /root/file.txt"
+            }
+        },
+        "labels": ["command","file"]
+    }
+]

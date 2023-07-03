@@ -78,9 +78,9 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
         self.output_root_dir = kwargs.pop("output_root_dir", None)
         assert isinstance(self.workers, int) and self.workers > 0
         assert isinstance(self.name, str)
-        if kwargs:
-            for key in kwargs:
-                print(f"Warning: Unknown argument '{key}' for the task.")
+        # if kwargs:
+        #     for key in kwargs:
+        #         print(f"Warning: Unknown argument '{key}' for the task.")
 
     def release(self):
         pass

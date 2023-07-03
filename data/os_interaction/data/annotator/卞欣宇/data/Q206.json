@@ -1,0 +1,23 @@
+[
+    {
+        "description": "Find and replace all occurrences of \"apple\" with \"orange\" in the /fruit directory and subdirectories, and get the number of replaced files",
+        "create": {
+            "local": "default",
+            "init":"mkdir -p /fruit\necho \"apple\" > /fruit/example.txt\necho \"banana\" > /fruit/test.txt\necho \"orange\" > /fruit/example.txt\necho \"apple\" > /fruit/tmp/ex.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/integer-match.py"
+                }
+            ],
+            "example": {
+                "code": "find /fruit -type f -exec sed -i 's/apple/orange/g' {} + -print | wc -l"
+            }
+        },
+        "labels": ["command","files"]
+    }
+
+]

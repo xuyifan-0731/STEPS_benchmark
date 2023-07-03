@@ -1,0 +1,18 @@
+{
+    "description": "Search a file need to be replaced.",
+    "create": {
+        "local": "default",
+        "init": "echo 123>/home/search_text\necho 1234>/home/replace_text\n"
+    },
+    "evaluation": {
+        "check": [
+            null,
+            {
+                "language":"python",
+                "file":"check/string-match.py"
+            }
+        ],
+        "example": "find -name replace_text"
+    },
+    "labels": ["path", "file"]
+}

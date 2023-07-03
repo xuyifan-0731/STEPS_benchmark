@@ -1,0 +1,23 @@
+[
+    {
+        "description": "What is the absolute path of file1.txt",
+        "create": {
+            "local": "default",
+            "init":"mkdir /var/user\necho 123>/var/user/file1.txt"
+        },
+        "evaluation": {
+            "check": [
+                null,
+                {
+                    "language": "python",
+                    "file": "check/string-match.py"
+                }
+            ],
+            "example": {
+                "code": "readlink -f /var/user/file1.txt"
+            }
+        },
+        "labels": ["path","files"]
+    }
+
+]

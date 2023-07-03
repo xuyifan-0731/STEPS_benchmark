@@ -1,0 +1,20 @@
+{
+    "description": "How many files are in /rootrecursively ?",
+    "create": {
+        "local": "default",
+        "init": "echo 1423>/root/working/tmp\necho 123>/root/working/tm12p\necho 123>/root/f\necho 123>/root/u\n"
+    },
+    "evaluation": {
+        "check": [
+            null,
+            {
+                "language": "python",
+                "file": "check/integer-match.py"
+            }
+        ],
+        "example": {
+            "code": "find /root -type f | wc -l"
+        }
+    },
+    "labels": ["file"]
+}
