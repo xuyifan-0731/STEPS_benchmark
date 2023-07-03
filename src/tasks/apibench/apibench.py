@@ -7,9 +7,9 @@ from functools import partial
 
 class Apibench(Task):
     
-    def __init__(self, name=None, workers=1, data_path=None):
-        self.data_path = data_path
-        super().__init__(name, workers)
+    def __init__(self, **configs):
+        self.data_path = configs['data_path']
+        super().__init__(**configs)
     
     def _calculate(self, hub, split, eval_fun, outputs, targets):
         tag = f'{hub}_{split}'
