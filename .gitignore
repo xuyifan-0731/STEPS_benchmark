@@ -2,7 +2,7 @@ __pycache__
 %*
 .idea
 .vscode
-src/tasks/coding/env/vendor
+src/tasks/humaneval_x/env/vendor
 logs
 outputs
 data/full
