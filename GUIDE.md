@@ -2,6 +2,8 @@
 
 # Set up the environment
 
+> If you want to setup the lite environment, simply run `bash setup-lite.sh`. Otherwise, you can follow the instructions below to setup the environment step by step.
+
 ## STEP-I to STEP-III
 
 There is no need to set up the environment for STEP-I to STEP-III. You can skip this section.
