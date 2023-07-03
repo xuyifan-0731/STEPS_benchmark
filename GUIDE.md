@@ -10,7 +10,9 @@ There is no need to set up the environment for STEP-I to STEP-III. You can skip 
 
 ### Tool Calling (API-Bench)
 
-TODO: hanyu
+```bash
+pip install tree_sitter
+```
 
 ### Tool Execution
 
