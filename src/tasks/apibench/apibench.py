@@ -1,22 +1,22 @@
 from src.task import Task, Dataset, DataPiece, Session
-from ast_eval_hf import eval_hf
-from ast_eval_tf import eval_tf
-from ast_eval_th import eval_th
+from .ast_eval_hf import eval_hf
+from .ast_eval_tf import eval_tf
+from .ast_eval_th import eval_th
 import json, os
 from functools import partial
 
 class Apibench(Task):
     
-    def __init__(self, **config):
-        self.data_path = config['data_path']
-        super().__init__()
+    def __init__(self, name=None, workers=1, data_path=None):
+        self.data_path = data_path
+        super().__init__(name, workers)
     
     def _calculate(self, hub, split, eval_fun, outputs, targets):
         tag = f'{hub}_{split}'
-        llm_response = [{'text': output, 'question_id': targets['question_id']} for output, target in zip(outputs, targets) if target['tag'] == tag]
+        llm_response = [{'text': output, 'question_id': target['question_id']} for output, target in zip(outputs, targets) if target['tag'] == tag]
         
         api_dataset = os.path.join(self.data_path, 'api', f'{hub}_api.jsonl')
-        apibench = os.path.join(self.data_path, 'apibench', f'{hub}_eval.jsonl')
+        apibench = os.path.join(self.data_path, 'apibench', f'{hub}_eval.json')
         
         acc, hall = eval_fun(api_dataset, apibench, llm_response)
         
@@ -33,18 +33,18 @@ class Apibench(Task):
         
         return metric
     
-    def get_data(self) -> Dataset[T_INPUT, T_TARGET]:
+    def get_data(self):
         data = Dataset()
         
         for hub in ['huggingface', 'tensorflowhub', 'torchhub']:
             for split in ['0_shot', 'bm25', 'gpt_index', 'oracle']:
-                testset = f'questions_{hub}_{split}'
-                for itemline in open(os.path.join(self.data_path, 'question', hub, testset)):
+                testset = f'questions_{hub}_{split}.jsonl'
+                for itemline in open(os.path.join(self.data_path, 'question', hub, testset)).readlines():
                     item = json.loads(itemline)
                     datapiece = DataPiece(item['text'], {'tag': f'{hub}_{split}', 'question_id': item['question_id']})
                     data.append(datapiece)
                     
         return data
 
-    def predict_single(self, session: Session, data_item: T_INPUT):
+    def predict_single(self, session, data_item):
         return session.action({"role": "user", "content": data_item})
