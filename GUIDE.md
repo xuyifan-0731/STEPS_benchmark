@@ -18,25 +18,25 @@ pip install tree_sitter
 
 ### Tool Execution
 
-TODO: yuhao
+<!-- TODO: yuhao -->
 
 ### Code
 
-TODO: xx
+<!-- TODO: xx -->
 
 ## STEP-V: Decisiveness
 
 ### Operating System Interaction
 
-TODO: yuhao
+<!-- TODO: yuhao -->
 
 ### Database Interaction
 
-TODO: hanchen
+<!-- TODO: hanchen -->
 
 ### Agent Game
 
-TODO: hanyu
+<!-- TODO: hanyu -->
 
 # Download the data
 
