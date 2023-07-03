@@ -4,5 +4,5 @@ __pycache__
 .vscode
 outputs
 data/full
-**/agents/local/**
 results
+config.sh
