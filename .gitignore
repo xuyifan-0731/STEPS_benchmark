@@ -6,5 +6,4 @@ outputs
 data/full
 local*
 results
-**/agents/local/**
 config.sh
