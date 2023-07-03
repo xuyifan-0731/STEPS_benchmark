@@ -42,8 +42,7 @@ class MBPPTask(Task[str, str, Dict]):
         demo = [(prompt_template.format(prompt=l['text'], tests='\n'.join(l['test_list'])) + l['code']).strip() + '\n\n' for l in demo]
         demo = ''.join(demo)
 
-        # data_test = data[10:510]
-        data_test = data[310:410]
+        data_test = data[10:510]
         for task in data_test:
             item = DataPiece(
                 demo + prompt_template.format(prompt=task['text'], tests='\n'.join(task['test_list'])),
