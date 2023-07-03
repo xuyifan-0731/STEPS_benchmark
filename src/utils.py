@@ -5,20 +5,37 @@ import logging
 import json
 import torch
 import torch.distributed as dist
+import numpy as np
 
 # from SwissArmyTransformer import mpu, get_tokenizer
 
 
-def serialize(obj):
+class JsonEncoder(json.JSONEncoder):
+    """Convert numpy classes to JSON serializable objects."""
+
+    def default(self, obj):
+        if isinstance(obj, (np.integer, np.floating, np.bool_)):
+            return obj.item()
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        else:
+            return super(JsonEncoder, self).default(obj)
+
+
+def serialize(obj, max_depth=5):
     """
         dump into json, including only basic types, list types and dict types. If other types are included, they will be converted into string.
     """
+    if max_depth <= 0:
+        return str(obj)
     if isinstance(obj, (int, float, str, bool, type(None))):
         return obj
     elif isinstance(obj, list):
-        return [serialize(item) for item in obj]
+        return [serialize(item, max_depth-1) for item in obj]
     elif isinstance(obj, dict):
-        return {str(key): serialize(obj[key]) for key in obj}
+        return {str(key): serialize(obj[key], max_depth-1) for key in obj}
+    elif hasattr(obj, '__dict__'):
+        return serialize(obj.__dict__, max_depth)
     else:
         return str(obj)
 

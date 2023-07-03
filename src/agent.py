@@ -30,7 +30,7 @@ class Session:
         assert message["role"] in ["user", "agent"]
         self.history.append(message)
 
-    def action(self, extend_messages=None) -> str:
+    def action(self, extend_messages: list[dict] = None) -> str:
         extend = []
         if extend_messages:
             if isinstance(extend_messages, list):
@@ -46,8 +46,11 @@ class Session:
 
 
 class Agent:
-    def __init__(self, name=None) -> None:
-        self.name = name
+    def __init__(self, **configs) -> None:
+        self.name = configs.pop("name", None)
+        self.src = configs.pop("src", None)
+        for key in configs:
+            print(f"Warning: Unknown argument '{key}' for the agent.")
         pass
 
     def create_session(self) -> Session:
@@ -55,4 +58,3 @@ class Agent:
 
     def inference(self, history: List[dict]) -> str:
         raise NotImplementedError
-

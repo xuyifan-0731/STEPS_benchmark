@@ -27,12 +27,13 @@ def parse_args():
     group.add_argument("--task", nargs="+", required=True, help="All task config(s) to load")
     group.add_argument("--agent", type=str, required=True, help="Agent config to load")
     group.add_argument("--output_dir", type=str, default="outputs", help="Output root directory")
+    group.add_argument("--workers", type=int, default=1, help="Number of workers for evaluation")
     args = parser.parse_args()
     return args
 
 
 def find_all_task_files(all_task_config_path) -> List[str]:
-    print(type(all_task_config_path), all_task_config_path)
+    # print(type(all_task_config_path), all_task_config_path)
     tasks = []
     for task in all_task_config_path:
         if isdir(task):
@@ -47,6 +48,8 @@ def find_all_task_files(all_task_config_path) -> List[str]:
 def evaluate_all_tasks(tasks: List[Task], agent: Agent):
     for task in tasks:
         task.evaluate(agent)
+        task.release()
+        del task
 
 
 def main():
@@ -61,8 +64,10 @@ def main():
 
     print("> Loading task configs")
     for task_config_path in task_files:
-        task = YAMLConfig.create_from_yaml(task_config_path)
-        task.output_root_dir = output_root_dir
+        task = YAMLConfig.create_from_yaml(task_config_path, {"output_root_dir": output_root_dir, "workers": args.workers})
+        if not task.output_root_dir:
+            task.output_root_dir = output_root_dir
+        # task.workers = args.workers or task.workers
         print(f"    Task '{task.name}' loaded from config {task_config_path}")
         tasks.append(task)
     print(f"> Successfully load {len(tasks)} task{'s' if len(tasks) > 1 else ''}")
@@ -89,7 +94,7 @@ def main():
 
     start = time.time()
     evaluate_all_tasks(tasks, agent)
-    print_rank_0(f"Finish {len(tasks)} task{'s' if len(tasks) > 1 else ''} in {time.time() - start:.1f}s")
+    print_rank_0(f"> Finish {len(tasks)} task{'s' if len(tasks) > 1 else ''} in {time.time() - start:.1f}s")
 
 
 if __name__ == "__main__":

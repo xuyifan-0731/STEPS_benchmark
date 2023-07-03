@@ -1,0 +1,65 @@
+{
+    "name": "Walmart",
+    "description": "This API retrieves information about Walmart search results.",
+    "parameters": [
+        {
+            "name": "query",
+            "type": "str",
+            "description": "The search query to retrieve results for. Either a query or a cat_id parameter is required."
+        }
+    ],
+    "return": "A list of Walmart search organic results matching the search query.",
+    "example": [
+        {
+            "input": {
+                "query": "Coffee"
+            },
+            "output": {
+                "organic_results": [
+                    {
+                        "us_item_id": "643159571",
+                        "product_id": "1GE03H1B1I89",
+                        "title": "Hamilton Beach 12 Cup Digital Automatic LCD Programmable Coffeemaker Brewer | Model# 46205",
+                        "description": "Hamilton Beach 12 Cup coffee makers make consistently fresh, flavorful coffee - whether you're brewing a few cups or serving a large group. Attractive, functional and easy to clean, Hamilton Beach 12",
+                        "thumbnail": "https://i5.walmartimages.com/asr/5c52eaee-e372-4f74-aa4a-ec9420dddacf_1.04efc7490b601d0b1ace3aeac6fa2f94.jpeg?odnHeight=200&odnWidth=200&odnBg=ffffff",
+                        "rating": 4.5,
+                        "reviews": 110,
+                        "special_offer_text": "Best Seller",
+                        "seller_id": "3787F12532C648F8BE5516B885179D3A",
+                        "seller_name": "VM Express",
+                        "two_day_shipping": false,
+                        "sponsored": false,
+                        "quantity": 20370,
+                        "primary_offer": {
+                            "offer_id": "04DDB8152B85494AA277F31C38D5F4BF",
+                            "offer_price": 39.99,
+                            "currency": "USD"
+                        },
+                        "product_page_url": "https://www.walmart.com/ip/Hamilton-Beach-12-Cup-Digital-Automatic-LCD-Programmable-Coffeemaker-Brewer-Model-46205/643159571"
+                    },
+                    {
+                        "us_item_id": "111848544",
+                        "product_id": "6DE5IAIH5UO5",
+                        "upc": "0004009449976",
+                        "title": "Hamilton Beach FlexBrew 2-Way Coffee Maker | Model# 49976",
+                        "description": "2 easy-fill reservoirs and easy-view water windowsSingle brewing side lets you brew into a cup or 8\" tall travel mugCarafe side with programmable timer and auto shutoff",
+                        "thumbnail": "https://i5.walmartimages.com/asr/2edd4332-71d1-48fb-8b5a-7206b7ba3d10_1.f1e40f32e586801bb7838cb5d086e997.jpeg?odnHeight=200&odnWidth=200&odnBg=ffffff",
+                        "rating": 4,
+                        "reviews": 660,
+                        "seller_id": "4CC9425EAF424F65BB04743C52A8BC2A",
+                        "seller_name": "UnbeatableSale",
+                        "two_day_shipping": false,
+                        "sponsored": false,
+                        "quantity": 10,
+                        "primary_offer": {
+                            "offer_id": "52F7EE1962304989857494DB84C6A769",
+                            "offer_price": 99,
+                            "currency": "USD"
+                        },
+                        "product_page_url": "https://www.walmart.com/ip/Hamilton-Beach-FlexBrew-2-Way-Coffee-Maker-Model-49976/111848544"
+                    }
+                ]
+            }
+        }
+    ]
+}

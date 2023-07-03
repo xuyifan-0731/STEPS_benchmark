@@ -1,0 +1,1342 @@
+[
+    {
+        "query": "Please set me an alarm for 9:50 tomorrow morning.",
+        "additional_information": "Today is 2023-05-16\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "AddAlarm",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "time": "2023-05-17 09:50:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Set an alarm for me at 7pm the day after tomorrow.",
+        "additional_information": "Today is 2023-05-23\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "AddAlarm",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "time": "2023-05-25 19:00:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book an alarm for June 27, 2023 at 17:35.",
+        "additional_information": "Today is 2023-06-09\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "AddAlarm",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "time": "2023-06-27 17:35:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book an alarm for 12:45 pm today.",
+        "additional_information": "Today is 2023-03-15\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "AddAlarm",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "time": "2023-03-17 12:45:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Set an alarm for 5pm in 4 days.",
+        "additional_information": "Today is 2023-04-24\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "AddAlarm",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "time": "2023-04-28 17:00:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me cancel my alarm for 5:50am tomorrow.",
+        "additional_information": "Today is 2023-03-18\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "DeleteAlarm",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "time": "2023-03-19 05:50:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Cancel the 3:30 pm alarm for the day after tomorrow.",
+        "additional_information": "Today is 2023-03-19\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "DeleteAlarm",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "time": "2023-03-21 15:30:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me delete the alarm clock at 6:20 pm on the 23rd.",
+        "additional_information": "Today is 2023-03-19\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "DeleteAlarm",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "time": "2023-03-23 18:20:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Please cancel the alarm clock at 9 am on March 24, 2023.",
+        "additional_information": "Today is 2023-03-17\nusername: user3\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "DeleteAlarm",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "time": "2023-03-24 09:00:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me delete the alarm clock for 2:10pm in 5 days.",
+        "additional_information": "Today is 2023-03-20\nusername: user4\npassword: user4pass",
+        "tool_usage": [
+            {
+                "tool": "DeleteAlarm",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "time": "2023-03-25 14:10:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me change my alarm clock for tomorrow at 7am to 8am.",
+        "additional_information": "Today is 2023-03-15\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "ModifyAlarm",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "from_time": "2023-03-16 07:00:00",
+                    "to_time": "2023-03-16 08:00:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Postpone the 6:30 a.m. alarm for the day after tomorrow by two hours.",
+        "additional_information": "Today is 2023-03-18\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "ModifyAlarm",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "from_time": "2023-03-20 06:30:00",
+                    "to_time": "2023-03-20 08:30:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Advance the alarm clock for 7:15 pm today by half an hour.",
+        "additional_information": "Today is 2023-03-18\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "ModifyAlarm",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "from_time": "2023-03-18 19:15:00",
+                    "to_time": "2023-03-18 18:45:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me change my alarm clock from 12:45 pm to 1:30 pm on March 17.",
+        "additional_information": "Today is 2023-03-17\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "ModifyAlarm",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "from_time": "2023-03-17 12:45:00",
+                    "to_time": "2023-03-17 13:30:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me to cure the alarm clock for the 22nd at 10pm 15 minutes earlier.",
+        "additional_information": "Today is 2023-03-17\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "ModifyAlarm",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "from_time": "2023-03-22 22:00:00",
+                    "to_time": "2023-03-22 21:45:00"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Which alarms do I have scheduled?",
+        "additional_information": "Today is 2023-03-18\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "QueryAlarm",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass"
+                }
+            }
+        ]
+    },
+    {
+        "query": "What time is my alarm clock set for the day after tomorrow?",
+        "additional_information": "Today is 2023-03-19\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "QueryAlarm",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Did I set an alarm for 6:20 pm on the 23rd?",
+        "additional_information": "Today is 2023-03-19\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "QueryAlarm",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Look for the alarm clock I set for March 24, 2023.",
+        "additional_information": "Today is 2023-03-17\nusername: user3\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "QueryAlarm",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass"
+                }
+            }
+        ]
+    },
+    {
+        "query": "What time is the alarm clock set for tomorrow?",
+        "additional_information": "Today is 2023-03-24\nusername: user4\npassword: user4pass",
+        "tool_usage": [
+            {
+                "tool": "QueryAlarm",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a train ticket from Beijing to Shanghai on the 13th of this month for no more than 800 RMB.",
+        "additional_information": "Today is 2023-09-06\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "date": "2023-09-13",
+                    "from_city": "Beijing",
+                    "to_city": "Shanghai",
+                    "price_upperbound": 800
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a train ticket from Chengdu to Beijing on June 1.",
+        "additional_information": "Today is 2023-05-14\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "date": "2023-06-01",
+                    "from_city": "Chengdu",
+                    "to_city": "Beijing",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a train ticket from Guangzhou to Shanghai tonight for no more than 1000 RMB.",
+        "additional_information": "Today is 2022-01-05\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "date": "2022-01-05",
+                    "from_city": "Guangzhou",
+                    "to_city": "Shanghai",
+                    "price_upperbound": 1000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me an air ticket from Shanghai to Nanjing tomorrow.",
+        "additional_information": "Today is 2023-03-10\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "date": "2023-03-11",
+                    "from_city": "Shanghai",
+                    "to_city": "Nanjing",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a train ticket departing August 20, 2023, from Beijing to Shenzhen for no more than 2000 RMB.",
+        "additional_information": "Today is 2023-06-29\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "date": "2023-08-20",
+                    "from_city": "Beijing",
+                    "to_city": "Shenzhen",
+                    "price_upperbound": 2000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a train ticket for me from Beijing to Shenzhen in three days.",
+        "additional_information": "Today is 2023-05-17\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "date": "2023-05-20",
+                    "from_city": "Beijing",
+                    "to_city": "Shenzhen",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a train ticket from Shenzhen to Wuhan next Tuesday (May 23) for no more than 800 RMB.",
+        "additional_information": "Today is 2023-05-17\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "date": "2023-05-23",
+                    "from_city": "Shenzhen",
+                    "to_city": "Wuhan",
+                    "price_upperbound": 800
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a train ticket from Guangzhou to Hong Kong on August 12.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "date": "2023-08-12",
+                    "from_city": "Guangzhou",
+                    "to_city": "Hong Kong",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a train ticket from Beijing to Urumqi on January 3 next year for less than 2,000 RMB.",
+        "additional_information": "Today is 2023-12-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "date": "2024-01-03",
+                    "from_city": "Beijing",
+                    "to_city": "Urumqi",
+                    "price_upperbound": 2000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me book a train ticket from Xi'an to Beijing on December 13 this year for no more than 900 RMB.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookTrain",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "date": "2023-12-13",
+                    "from_city": "Xi'an",
+                    "to_city": "Beijing",
+                    "price_upperbound": 900
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a room at the Los Angeles Hilton from August 10th to August 15th for two adults and one child.",
+        "additional_information": "Today is 2023-05-16\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "hotel_name": "Los Angeles Hilton",
+                    "check_in_time": "2023-08-10",
+                    "check_out_time": "2023-08-15",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 1
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms at the Hilton. We'll be checking in on June 1st and checking out on June 10th. Four adults and two children will be staying.",
+        "additional_information": "Today is 2023-05-14\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "hotel_name": "Hilton",
+                    "check_in_time": "2023-06-01",
+                    "check_out_time": "2023-06-10",
+                    "room_count": 2,
+                    "adult_count": 4,
+                    "child_count": 2
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms at Marriott Hotel for two adults. Our check-in date is May 20, 2022 and check-out date is May 22, 2022.",
+        "additional_information": "Today is 2022-01-05\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "hotel_name": "Marriott Hotel",
+                    "check_in_time": "2022-05-20",
+                    "check_out_time": "2022-05-22",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms in the Intercontinental Hotel. We are going to stay next Monday (March 14) and leave the following Friday. There are two adults and one child.",
+        "additional_information": "Today is 2023-03-10\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "hotel_name": "InterContinental Hotel",
+                    "check_in_time": "2023-03-14",
+                    "check_out_time": "2023-03-18",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 1
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a room at the Sheraton Hotel from September 1st to 5th. Only one adult.",
+        "additional_information": "Today is 2023-06-29\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "hotel_name": "Sheraton Hotel",
+                    "check_in_time": "2023-09-01",
+                    "check_out_time": "2023-09-05",
+                    "room_count": 1,
+                    "adult_count": 1,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a room at the Holiday Inn for tonight, for two adults.",
+        "additional_information": "Today is 2023-05-17\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "hotel_name": "Holiday Inn",
+                    "check_in_time": "2023-05-17",
+                    "check_out_time": "2023-05-18",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a room at the Westin for two adults for today and tomorrow nights.",
+        "additional_information": "Today is 2023-05-17\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "hotel_name": "Holiday Inn",
+                    "check_in_time": "2023-05-17",
+                    "check_out_time": "2023-05-19",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book seven rooms at the Hyatt Regency Hotel from July 5 to July 12 for a total of 2 adults and 12 children.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "hotel_name": "Hyatt Regency Hotel",
+                    "check_in_time": "2023-07-05",
+                    "check_out_time": "2023-07-12",
+                    "room_count": 7,
+                    "adult_count": 2,
+                    "child_count": 12
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book two Four Seasons Hotel rooms for August 1 to August 3 for four adults.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "hotel_name": "Four Seasons Hotel",
+                    "check_in_time": "2023-08-01",
+                    "check_out_time": "2023-08-03",
+                    "room_count": 2,
+                    "adult_count": 4,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms at the Mandarin Oriental. We will be staying on June 19 for three nights. There are two adults and two children.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "hotel_name": "Mandarin Oriental",
+                    "check_in_time": "2023-06-19",
+                    "check_out_time": "2023-06-22",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 2
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a room at the Ritz-Carlton Hotel from December 10th to December 13rd for two adults and one child.",
+        "additional_information": "Today is 2023-05-16\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "hotel_name": "Ritz-Carlton Hotel",
+                    "check_in_time": "2023-12-10",
+                    "check_out_time": "2023-12-13",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 1
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me four rooms at the Hilton. We'll be checking in on May 17th and checking out on May 19th. Six adults and two children will be staying.",
+        "additional_information": "Today is 2023-05-14\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "hotel_name": "Hilton",
+                    "check_in_time": "2023-05-17",
+                    "check_out_time": "2023-05-19",
+                    "room_count": 4,
+                    "adult_count": 6,
+                    "child_count": 2
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms at Marriott Hotel for two adults. Our check-in date is Feb 21, 2022 and check-out date is Feb 24, 2022.",
+        "additional_information": "Today is 2022-01-05\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "hotel_name": "Marriott Hotel",
+                    "check_in_time": "2022-02-21",
+                    "check_out_time": "2022-02-24",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me two rooms in the Intercontinental Hotel. We are going to stay next Tuesday (March 15) and leave the following Friday. There are two adults and one child.",
+        "additional_information": "Today is 2023-03-10\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "hotel_name": "InterContinental Hotel",
+                    "check_in_time": "2023-03-14",
+                    "check_out_time": "2023-03-18",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 1
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a room at the Sheraton Hotel from August 1st to 5th. Only one adult.",
+        "additional_information": "Today is 2023-06-29\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "hotel_name": "Sheraton Hotel",
+                    "check_in_time": "2023-08-01",
+                    "check_out_time": "2023-08-04",
+                    "room_count": 1,
+                    "adult_count": 1,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a room at the Holiday Inn for tonight, for two adults.",
+        "additional_information": "Today is 2023-05-20\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "hotel_name": "Holiday Inn",
+                    "check_in_time": "2023-05-20",
+                    "check_out_time": "2023-05-21",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a room at the Westin for two adults for today and tomorrow nights.",
+        "additional_information": "Today is 2023-04-19\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "hotel_name": "Holiday Inn",
+                    "check_in_time": "2023-04-19",
+                    "check_out_time": "2023-04-21",
+                    "room_count": 1,
+                    "adult_count": 2,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book six rooms at the Hyatt Regency Hotel from July 5 to July 12 for a total of 2 adults and 10 children.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "hotel_name": "Hyatt Regency Hotel",
+                    "check_in_time": "2023-07-05",
+                    "check_out_time": "2023-07-12",
+                    "room_count": 6,
+                    "adult_count": 2,
+                    "child_count": 10
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book two Four Seasons Hotel rooms for August 15 to August 23 for three adults.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "hotel_name": "Four Seasons Hotel",
+                    "check_in_time": "2023-08-15",
+                    "check_out_time": "2023-08-23",
+                    "room_count": 2,
+                    "adult_count": 3,
+                    "child_count": 0
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book two rooms for me at the Mandarin Oriental Hotel. We will be checking in next New Year's Day for three nights. There are two adults and two children.",
+        "additional_information": "Today is 2023-12-27\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookHotel",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "hotel_name": "Mandarin Oriental Hotel",
+                    "check_in_time": "2023-01-01",
+                    "check_out_time": "2023-01-04",
+                    "room_count": 2,
+                    "adult_count": 2,
+                    "child_count": 2
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me send an email to user4@example.com with the subject \"Group meeting notice\" and the content \"This week's group meeting will be held on Thursday (May 18) at 2:00 pm in Room 203, FIT Building.\"",
+        "additional_information": "username: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "receiver": "user4@example.com",
+                    "cc": null,
+                    "subject": "Group meeting notice",
+                    "content": "This week's group meeting will be held on Thursday (May 18) at 2:00 pm in Room 203, FIT Building."
+                }
+            }
+        ]
+    },
+    {
+        "query": "Send an email to johndoe1234@gmail.com with the subject \"About tonight's date\" and the text \"Dear John,\n\nIs our date still available tonight? I'm ready and looking forward to meeting you See you.\n\nLove you Jenny\"",
+        "additional_information": "username: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "receiver": "johndoe1234@gmail.com",
+                    "cc": null,
+                    "subject": "About tonight's date",
+                    "content": "Dear John,\n\nIs our date still available tonight? I'm ready and looking forward to meeting you See you.\n\nLove you Jenny"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me send an email to sarahsmith5678@hotmail.com with the subject line \"Thank you for your help\" and the text \"Dear Sarah,\n\nThank you so much for helping me with that project last week. Without your help , I couldn't make it so well. Thanks again.\n\nSincerely, Mike\".",
+        "additional_information": "username: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "receiver": "sarahsmith5678@hotmail.com",
+                    "cc": null,
+                    "subject": "Thank you for your help",
+                    "content": "Dear Sarah,\n\nThank you so much for helping me with that project last week. Without your help , I couldn't make it so well. Thanks again.\n\nSincerely, Mike"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me send an email to davidbrown2468@yahoo.com with the subject line \"About Tomorrow's Meeting\" with the text \"Dear David,\n\nRemind you that our meeting will start at 10am tomorrow. Please make sure you Be on time. Thank you.\n\nGood regards, Kate\" and cc hannahwilson2468@gmail.com.",
+        "additional_information": "username: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "receiver": "davidbrown2468@yahoo.com",
+                    "cc": "hannahwilson2468@gmail.com",
+                    "subject": "About Tomorrow's Meeting",
+                    "content": "Dear David,\n\nRemind you that our meeting will start at 10am tomorrow. Please make sure you Be on time. Thank you.\n\nGood regards, Kate"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Please send an email to Emily (emilyjones1357@gmail.com) with the subject \"About travel plans\" and the text \"Dear Emily,\n\nWhat are our travel plans for next month? I have found Some nice spots. Hope you can join us too.\n\nBest regards, Tom\".",
+        "additional_information": "username: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "receiver": "emilyjones1357@gmail.com",
+                    "cc": null,
+                    "subject": "About travel plans",
+                    "content": "Dear Emily,\n\nWhat are our travel plans for next month? I have found Some nice spots. Hope you can join us too.\n\nBest regards, Tom"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Send an email to adamwilson9101@yahoo.com with the subject line \"Blessings at your new job\" and text \"Dear Adam,\n\nCongratulations on your new job! I'm glad you've achieved your goal. All the best with your post.\n\nSincerely, Christina\".",
+        "additional_information": "username: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "receiver": "adamwilson9101@yahoo",
+                    "cc": null,
+                    "subject": "Blessings at your new job",
+                    "content": "Dear Adam,\n\nCongratulations on your new job! I'm glad you've achieved your goal. All the best with your post.\n\nSincerely, Christina"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Send an email to michaeljohnson2468@gmail.com with the subject line  \"About Dinner\" and the text \"Dear Michael,\n\nDo you have time to have dinner with me tonight? I've made a reservation at a nice restaurant. Looking forward to spending quality time with you.\n\nBest wishes, Kate\".",
+        "additional_information": "username: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "receiver": "michaeljohnson2468@gmail.com",
+                    "cc": null,
+                    "subject": "About Dinner",
+                    "content": "Dear Michael,\n\nDo you have time to have dinner with me tonight? I've made a reservation at a nice restaurant. Looking forward to spending quality time with you.\n\nBest wishes, Kate"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Send me an email to sophiabrown7531@hotmail.com with the subject line \"Thank you for the gift\" with the text \"Dear Sophia,\n\nThank you so much for the gift. I love it so much. You really A good friend.\n\nLove you Kate\"",
+        "additional_information": "username: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "receiver": "sophiabrown7531@hotmail.com",
+                    "cc": null,
+                    "subject": "Thank you for the gift",
+                    "content": "Dear Sophia,\n\nThank you so much for the gift. I love it so much. You really A good friend.\n\nLove you Kate"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Send an email to Jessica (jessicasmith7890@hotmail.com) with the subject line \"Happy Birthday!\" with the text \"Dear Jessica,\n\nHappy Birthday to you! I hope you enjoy this special day today Celebrate your day!\n\nLove your friend, Kate\".",
+        "additional_information": "username: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "receiver": "jessicasmith7890@hotmail.com",
+                    "cc": null,
+                    "subject": "Happy Birthday!",
+                    "content": "Dear Jessica,\n\nHappy Birthday to you! I hope you enjoy this special day today Celebrate your day!\n\nLove your friend, Kate"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me send an email to danielgreen2468@yahoo.com, hannahwilson2468@gmail.com, johndoe1234@gmail.com with the subject line \"Thank you for your support\" and the content is \"Thank you very much for your support in my work.\n\nSincerely, Kate\"",
+        "additional_information": "username: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "SendEmail",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "receiver": "danielgreen2468@yahoo.com;hannahwilson2468@gmail.com;johndoe1234@gmail.com",
+                    "cc": null,
+                    "subject": "Thank you for your support",
+                    "content": "Thank you very much for your support in my work.\n\nSincerely, Kate"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me an air ticket from Beijing to Shanghai on the 13th of this month for no more than 1500 RMB.",
+        "additional_information": "Today is 2023-09-06\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "read/unread": "unread",
+                    "from_time": "2023-09-04",
+                    "to_time": "2023-09-06",
+                    "keyword": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Find unread emails in the latest week",
+        "additional_information": "Today is 2023-05-14\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "read/unread": "unread",
+                    "from_time": "2023-05-08",
+                    "to_time": "2023-05-14",
+                    "keyword": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Show me the unread emails for the lastest month.",
+        "additional_information": "Today is 2022-06-05\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "read/unread": "unread",
+                    "from_time": "2022-05-06",
+                    "to_time": "2022-06-05",
+                    "keyword": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Help me find emails containing the keyword \"Tencent\".",
+        "additional_information": "Today is 2023-03-10\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "read/unread": "both",
+                    "from_time": null,
+                    "to_time": null,
+                    "keyword": "Tencent"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Look for the read emails containing the keyword \"admission notice\" in May of this year.",
+        "additional_information": "Today is 2023-06-29\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "read/unread": "read",
+                    "from_time": "2023-05-01",
+                    "to_time": "2023-05-31",
+                    "keyword": "admission notice"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Search for unread emails containing the keyword \"ACL\".",
+        "additional_information": "Today is 2023-05-17\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "read/unread": "unread",
+                    "from_time": null,
+                    "to_time": null,
+                    "keyword": "ACL"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Look for emails in 2022 that contain the keyword \"happy birthday\".",
+        "additional_information": "Today is 2023-05-17\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "read/unread": "both",
+                    "from_time": "2022-01-01",
+                    "to_time": "2022-12-31",
+                    "keyword": "happy birthday"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Show me the lastes week's read emails.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "read/unread": "read",
+                    "from_time": "2023-05-11",
+                    "to_time": "2023-05-17",
+                    "keyword": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Look for emails containing the keyword \"visa\" in the lastest month.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "read/unread": "both",
+                    "from_time": "2023-04-18",
+                    "to_time": "2023-05-17",
+                    "keyword": "visa"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Show me the unread emails containing the keyword \"group meeting\" in the last 3 days.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "SearchEmail",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "read/unread": "unread",
+                    "from_time": "2023-05-15",
+                    "to_time": "2023-05-17",
+                    "keyword": "group meeting"
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me an air ticket from Beijing to Shanghai on the 13th of this month for no more than 1500 RMB.",
+        "additional_information": "Today is 2023-09-06\nusername: JohnDoe\npassword: pass123",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "JohnDoe",
+                    "password": "pass123",
+                    "date": "2023-09-13",
+                    "from_city": "Beijing",
+                    "to_city": "Shanghai",
+                    "price_upperbound": 1500
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book an air ticket from Chengdu to Beijing on June 1.",
+        "additional_information": "Today is 2023-05-14\nusername: JaneSmith\npassword: password",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "JaneSmith",
+                    "password": "password",
+                    "date": "2023-06-01",
+                    "from_city": "Chengdu",
+                    "to_city": "Beijing",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me an air ticket from Guangzhou to Shanghai tonight for no more than 1000 RMB.",
+        "additional_information": "Today is 2022-01-05\nusername: testuser\npassword: testpass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "testuser",
+                    "password": "testpass",
+                    "date": "2022-01-05",
+                    "from_city": "Guangzhou",
+                    "to_city": "Shanghai",
+                    "price_upperbound": 1000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me an air ticket from Shanghai to Tokyo tomorrow.",
+        "additional_information": "Today is 2023-03-10\nusername: foo\npassword: bar",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "foo",
+                    "password": "bar",
+                    "date": "2023-03-11",
+                    "from_city": "Shanghai",
+                    "to_city": "Tokyo",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book an air ticket departing August 20, 2023, from Beijing to Los Angeles for no more than 20000 RMB.",
+        "additional_information": "Today is 2023-06-29\nusername: admin\npassword: adminpass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "admin",
+                    "password": "adminpass",
+                    "date": "2023-08-20",
+                    "from_city": "Beijing",
+                    "to_city": "Los Angeles",
+                    "price_upperbound": 20000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book an air ticket for me from Beijing to Shenzhen in three days.",
+        "additional_information": "Today is 2023-05-17\nusername: user1\npassword: user1pass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "user1",
+                    "password": "user1pass",
+                    "date": "2023-05-20",
+                    "from_city": "Beijing",
+                    "to_city": "Shenzhen",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a flight from Shenzhen to Wuhan next Tuesday (May 23) for no more than 1500 RMB.",
+        "additional_information": "Today is 2023-05-17\nusername: newuser\npassword: newpass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "newuser",
+                    "password": "newpass",
+                    "date": "2023-05-23",
+                    "from_city": "Shenzhen",
+                    "to_city": "Wuhan",
+                    "price_upperbound": 1500
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book a flight from Seattle to Hong Kong on August 12.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user2pass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "user2",
+                    "password": "user2pass",
+                    "date": "2023-08-12",
+                    "from_city": "Seattle",
+                    "to_city": "Hong Kong",
+                    "price_upperbound": null
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a flight from Beijing to London on July 3 next year for less than 20000 RMB.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "user3",
+                    "password": "user3pass",
+                    "date": "2024-07-03",
+                    "from_city": "Beijing",
+                    "to_city": "London",
+                    "price_upperbound": 20000
+                }
+            }
+        ]
+    },
+    {
+        "query": "Book me a flight from Los Angeles to Shanghai on December 13 this year for no more than 15,000 RMB.",
+        "additional_information": "Today is 2023-05-17\nusername: user2\npassword: user3pass",
+        "tool_usage": [
+            {
+                "tool": "BookFlight",
+                "input": {
+                    "username": "user4",
+                    "password": "user4pass",
+                    "date": "2023-12-13",
+                    "from_city": "Los Angeles",
+                    "to_city": "Shanghai",
+                    "price_upperbound": 15000
+                }
+            }
+        ]
+    }
+]

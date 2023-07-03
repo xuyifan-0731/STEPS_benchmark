@@ -2,5 +2,10 @@ __pycache__
 %*
 .idea
 .vscode
-data
+src/tasks/humaneval_x/env/vendor
+logs
 outputs
+data/full
+results
+config.sh
+download

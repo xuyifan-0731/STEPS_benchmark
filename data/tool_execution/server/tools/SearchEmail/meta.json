@@ -1,0 +1,50 @@
+{
+    "name": "SearchEmail",
+    "description": "This API searches for emails matching given criteria.",
+    "parameters": [
+        {
+            "name": "username",
+            "type": "str",
+            "description": "User's username."
+        },
+        {
+            "name": "password",
+            "type": "str",
+            "description": "User's password."
+        },
+        {
+            "name": "read/unread",
+            "type": "str",
+            "description": "Search only read or unread emails. \"read\" (only search for read emails) or \"unread\" (only search for unread emails) or \"both\" (no limit)."
+        },
+        {
+            "name": "from_time",
+            "type": "str",
+            "description": "The earliest receipt date. Format: \"YYYY-MM-DD\". Can be empty (null), indicating no limit."
+        },
+        {
+            "name": "to_time",
+            "type": "str",
+            "description": "The latest receipt date. Format: \"YYYY-MM-DD\". Can be empty (null), indicating no limit."
+        },
+        {
+            "name": "keyword",
+            "type": "str",
+            "description": "Keywords that emails must contain. Can be empty (null), indicating no keyword."
+        }
+    ],
+    "return": "Information for all matching emails",
+    "example": [
+        {
+            "input": {
+                "username": "JohnDoe",
+                "password": "pass123",
+                "read/unread": "read",
+                "from_time": "2022-05-11",
+                "to_time": "2022-05-17",
+                "keyword": "reminder"
+            },
+            "output": "No matching email."
+        }
+    ]
+}

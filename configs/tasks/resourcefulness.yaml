@@ -1,0 +1,8 @@
+module: "src.tasks.CompositeTask"
+parameters:
+    name: "Resourcefulness"
+    tasks:
+        - src: "./tool_execution.yaml"
+          category: "tool-execution"
+        - src: "./apibench_lite.yaml"
+          category: "api-bench-lite"
