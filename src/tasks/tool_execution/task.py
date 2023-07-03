@@ -171,6 +171,9 @@ class ToolExecution(Task[ToolEvaluationData, ToolPrediction, ToolEvaluationData]
 
             if max_stage < 1:
                 continue
+            
+            if not pred:
+                continue
 
             if pred.choosing in [tool_usage["tool"] for tool_usage in config.tool_usage]:
                 final[0]["score"] += 1

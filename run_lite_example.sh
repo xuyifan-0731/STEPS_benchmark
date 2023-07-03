@@ -1,3 +1,4 @@
 python evaluate.py \
     --task configs/tasks/lite.yaml \
-    --agent configs/agents/do_nothing.yaml
+    --agent configs/agents/local/turbo.yaml \
+    --workers 50
