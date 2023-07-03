@@ -38,7 +38,7 @@ echo "export JAVA_HOME=/usr/java/${java_path}" >> ~/.bashrc
 
 echo "export PATH=/bin:/usr/local/go/bin:/usr/local/lib/nodejs/node/bin:/usr/bin/openssl:\$PATH" >> ~/.bashrc
 
-tar -zxf src/tasks/coding/env/vendor.tar.gz -C src/tasks/coding/env
+tar -zxf src/tasks/humaneval_x/env/vendor.tar.gz -C src/tasks/humaneval_x/env
 
 source ~/.bashrc
 
