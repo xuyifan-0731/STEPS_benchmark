@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    nq_open: "**/nq_open_val.jsonl"
+  language: en
+  name: nq_open
+  path: data/full/nq_open
+  shot: 0
+  workers: 10
+  acc_type: EM

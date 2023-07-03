@@ -1,0 +1,11 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    math: "**/math.jsonl"
+  language: en
+  name: math
+  path: data/full/math
+  cot: default
+  shot: 0
+  workers: 10
+  acc_type: MATHQA

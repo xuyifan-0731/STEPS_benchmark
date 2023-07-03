@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    trivia_qa: "**/trivia_qa_no_answer_overlap.jsonl"
+  language: en
+  name: trivia_qa
+  path: data/full/trivia_qa
+  shot: 0
+  workers: 24
+  acc_type: EM
