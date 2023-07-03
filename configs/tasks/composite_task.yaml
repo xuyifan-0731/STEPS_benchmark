@@ -1,7 +1,6 @@
 module: "src.tasks.CompositeTask"
 parameters:
     name: "Composite-Evaluation"
-    workers: 5
     category: "test-composite"
     tasks:
         - src: "./example.yaml"

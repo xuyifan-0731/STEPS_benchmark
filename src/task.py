@@ -71,10 +71,11 @@ class Dataset(Generic[T_INPUT, T_TARGET], List[DataPiece[T_INPUT, T_TARGET]]):
 class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
     def __init__(self, **kwargs):
         self.name = kwargs.pop("name", None)
+        self.worker_limit = kwargs.pop("worker_limit", None)
         self.workers = kwargs.pop("workers", 1)
         self.category = kwargs.pop("category", None)
         self.src = kwargs.pop("src", None)
-        self.output_root_dir = None
+        self.output_root_dir = kwargs.pop("output_root_dir", None)
         assert isinstance(self.workers, int) and self.workers > 0
         assert isinstance(self.name, str)
         if kwargs:
@@ -100,7 +101,11 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
     def predict_all(self, agent: Agent, inputs: List[T_INPUT]) -> List[T_OUTPUT]:
         print(f"Start Predicting All ...")
 
-        executor = ThreadPoolExecutor(self.workers)
+        thread_count = self.workers
+        if self.worker_limit:
+            thread_count = min(self.workers, self.worker_limit)
+
+        executor = ThreadPoolExecutor(max_workers=thread_count)
 
         threads = []
         results = [None] * len(inputs)
