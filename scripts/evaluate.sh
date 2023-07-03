@@ -4,11 +4,8 @@ script_path=$(realpath $0)
 script_dir=$(dirname $script_path)
 main_dir=$(dirname $script_dir)
 
-DATA_PATH="tasks"
-
 ARGS="${main_dir}/evaluate.py \
-       --data-path $DATA_PATH \
-       --model $1 \
+       --agent $1 \
        --task $2"
 
 TIMESTAMP=$(date +'%Y.%m.%d-%H:%M:%S')
