@@ -1,4 +1,6 @@
 module: "src.tasks.CompositeTask"
 parameters:
     name: "Decisiveness"
-    tasks: []
+    tasks: 
+        # - src: "./singleround.yaml"
+        #   category: "basic"
