@@ -1,1 +1,0 @@
-route | grep default | awk -F ' ' '{print $2}'

@@ -16,6 +16,8 @@ from typing import Callable, List, Dict, Any, Tuple, Optional, Union
 import docker.models.containers
 import docker
 import traceback
+import struct
+import socket
 
 
 class Container:
@@ -33,9 +35,11 @@ class Container:
         self.sock.recv(1000)
 
     def __del__(self):
-        # print("Releasing", self.container.name, self.container.id)
-        self.container.stop()
-        # print("Release", self.container.name, self.container.id, "OK")
+        try:
+            # print("Releasing", self.container.name, self.container.id)
+            self.container.stop()
+        except:
+            pass
 
     def execute(self, command: str):
         class DummyOutput:
@@ -46,7 +50,7 @@ class Container:
                 self.output = o
                 self.exit_code = code
 
-        print("=== EXECUTING ===\n", command)
+        # print("=== EXECUTING ===\n", command)
         if not isinstance(command, str):
             return DummyOutput(-1, b'')
         self.sock.send(command.encode("utf-8") + b'\n')
@@ -75,10 +79,10 @@ class Container:
         return DummyOutput(0, output)
 
     def execute_independent(self, command, *params):
-        print("=== EXECUTING INDEPENDENT ===\n", command)
+        # print("=== EXECUTING INDEPENDENT ===\n", command)
         language, command = command
-        if params:
-            print("== Parameters ==\n", params)
+        # if params:
+        #     print("== Parameters ==\n", params)
         if language == "bash":
             cmd = ["bash", "-c", command]
             if params:
@@ -196,7 +200,7 @@ class OSInteraction(Task):
         # TODO: load config here
         self.match_problem: bool = kwargs.pop("match_problem", True)
         self.check_problem: bool = kwargs.pop("check_problem", True)
-        self.round_limit: int = kwargs.pop("round_limit", 3)
+        self.round_limit: int = kwargs.pop("round_limit", 8)
         self.data_config = kwargs.pop("data_config", None)
         if not self.data_config:
             raise ValueError("data_config must be set")
@@ -278,7 +282,8 @@ class OSInteraction(Task):
         try:
             result = self._judge(session, config, container)
         except Exception as e:
-            error_message = e
+            import traceback
+            error_message = traceback.format_exc()
             result = False
         try:
             container.__del__()
@@ -308,7 +313,8 @@ class OSInteraction(Task):
             for _ in range(self.round_limit):
                 try:
                     root = session.action()
-                    print(root)
+                    root = json.loads(root)
+                    # print(root)
                 except Exception as e:
                     # print("Error", str(e), traceback.format_exc(), sep=" | ")
                     return

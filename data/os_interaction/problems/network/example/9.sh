@@ -1,1 +1,0 @@
-ping -c 10 baidu.com | grep '10 packets' | awk -F ' ' '{print $10}'

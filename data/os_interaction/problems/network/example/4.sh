@@ -1,1 +1,0 @@
-ping -c 1 baidu.com | grep '64 bytes from' | awk -F ' ' '{print $4}'
