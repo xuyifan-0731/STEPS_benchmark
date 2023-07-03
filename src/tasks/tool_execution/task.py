@@ -114,7 +114,8 @@ class ToolExecution(Task[ToolEvaluationData, ToolPrediction, ToolEvaluationData]
                 assert tool_usage["tool"] in self.tool_pool
         super().__init__(**kwargs)
 
-    def __del__(self):
+    def release(self):
+        # print("> Kill Server")
         self.tool_server_process.kill()
 
     def metric(self, prediction: List[ToolPrediction], target: List[ToolEvaluationData]):
@@ -169,6 +170,9 @@ class ToolExecution(Task[ToolEvaluationData, ToolPrediction, ToolEvaluationData]
             # stage 1
 
             if max_stage < 1:
+                continue
+            
+            if not pred:
                 continue
 
             if pred.choosing in [tool_usage["tool"] for tool_usage in config.tool_usage]:

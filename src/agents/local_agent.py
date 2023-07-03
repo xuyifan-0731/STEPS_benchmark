@@ -3,8 +3,8 @@ import os, json, sys, time, re, math, random, datetime, argparse, requests
 from typing import List, Dict, Any, Optional, Union, Tuple, Callable, Type, TypeVar
 
 class LocalAgent(Agent):
-    def __init__(self, url, name=None, **kwargs) -> None:
-        super().__init__(name)
+    def __init__(self, url, **kwargs) -> None:
+        super().__init__(**kwargs)
         self.url = url
         self.parameters = kwargs
 

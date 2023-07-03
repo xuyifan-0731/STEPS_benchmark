@@ -8,6 +8,5 @@ parameters:
   language: en
   name: singleround_test
   path: data/step1_en/data
-  workers: 5
   acc_type: EM
   cot: default
