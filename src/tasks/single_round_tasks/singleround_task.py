@@ -49,7 +49,7 @@ class SingleRoundTask(Task[str, str, str]):
 
             result_dict_group = {}
             for file in filelist:
-                dataset = self.build_dataset(file)         
+                dataset = self.build_dataset(file)
                 inputs = [piece["text"] for piece in dataset]
                 raw_results = self.predict_all(agent, inputs)
 
@@ -57,24 +57,24 @@ class SingleRoundTask(Task[str, str, str]):
                 for data, raw_result in zip(dataset.data, raw_results):
                     data["raw_answer"] = raw_result
                     data["prediction"] = raw_result
-                
+
                 # second stage: extract answer
                 if self.config.extract_answer == True:
                     extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
                     results = self.predict_all(agent, extract_inputs)
                     for data, result in zip(dataset.data, results):
                         data["prediction"] = result
-                
-                if self.config.save_prediction: # first save and evaluate 
+
+                if self.config.save_prediction:  # first save and evaluate
                     self.save_prediction_to_file(file, dataset.data, agent.name)
-                
+
                 try:
-                    ## evaluation
+                    # evaluation
                     result_dict = {}
                     predictions = [dat["prediction"] for dat in dataset.data]
                     for key, metric in self.metrics.items():
                         metric_result = metric(predictions, dataset.data, self.config)
-                        if isinstance(metric_result,dict):
+                        if isinstance(metric_result, dict):
                             for sub_key, sub_metric in metric_result.items():
                                 result_dict[sub_key] = sub_metric
                         else:
@@ -83,7 +83,7 @@ class SingleRoundTask(Task[str, str, str]):
                     if self.config.save_evaluation:
                         result_dict["length"] = len(dataset)
                         self.save_evaluation_to_file(file, result_dict, agent.name)
-                    
+
                     result_dict["length"] = len(dataset)
                     result_dict_group[file] = result_dict
 
@@ -109,22 +109,25 @@ class SingleRoundTask(Task[str, str, str]):
         self.save_overall_results(result_dict_all, cal_results, agent.name)
 
         print_rank_0(f"Finish task {self.config.name} in {time.time() - start:.1f}s.")
-    
+
+        # change cal_results into a json object (only containing basic types, list, or dict, with no numpy types)
+        return json.loads(json.dumps(cal_results, cls=JsonEncoder))
+
     def build_dataset(self, relative_path):
         return GenerationTaskDataset(os.path.join(self.config.path, relative_path), self.config)
 
     def save_prediction_to_file(self, file, data, agent_name):
         file = ".".join(file.split(".")[:-1])
-        filename = os.path.join(self.output_dir, agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
+        filename = os.path.join(self.get_output_dir(), agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with jsonlines.open(filename, "w") as file:
             for output_data in data:
                 file.write(output_data)
             file.close()
-    
+
     def save_evaluation_to_file(self, file, res_dict, agent_name):
         file = ".".join(file.split(".")[:-1])
-        filename = os.path.join(self.output_dir, agent_name, "evaluation", f"{agent_name}.{file}.evaluate.json")
+        filename = os.path.join(self.get_output_dir(), agent_name, "evaluation", f"{agent_name}.{file}.evaluate.json")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename, "w", encoding="utf-8") as f:
             f.write(json.dumps(res_dict, indent=2))
@@ -132,7 +135,7 @@ class SingleRoundTask(Task[str, str, str]):
 
     def save_overall_results(self, result_dict_all, cal_results, agent_name):
         results_all = {"calculate": cal_results, "results": result_dict_all}
-        filename = os.path.join(self.output_dir, agent_name, "results.json")
+        filename = os.path.join(self.get_output_dir(), agent_name, "results.json")
         with open(filename, "w", encoding="utf-8") as f:
             f.write(json.dumps(results_all, cls=JsonEncoder, indent=2))
             f.close()
@@ -174,10 +177,10 @@ class SingleRoundTask(Task[str, str, str]):
             print_rank_0("    " * level + f"  Group {group_name}: ")
             for name, stats in stats_dict.items():
                 print(
-                "    " * (level + 1) + f"Group {group_name} {name}: max = {stats['max']:.3f}, "
-                f"median = {stats['median']:.3f}, fine_grained_average = {stats['fine_grained_average']:.3f}, "
-                f"coarse_grained_average = {stats['coarse_grained_average']:.3f}"
-            )
+                    "    " * (level + 1) + f"Group {group_name} {name}: max = {stats['max']:.3f}, "
+                    f"median = {stats['median']:.3f}, fine_grained_average = {stats['fine_grained_average']:.3f}, "
+                    f"coarse_grained_average = {stats['coarse_grained_average']:.3f}"
+                )
         return stats_dict
 
     @staticmethod

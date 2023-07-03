@@ -7,3 +7,5 @@ data/full
 local*
 results
 ChatGLM*
+**/agents/local/**
+results

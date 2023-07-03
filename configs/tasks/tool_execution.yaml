@@ -1,0 +1,6 @@
+module: "src.tasks.ToolExecution"
+parameters:
+    name: "Tool Execution"
+    tool_root_dir: "data/tool_execution/server"
+    host: "0.0.0.0"
+    port: 12480
