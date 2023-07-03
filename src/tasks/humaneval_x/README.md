@@ -18,7 +18,7 @@ HumanEval-X evaluates the generated code by executing it with test cases. For th
 | OpenSSL    | 3.0.0    |
 | Go         | 1.18.4   |
 
-For languages other than Python, we provide the script for setting up the environment [here](src/tasks/coding/setup/setup_ubuntu.sh).
+For languages other than Python, we provide the script for setting up the environment [here](setup/setup_ubuntu.sh).
 
 To set up the programming language dependencies, run the following scripts:
 
