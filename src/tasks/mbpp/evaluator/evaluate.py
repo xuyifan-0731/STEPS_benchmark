@@ -4,11 +4,12 @@ from typing import *
 from tqdm.auto import tqdm
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import json
 
 from .metric import estimate_pass_at_k
 from .execution import check_correctness
 
-def process_humaneval_test(sample):
+def process_test(sample):
     tests = sample["test_list"]
     test_setup = sample["test_setup"]
     code = sample["generation"]
@@ -18,8 +19,8 @@ def process_humaneval_test(sample):
 
 def evaluate_functional_correctness(
         samples,
-        n_workers: int = 32,
-        timeout: float = 500.0,
+        n_workers: int = 1,
+        timeout: float = 3.0,
         k: List[int] = [1, 10, 100],
 ):
     with ThreadPoolExecutor(max_workers=n_workers) as executor:
@@ -32,16 +33,14 @@ def evaluate_functional_correctness(
         print("Reading samples...")
         for sample in tqdm(samples):
             task_id = sample["task_id"]
-            # tmp_dir_ = os.path.join(tmp_dir, lang, "evaluation")
-            sample["task_id"] = task_id
-            sample["test_code"] = process_humaneval_test(sample)
+            sample["test_code"] = process_test(sample)
             if sample["test_code"] is None:
                 continue
             if "completion_id" in sample:
                 completion_id_ = sample["completion_id"]
             else:
                 completion_id_ = completion_id[task_id]
-            args = (task_id, sample, timeout, completion_id_)
+            args = (task_id, sample['test_code'], timeout, completion_id_)
             future = executor.submit(check_correctness, *args)
             futures.append(future)
             completion_id[task_id] += 1
@@ -67,4 +66,10 @@ def evaluate_functional_correctness(
     pass_at_k = {f"pass@{k}": estimate_pass_at_k(total, correct, k).mean()
                     for k in ks if (total >= k).all()}
     print(pass_at_k)
+
+    # print("Writing to: ", "out.jsonl")
+    # fp = open("out.jsonl", 'w')
+    # for res in results.values():
+    #     for r in res:
+    #         fp.write(json.dumps(r[1]) + "\n")
     return pass_at_k
