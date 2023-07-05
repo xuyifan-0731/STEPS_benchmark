@@ -1,11 +1,11 @@
-from typing import Callable
+from typing import Callable, Dict, List
 
 from .Interaction import Container
 import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBBench(Task[dict, (str, str, list), str]):
+class DBBench(Task[Dict, (str, str, List), str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
@@ -18,7 +18,7 @@ class DBBench(Task[dict, (str, str, list), str]):
             string = str(string)
         return self.conn._cmysql.escape_string(string).decode("utf-8")
 
-    def get_data(self) -> Dataset[dict, str]:
+    def get_data(self) -> Dataset[Dict, str]:
         dataset = Dataset()
         with open(self.data_file) as f:
             if self.data_file.endswith("json"):
@@ -58,7 +58,7 @@ COMMIT;
 """
         return sql
 
-    def predict_single(self, session: Session, data_item: dict) -> (str, str, list):
+    def preDict_single(self, session: Session, data_item: Dict) -> (str, str, List):
         entry = data_item
         container = self.container
         init = self.build_sql(entry)
@@ -100,9 +100,9 @@ COMMIT;
         container.execute(f"drop database `{db}`")
         return str(answer), entry["type"][0], session.history
 
-    def metrics(self) -> dict[str, Callable[[list[(str, str, list)], list[str]], float]]:
+    def metrics(self) -> Dict[str, Callable[[List[(str, str, List)], List[str]], float]]:
         def factory(typ):
-            def acc(inp: list[(str, str, list)], tar: list[str]) -> float:
+            def acc(inp: List[(str, str, List)], tar: List[str]) -> float:
                 correct = 0
                 total = 0
                 for (ans, t, _), cor in zip(inp, tar):

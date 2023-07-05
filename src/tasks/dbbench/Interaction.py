@@ -1,6 +1,7 @@
 import socket
 import sys
 import time
+from typing import Optional
 
 import docker
 import mysql.connector
@@ -87,7 +88,7 @@ class Container:
             self.delete()
 
     def execute(self, sql: str, database: str = None, truncate: bool = True, verbose: bool = True,
-                no_except: bool = False) -> [str | None]:
+                no_except: bool = False) -> Optional[str]:
         if verbose:
             # print("== EXECUTING ==")
             if len(sql) < 300:
@@ -117,7 +118,7 @@ class Container:
         if len(result) > 800 and truncate:
             result = result[:800] + "[TRUNCATED]"
         if not sql.lower().startswith("select"):
-            pass    # IMPORTANT: if `execute` is called in a high rate, here must wait for the transaction
+            pass  # IMPORTANT: if `execute` is called in a high rate, here must wait for the transaction
             # time.sleep(0.5)     # insure transaction is done
         return result
 
