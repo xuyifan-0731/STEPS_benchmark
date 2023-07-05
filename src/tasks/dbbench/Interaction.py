@@ -6,8 +6,6 @@ import docker
 import mysql.connector
 from docker.models import containers
 
-from logger import InteractionLog
-
 
 class Container:
     port = 3000

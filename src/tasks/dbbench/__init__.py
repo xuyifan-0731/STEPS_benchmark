@@ -1,11 +1,11 @@
 from typing import Callable
 
-from Interaction import Container
+from .Interaction import Container
 import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBTask(Task[dict, (str, str), str]):
+class DBBench(Task[dict, (str, str), str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
