@@ -14,11 +14,11 @@ class Container:
         self.image = image
         self.client = docker.from_env()
         password = "password"
-        print("trying port", file=sys.stderr)
+        # print("trying port", file=sys.stderr)
         while self.is_port_open(Container.port):
             Container.port += 1
         self.port = Container.port
-        print("port decided", self.port, file=sys.stderr)
+        # print("port decided", self.port, file=sys.stderr)
         if volume:
             self.container: containers.Container = \
                 self.client.containers.run(image,
@@ -57,7 +57,7 @@ class Container:
                     pool_reset_session=True,
                 )
             except mysql.connector.errors.OperationalError:
-                print("sleep", file=sys.stderr)
+                # print("sleep", file=sys.stderr)
                 time.sleep(1)
             else:
                 break
@@ -65,14 +65,15 @@ class Container:
         # self.conn.autocommit = True
 
         if init_file:
-            print(f"Initializing container with {init_file}")
+            # print(f"Initializing container with {init_file}")
             with open(init_file) as f:
                 data = f.read()
             for sql in data.split("\n\n"):
                 try:
                     self.execute(sql, verbose=False)
                 except Exception as e:
-                    print(e)
+                    raise
+                    # print(e)
 
         self.deleted = False
 
@@ -88,9 +89,10 @@ class Container:
     def execute(self, sql: str, database: str = None, truncate: bool = True, verbose: bool = True,
                 no_except: bool = False) -> [str | None]:
         if verbose:
-            print("== EXECUTING ==")
+            # print("== EXECUTING ==")
             if len(sql) < 300:
-                print(sql)
+                pass
+                # print(sql)
         self.conn.reconnect()
         try:
             with self.conn.cursor() as cursor:
@@ -107,9 +109,11 @@ class Container:
             result = str(e)
         if verbose:
             if len(result) < 200:
-                print(result)
+                pass
+                # print(result)
             else:
-                print("len result:", len(result))
+                pass
+                # print("len result:", len(result))
         if len(result) > 800 and truncate:
             result = result[:800] + "[TRUNCATED]"
         if not sql.lower().startswith("select"):

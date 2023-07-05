@@ -5,7 +5,7 @@ import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBBench(Task[dict, (str, str), str]):
+class DBBench(Task[dict, (str, str, list), str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
@@ -58,7 +58,7 @@ COMMIT;
 """
         return sql
 
-    def predict_single(self, session: Session, data_item: dict) -> (str, str):
+    def predict_single(self, session: Session, data_item: dict) -> (str, str, list):
         entry = data_item
         container = self.container
         init = self.build_sql(entry)
@@ -98,14 +98,14 @@ COMMIT;
             # md5 = entry["answer_md5"]
             answer = container.execute(md5_query, db)
         container.execute(f"drop database `{db}`")
-        return str(answer), entry["type"][0]
+        return str(answer), entry["type"][0], session.history
 
-    def metrics(self) -> dict[str, Callable[[list[(str, str)], list[str]], float]]:
+    def metrics(self) -> dict[str, Callable[[list[(str, str, list)], list[str]], float]]:
         def factory(typ):
-            def acc(inp: list[(str, str)], tar: list[str]) -> float:
+            def acc(inp: list[(str, str, list)], tar: list[str]) -> float:
                 correct = 0
                 total = 0
-                for (ans, t), cor in zip(inp, tar):
+                for (ans, t, _), cor in zip(inp, tar):
                     if t != typ:
                         continue
                     if t in ("INSERT", "DELETE", "UPDATE"):
