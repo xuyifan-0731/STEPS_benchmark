@@ -9,7 +9,7 @@ from docker.models import containers
 
 
 class Container:
-    port = 3000
+    port = 13000
 
     def __init__(self, volume: str = None, init_file: str = None, image: str = "mysql"):
         self.deleted = False
