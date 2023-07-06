@@ -1,11 +1,11 @@
-from typing import Callable, Dict, List
+from typing import Callable, Dict, List, Tuple
 
 from .Interaction import Container
 import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBBench(Task[Dict, (str, str, List), str]):
+class DBBench(Task[Dict, Tuple[str, str, List], str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
@@ -58,7 +58,7 @@ COMMIT;
 """
         return sql
 
-    def preDict_single(self, session: Session, data_item: Dict) -> (str, str, List):
+    def predict_single(self, session: Session, data_item: Dict) -> Tuple[str, str, List]:
         entry = data_item
         container = self.container
         init = self.build_sql(entry)
@@ -100,9 +100,9 @@ COMMIT;
         container.execute(f"drop database `{db}`")
         return str(answer), entry["type"][0], session.history
 
-    def metrics(self) -> Dict[str, Callable[[List[(str, str, List)], List[str]], float]]:
+    def metrics(self) -> Dict[str, Callable[[List[Tuple[str, str, List]], List[str]], float]]:
         def factory(typ):
-            def acc(inp: List[(str, str, List)], tar: List[str]) -> float:
+            def acc(inp: List[Tuple[str, str, List]], tar: List[str]) -> float:
                 correct = 0
                 total = 0
                 for (ans, t, _), cor in zip(inp, tar):
