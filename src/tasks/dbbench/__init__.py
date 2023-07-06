@@ -1,11 +1,11 @@
-from typing import Callable, Dict, List, Tuple
+from typing import Callable, Dict, List, Tuple, Any
 
 from .Interaction import Container
 import json
 from src.task import Task, Dataset, DataPiece, Session
 
 
-class DBBench(Task[Dict, Tuple[str, str, List], str]):
+class DBBench(Task[Dict, Dict[str, Any], str]):
     def __init__(self, **configs):
         super().__init__(**configs)
         self.data_file = configs.pop("data_file")
@@ -58,7 +58,7 @@ COMMIT;
 """
         return sql
 
-    def predict_single(self, session: Session, data_item: Dict) -> Tuple[str, str, List]:
+    def predict_single(self, session: Session, data_item: Dict) -> Dict[str, Any]:
         entry = data_item
         container = self.container
         init = self.build_sql(entry)
@@ -98,15 +98,23 @@ COMMIT;
             # md5 = entry["answer_md5"]
             answer = container.execute(md5_query, db)
         container.execute(f"drop database `{db}`")
-        return str(answer), entry["type"][0], session.history
+        return {
+            "answer": str(answer),
+            "type": entry["type"][0],
+            "history": session.history
+        }
 
     @property
-    def metrics(self) -> Dict[str, Callable[[List[Tuple[str, str, List]], List[str]], float]]:
+    def metrics(self) -> Dict[str, Callable[[List[Dict[str, Any]], List[str]], float]]:
         def factory(typ):
-            def acc(inp: List[Tuple[str, str, List]], tar: List[str]) -> float:
+            def acc(inp: List[Dict[str, Any]], tar: List[str]) -> float:
                 correct = 0
                 total = 0
-                for (ans, t, _), cor in zip(inp, tar):
+                for tmp, cor in zip(inp, tar):
+                    if not tmp:
+                        total += 1
+                        continue
+                    ans, t = tmp["answer"], tmp["type"]
                     if t != typ:
                         continue
                     if t in ("INSERT", "DELETE", "UPDATE"):
