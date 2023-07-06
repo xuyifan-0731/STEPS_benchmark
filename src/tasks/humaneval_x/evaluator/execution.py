@@ -217,7 +217,6 @@ def check_correctness(
             if not os.path.exists(tmp_dir):
                 os.makedirs(tmp_dir)
 
-            os.chdir(tmp_dir)
             open(os.path.join(tmp_dir, "Main.java"), 'w').write(sample["test_code"])
             res = "failed: unknown error"
             compile_returncode = -1
