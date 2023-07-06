@@ -69,9 +69,9 @@ COMMIT;
         prompt = entry["description"] + "\n" + entry["add_description"]
         session.inject({"role": "user", "content": prompt})
         res = session.action()
-        res = json.loads(res)
-        rounds = 0
         try:
+            res = json.loads(res)
+            rounds = 0
             while res and "commit" not in res and rounds < self.max_round:
                 if "sql" not in res or not res["sql"]:
                     answer = ""
