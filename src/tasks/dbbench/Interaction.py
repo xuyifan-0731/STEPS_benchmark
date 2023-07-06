@@ -84,8 +84,11 @@ class Container:
         self.deleted = True
 
     def __del__(self):
-        if not self.deleted:
-            self.delete()
+        try:
+            if not self.deleted:
+                self.delete()
+        except:
+            pass
 
     def execute(self, sql: str, database: str = None, truncate: bool = True, verbose: bool = True,
                 no_except: bool = False) -> Optional[str]:
