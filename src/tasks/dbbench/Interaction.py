@@ -6,6 +6,7 @@ from typing import Optional
 import docker
 import mysql.connector
 from docker.models import containers
+import random
 
 
 class Container:
@@ -17,9 +18,10 @@ class Container:
         self.client = docker.from_env()
         password = "password"
         # print("trying port", file=sys.stderr)
-        while self.is_port_open(Container.port):
-            Container.port += 1
-        self.port = Container.port
+        p = Container.port + random.randint(0, 10000)
+        while self.is_port_open(p):
+            p += random.randint(0, 20)
+        self.port = p
         # print("port decided", self.port, file=sys.stderr)
         if volume:
             self.container: containers.Container = \
@@ -77,7 +79,6 @@ class Container:
                     raise
                     # print(e)
 
-
     def delete(self):
         # self.conn.close()
         self.container.stop()
@@ -125,8 +126,12 @@ class Container:
             # time.sleep(0.5)     # insure transaction is done
         return result
 
-    @staticmethod
-    def is_port_open(port) -> bool:
+    def is_port_open(self, port) -> bool:
+        try:
+            self.client.containers.get(f"mysql_{port}")
+            return True
+        except Exception:
+            pass
         # Create a socket object
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
