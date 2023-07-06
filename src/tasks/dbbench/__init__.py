@@ -100,6 +100,7 @@ COMMIT;
         container.execute(f"drop database `{db}`")
         return str(answer), entry["type"][0], session.history
 
+    @property
     def metrics(self) -> Dict[str, Callable[[List[Tuple[str, str, List]], List[str]], float]]:
         def factory(typ):
             def acc(inp: List[Tuple[str, str, List]], tar: List[str]) -> float:
