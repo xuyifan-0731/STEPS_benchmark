@@ -12,6 +12,7 @@ class Container:
     port = 3000
 
     def __init__(self, volume: str = None, init_file: str = None, image: str = "mysql"):
+        self.deleted = False
         self.image = image
         self.client = docker.from_env()
         password = "password"
@@ -76,10 +77,9 @@ class Container:
                     raise
                     # print(e)
 
-        self.deleted = False
 
     def delete(self):
-        self.conn.close()
+        # self.conn.close()
         self.container.stop()
         self.deleted = True
 

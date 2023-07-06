@@ -13,10 +13,11 @@ class DBBench(Task[Dict, Dict[str, Any], str]):
         self.container = Container()
         self.conn = self.container.conn
 
-    def escape(self, string: str):
+    def escape(self, string: str, conn=None):
+        conn = conn or self.conn
         if type(string) is not str:
             string = str(string)
-        return self.conn._cmysql.escape_string(string).decode("utf-8")
+        return conn._cmysql.escape_string(string).decode("utf-8")
 
     def get_data(self) -> Dataset[Dict, str]:
         dataset = Dataset()
@@ -36,17 +37,17 @@ class DBBench(Task[Dict, Dict[str, Any], str]):
 
         return dataset
 
-    def build_sql(self, entry):
+    def build_sql(self, entry, conn):
         name = entry["table"]["table_name"]
         columns = ",".join(
-            [f"`{self.escape(column['name'])}` TEXT" for column in entry["table"]["table_info"]["columns"]])
+            [f"`{self.escape(column['name'], conn)}` TEXT" for column in entry["table"]["table_info"]["columns"]])
         column_names = ",".join(
-            [f"`{self.escape(column['name'])}`" for column in entry["table"]["table_info"]["columns"]])
+            [f"`{self.escape(column['name'], conn)}`" for column in entry["table"]["table_info"]["columns"]])
         items = []
         for row in entry["table"]["table_info"]["rows"]:
             item = "("
             for col in row:
-                item += f"'{self.escape(col)}',"
+                item += f"'{self.escape(col, conn)}',"
             item = item[:-1] + ")"
             items.append(item)
         items = ",".join(items)
@@ -59,10 +60,11 @@ COMMIT;
         return sql
 
     def predict_single(self, session: Session, data_item: Dict) -> Dict[str, Any]:
+        container = Container()
         entry = data_item
-        container = self.container
-        init = self.build_sql(entry)
-        self.container.execute(init)
+        # container = self.container
+        init = self.build_sql(entry, container.conn)
+        container.execute(init)
         db = entry['table']['table_name']
         prompt = entry["description"] + "\n" + entry["add_description"]
         session.inject({"role": "user", "content": prompt})
@@ -91,7 +93,7 @@ COMMIT;
             # TODO: log exception
             answer = ""
         if data_item["type"][0] in ("INSERT", "DELETE", "UPDATE"):
-            columns = ",".join([f"`{self.escape(column['name'])}`"
+            columns = ",".join([f"`{self.escape(column['name'], container.conn)}`"
                                 for column in entry["table"]["table_info"]["columns"]])
             md5_query = f"select md5(group_concat(rowhash order by rowhash)) as hash " \
                         f"from( SELECT substring(MD5(CONCAT_WS(',', {columns})), 1, 5) AS rowhash FROM `{db}`) as sub;"
