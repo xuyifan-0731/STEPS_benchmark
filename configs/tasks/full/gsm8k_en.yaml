@@ -7,5 +7,5 @@ parameters:
   name: gsm8k_en
   path: data/full/gsm8k
   shot: 0
-  workers: 2
+  workers: 20
   acc_type: MATHQA

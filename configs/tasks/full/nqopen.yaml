@@ -6,5 +6,5 @@ parameters:
   name: nq_open
   path: data/full/nq_open
   shot: 0
-  workers: 10
+  workers: 20
   acc_type: EM

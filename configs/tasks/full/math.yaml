@@ -7,5 +7,5 @@ parameters:
   path: data/full/math
   cot: default
   shot: 0
-  workers: 10
+  workers: 20
   acc_type: MATHQA

@@ -7,6 +7,7 @@ from os.path import join, relpath
 from collections import defaultdict
 from typing import Any, Dict, Tuple
 import numpy as np
+import datetime
 
 from src.task import Task, Session
 from src.tasks.single_round_tasks.configs import BaseConfig
@@ -18,8 +19,9 @@ from src.tasks.single_round_tasks.metrics import DEFAULT_METRICS
 
 class SingleRoundTask(Task[str, str, str]):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
         self.config = BaseConfig.from_dict(kwargs)
+        self.start_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        super().__init__(**kwargs)
         self.file_groups = self.get_file_groups()
 
     def get_file_groups(self):
@@ -132,6 +134,12 @@ class SingleRoundTask(Task[str, str, str]):
         with open(filename, "w", encoding="utf-8") as f:
             f.write(json.dumps(res_dict, indent=2))
             f.close()
+
+    def get_output_dir(self) -> str:
+        """
+            Default output directory is: outputs/{name or category}/{time_str}
+        """
+        return os.path.join("outputs", self.name, self.start_time)
 
     def save_overall_results(self, result_dict_all, cal_results, agent_name):
         results_all = {"calculate": cal_results, "results": result_dict_all}

@@ -6,6 +6,6 @@ parameters:
   name: idiotqa
   path: data/full/idiotqa
   shot: 0
-  workers: 10
+  workers: 20
   acc_type: EM
   extract_answer: False

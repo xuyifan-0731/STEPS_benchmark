@@ -209,10 +209,10 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
     for prediction, ground_truth in zip(predictions, ground_truths):
         # first get first number
         first_number = find_first_number(prediction)
-        # print(f"targets: ", ground_truth["targets"][0], " model answer: ", prediction, " extract: ", first_number)
+        # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
         if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
             acc += 1
-        
+    
     return acc / tt
 
 def acc_for_general_short_cloze(predictions, ground_truths, config=None):
