@@ -1,6 +1,9 @@
 from .example_task import ExampleTask
-from .humaneval_x import HumanEvalXGenerationTask, HumanEvalXTranslationTask
 
+try:
+    from .humaneval_x import HumanEvalXGenerationTask, HumanEvalXTranslationTask
+except:
+    print("> [Warning] HumanEvalX Import Failed")
 try:
     from .mbpp import MBPPTask
 except:
