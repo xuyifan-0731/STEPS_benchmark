@@ -37,3 +37,5 @@ Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to cha
 ```
 
 3. Run `model_api.py` with `--model internal_model_name --device cuda:0 cuda:1 ... --port 9999`
+
+Using arguments is equivalent to calling `/api/v1/internal_model_name/add`.
