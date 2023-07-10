@@ -17,7 +17,7 @@ python evaluate.py \
     --agent configs/agents/do_nothing.yaml
 ```
 
-## 2. Implement agent client
+## 2. Implement Agent
 
 Two ways to do this.
 
