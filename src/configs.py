@@ -4,11 +4,12 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional, Union, Tuple, Callable, Type, TypeVar
 from src.agent import Agent
 from src.task import Task
+from src.tasks import ExampleTask
 
 
 @dataclass
 class YAMLConfig(YAMLWizard):
-    module: str = None  # Agent module
+    module: str = ""  # Agent module
     parameters: dict = field(default_factory=dict)  # Agent parameters
 
     def create(self):
@@ -25,3 +26,4 @@ class YAMLConfig(YAMLWizard):
         # print(config.module)
         config.parameters["src"] = yaml_path
         return config.create()
+        # return ExampleTask(name="Test")

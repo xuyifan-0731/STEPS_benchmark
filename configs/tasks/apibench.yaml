@@ -1,0 +1,4 @@
+module: "src.tasks.apibench.Apibench"
+parameters:
+    name: "APIBench"
+    data_path: data/apibench

@@ -1,0 +1,50 @@
+{
+  "dolly-v2-12b": {
+    "name": "DollyEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/dolly-v2-12b"
+    ]
+  },
+  "oasst-sft-4-pythia-12b": {
+    "name": "OssatEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5"
+    ]
+  },
+  "koala-13B-HF": {
+    "name": "KoalaEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/koala-13B-HF"
+    ]
+  },
+  "chatglm_6b_v2": {
+    "name": "ChatGLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/chatglm2_6b"
+    ]
+  },
+  "vicuna-7b": {
+    "name": "VicunaEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/vicuna/7B"
+    ]
+  },
+  "vicuna-13b": {
+    "name": "VicunaEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/vicuna/13B"
+    ]
+  },
+  "moss-moon-003-sft": {
+    "name": "MossEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/moss-moon-003-sft"
+    ]
+  },
+  "internlm": {
+    "name": "InternLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/internlm-chat-7b"
+    ]
+  }
+}

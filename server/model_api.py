@@ -1,39 +1,13 @@
+import argparse
 import datetime
 import json
-import os
+import multiprocessing as mp
 
 import flask
+import torch.cuda
 from flask import request, jsonify, abort
 
-from server.model_server import *
-from models import *
-from server.models.Ossat import OssatEntry
-
-""" 
-
-POST: /{model-server-name}/{action}
-model-server-name：模型服务的名称，例如：openai，claude
-action：
-    activate：激活模型（部署）
-    call：调用模型（需要模型是已激活状态）
-    deactivate：撤下模型
-    status：查看是否已部署
-Header:
-JSON for "call"
-{
-    "messages": [
-        {"role": "user" or "assistant", "content": string},
-    ],
-    "model": str, // optional
-    "temperature": float, // optional
-}
-
-parameters 可能包括：
-model: 例如 openai 包括 text-davinci-003，chat-turbo-3.5
-temperature
-
-"""
-
+from server.model_server import ModelServer, ModelServerError
 from utils import log as _log
 
 
@@ -44,7 +18,7 @@ def log(action: str, **kwargs):
         "ip": request.remote_addr,
         # format 
         "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "addtional": kwargs
+        "additional": kwargs
     })
 
 
@@ -83,7 +57,21 @@ def activate(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.activate(model_server_name)
+        if model_server_name not in server.model_devices:
+            server.add(model_server_name)
+        return jsonify({"status": 0})
+    except ModelServerError as e:
+        return jsonify({"status": -1, "message": str(e)})
+
+
+@app.route('/api/v1/<model_server_name>/add', methods=['POST'])
+def add(model_server_name):
+    log("add", model_server_name=model_server_name)
+    try:
+        if model_server_name not in server.models:
+            return abort(403, "Invalid Model Name")
+        data = request.get_json()
+        server.add(model_server_name, data.get("device", None))
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -95,7 +83,19 @@ def deactivate(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.deactivate(model_server_name)
+        server.remove(model_server_name)
+        return jsonify({"status": 0})
+    except ModelServerError as e:
+        return jsonify({"status": -1, "message": str(e)})
+
+
+@app.route('/api/v1/<model_server_name>/remove', methods=['POST'])
+def remove(model_server_name):
+    log("remove", model_server_name=model_server_name)
+    try:
+        if model_server_name not in server.models:
+            return abort(403, "Invalid Model Name")
+        server.remove(model_server_name)
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
@@ -107,7 +107,7 @@ def status(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        return jsonify({"status": 0, "model_server_status": server.models[model_server_name]["device"] is not None})
+        return jsonify({"status": 0, "model_server_status": server.status(model_server_name)})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
@@ -128,7 +128,7 @@ def call(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        if server.models[model_server_name]["device"] is None:
+        if not server.model_devices[model_server_name]:
             return jsonify({"status": -1, "message": "model server %s is not active" % model_server_name})
         data = request.get_json()
         if "messages" not in data:
@@ -136,26 +136,12 @@ def call(model_server_name):
         messages = data["messages"]
         temperature = data.get("temperature", None)
 
-        lock = threading.Lock()
-        result = {}
+        main_conn, sub_conn = mp.Pipe()
+        server.register(model_server_name, messages, temperature, sub_conn)
 
-        def callback(result_):
-            nonlocal result
-            lock.acquire()
-            result["result"] = result_
-            lock.release()
-
-        server.register(model_server_name, messages, temperature, callback)
-
-        while True:
-            lock.acquire()
-            if "result" in result:
-                ret = result["result"]
-                log("call-result", result=ret)
-                lock.release()
-                return jsonify({"status": 0, "result": ret})
-            lock.release()
-            time.sleep(0.05)
+        ret = main_conn.recv()
+        log("call-result", result=ret)
+        return jsonify({"status": 0, "result": ret})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})
 
@@ -173,38 +159,18 @@ def start_ipython():
     return jsonify({"status": 0})
 
 
-def load_config_entries(root_dir):
-    entries = {}
-    for file_name in os.listdir(root_dir):
-        if not file_name.endswith(".json"):
-            continue
-        config_path = os.path.join(root_dir, file_name)
-        with open(config_path, "r") as f:
-            config = json.load(f)
-            f.close()
-        entries[config["model_name"]] = ConfigEntry(config_path)
-    return entries
-
-
 if __name__ == '__main__':
+    mp.set_start_method("spawn")
     entries = {}
-    entries.update(load_config_entries("./configs"))
-    entries["dolly-v2-12b"] = DollyEntry("/workspace/xuyifan/checkpoints/dolly-v2-12b")
-    entries["oasst-sft-4-pythia-12b"] = OssatEntry("/workspace/xuyifan/checkpoints/oasst-sft-4-pythia-12b-epoch-3.5")
-    entries["koala-13B-HF"] = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
-    entries["chatglm_6b_v2"] = ChatGLMEntry("/workspace/xuyifan/chatglm-6b-v2")
-    entries["vicuna-7b"] = VicunaEntry("/workspace/xuyifan/checkpoints/vicuna/7B")
-    entries["moss-moon-003-sft"] = MossEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
-    server = ModelServer({
-        **entries
-    }, ["cuda:%d" % i for i in range(8)])
-    server.start()
-    app.run(host="0.0.0.0", port=9998, debug=False, threaded=True)
-
-""" 
-
-TODO
-
-- decode for each request: if input is too long, return error.
-
-"""
+    with open("config.json") as f:
+        models = json.load(f)
+    server = ModelServer(models, ["cuda:%d" % i for i in range(torch.cuda.device_count())])
+    parse = argparse.ArgumentParser()
+    parse.add_argument("--port", type=int, default=9999)
+    parse.add_argument("--model", type=str, default="")
+    parse.add_argument("--device", action="extend", nargs="+", type=str, default=[])
+    args = parse.parse_args()
+    if args.model:
+        for d in args.device:  # could be further optimized with mp
+            server.add(args.model, d)
+    app.run(host="0.0.0.0", port=args.port, debug=False, threaded=True)

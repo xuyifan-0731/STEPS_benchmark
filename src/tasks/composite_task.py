@@ -22,6 +22,8 @@ class CompositeTask(Task):
         super().__init__(**configs)
         for task in tasks:
             assert "src" in task
+            if self.workers:
+                task.update({"workers": self.workers})
             src = os.path.join(os.path.dirname(configs["src"]), task.pop("src"))
             sub_task = YAMLConfig.create_from_yaml(src, task)
             sub_task.get_output_dir = (lambda s: (lambda: self._sub_output_dir(s)))(sub_task)

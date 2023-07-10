@@ -1,7 +1,8 @@
 module: "src.tasks.CompositeTask"
 parameters:
     name: "Resourcefulness"
-    workers: 5
     tasks:
-        - src: "./example.yaml"
-          category: "example"
+        - src: "./tool_execution.yaml"
+          category: "tool-execution"
+        - src: "./apibench_lite.yaml"
+          category: "api-bench-lite"

@@ -1,0 +1,43 @@
+{
+    "docker": {
+        "localhost": "local-os",
+        "directory": "res/dockerfiles"
+    },
+    "scripts": {
+        "directory": "res/scripts"
+    },
+    "data": {
+        "files": [
+            {
+                "problem_file": "data/logs/*.json",
+                "script_dir": "res/scripts/"
+            },
+            {
+                "problem_file": "data/yuhao/*.json",
+                "script_dir": "res/scripts/"
+            },
+            {
+                "problem_file": "data/annotator/李子谋/ac.json",
+                "script_dir": "res/scripts/"
+            },
+            {
+                "problem_file": "data/annotator/extracted/*.json",
+                "script_dir": "res/scripts/"
+            },
+            {
+                "problem_file": "problems/yuhao/new.json",
+                "script_dir": "problems/yuhao/"
+            },
+            {
+                "problem_file": "problems/zhc/new.json",
+                "script_dir": "problems/zhc/"
+            },
+            {
+                "problem_file": "/home/yh/workspace/works/interaction/os/data-bootstrap/final/2023-06-07-00-13-14.json",
+                "script_dir": "res/scripts/"
+            }
+        ],
+        "bk": [],
+        "ignore": []
+    }
+}

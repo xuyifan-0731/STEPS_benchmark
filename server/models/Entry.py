@@ -2,7 +2,7 @@ from typing import List, Dict
 
 
 class ModelServerEntry:
-    def __init__(self) -> None:
+    def __init__(self, *args, **kwargs) -> None:
         pass
 
     def activate(self, device: str) -> None:

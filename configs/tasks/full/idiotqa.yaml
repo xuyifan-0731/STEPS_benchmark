@@ -1,0 +1,11 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    idiotqa: "**/IdiotQA.jsonl"
+  language: cn
+  name: idiotqa
+  path: data/full/idiotqa
+  shot: 0
+  workers: 20
+  acc_type: EM
+  extract_answer: False
