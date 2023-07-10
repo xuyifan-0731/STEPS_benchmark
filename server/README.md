@@ -10,14 +10,16 @@ This is a lite weight server for local models.
 PYTHONPATH="/path/to/project/" python -m model_api.py
 ```
 
+Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to change this value.
+
 ### Call
 
-| API                       | data                                                                                                              | usage                       |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| /api/v1/model_name/call   | {"messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature": 0.7} | call model inference method |
-| /api/v1/model_name/add    | {}                                                                                                                | add a model entity          |
-| /api/v1/model_name/remove | {}                                                                                                                | remove a model entity       |
-| /api/v1/                  | {}                                                                                                                | status of all models        |
+| API                       | data                                                                                                                           | usage                       |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| /api/v1/model_name/call   | `{"messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature" (Optional): 0.7}` | call model inference method |
+| /api/v1/model_name/add    | `{"device" (Optional): "cuda:0"} `                                                                                             | add a model entity          |
+| /api/v1/model_name/remove | `{}`                                                                                                                           | remove a model entity       |
+| /api/v1/                  | `{}`                                                                                                                           | status of all models        |
 
 ### Add Custom model
 
@@ -33,4 +35,5 @@ PYTHONPATH="/path/to/project/" python -m model_api.py
   }
 }
 ```
-3. Run `model_api.py` with `--model internal_model_name --device cuda:0 cuda:1 ...`--port 9999
+
+3. Run `model_api.py` with `--model internal_model_name --device cuda:0 cuda:1 ... --port 9999`
