@@ -66,7 +66,7 @@ parameters:
 
 ### Method II: Implement agent server
 
-See [Model Server Implementation](./server/README.md). for more detailed instruction.
+See [Model Server Implementation](./server/README.md) for more detailed instruction.
 
 ## 3. Run Evaluation
 
