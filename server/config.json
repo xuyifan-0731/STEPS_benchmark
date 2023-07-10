@@ -20,7 +20,7 @@
   "chatglm_6b_v2": {
     "name": "ChatGLMEntry",
     "params": [
-      "/workspace/xuyifan/chatglm-6b-v2"
+      "/workspace/xuyifan/checkpoints/chatglm2_6b"
     ]
   },
   "vicuna-7b": {
@@ -39,6 +39,12 @@
     "name": "MossEntry",
     "params": [
       "/workspace/xuyifan/checkpoints/moss-moon-003-sft"
+    ]
+  },
+  "internlm": {
+    "name": "InternLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/internlm-chat-7b"
     ]
   }
 }
