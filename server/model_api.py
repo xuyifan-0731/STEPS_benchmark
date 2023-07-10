@@ -70,7 +70,8 @@ def add(model_server_name):
     try:
         if model_server_name not in server.models:
             return abort(403, "Invalid Model Name")
-        server.add(model_server_name)
+        data = request.get_json()
+        server.add(model_server_name, data.get("device", None))
         return jsonify({"status": 0})
     except ModelServerError as e:
         return jsonify({"status": -1, "message": str(e)})

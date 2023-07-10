@@ -1,5 +1,4 @@
 import multiprocessing as mp
-import time
 import traceback
 from typing import List, Dict, Any
 
@@ -8,6 +7,9 @@ from .models import *
 
 class ModelServerError(ValueError):
     pass
+
+
+BATCH_SIZE = 8
 
 
 def process(queue, entry_class: type(ModelServerEntry), params, device, expected_q_length: mp.Value, signal: mp.Event):
@@ -26,7 +28,7 @@ def process(queue, entry_class: type(ModelServerEntry), params, device, expected
             result = model.inference(data, temperature[0])
         except Exception:
             traceback.print_exc()
-            result = [None]
+            result = [None] * BATCH_SIZE
         for conn, r in zip(conns, result):
             conn.send(r)
 
@@ -62,7 +64,8 @@ class ModelManager:
         self.batching_signal = mp.Event()
         self.batching_signal.set()
         self.entity_num = mp.Value("i", 0)
-        self.batcher = mp.Process(target=make_batch, args=(self.queue, self.batched_queue, 8, self.batching_signal))
+        self.batcher = mp.Process(target=make_batch,
+                                  args=(self.queue, self.batched_queue, BATCH_SIZE, self.batching_signal))
         self.batcher.start()
 
     def add(self, device: str):
