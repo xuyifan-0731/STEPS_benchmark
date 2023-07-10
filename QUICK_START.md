@@ -82,4 +82,4 @@ Step 2. Run it!
 bash eval.sh
 ```
 
-Step 3. Check Your Results in `output` folder.
+Step 3. Check Your Results in `outputs` folder.
