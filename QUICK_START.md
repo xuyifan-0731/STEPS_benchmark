@@ -17,7 +17,7 @@ python evaluate.py \
     --agent configs/agents/do_nothing.yaml
 ```
 
-## 2. Implement your own model
+## 2. Implement agent client
 
 Two ways to do this.
 
@@ -63,6 +63,10 @@ parameters:
     key1: value1 # The parameters fed into the constructor of your agent class
     key2: value2 # The parameters fed into the constructor of your agent class
 ```
+
+### Method II: Implement agent server
+
+See [Model Server Implementation](./server/README.md). for more detailed instruction.
 
 ## 3. Run Evaluation
 
