@@ -12,14 +12,15 @@ PYTHONPATH="/path/to/project/" python -m model_api.py
 
 Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to change this value.
 
-### Call
+### APIs
 
-| API                       | data                                                                                                                           | usage                       |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| /api/v1/model_name/call   | `{"messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature" (Optional): 0.7}` | call model inference method |
-| /api/v1/model_name/add    | `{"device" (Optional): "cuda:0"} `                                                                                             | add a model entity          |
-| /api/v1/model_name/remove | `{}`                                                                                                                           | remove a model entity       |
-| /api/v1/                  | `{}`                                                                                                                           | status of all models        |
+| API                         | data                                                                                                                           | usage                                                              |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| /api/v1/model_name/call     | `{"messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature" (Optional): 0.7}` | call model inference method                                        |
+| /api/v1/model_name/add      | `{"device" (Optional): "cuda:0"} `                                                                                             | add a model entity                                                 |
+| /api/v1/model_name/remove   | `{}`                                                                                                                           | remove a model entity                                              |
+| /api/v1/                    | `{}`                                                                                                                           | status of all models                                               |
+| /api/v1/model_name/activate | `{}`                                                                                                                           | add if none is activated, do nothing if at least one entity exists |
 
 ### Add Custom model
 
