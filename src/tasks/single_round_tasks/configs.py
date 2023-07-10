@@ -19,7 +19,7 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
     prompt: str = None
     cot: str = None
     shot: int = 0
-    max_length: int = 512 # 2048 words
+    max_length: int = 1024 # 2048 words
     language: str = "en"
 
     acc_type: str = "EM" # MUL MATHQA EM RE

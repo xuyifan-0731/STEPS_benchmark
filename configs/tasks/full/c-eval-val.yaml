@@ -57,6 +57,6 @@ parameters:
   name: c_eval_val_zero_shot
   path: data/full/c-eval_val_zero_shot
   shot: 0
-  workers: 30
+  workers: 20
   acc_type: MUL
   cot: default

@@ -6,6 +6,7 @@ src/tasks/humaneval_x/env/vendor
 logs
 outputs
 data/full
+local*
 results
 config.sh
 download

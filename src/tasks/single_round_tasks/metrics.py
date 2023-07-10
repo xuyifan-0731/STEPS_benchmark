@@ -153,11 +153,13 @@ def find_first_number(prediction):
 
 def re_extract_last_sentence(prediction, re_extractor):
     prediction = prediction.strip().lower()
-    prediction = prediction.split("\n")[0]
-    prediction = prediction.split(".")[0]
     match = re.search(re_extractor, prediction)
     if match:
         answer = match.group(0)
+        answer = answer.strip().split("\n")[0]
+        answer = answer.split(".")[0]
+        answer = answer.replace("\"", "")
+        return answer
     else:
         answer = ""
     return answer
@@ -207,10 +209,10 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
     for prediction, ground_truth in zip(predictions, ground_truths):
         # first get first number
         first_number = find_first_number(prediction)
-        # print(f"targets: ", ground_truth["targets"][0], " model answer: ", prediction, " extract: ", first_number)
+        # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
         if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
             acc += 1
-        
+    
     return acc / tt
 
 def acc_for_general_short_cloze(predictions, ground_truths, config=None):
@@ -249,7 +251,7 @@ def acc_for_re_extraction(predictions, ground_truths, config=None):
             if normal_prediction == exact_answer.strip().lower():
                 acc += 1
                 break
-        
+
     return acc / tt
 
 def acc(predictions, ground_truths, config):

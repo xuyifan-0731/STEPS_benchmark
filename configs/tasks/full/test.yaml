@@ -1,0 +1,12 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    geometric_shapes: "**/geometric_shapes.jsonl"
+  language: en
+  name: bbh_few_shot_cot
+  path: data/full/BBH_en_few_shot_cot
+  shot: 0
+  workers: 20
+  acc_type: RE
+  extract_answer: False
+  extract_template: (?<=the answer is ).*
