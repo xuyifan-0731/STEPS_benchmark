@@ -8,3 +8,4 @@ from .Vicuna import VicunaEntry
 from .Moss import MossEntry
 from .ChatGLM import ChatGLMEntry
 from .Ossat import OssatEntry
+from .InternLM import InternLMEntry

@@ -98,9 +98,8 @@ class ModelManager:
             self.entity_num.value = len(self.entities)
 
     def remove(self, device: str = None):
-        model, p = self.entities[device]
+        p = self.entities[device]
         p.terminate()
-        model.deactivate()
         with self.lock:
             del self.entities[device]
             self.entity_num.value = len(self.entities)
