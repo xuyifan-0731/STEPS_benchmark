@@ -28,11 +28,11 @@ class MBPPTask(Task[str, str, Dict]):
     def get_data(self) -> Dataset[str, Dict]:
         # (
         #     "model_input",
-        #     (
+        #     {
         #         "task_id",
         #         "test_setup",
         #         "test_list"
-        #     ),
+        #     },
         # )
         prompt_template = "You are an expert Python programmer, and here is your task: {prompt} Your code should pass these tests:\n{tests}\nWrite a response that appropriately completes the task:\n"
         

@@ -11,7 +11,7 @@ from typing import *
 
 def check_correctness(
         task_id: str,
-        sample: dict,
+        generation: str,
         timeout: float = 3.0,
         completion_id: Optional[int] = None,
 ) -> Dict:
@@ -45,7 +45,7 @@ def check_correctness(
                         # does not perform destructive actions on their host or network.
                         # Once you have read this disclaimer and taken appropriate precautions,
                         # uncomment the following line and proceed at your own risk:
-                        exec(sample["test_code"], exec_globals)
+                        exec(generation, exec_globals)
                 result.append("passed")
             except TimeoutException:
                 result.append("timed out")
@@ -74,13 +74,9 @@ def check_correctness(
     return {
         "task_id"      : task_id,
         "completion_id": completion_id,
-        "test_code"    : sample["test_code"],
-        "generation"   : sample["generation"],
+        "test_code"    : generation,
         "result"       : result[0],
         "passed"       : result[0] == "passed",
-        "finish"       : -1 if "finish" not in sample else sample["finish"],
-        "file"         : "" if "file" not in sample else sample["file"],
-        "output"       : [] if "output" not in sample else sample["output"],
     }
 
 # Copyright (c) OpenAI (https://openai.com)
