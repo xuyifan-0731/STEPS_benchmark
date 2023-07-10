@@ -1,4 +1,4 @@
-<h1>See [Quick Start](./QUICK_START.md) for setting up your own evaluation.</h1>
+> See [Quick Start](./QUICK_START.md) for setting up your own evaluation.
 
 # STEPS: A Systematic Testing Proposal for Progressive Cognitive Abilities in Language Models
 
