@@ -2,7 +2,7 @@
 
 ## 1. Install requirements
 
-Step 1. Run the following command to install the requirements:
+Step 1. Clone this repo and run the following command to install the requirements:
 
 ```bash
 pip install --upgrade pip
@@ -65,3 +65,17 @@ parameters:
 ```
 
 ## 3. Run Evaluation
+
+Step 1. Modify `eval.sh`: Replace the `AGENT_CONFIG` argument with your own agent config file path.
+
+```bash
+AGENT_CONFIG=configs/agents/your_own_agent.yaml
+```
+
+Step 2. Run it!
+
+```bash
+bash eval.sh
+```
+
+Step 3. Check Your Results in `output` folder.
