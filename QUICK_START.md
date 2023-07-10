@@ -2,7 +2,7 @@
 
 ## 1. Install requirements
 
-Step 1. Run the following command to install the requirements:
+Step 1. Clone this repo and run the following command to install the requirements:
 
 ```bash
 pip install --upgrade pip
