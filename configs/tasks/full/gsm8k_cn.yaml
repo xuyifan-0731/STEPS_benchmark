@@ -4,8 +4,8 @@ parameters:
     gsm8k_cn_zero_shot: "**/gsm8k_zero_shot_cot/gsm8k_cn_zero_shot.jsonl"
     gsm8k_cn_few_shot: "**/gsm8k_few_shot_cot/gsm8k_cn_few_shot.jsonl"
   language: cn
-  name: gsm8k
+  name: gsm8k_cn
   path: data/full/gsm8k
   shot: 0
-  workers: 30
+  workers: 20
   acc_type: MATHQA

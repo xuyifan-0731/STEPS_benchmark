@@ -9,6 +9,6 @@ parameters:
   name: mmlu_zero_shot_cot
   path: data/full/mmlu-zero-shot
   shot: 0
-  workers: 30
+  workers: 20
   acc_type: MUL
   cot: default

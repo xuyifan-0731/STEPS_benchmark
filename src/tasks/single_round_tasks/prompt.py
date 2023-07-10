@@ -155,10 +155,6 @@ class PromptGenerate:
 
     def get_answer(self, item):
         answer = item.get("answer")
-        if isinstance(answer, int):
-            answer = str(answer)
-        elif isinstance(answer, list):
-            answer = [str(ans) for ans in answer]
         assert answer is not None, "Answer missing"
         return answer
 
@@ -250,9 +246,10 @@ class ExtractGenerate(PromptGenerate):
 
     def generate_prompt(self, item):
         question = item.get("text", None)
-        answer = item.get("raw_answer", None)
         assert(question is not None)
-        assert(answer is not None)
+        answer = item.get("raw_answer", None)
+        if answer is None:
+            return "the model didn't provide an answer. "
         choices = item.get("choices", None)
         if choices is None:
             return self.prompt_template.qa_extract_prompt(question, answer)
