@@ -12,14 +12,12 @@ PYTHONPATH="/path/to/project/" python -m model_api.py
 
 ### Call
 
-| API | data | usage |
-| /api/v1/model_name/call | {"
-messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature": 0.7} | call
-model inference method |
-| /api/v1/model_name/add | {} | add a model entity |
-| /api/v1/model_name/remove | {} | remove a model entity |
-| /api/v1/ | {} | status of all models |
-
+| API                       | data                                                                                                              | usage                       |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| /api/v1/model_name/call   | {"messages": [{"role": "user", "content": "hello"}, {"role": "agent", "content": "hi"}, ...], "temperature": 0.7} | call model inference method |
+| /api/v1/model_name/add    | {}                                                                                                                | add a model entity          |
+| /api/v1/model_name/remove | {}                                                                                                                | remove a model entity       |
+| /api/v1/                  | {}                                                                                                                | status of all models        |
 
 ### Add Custom model
 
@@ -35,5 +33,4 @@ model inference method |
   }
 }
 ```
-
-3. Run `model_api.py` with `--model internal_model_name --device cuda:0 cuda:1 ...`
+3. Run `model_api.py` with `--model internal_model_name --device cuda:0 cuda:1 ...`--port 9999

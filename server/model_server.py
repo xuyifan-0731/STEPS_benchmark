@@ -3,31 +3,7 @@ import time
 import traceback
 from typing import List, Dict, Any
 
-import dill
-
 from .models import *
-
-"""
-
-In this file, two classes are defined:
-
-1. ModelServerEntry: the entry point of the model server, which controls the deployment of a model
-
-- device: property, the device to run the model, None for not deployed
-- activate(device: str): method, deploy the model on `device`
-- deactivate(): method, deactivate the model
-- inference(batch: list[dict[str, str]]): method, run inference on the model, return a list of str as the results
-
-2. ModelServer: the model server, which controls the deployment of all models
-
-- __init__(models: dict[str, ModelServerEntry], available_devices: list[str]): constructor, `models` is a dict of 
-model entry name to ModelServerEntry, `available_devices` is a list of available devices 
-- models: property, the list of entries 
-- activate(model_name: str, key: str): method, deploy the model `model_name`, return the device name 
-- deactivate(model_name: str, key: str): method, remove key from all keys. If not key is left, the model will be 
-deactivated
-
-"""
 
 
 class ModelServerError(ValueError):
@@ -42,7 +18,7 @@ def process(queue, entry_class: type(ModelServerEntry), params, device, expected
     model.activate(device)
     while True:
         batch = queue.get()
-        if queue.qsize() < expected_q_length.value:   # this number can be further optimized
+        if queue.qsize() < expected_q_length.value:  # this number can be further optimized
             signal.set()
         data, temperature, conns = list(zip(*batch))
         print("batch size", len(data))
@@ -57,12 +33,12 @@ def process(queue, entry_class: type(ModelServerEntry), params, device, expected
 
 def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int, signal: mp.Event):
     while True:
-        signal.wait()   # avoid running too quickly and making too much small batches; instead, wait for models
+        signal.wait()  # avoid running too quickly and making too much small batches; instead, wait for models
         signal.clear()
         tmp = [queue_in.get()]  # block until not empty
         while not queue_in.empty():
             tmp.append(queue_in.get_nowait())
-        tmp.sort(key=lambda x: x[1])    # sort by temperature
+        tmp.sort(key=lambda x: x[1])  # sort by temperature
         t = tmp[0][1]
         batch = []
         for i in tmp:
@@ -179,12 +155,3 @@ class ModelServer:
         with self.lock:
             if self.active:
                 self.stop()
-
-
-if __name__ == '__main__':
-    model_server = ModelServer({"test": None}, ["cpu"])
-    # server_thread = threading.Thread(target=model_server.start)
-    # server_thread.start()
-    time.sleep(2)
-    print(model_server.status("test"))
-    model_server.stop()
