@@ -135,12 +135,6 @@ class SingleRoundTask(Task[str, str, str]):
             f.write(json.dumps(res_dict, indent=2))
             f.close()
 
-    def get_output_dir(self) -> str:
-        """
-            Default output directory is: outputs/{name or category}/{time_str}
-        """
-        return os.path.join("outputs", self.name, self.start_time)
-
     def save_overall_results(self, result_dict_all, cal_results, agent_name):
         results_all = {"calculate": cal_results, "results": result_dict_all}
         filename = os.path.join(self.get_output_dir(), agent_name, "results.json")
