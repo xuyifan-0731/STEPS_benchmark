@@ -6,8 +6,17 @@ This is a lite weight server for local models.
 
 ### Start server
 
+### Environment
+
+This project is tested on Python 3.11.
+
 ```bash
-PYTHONPATH="/path/to/project/" python -m model_api.py
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install -r requirements.txt
+```
+
+```bash
+PYTHONPATH="/path/to/project/" python -m model_api
 ```
 
 Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to change this value.
