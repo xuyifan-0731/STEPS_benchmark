@@ -12,4 +12,4 @@ class ModelServerEntry:
         raise NotImplementedError
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature: float) -> List[str]:
-        pass
+        raise NotImplementedError

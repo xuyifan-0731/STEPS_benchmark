@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```
 
 ```bash
-PYTHONPATH="/path/to/project/" python -m model_api
+PYTHONPATH="/path/to/STEPS_benchmark/" python -m model_api
 ```
 
 Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to change this value.
@@ -31,17 +31,20 @@ Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to cha
 | /api/v1/                    | `{}`                                                                                                                           | status of all models                                               |
 | /api/v1/model_name/activate | `{}`                                                                                                                           | add if none is activated, do nothing if at least one entity exists |
 
+`status: 0` ALWAYS means succeeded or normal.
+
 ### Add Custom model
 
-1. Implement `ModelServerEntry` in `models/Entry.py`, and import it in `models/__init__.py`
+1. Implement ALL api of `ModelServerEntry` in `models/Entry.py`, and import it in `models/__init__.py`
 2. Add model in `config.json`.
 
 ```json
 {
   "internal_model_name": {
     "name": "ImplementedModelEntryName",
+    "batch_size": 4, // Optional, default 8
     "params":
-    // a list or a dict of parameters for model entry
+    // a list or a dict of parameters for model entry, this directly goes to your entry's parameter
   }
 }
 ```
