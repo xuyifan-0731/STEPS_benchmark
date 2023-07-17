@@ -3,7 +3,7 @@ from typing import List, Dict
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from Entry import ModelServerEntry
+from .Entry import ModelServerEntry
 
 
 class MossEntry(ModelServerEntry):
