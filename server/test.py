@@ -2,7 +2,10 @@ import requests
 
 
 if __name__ == '__main__':
-    print(requests.post("http://localhost:9999/api/v1/internlm/call", json={
+    model = "chatglm2-6b"
+    url = "http://localhost:9998/api/v1/" + model
+    requests.post(url + "/add", json={"device": "cuda:7"})
+    print(requests.post(url + "/call", json={
         "messages": [
             {"role": "user", "content": "Hello!"},
             {"role": "assistant", "content": "Hi."},

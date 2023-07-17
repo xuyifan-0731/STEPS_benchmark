@@ -10,3 +10,5 @@ results
 config.sh
 download
 data/processed_0710
+configs/tasks/test
+data/test

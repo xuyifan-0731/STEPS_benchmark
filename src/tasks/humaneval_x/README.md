@@ -20,9 +20,27 @@ HumanEval-X evaluates the generated code by executing it with test cases. For th
 
 For languages other than Python, we provide the script for setting up the environment [here](setup/setup_ubuntu.sh).
 
-To set up the programming language dependencies, run the following scripts:
+To set up the programming language dependencies, run the following script:
 
 ```shell
 bash src/tasks/humaneval_x/setup/setup_ubuntu.sh
+```
+
+You can modify the script if you want to install dependencies for languages of your choice.
+
+If you encounter the error `sudo: command not found`, please remove all `sudo` from the commands in the script and try again.
+
+After installing the dependencies, run
+
+```shell
 source ~/.bashrc
 ```
+
+to update the environment variables.
+
+## Testing
+The method for running this test is the same as for other tasks except as noted below:
+
+Since HumanEval-X verifies results by running test cases, it is necessary to detect runnable code from the entire output of the model. Unlike **completion** models which directly outputs the code, **chat-based** models tend to mix code and text in their output. To extract code components from these outputs, we design a function [`parse_code_from_chat`](utils.py#L62) that aims to match code snippets. Despite our best efforts, this function may be buggy and in some cases may not recognize the code. If this happens, please contact us!
+
+The evaluation procedure by default runs the extraction process mentioned above. If you are evaluating a **completion** model which outputs the function implementation directly, you can remove this extraction process by commenting out [line 1](task.py#L75) and [line 2](task.py#L106) to avoid potential bugs in the `parse_code_from_chat` function.

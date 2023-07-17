@@ -23,7 +23,7 @@ map_name_prefix = {
     'go': 'Go',
 }
 
-class HumanEvalXTask(Task[str, str, Dict]):    
+class HumanEvalXTask(Task[Dict, str, Dict]):
     @property
     def metrics(self) -> Dict[str, Callable[[List[str], List[Dict]], float]]:
         def evaluate(results, targets):
@@ -40,9 +40,9 @@ class HumanEvalXTask(Task[str, str, Dict]):
         self.num_samples = num_samples
         self.datapath = datapath
 
-    def get_data(self) -> Dataset[str, Dict]:
+    def get_data(self) -> Dataset[Dict, Dict]:
         # (
-        #     "model_input",
+        #     { "input", "prompt" }
         #     {
         #         "task_id",
         #         "prompt",
@@ -59,20 +59,20 @@ class HumanEvalXGenerationTask(HumanEvalXTask):
         super().__init__(name, workers, num_samples, datapath, **kwargs)
         self.language = language
 
-    def get_data(self) -> Dataset[str, Dict]:
+    def get_data(self) -> Dataset[Dict, Dict]:
         data = Dataset()
         for task in stream_jsonl(os.path.join(self.datapath, f"{self.language}.jsonl.gz")):
             item = DataPiece(
-                f"You are an expert {map_name_prefix[self.language]} programmer, and you should complete the following function: \n" + process_extra_prompt(task['prompt'], self.language),
+                { 'input': f"You are an expert {map_name_prefix[self.language]} programmer, and you should complete the following function: \n" + process_extra_prompt(task['prompt'], self.language), 'prompt': task['prompt']},
                 { k: task.get(k, '') for k in ['task_id', 'prompt', 'test', 'declaration', 'import', 'test_setup'] },
             )
             for _ in range(self.num_samples):
                 data.append(item)
         return data
     
-    def predict_single(self, session: Session, data_item: str):
-        result = session.action({"role": "user", "content": data_item})
-        # result = parse_code_from_chat(result, data_item[2], self.language)
+    def predict_single(self, session: Session, data_item: Dict):
+        result = session.action({"role": "user", "content": data_item['input']})
+        result = parse_code_from_chat(result, data_item['prompt'], self.language)
         result = cleanup_code(result, self.language)
         return result
 
@@ -82,7 +82,7 @@ class HumanEvalXTranslationTask(HumanEvalXTask):
         self.src_lang = src_lang
         self.tgt_lang = tgt_lang
 
-    def get_data(self) -> Dataset[str, Dict]:
+    def get_data(self) -> Dataset[Dict, Dict]:
         data = Dataset()
         tasks_src = list(stream_jsonl(os.path.join(self.datapath, f"{self.src_lang}.jsonl.gz")))
         tasks_tgt = list(stream_jsonl(os.path.join(self.datapath, f"{self.tgt_lang}.jsonl.gz")))
@@ -94,15 +94,15 @@ class HumanEvalXTranslationTask(HumanEvalXTask):
                             + map_lang_prefix[self.tgt_lang] \
                             + task_tgt['declaration']
             item = DataPiece(
-                model_input,
+                { 'input': model_input, 'prompt': task_tgt['prompt'] },
                 { k: task_tgt.get(k, '') for k in ['task_id', 'prompt', 'test', 'declaration', 'import', 'test_setup'] },
             )
             for _ in range(self.num_samples):
                 data.append(item)
         return data
     
-    def predict_single(self, session: Session, data_item: str):
-        result = session.action({"role": "user", "content": data_item})
-        # result = parse_code_from_chat(result, data_item[2], self.language)
+    def predict_single(self, session: Session, data_item: Dict):
+        result = session.action({"role": "user", "content": data_item['input']})
+        result = parse_code_from_chat(result, data_item['prompt'], self.language)
         result = cleanup_code(result, self.tgt_lang)
         return result
