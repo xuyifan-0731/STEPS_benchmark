@@ -26,12 +26,14 @@
   },
   "vicuna-7b": {
     "name": "VicunaEntry",
+    "batch_size": 1,
     "params": [
       "/workspace/xuyifan/checkpoints/vicuna/7B"
     ]
   },
   "vicuna-13b": {
     "name": "VicunaEntry",
+    "batch_size": 1,
     "params": [
       "/workspace/xuyifan/checkpoints/vicuna/13B"
     ]

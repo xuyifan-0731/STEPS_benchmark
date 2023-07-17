@@ -244,6 +244,7 @@ class VicunaEntry(ModelServerEntry):
             low_cpu_mem_usage=True,
             torch_dtype=torch.float16,
         ).to(device).eval()
+        print("model and tokenizer loaded")
 
     def deactivate(self) -> None:
         del self.model

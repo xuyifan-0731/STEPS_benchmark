@@ -28,7 +28,7 @@ def process(queue, entry_class: type(ModelServerEntry), params, device, expected
             result = model.inference(data, temperature[0])
         except Exception:
             traceback.print_exc()
-            result = [None] * BATCH_SIZE
+            result = [None] * len(data)
         for conn, r in zip(conns, result):
             conn.send(r)
 
@@ -54,8 +54,8 @@ def make_batch(queue_in: mp.Queue, queue_out: mp.Queue, batch_size: int, signal:
 
 
 class ModelManager:
-    def __init__(self, entry_class: type[ModelServerEntry], params: [dict | list]) -> None:
-        self.params = params
+    def __init__(self, entry_class: type[ModelServerEntry], config: dict) -> None:
+        self.params = config["params"]
         self.entry_class = entry_class
         self.lock = mp.Lock()
         self.entities = {}
@@ -65,7 +65,10 @@ class ModelManager:
         self.batching_signal.set()
         self.entity_num = mp.Value("i", 0)
         self.batcher = mp.Process(target=make_batch,
-                                  args=(self.queue, self.batched_queue, BATCH_SIZE, self.batching_signal))
+                                  args=(self.queue,
+                                        self.batched_queue,
+                                        config.get("batch_size", BATCH_SIZE),
+                                        self.batching_signal))
         self.batcher.start()
 
     def add(self, device: str):
@@ -114,7 +117,7 @@ class ModelServer:
             if model_name not in self.managers:
                 if model_name not in self.models:
                     raise ModelServerError("Model not found")
-                manager = ModelManager(eval(self.models[model_name]["name"]), self.models[model_name]["params"])
+                manager = ModelManager(eval(self.models[model_name]["name"]), self.models[model_name])
                 self.managers[model_name] = manager
             else:
                 manager = self.managers[model_name]
