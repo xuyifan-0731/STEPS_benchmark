@@ -9,3 +9,5 @@ local*
 results
 config.sh
 download
+configs/tasks/test
+data/test
