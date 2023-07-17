@@ -20,7 +20,8 @@
   "chatglm2-6b": {
     "name": "ChatGLMEntry",
     "params": [
-      "/workspace/xuyifan/checkpoints/chatglm2_6b"
+      "/workspace/xuyifan/checkpoints/chatglm2_6b",
+      8192
     ]
   },
   "vicuna-7b": {
@@ -46,5 +47,12 @@
     "params": [
       "/workspace/xuyifan/checkpoints/internlm-chat-7b"
     ]
+  },
+  "chatglm_6b_v1.1": {
+      "name": "ChatGLMEntry",
+      "params": [
+        "/workspace/xuyifan/checkpoints/chatglm-6b-v1.1/chatglm_6b_new",
+        1024
+      ]
   }
 }

@@ -7,14 +7,15 @@ from .Entry import ModelServerEntry
 
 
 class ChatGLMEntry(ModelServerEntry):
-    def __init__(self, model_path) -> None:
+    def __init__(self, model_path, max_tokens=1024) -> None:
         super().__init__()
         self.tokenizer = None
         self.model = None
         self.model_path = model_path
+        self.max_tokens = max_tokens
 
     def activate(self, device: str) -> None:
-        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True, device=device).eval()
+        model = AutoModel.from_pretrained(self.model_path, trust_remote_code=True).eval().half().to(device)
         tokenizer = AutoTokenizer.from_pretrained(self.model_path, trust_remote_code=True)
         self.model = model
         self.tokenizer = tokenizer
@@ -58,7 +59,7 @@ class ChatGLMEntry(ModelServerEntry):
         outputs = self.model.generate(
             input_ids=inputs.input_ids,
             attention_mask=inputs.get("attention_mask", None),
-            max_length=8192, do_sample=temperature != 0, temperature=temperature if temperature else 0.7,
+            max_length=self.max_tokens, do_sample=temperature != 0, temperature=temperature if temperature else 0.7,
         )
 
         output_ids = [output[input_length:] for output in outputs]
