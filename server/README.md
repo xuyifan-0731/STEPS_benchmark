@@ -31,7 +31,7 @@ Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to cha
 | /api/v1/                    | `{}`                                                                                                                           | status of all models                                               |
 | /api/v1/model_name/activate | `{}`                                                                                                                           | add if none is activated, do nothing if at least one entity exists |
 
-`status: 0` ALWAYS means succeeded or normal.
+`status: 0` ALWAYS means success or normal.
 
 ### Add Custom model
 
