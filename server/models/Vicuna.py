@@ -201,19 +201,22 @@ class VicunaEntry(ModelServerEntry):
         self.model_path = model_path
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature: float = 0.7) -> List[str]:
-        gen_params = {
-            "model": self.model_path,
-            "prompt": self.get_prompt(batch),
-            "temperature": temperature,
-            "stop": None,
-            "stop_token_ids": None,
-            "echo": False,
-        }
-        output_stream = generate_stream(self.model, self.tokenizer, gen_params, self.model.device)
-        output_text = ""
-        for outputs in output_stream:
-            output_text = outputs["text"]
-        return [output_text]
+        ret = []
+        for h in batch:
+            gen_params = {
+                "model": self.model_path,
+                "prompt": self.get_prompt([h]),
+                "temperature": temperature,
+                "stop": None,
+                "stop_token_ids": None,
+                "echo": False,
+            }
+            output_stream = generate_stream(self.model, self.tokenizer, gen_params, self.model.device)
+            output_text = ""
+            for outputs in output_stream:
+                output_text = outputs["text"]
+            ret.append(output_text)
+        return ret
 
     def get_prompt(self, batch: List[List[Dict[str, str]]]) -> str:
         seps = [" ", "</s>"]
@@ -259,4 +262,8 @@ if __name__ == '__main__':
         {"role": "user", "content": "Hello!"},
         {"role": "assistant", "content": "Hi."},
         {"role": "user", "content": "Introduce yourself"}
+    ], [
+        {"role": "user", "content": "how are you today"},
+        {"role": "assistant", "content": "I'm fine thank you, and you?"},
+        {"role": "user", "content": "I'm fine, too"}
     ]], 0.3))

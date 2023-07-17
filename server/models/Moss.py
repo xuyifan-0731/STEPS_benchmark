@@ -3,7 +3,7 @@ from typing import List, Dict
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from .Entry import ModelServerEntry
+from Entry import ModelServerEntry
 
 
 class MossEntry(ModelServerEntry):
@@ -14,8 +14,7 @@ class MossEntry(ModelServerEntry):
         self.model_path = model_path
 
     def inference_moss(self, prompts, temperature):
-        prompt = prompts[0]
-        inputs = self.tokenizer(prompt, return_tensors="pt", padding=True)
+        inputs = self.tokenizer(prompts, return_tensors="pt", padding=True)
         inputs = inputs.to(self.model.device)
 
         with torch.no_grad():
@@ -25,8 +24,8 @@ class MossEntry(ModelServerEntry):
             except Exception as e:
                 print(f"exception inference {e}")
                 return [""] * len(prompts)
-        output = self.tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
-        return output
+        ret = self.tokenizer.batch_decode(outputs[:, inputs.input_ids.shape[1]:], skip_special_tokens=True)
+        return ret
 
     def construct_prompt(self, batch: List[List[Dict[str, str]]]) -> List[str]:
         meta_instruction = "You are an AI assistant whose name is MOSS.\n- MOSS is a conversational language model " \
@@ -73,3 +72,17 @@ class MossEntry(ModelServerEntry):
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature=0.7) -> List[str]:
         return self.inference_moss(self.construct_prompt(batch), temperature)
+
+
+if __name__ == '__main__':
+    entry = MossEntry("/workspace/xuyifan/checkpoints/moss-moon-003-sft")
+    entry.activate("cuda:3")
+    print(entry.inference([[
+        {"role": "user", "content": "Hello!"},
+        {"role": "assistant", "content": "Hi."},
+        {"role": "user", "content": "Introduce yourself"}
+    ], [
+        {"role": "user", "content": "how are you today"},
+        {"role": "assistant", "content": "I'm fine thank you, and you?"},
+        {"role": "user", "content": "I'm fine, too"}
+    ]], 0.3))

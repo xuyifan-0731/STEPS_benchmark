@@ -175,7 +175,6 @@ class KoalaEntry(ModelServerEntry):
         self.model_path = model_path
 
     def inference_koala(self, text, temperature):
-        print(text)
         inputs = self.prefix_tokenizer(
             text,
             padding='max_length',
@@ -183,7 +182,6 @@ class KoalaEntry(ModelServerEntry):
             max_length=1024,
             return_tensors='pt',
         ).to(self.model.device)
-        print(inputs)
         input_tokens = inputs.input_ids
         input_mask = inputs.attention_mask
         input_tokens[:, 0] = self.tokenizer.bos_token_id
@@ -202,15 +200,11 @@ class KoalaEntry(ModelServerEntry):
                 print(f"exception inference {e}")
                 return [""] * len(text)
 
-        print(output)
         output_text = []
         for text in list(self.tokenizer.batch_decode(output)):
-            print(text)
             if self.tokenizer.eos_token in text:
                 text = text.split(self.tokenizer.eos_token, maxsplit=1)[0]
             output_text.append(text)
-        print(output_text[0])
-        print(input_tokens.shape, output.shape)
         return output_text
 
     def construct_prompt(self, batch: List[List[Dict[str, str]]]) -> List[str]:
@@ -227,7 +221,7 @@ class KoalaEntry(ModelServerEntry):
         return prompts
 
     def activate(self, device: str) -> None:
-        vocab_file = "models/tokenizer.model"
+        vocab_file = "tokenizer.model"
         self.prefix_tokenizer = LLaMATokenizer(
             vocab_file=vocab_file,
             add_bos_token=False,
@@ -242,7 +236,8 @@ class KoalaEntry(ModelServerEntry):
             padding_side="right",
             truncation_side="right",
         )
-        model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True).half().to(device)
+        print("tokenizer loaded")
+        model = AutoModelForCausalLM.from_pretrained(self.model_path, trust_remote_code=True).to(device).half()
         model = model.eval()
         self.model = model
         print("model and tokenizer loaded")
@@ -259,3 +254,17 @@ class KoalaEntry(ModelServerEntry):
 
     def inference(self, batch: List[List[Dict[str, str]]], temperature=None) -> List[str]:
         return self.inference_koala(self.construct_prompt(batch), temperature or 0.7)
+
+
+if __name__ == '__main__':
+    entry = KoalaEntry("/workspace/xuyifan/checkpoints/koala-13B-HF")
+    entry.activate("cuda:2")
+    print(entry.inference([[
+        {"role": "user", "content": "Hello!"},
+        {"role": "assistant", "content": "Hi."},
+        {"role": "user", "content": "Introduce yourself"}
+    ], [
+        {"role": "user", "content": "how are you today"},
+        {"role": "assistant", "content": "I'm fine thank you, and you?"},
+        {"role": "user", "content": "I'm fine, too"}
+    ]], 0.3))
