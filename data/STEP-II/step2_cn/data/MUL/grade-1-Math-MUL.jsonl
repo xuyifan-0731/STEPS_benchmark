@@ -1,0 +1,8 @@
+{"question": "在2 4 6 8 7 0 3 1 5 9这些卡片中，两张卡片上的数相加得8的一共可以找出()", "choices": ["3组", "4组", "5组"], "answer": "B", "type": "单选题", "label": "MUL", "paper": "小学数学数字和问题练习", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "下面排列不一样的是()。", "choices": ["", "", "", ""], "answer": "A", "type": "单选题", "label": "MUL", "paper": "苏教版数学一年级上册第三单元分一分同步训练", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "孙爷爷今年a岁，张伯伯今年(a-20)岁，过x年后，他们相差()岁．", "choices": ["20", "x+20", "x-20"], "answer": "A", "type": "选择题", "label": "MUL", "paper": "2014年四川省广安市武胜县飞龙中学初一新生入学数学试卷", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "在同一方位，看一个物体最多可以看到多少个面？", "choices": ["看到一个面。", "看到两个面。", "看到三个面。;", "看到四个面。"], "answer": "C", "type": "单选题", "label": "MUL", "paper": "北师大版数学一年级下册第二单元观察物体单元测试", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "一个圆柱的侧面展开是一个正方形，这个圆柱的底面半径和高的比是()", "choices": ["1：π", "1：2π", "π：1", "2π：1"], "answer": "B", "type": "选择题", "label": "MUL", "paper": "2014年四川省广安市武胜县飞龙中学初一新生入学数学试卷", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "()不能分割成两个完全一样的三角形．", "choices": ["平行四边形", "等腰梯形", "长方形", "正方形"], "answer": "B", "type": "选择题", "label": "MUL", "paper": "2014年四川省广安市武胜县飞龙中学初一新生入学数学试卷", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "妈妈为小明买一件83元的上衣，付给售货员100元，应找回()", "choices": ["7元", "27元", "17元"], "answer": "C", "type": "单选题", "label": "MUL", "paper": "北师大版小学数学一年级下册期中测试卷", "grade": "一年级", "course": "数学", "difficulty": "一般"}
+{"question": "两棵树上共有12只小鸟，其中有4只从第一棵树上飞到第二棵树上，请问现在两棵树上一共有多少只小鸟？()", "choices": ["16", "8", "12"], "answer": "C", "type": "单选题", "label": "MUL", "paper": "小学数学智力问题练习", "grade": "一年级", "course": "数学", "difficulty": "一般"}

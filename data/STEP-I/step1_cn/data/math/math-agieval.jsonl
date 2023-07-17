@@ -1,0 +1,1000 @@
+{"question": "令$\\lambda$是一个常数， $0 \\le \\lambda \\le 4,$ ，并令$f : [0,1] \\to [0,1]$， \\[f(x) = \\lambda x(1 - x).\\]，求$\\lambda,$ ，$0 \\le \\lambda \\le 4,$ ，在[0,1]中存在一个x，使$f(x) \\neq x$ 但$f(f(x)) = x.$。", "answer": "(3,4]", "label": "QA"}
+{"question": "在$(x+y)^4+(x+2y)^4$的展开式中，$x^2y^2$的系数是多少？", "answer": "30", "label": "QA"}
+{"question": "在三角形ABC中，tan \\angle CAB=\\frac{22}{7}$，从$A$作$overline{BC}$的垂线，将$overline{BC}$分成长度为$3$和$17$的两部分。问三角形$ABC$的面积是多少？", "answer": "110", "label": "QA"}
+{"question": "令$\\mathbf{w} = \\begin{pmatrix} 1 \\\\ 0 \\\\ -3 \\end{pmatrix}.$  向量集 $\\mathbf{v}$ 和\n   \\[\\operatorname{proj}_{\\mathbf{w}} \\mathbf{v} = \\mathbf{0}\\]在同一平面上.输入这个平面的方程的形式\n   \\[Ax + By + Cz + D = 0,\\]当$A,$ $B,$ $C,$ $D$ 是整数且 $A > 0$ 且 $\\gcd(|A|,|B|,|C|,|D|) = 1.$", "answer": "x - 3z = 0", "label": "QA"}
+{"question": "计算$2911_{11}-1392_{11}$. 用A代表10，答案以11为底, 写出答案。", "answer": "152A_{11}", "label": "QA"}
+{"question": "如下所示，椭圆 $\\frac{x^2}{49} + \\frac{y^2}{33} = 1$ 的焦点是$F_1$ 和$F_2,$ .  椭圆$x^2 + (y - 3)^2 = 4.$内有一点 $P$ ，  直线$F_2 P$ 与椭圆相交于 $Q,$ 当 $Q$的$y$坐标为正时. 求  $PQ + F_1 Q.$的最大值.\n   \n   [asy]\n   unitsize(0.4 cm);\n   \n   pair P, Q;\n   pair[] F;\n   \n   path ell = yscale(sqrt(33))*xscale(7)*Circle((0,0),1);\n   F[1] = (4,0);\n   F[2] = (-4,0);\n   P = (0,3) + 2*dir(240);\n   Q = intersectionpoint(P--interp(F[2],P,5),ell);\n   \n   draw(ell);\n   draw((-8,0)--(8,0));\n   draw((0,-7)--(0,7));\n   draw(Circle((0,3),2));\n   draw(F[1]--Q--F[2]);\n   \n   dot(\"$F_1$\", F[1], S);\n   dot(\"$F_2$\", F[2], S);\n   dot(\"$P$\", P, S);\n   label(\"$Q$\", Q, NE);\n   [/asy]", "answer": "11", "label": "QA"}
+{"question": "计算位于$y=|x1|+|x3|$以上但位于$y=8以下的区域面积。", "answer": "30", "label": "QA"}
+{"question": "如果$f(x)$是一个最高项次数为7的多项式，$g(x)$是一个最高项次数为7的多项式，那么$f(x)+g(x)$的最小和最大可能的次数是多少？", "answer": "0", "label": "QA"}
+{"question": "找出$x(x+1)(x+2)(x+3)的最小值，$x.$为全体实数", "answer": "-1", "label": "QA"}
+{"question": "数组$(a,b)$是方程组 \\begin{align*}\n   3ax+3y&=5b,\\\\\n   2x+y&=5.\n   \\end{align*}的解 $(x,y)$ 得最大值，求$(a,b)$", "answer": "(2,3)", "label": "QA"}
+{"question": "$ABCDEFGH$是一个边长为12厘米的正八边形。求梯形$BCDE$的面积（以平方厘米为单位）。用最简单的式子表达你的答案。\n   \n   \n   [asy] real x = 22.5; draw(dir(0+x)--dir(45+x)--dir(90+x)--dir(90+45+x)-- dir(90+2*45+x)--dir(90+3*45+x)-- dir(90+4*45+x)-- dir(90+5*45+x)--dir(90+6*45+x));\n   \n   label(\"$A$\", dir(90+45+x), W); label(\"$B$\", dir(90+x), NW);label(\"$C$\", dir(45+x), NE); label(\"$D$\", dir(x), E);label(\"$E$\", dir(90+5*45+x), E);label(\"$F$\", dir(90+4*45+x), SE); label(\"$G$\", dir(90+3*45+x), SW);label(\"$H$\", dir(90+2*45+x), W);\n   draw( dir(90+x)--dir(90+5*45+x) );\n   [/asy]", "answer": "72 + 72\\sqrt{2}", "label": "QA"}
+{"question": "在正五边形$ABCDE$的所示五个位置中的两个位置上画出两个等边三角形，就可以得到几个图形。用这种方法可以构建多少个不重合的图形？\n   \n   [asy]\n   pair A,B,C,D,I;\n   A=(10,0);\n   B=(0,0);\n   C=(-3.1,9.5);\n   D=(5,15.4);\n   I=(13.1,9.5);\n   draw(A--B--C--D--I--cycle,linewidth(0.7));\n   draw(A--B--(5,-8.7)--cycle,dashed);\n   draw(A--I--(19.8,2.1)--cycle,dashed);\n   draw(C--B--(-9.8,2.1)--cycle,dashed);\n   draw(I--D--(14.15,19.4)--cycle,dashed);\n   draw(D--C--(-4.15,19.4)--cycle,dashed);\n   label(\"$A$\",A,SE);\n   label(\"$B$\",B,SW);\n   label(\"$C$\",C,W);\n   label(\"$E$\",I,E);\n   label(\"$D$\",D,N);\n   [/asy]", "answer": "2", "label": "QA"}
+{"question": "卡洛斯选择了12张他想购买的不同光盘（CD）。四张是说唱音乐，五张是乡村音乐，还有三张是重金属音乐。然后卡洛斯从12张CD中随机选择了5张来购买。他购买的CD中至少有一张来自这三类CD的概率是多少？把你的答案用简分数表示。", "answer": "\\frac{295}{396}", "label": "QA"}
+{"question": " 若$(x,y)$ 是  \\[(x - 3)^2 + (y - 3)^2 = 6.\\]的实数解，求 $\\frac{y}{x}$ 的最大值。", "answer": "3 + 2 \\sqrt{2}", "label": "QA"}
+{"question": "求 $16^{17} \\times 17^{18} \\times 18^{19}$.的个位数。", "answer": "8", "label": "QA"}
+{"question": "求最小的正整数 使得$n$ such that $$ 617n \\equiv 943n \\pmod{18}. $$", "answer": "9", "label": "QA"}
+{"question": "求$x$，其中$x>0$，$0=9x^23x+2.$ 将你的答案用最简分数表示。", "answer": "\\dfrac{1}{3}", "label": "QA"}
+{"question": "函数 $$k(y) = \\frac{1}{2y+1}~?$$ 的范围是多少？用区间符号表示你的答案。", "answer": "\\left(-\\infty,-\\frac 12\\right)\\cup \\left(-\\frac 12,\\infty\\right)", "label": "QA"}
+{"question": "镇图书馆俱乐部有30名男性和40名女性。  他们希望成立一个由3名男性和4名女性组成的7人指导委员会。  他们可以用多少种方式组成委员会？", "answer": "371,\\!043,\\!400", "label": "QA"}
+{"question": "一条线段的一个端点在$(3,9)$，中点在$(1,2)$。另一个端点的坐标之和是多少？", "answer": "-6", "label": "QA"}
+{"question": "最大的三位数整数是什么，其中各数字的乘积是6？", "answer": "611", "label": "QA"}
+{"question": "设$f（x）$为多项式\\[f（x）=3x^4+5x^2-9x-2.\\]，如果$g（x）$等于多项式$f（x-1）$，$g$的系数之和是多少？", "answer": "-2", "label": "QA"}
+{"question": "在一个正多边形中，一个内角的大小是一个外角的大小的6.5倍。这个多边形有多少条边？", "answer": "15", "label": "QA"}
+{"question": "如果$a\\equiv 16\\pmod｛37｝$且$b\\equiv 21\\pmod｝$，那么对于集合$\\｛0，1，2，\\ldots，35，36\\｝$中整数$n$， $$a-b\\equiv n\\pmod{37}~?$$是正确的吗？", "answer": "32", "label": "QA"}
+{"question": "点$A(2,5), B(6,5), C(5,2)$和$D(1,2)$是一个平行四边形的顶点。如果平行四边形向下平移2个单位，向右平移3个单位，那么点$B$的最终的坐标将是多少？", "answer": "(9, 3)", "label": "QA"}
+{"question": "如果$\\pi=3.1415926…$，$|\\pi-3.14|+|\\pi-\\frac｛22｝｛7｝|$的确切值是多少？用最简分数表示你的答案。", "answer": "\\frac{1}{350}", "label": "QA"}
+{"question": "求 $/csc 330^circ.$", "answer": "-2", "label": "QA"}
+{"question": "一个参议院委员会由5名共和党人、6名民主党人和2名独立人士组成。  随机选择3名成员组成的小组委员会。  该小组委员会由1名共和党人、1名民主党人和1名独立人士组成的概率是多少？", "answer": "\\dfrac{30}{143}", "label": "QA"}
+{"question": " $z,$ 为负数，求\\[|z + 5 - 3i| + |z - 7 + 2i|.\\]的最小值", "answer": "13", "label": "QA"}
+{"question": "Theo有一个半径为5的球；Akshaj有两个半径为2的球。  Theo的球的表面积与Akshaj的球的总表面积之比是多少？", "answer": "\\frac{25}{8}", "label": "QA"}
+{"question": "计算$(.\\overline{6})(3)$。", "answer": "2", "label": "QA"}
+{"question": "如果$det\\mathbf{A} = 7$ 且$det\\mathbf{B} = 3,$求 $det (\\mathbf{B} \\mathbf{A}) 。", "answer": "-21", "label": "QA"}
+{"question": "求椭圆的中心，其方程为$9x^2+72x+4y^28y176=0.$。", "answer": "(-4,1)", "label": "QA"}
+{"question": "以$m$为模，如果有$abequiv 1\\pmod{m}$存在，则用符号$a^{1}$表示其残差$b$。有多少个满足$0\\le a < 100$的整数$a$，使$a(a1)^{1}equiv 4a^{1} pmod{20}$是正确的？", "answer": "0", "label": "QA"}
+{"question": "计算：$\\sqrt{15\\cdot 35\\cdot 21}$。", "answer": "105", "label": "QA"}
+{"question": "设$f(x)$是一个奇函数，设$g(x)$是一个偶函数。  $f(f(g(f(g(f(x))))))$是偶数、奇数，还是都不是？请回答\"奇数\"、\"偶数 \"或 \"都不是\"。", "answer": "\\text{even}", "label": "QA"}
+{"question": "在坐标平面中，令$F=（5,0）$，$P$是一个点，设$Q$是点$P$在$x=\\frac｛16｝｛5｝$线上的投影。点$P$在平面上绘制曲线，因此对于曲线上的所有点$P$，[\\frac｛PF｝｛PQ｝=\\frac｛5｝{4｝\\]，写出该曲线的方程。（写出标准形式。）\n   \n   [asy]\n   unitsize(1 cm);\n   \n   pair P, F, Q;\n   \n   F = (5,0);\n   P = (6,3*sqrt(5)/", "answer": "\\frac{x^2}{16} - \\frac{y^2}{9} = 1", "label": "QA"}
+{"question": "如果$500- 90+7=400 - 60+5+N$，那么$N$的值是多少？", "answer": "72", "label": "QA"}
+{"question": "设$a,$b,$c$是$x^37x+2=0的根。求\\[abc + ab + ac + bc + a + b + c + 1.\\] 。", "answer": "-8", "label": "QA"}
+{"question": "在$20!$的素数分解中出现了多少个不同的素数（20的阶乘）？(请注意：数字$n!$是1到$n$的整数的乘积。  例如，$5!=5\\cdot 4\\cdot3\\cdot2\\cdot 1= 120$.）。", "answer": "8", "label": "QA"}
+{"question": "一个菱形的周长是$68$，其中一条对角线是 $30$。它的面积是多少，以平方为单位？", "answer": "240", "label": "QA"}
+{"question": "所示的圆圈无限连续，直径分别为16英寸、8英寸、4英寸，依此类推。每个圆圈的直径是前一个圆圈直径的一半。所有圆的面积之和的平方英寸是多少？用最接近答案的整数。\n   [asy]\n   size(200); import geometry; import olympiad; import graph;\n   real radius = 64.0;\n   real center = 0.0;\n   for(int i = 0; i < 20; ++i){\n   \n   radius = radius / 2.0;", "answer": "268", "label": "QA"}
+{"question": "存在向量 $\\mathbf{a}$ a和向量 $\\mathbf{b}$ 使得\n   \\[\\mathbf{a} + \\mathbf{b} = \\begin{pmatrix} 4 \\\\ 7 \\end{pmatrix},\\]， $\\mathbf{a}$平行于$\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix},$ 且d $\\mathbf{b}$正交于$\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}.$  求$\\mathbf{b}.$", "answer": "\\begin{pmatrix} 2/5 \\\\ -1/5 \\end{pmatrix}", "label": "QA"}
+{"question": "给定$\\displaystyle｛\\left（（3！）！\\right）！｝\\over｛3！｝｝＝k\\cdotn！$，其中$k$和$n$是正整数，$n$尽可能大，请求$k+n$。", "answer": "839", "label": "QA"}
+{"question": "在图中，两个三角形的底边是平行的。小三角形的面积与大三角形的面积之比是多少？把你的答案用简分数表示。 [asy] path p = (0,0)--dir(-60)--dir(-120)--(0,0);\n   draw(p); draw(scale(3)*p);\n   label(\"4 cm\",dir(-60)--dir(-120),S); label(\"10 cm\",3*dir(-60)--3dir(-120),S);\n   [/asy]", "answer": "\\dfrac{4}{25}", "label": "QA"}
+{"question": "如果你继续采用这种模式，在下一个图中，每个线段的极点都被一个逐渐变小的Y所取代，按照图中所示的方式，图5将有多少个端点？   [asy]\n   draw((0,0)--(0,-3),linewidth(.75));\n   draw((0,0)--(-2,2),linewidth(.75));\n   draw((0,0)--(2,2),linewidth(.75));\n   label(\"Figure 1\",(0,-3),S);\n   \n   draw((5,0)--(5,-2),linewidth(.75));\n   draw((4,-3)--(5,-2)--(6,-3),linewidth(.75));\n   draw((4,1)--(5,0)--(6,1),linewidth(.75));\n   draw((3,1)--(4,1)--(4,2),linewidth(.75));\n   draw((6,2)--(6,1)--(7,1),linewidth(.75));\n   label(\"Figure 2\",(5,-3),S);\n   \n   draw((10,0)--(10,-2),linewidth(.75));\n   draw((9.5,-2.5)--(10,-2)--(10.5,-2.5),linewidth(.75));\n   draw((9,-2.5)--(9.5,-2.5)--(9.5,-3),linewidth(.75));\n   draw((11,-2.5)--(10.5,-2.5)--(10.5,-3),linewidth(.75));\n   \n   draw((9,1)--(10,0)--(11,1),linewidth(.75));\n   draw((8.5,1)--(9,1)--(9,1.5),linewidth(.75));\n   draw((11.5,1)--(11,1)--(11,1.5),linewidth(.75));\n   draw((8.25,.75)--(8.5,1)--(8.25,1.25),linewidth(.75));\n   draw((8.75,1.75)--(9,1.5)--(9.25,1.75),linewidth(.75));\n   draw((10.75,1.75)--(11,1.5)--(11.25,1.75),linewidth(.75));\n   draw((11.75,1.25)--(11.5,1)--(11.75,.75),linewidth(.75));\n   label(\"Figure 3\",(10,-3),S);\n   \n   [/asy]", "answer": "48", "label": "QA"}
+{"question": "计算复数$（u，v）$的有序数组的值，使得$uv＝10$，并且使得$u$和$v$的实部和虚部是整数", "answer": "48", "label": "QA"}
+{"question": "将5^5\\div5^45^3+5^2\\cdot5^1$表示为一个整数。", "answer": "5", "label": "QA"}
+{"question": "求$(52+6\\sqrt{43})^{3/2}(526\\sqrt{43})^{3/2}$的值。", "answer": "828", "label": "QA"}
+{"question": "找到最小的整数$x$，其中$frac{sqrt{x2}}{x^2+x6}$", "answer": "3", "label": "QA"}
+{"question": "设$\\mathbf｛a｝、$$\\mathbf｛b｝、$和$\\mathbf{c｝$为三个单位向量，使得它们之间的角度为锐角$\\theta$由这三个向量生成的四面体的体积是$\\frac｛1｝｛\\sqrt｛360｝｝$求\\[3\\cos^2θ-2\\cos^3\\θ]", "answer": "\\frac{9}{10}", "label": "QA"}
+{"question": "假设$N$是数字$21420N$的个位数。哪个非零值的$N$可以使这个数字被$6$整除？", "answer": "6", "label": "QA"}
+{"question": "本正在爬一棵有很多树枝的树。他在$t$时离地的高度是$2t^25t+29$英尺。他的最低高度是多少？", "answer": "26", "label": "QA"}
+{"question": "找出$8888_{10}$的8进制表达式的数字之和。", "answer": "12", "label": "QA"}
+{"question": "求$9i12||cdot|3+4i|$。", "answer": "75", "label": "QA"}
+{"question": "在帕斯卡尔三角形中，第三行有四个元素，这些元素的总和是8。 第十行的元素总和是多少？ 注意，我们把最上面一行有一个1的地方算作第0行）。", "answer": "1024", "label": "QA"}
+{"question": "当39,500除以一个整数$n$时，商是123，余数是17。求$n$。", "answer": "321", "label": "QA"}
+{"question": "求\"(cos12^\\circ+i\\sin12^\\circ+cos48^\\circ+i\\sin48^\\circ)^6.\\\"的虚数。", "answer": "0", "label": "QA"}
+{"question": "在某个多项式中，所有的系数都是整数，常数系数是42。所有的根都是整数且不同。找到尽可能多的整数根。", "answer": "5", "label": "QA"}
+{"question": "一本教科书有1,000页。  有多少页的页码的数字加起来正好是4？", "answer": "15", "label": "QA"}
+{"question": "设$a,$b,$c,$d$为实数，使得$a+b+c+d=17$，$ab+bc+cd+da=46$，求$a^2+b^2+c^2+d^2的最小值。", "answer": "\\frac{197}{2}", "label": "QA"}
+{"question": "在八边形$ABCDEFGH$中，每条边都与相邻的每条边垂直。请问$ABCDEFGH$的周长是多少？[asy]draw((0,0)(10,0)(10,6)(6,6)(6,2)(2,2)(2,10)(0,10)(0,0)cycle,linewidth(2));label(\"A\",(0,10),W)；label(\"B\",(0,0),W)；label(\"C\",(10,0),E)；label(\"D\",(10,6),NE)；label(\"E\",(6,6),NW)；label(\"F\",(6,2),SE)；label(\"G\",(2,2),SW)；label(\"H\",(2,10),NE)；label(\"10\",(5,0),S)；label(\"6\",(10,3),E)；label(\"4\",(6,4),E)；label(\"8\",(2,6),E)；[/asy]", "answer": "48", "label": "QA"}
+{"question": "一条直线与$yz$平面相交于$(0,2,5)，与$xz$平面相交于$(3,0,1)$求直线与$xy$平面相交的点。", "answer": "\\left( \\frac{15}{4}, \\frac{1}{2}, 0 \\right)", "label": "QA"}
+{"question": "正方形$ABCD$的边长为$10$。点$E$位于$\\overline｛BC｝$上，$\\triangle ABE$的面积为$40$。$BE$多长？\n [asy]size(4cm);\n   pair A,B,C,D,E;\n   A=(0,0);\n   B=(0,50);\n   C=(50,50);\n   D=(50,0);\n   E = (30,50);\n   draw(A--B);\n   draw(B--E);\n   draw(E--C);\n   draw(C--D);\n   draw(D--A);\n   draw(A--E);\n   dot(A);\n   dot(B);\n   dot(C);\n   dot(D);\n   dot(E);\n   label(\"$A$\",A,SW);\n   label(\"$B$\",B,NW);\n   label(\"$C$\",C,NE);\n   label(\"$D$\",D,SE);\n   label(\"$E$\",E,N);\n   [/asy]", "answer": "8", "label": "QA"}
+{"question": "在图中，长方形$ABCD$的面积是$40$。那么$MBCN$的面积是多少？ [asy]\n   import olympiad;\n   pair a = (0, 0); pair m = (4, 0); pair b = (8, 0); pair c = (8, -5); pair n = (6, -5); pair d = (0, -5);\n   draw(m--n);\n   draw(a--b--c--d--cycle);\n   label(\"$A$\", a, NW); label(\"$B$\", b, NE); label(\"$C$\", c, SE); label(\"$D$\", d, SW);\n   label(\"$M$\", m, N); label(\"$N$\", n, S);\n   label(\"$4$\", midpoint(a--m), N); label(\"$4$\", midpoint(m--b), N);\n   label(\"$2$\", midpoint(n--c), S);\n   [/asy]", "answer": "15", "label": "QA"}
+{"question": "在图中的五角星中，字母$A$、$B$、$C$、$D$和$E$被数字$3$、$5$、$6$、$7$和$9$所取代，但不一定按这个顺序。线段$AB$、$BC$、$CD$、$DE$和$EA$两端的数字之和构成一个算术序列，但不一定按这个顺序。这个数列的中间项是什么？[asy]单位大小（2厘米）；对A、B、C、D、E；A = dir(90)；B = dir(90 + 3*360/5)；C = dir(90 + 6*360/5)；D = dir(90 + 9*360/5)；E = dir(90 + 12*360/5)；draw(ABCDEcycle);filldraw(Circle(A,0.15),white)；filldraw(Circle(B,0.15),white)；filldraw(C,0.15),white)；filldraw(Circle(D,0.15),white)；filldraw(Circle(E,0.15),white)；label(\"$A$\", A)；label(\"$B$\", B)；label(\"$C$\", C)；label(\"$D$\", D)；label(\"$E$\", E)；[/asy]", "answer": "12", "label": "QA"}
+{"question": "当$2^3\\cdot3^x=72$，求$x$ ", "answer": "2", "label": "QA"}
+{"question": "一个长方形的花园与房子的一边共用一个侧面。花园相邻的一面有8英尺长。如果花园的面积是184平方英尺，那么公用边的长度是多少，单位为英尺", "answer": "23", "label": "QA"}
+{"question": "有多少种方法可以填充$1\\underline{\\hphantom{2}}\\,\\underline{\\hphantom{2}}4$ 的十位数和百位数，使其可被$11$整除？", "answer": "9", "label": "QA"}
+{"question": "设$mathbf{a}$和$mathbf{b}$是两个非零向量，使得$mathbf{a}+\\mathbf{b}$和$mathbf{b}$正交，$mathbf{a}+2\\mathbf{b}$和$mathbf{a}$正交。  求$\\frac{\\|\\mathbf{a}\\|}{\\|\\mathbf{b}\\|}.$", "answer": "\\sqrt{2}", "label": "QA"}
+{"question": "假设$a<c$，$b<0$。以下哪项一定是正确的？$ab<ac$$a+b<c+b$$ab<cb$$c/a > 1$输入你的答案，列出正确的选项。例如，如果你认为只有第一项和第三项是真的，就输入'A，C'。", "answer": "B, C", "label": "QA"}
+{"question": "已知$f(2)=5$和$f^{1}(x+4)=2f^{1}(x)+1$对于所有$x$，求$f^{1}(17)$。", "answer": "23", "label": "QA"}
+{"question": "0到12之间的所有奇数的乘积的个位数是多少？", "answer": "5", "label": "QA"}
+{"question": "估计$log_264$。", "answer": "6", "label": "QA"}
+{"question": "找出3乘以3的矩阵$\\mathbf{M}$，使得\\[\\mathbf{M}\\begin{pmatrix} x y z end{pmatrix} = begin{pmatrix} y z x + y + z end{pmatrix}]$x,$y,$和$z为实数。", "answer": "\\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}", "label": "QA"}
+{"question": "设$a,$b,$和$c是正实数，使得$a^2=bc$和$a+b+c=abc.$求$a^2的最小可能值。", "answer": "3", "label": "QA"}
+{"question": "一个冰淇淋圆锥体由一个装着香草冰淇淋的球体和一个与球体直径相同的直角圆锥体组成。如果冰激凌融化了，它将完全填满圆锥体。  假设融化的冰淇淋占冷冻冰淇淋体积的$75%$。圆锥体的高度与半径之比是多少？ 注：半径为$r$、高度为h$的圆锥体的体积为$pi r^2 h/3$，半径为$r$的球体的体积为$pi r^3/3$）。", "answer": "3:1", "label": "QA"}
+{"question": "设$a$和$b$是$80$的不同正除数。$ab$不是$80的除数，它的最小可能值是多少", "answer": "32", "label": "QA"}
+{"question": "化简\\[\\frac{cos x}{1  \\sin x}  \\frac{cos x}{1 + \\sin x}.\\] 。", "answer": "2 \\tan x", "label": "QA"}
+{"question": "如果$(ax+b)(2x+3)=20x^2+44x+21$，其中$a$和$b$是两个不同的整数，那么和$a+b$的值是多少？", "answer": "17", "label": "QA"}
+{"question": "满足$$mathop{\\text{lcm}}[r,700] = 7000~的所有正整数$r$的总和是多少？", "answer": "8000", "label": "QA"}
+{"question": "罗斯林有20个盒子。其中13个盒子里有铅笔，9个盒子里有钢笔，3个盒子里没有钢笔和铅笔。有多少个盒子里既有钢笔又有铅笔？", "answer": "5", "label": "QA"}
+{"question": "一架蓝色飞机、一架红色飞机和一架白色飞机正在等待从一个有两条跑道的机场起飞。飞机必须一次从机场起飞，可以选择从任何一条跑道起飞。这三架飞机可以以多少种方式安排起飞？(其中一种方式是蓝色飞机在A跑道上，其次是红色飞机在B跑道上，然后是白色飞机在B跑道上。)", "answer": "48", "label": "QA"}
+{"question": "既然$591{,}3d8$可以被12整除，那么可以代替$d$的所有数字之和是多少？", "answer": "4", "label": "QA"}
+{"question": "贝丝掷了一个公平的六面骰子。如果她掷出一个质数，她就赢得1美元，但如果她掷出一个合数，她就失去1美元。如果她掷出的是1，则什么也不会发生。如果贝丝掷一次骰子，她所赢得的钱的期望值是多少？把你的答案用简分数表示。", "answer": "\\frac{1}{6}", "label": "QA"}
+{"question": "如果$8210=8.21\\times 10^{square}$，那么$square$中的值是多少？", "answer": "3", "label": "QA"}
+{"question": "一个凸六边形的对角线可以画多少条？", "answer": "9", "label": "QA"}
+{"question": "给出\n   \\[\\sin \\left( \\theta + \\frac{\\pi}{4} \\right) = \\frac{1}{3},\\]计算 $\\sin 2 \\theta.$", "answer": "-\\frac{7}{9}", "label": "QA"}
+{"question": "用最简形式写出下式的值\n   \\[\\sqrt{\\frac{3}{4} - \\sqrt{\\frac{1}{2}}} - \\sqrt{\\frac{3}{4} + \\sqrt{\\frac{1}{2}}}.\\]", "answer": "-1", "label": "QA"}
+{"question": "找到$121\\cdot 122\\cdot 123$的模4余数。", "answer": "2", "label": "QA"}
+{"question": "当$24x^4 + 6x^3 + 4x^27x  5$$与$6x^3 + 3x^2 + 3x + 4$$相乘后，x^3的系数是多少？", "answer": "-15", "label": "QA"}
+{"question": "迈克尔走到学校需要0.30小时。他走到学校需要多少秒？", "answer": "1080", "label": "QA"}
+{"question": "一组不同的正整数的积是84。这些整数的最小可能之和是多少？", "answer": "14", "label": "QA"}
+{"question": "下面是英文字母表中所有$26$字母的图画。如下图所示，这些字母中的一些可以是函数图形的一部分，而另一些则不能。例如，$\\textsf｛O｝$类似于一个椭圆，它不能是函数图的一部分。如下图所示，这些字母中的哪一个可能是函数图形的一部分？（您不能旋转它们。）以字母列表的形式给出答案，字母之间没有空格或其他标点符号，按字母顺序排列。\n$$\\begin{array}{c c c c c}\n   \\textsf{A} & \\textsf{B} & \\textsf{C} & \\textsf{D} & \\textsf{E}\\\\\\\\\n   \\textsf{F} & \\textsf{G} & \\textsf{H} & \\textsf{I} & \\textsf{J}\\\\\\\\\n   \\textsf{K} ", "answer": "\\text{VW}", "label": "QA"}
+{"question": "在糖果店，一块巧克力棒的价格是c美元，一块香草棒的价格比巧克力棒高2美元。杰米买了一根巧克力棒和三根香草棒，凯文买了五根巧克力棒。杰米和凯文在糖果店总共花了多少钱，以$c$计算？", "answer": "9c+6", "label": "QA"}
+{"question": "设$ABCD$为长方形。设$E$和$F$分别为$BC$和$CD$上的点，使三角形$ABE$、$ADF$和$CEF$的面积分别为8、5和9。求长方形形$ABCD$的面积。\n  [asy]\n   unitsize(1.5 cm);\n   \n   pair A, B, C, D, E, F;\n   \n   A = (0,2);\n   B = (0,0);\n   C = (3,0);\n   D = (3,2);\n   E = (3*B + 2*C)/5;\n   F = (2*D + C)/3;\n   \n   draw(A--B--C--D--cycle);\n   draw(A--E--F--cycle);\n   \n   label(\"$A$\", A, NW);\n   label(\"$B$\", B, SW);\n   label(\"$C$\", C, SE);\n   label(\"$D$\", D, NE);\n   label(\"$E$\", E, S);\n   label(\"$F$\", F, dir(0));\n   label(\"$8$\", (A + B + E)/3);\n   label(\"$5$\", (A + D + F)/3);\n   label(\"$9$\", (C + E + F)/3);\n   [/asy]", "answer": "40", "label": "QA"}
+{"question": "假设函数$f(x,y,z)=xyz$，有以下限制条件$x+y+z=7$，$x,y,z/ge 0$。请问$f$的范围是多少？", "answer": "\\left[0,\\frac{343}{27}\\right]", "label": "QA"}
+{"question": "给定$\\mathbf｛A｝=\\ begin｛pmatrix｝0&1\\-1&0\\ end｛pmametrix｝，$存在正实数$x$和$y$，使得\n\\[（x\\mathbf｛I｝+y\\mathbf{A｝）^2=\\mathbf｛A｝.\\]输入有序对$（x，y）$", "answer": "\\left( \\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}} \\right)", "label": "QA"}
+{"question": "求 $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$ 在向量$\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}.$上的映射", "answer": "\\begin{pmatrix} 6/5 \\\\ -17/5 \\end{pmatrix}", "label": "QA"}
+{"question": "如果$Q=115i$，$E=11+5i$，而$D=2i$，求$Q\\cdot E\\cdot D$。", "answer": "292i", "label": "QA"}
+{"question": "海森堡的不确定性原理说，测量一个粒子的动量的误差和测量一个粒子的位置的误差的乘积必须至少是普朗克常数除以$4pi$。假设测量一个粒子的动量的误差减半。测量其位置的最小误差会增加多少%？", "answer": "100\\%", "label": "QA"}
+{"question": "设$mathbf{u}$和$mathbf{v}$为向量，使得$||\\mathbf{u}\\| = \\|\\mathbf{v}| = 2$，$mathbf{u} cdot \\mathbf{v} = 1。$ 如果$theta$是向量$mathbf{u} + \\mathbf{v}$和$2 \\mathbf{u}  \\mathbf{v}之间的角，那么求$cos \\theta。", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "在某个游乐园，门票有一个批量折扣。如果你在一个订单中最多购买60张票，每张票的价格是$70$元。但是如果你一次购买超过60张票，每张票的价格就减少1美元。如果$t$是一次大量购买的门票数量，最大的$t$是什么，它将给游乐园带来大于$4200$的利润？", "answer": "69", "label": "QA"}
+{"question": "一个冰激凌勺舀出半径为1英寸的冰激凌球。  如果让雪糕勺融化在圆锥体中，那么需要多少个雪糕勺才能装满一个半径为2英寸、高为5英寸的雪糕圆锥体？", "answer": "5", "label": "QA"}
+{"question": "如果$f(x)=5x12$，请找出$x$的一个值，使$f^{1}(x)=f(x+1)$。", "answer": "\\frac{47}{24}", "label": "QA"}
+{"question": "在$2\\!:\\!48$中，12小时的时钟的时针和分针形成的较小角度的度数是多少？", "answer": "156^\\circ", "label": "QA"}
+{"question": "Stacey站在一片田地里。她向西走11米，向北走30米，向西走4米，最后向南走22米。她离她的起点有多少米？", "answer": "17\\text{ meters}", "label": "QA"}
+{"question": "一个三位数的数字有相同的百位、十位和个位。  该数字的质因数之和为47。这个三位数是什么？", "answer": "777", "label": "QA"}
+{"question": "该方程式 \\[x^2 = 2x + 2y  3?\\]哪种类型的圆锥曲线。输入 \"C \"代表圆，\"P \"代表抛物线，\"E \"代表椭圆，\"H \"代表双曲线，\"N \"代表以上都不是。", "answer": "\\text{(P)}", "label": "QA"}
+{"question": "考虑函数$g(x)=3x4$。  $g(0)$是多少", "answer": "-4", "label": "QA"}
+{"question": "求方程$y=x^2+2x6$的图形顶点与点$(4, 5)$之间的距离。", "answer": "13", "label": "QA"}
+{"question": "找出函数的范围\\f(x) = sqrt{x^2  10x + 34}  sqrt{x^2 + 4}。", "answer": "(-5,\\sqrt{26}]", "label": "QA"}
+{"question": "掷出6个6面的骰子。  恰好有两个骰子显示1和恰好有两个骰子显示2的概率是多少？  将你的答案用最简分数表示。", "answer": "\\dfrac{5}{162}", "label": "QA"}
+{"question": "$2011^{2011}$的百位数是多少？", "answer": "6", "label": "QA"}
+{"question": "设$mathcal{H}$为双曲线，其焦点在$(5,0)$，顶点在$(3,0)$，设$mathcal{C}$为圆心$(0,0)$，半径$4$.鉴于$mathcal{H}$和$mathcal{C}$相交于四点，这四点组成的四边形的面积是多少？", "answer": "\\frac{192\\sqrt{14}}{25}", "label": "QA"}
+{"question": "求展开式中所有有理项的和\\[(\\sqrt{2} + \\sqrt[3]{3})^{12}.\\]", "answer": "66673", "label": "QA"}
+{"question": "在这幅图中（没有按比例绘制），假设t$\\triangle ABC \\sim \\triangle PAQ$ and $\\triangle ABQ \\sim \\triangle QCP$.  如果$m\\angle BAC = 70^\\circ$，那么求$m\\angle PQC$。[asy]size(150); defaultpen(lineewidth(0.8))；对B = (0,0), C = (6,0), A = (2,4), Q = (1,0), P = (A + C)/2；draw(ABCAQP);label(\"$B$\",B,S); label(\"$A$\",A,N); label(\"$C$\",C,S); label(\"$P$\",P,E); label(\"$Q$\",Q,S) ；[/asy]", "answer": "15^\\circ", "label": "QA"}
+{"question": "如果 $frac\\{sqrt[3]{2x4}{sqrt[3]{x+4}} = 2$, 求 $x$.", "answer": "-6", "label": "QA"}
+{"question": "在$frac{x^2+3x}{x^2+4x+3}$的图形中，设$a$为图形中的开口的数量，$b$为垂直渐近线的数量，$c$为水平渐近线的数量，$d$为斜渐近线的数量。求$a+2b+3c+4d$。", "answer": "6", "label": "QA"}
+{"question": "卡拉花了五分之二的积蓄买了一个手镯，还剩下9美元。卡拉的手镯花了多少美元？", "answer": "\\$6", "label": "QA"}
+{"question": "六个女巫和十个巫师在一个神秘的聚会上。女巫们决定与每个巫师握手。没有一个女巫愿意和对方握手，因为她们都已经是好朋友了，而巫师们都有点讨厌对方，不愿意和其他巫师握手。在聚会中发生了多少次握手？", "answer": "60", "label": "QA"}
+{"question": "某一公司所赚的钱可以用图形$y=x^28x33$表示，其中$x$是产量。该公司是产量是多少时，可以达到收支平衡或赚取利润？", "answer": "11", "label": "QA"}
+{"question": "假设$x/ne0$，化简$frac{12}{x\\cdot x}\\cdot\\frac{x^4}{14x}\\cdot\\frac{35}{3x}$。", "answer": "10", "label": "QA"}
+{"question": "一场演出的门票全价为20美元。苏珊用一张优惠券买了4美元的票，可以得到25美元的折扣。帕姆用一张优惠券买了5美元的票，可以得到30美元的折扣。帕姆比苏珊多付了多少美元？", "answer": "10", "label": "QA"}
+{"question": "设$M_n$为$n\\timesn$矩阵，其元素如下：对于$1\\le i\\le n$，$M_{i，i}=10$；对于$1\\le i\\le n-1$，$m_{i+1，i}=m_{i，i+1}=3$；$M_n$中的所有其他元素都为零。设$D_n$是矩阵$M_n$的行列式。发现\\[\\sum_｛n=1｝^｛\\infty｝\\frac｛1｝｛8D_n+1｝。\\]注意：$1\\times 1$矩阵$[a]$的行列式为$a$，$2\\times 2$矩阵$\\left的行列式为[｛\\begin｛array｝a和b\\\\c和d\\\\\\end｛array｝｝\\right]=ad-bc$；对于$n\\ge2$，具有第一行或第一列$a_1$$a_2$$a_3$$\\dots$$a_n$的$n\\timesn$矩阵的行列式等于$a_1C_1-a_2C_2+a_3C_3-\\dots+（-1）^｛n+1｝a_nC_n$，其中$C_i$是通过消除包含$a_i$的行和列而形成的$（n-1）\\times（n-1）$矩阵的行列式。", "answer": "\\frac{1}{72}", "label": "QA"}
+{"question": "估算 $\\sqrt[3]{12}\\times\\sqrt[3]{20}\\times\\sqrt[3]{15}\\times\\sqrt[3]{60}$。", "answer": "60", "label": "QA"}
+{"question": "帕特想选择8件水果带进车里，给和他一起开车去蒙大拿的人吃。他随机从橙子、苹果或香蕉里选择。恰好有3个水果是橙子或恰好有6个水果是苹果的概率是多少？", "answer": "\\dfrac{1904}{6561}", "label": "QA"}
+{"question": "设$f(x)=x^7+ax^3+cx$ 如果$f(5)=3,$则求$f(5)。", "answer": "-3", "label": "QA"}
+{"question": "如果\\[ofrac{x}{y} = \\frac{4}{5}, \\; \\frac{y}{z} = \\frac{3}{10}, \\;\\text{and}.\\; \\frac{z}{w} = \\frac{6}{7},\\] $dfrac{x + y + w}{z}的值是多少？把你的答案用简分数表示。", "answer": "\\frac{128}{75}", "label": "QA"}
+{"question": "给定$cos (\\alpha + \\beta) + \\sin (\\alpha  \\beta) = 0$ 和$tan \\beta = \\frac{1}{2000}，$ 求$tan \\alpha。", "answer": "-1", "label": "QA"}
+{"question": "一个长方形的长度是其宽度的两倍。如果对角线的长度是5sqrt{5}$，求长方形的面积。", "answer": "50", "label": "QA"}
+{"question": "求$frac{3x^2+16x+5}{2x^2+7xc}$图形的垂直渐近线的方程，如果该图形在$x=5$处有一个开口。", "answer": "x = \\frac{3}{2}", "label": "QA"}
+{"question": "一个点的三维坐标为$(8,3,1)$，球面坐标为$(\\rho, \\theta, \\phi)。求球面坐标为$(\\rho, theta, \\phi)的点的三维坐标。", "answer": "(8,3,-1)", "label": "QA"}
+{"question": "两个相交的圆有一条共同的弦，长度为16英尺，它们的中心位于弦的两边。这两个圆的半径分别为10英尺和17英尺。请以英尺为单位表示两圆中心之间的距离。", "answer": "21", "label": "QA"}
+{"question": "求所有根的和   \\[\\frac{x^2 - 13x + 22}{x^2 - 8x + 12} = 0.\\]", "answer": "11", "label": "QA"}
+{"question": "点$(4, 0)$和$(4, 0)$是一个面积为$80$平方单位的菱形的两个不连续的顶点。另外一个顶点是$(0, K)$，其中$K>0$。请问$K$的值是多少？", "answer": "10", "label": "QA"}
+{"question": "如果从${1, 2, 3, 4, 5}$中随机抽取两个数字，不作替换，那么它们的和大于它们的积的概率是多少？把你的答案用最简分数表示。", "answer": "\\frac{2}{5}", "label": "QA"}
+{"question": "向量$\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}.$的对应矩阵。", "answer": "\\begin{pmatrix} -4/5 & -3/5 \\\\ -3/5 & 4/5 \\end{pmatrix}", "label": "QA"}
+{"question": "已知$f(x)=frac{sqrt{x1}}{x2}$，请问$x$的最小整数值是多少时，$f(x)$将有一个实数值？", "answer": "1", "label": "QA"}
+{"question": "假设$(b_a)^2=71_a$，其中$a$和$b$代表两个不同的数字。如果$b=a-1$,求$a$。", "answer": "9", "label": "QA"}
+{"question": "将无限级数$frac{3}{206}+\\frac{9}{2\\cdot103^2}+\\frac{27}{2\\cdot103^3}+\\cdots$表示为有限小数", "answer": "0.015", "label": "QA"}
+{"question": "设$a,$b,$c,$d$为非负实数，$a+b+c+d=1。求\n   \\[ab + bc + cd.\\]的最大值", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "当$24+7i$被转换为指数形式的$re^{i\\theta}$时，求$cos\\theta$？", "answer": "-\\frac{24}{25}", "label": "QA"}
+{"question": "从小于或等于5的正整数中分别选出两个数字。这两个数字之和大于它们的乘积的概率是多少？把你的答案用最简分数表示。", "answer": "\\frac{9}{25}", "label": "QA"}
+{"question": "在这个加法问题中，每个字母代表一个不同的数字。E的数值是多少？[asy]size(50)；label(\"G\",(0,0)); label(\"M\",(1,0)); label(\"M\",(2,0) )；draw((0.3,0.6)(2.3,0.6));label(\"G\",(1,1)); label(\"M\",(2,1))；label(\"E\",(0,2)); label(\"G\",(1,2)); label(\"M\",(2,2))；label(\"+\",(0,1))；[/asy]", "answer": "4", "label": "QA"}
+{"question": "25名学生在一次考试中平均成绩为84分。另一组20名学生的平均成绩为66分。求总体平均数。", "answer": "76", "label": "QA"}
+{"question": "设$p(x)$是一个整数系数的二次多项式，其根为4sqrt{11}$。计算$frac{p（3）}{p（4）}。", "answer": "\\frac{10}{11}", "label": "QA"}
+{"question": "将分母完全简化和有理化：$$frac{sqrt{160}}{sqrt{252}}times\\frac{sqrt{245}{sqrt{108}}$$", "answer": "\\frac{5\\sqrt{42}}{27}", "label": "QA"}
+{"question": "下面给出了$y=ax^2+bx+c$的图，其中$a$、$b$和$c$是整数。求$a+b+c$。\n[asy]\n   Label f;\n   \n   f.p=fontsize(4);\n   \n   xaxis(-3,3,Ticks(f, 1.0));\n   \n   yaxis(-4,4,Ticks(f, 1.0));\n   \n   real f(real x)\n   \n   {\n   \n   return -2x^2+4x+1;\n   ", "answer": "3", "label": "QA"}
+{"question": "在$72$的除数集合中，有多少个子集只包含合数？例如，${8,9}$和${4,8,12}$是两个这样的集合。在你的计算中要包括空集。", "answer": "512", "label": "QA"}
+{"question": "一个球在抛物线上运动，其高度（以英尺为单位）由表达式$25t^2+75t+24$给出，其中$t$是发射后的时间。在什么时候，球的高度达到最大？", "answer": "\\frac{3}{2}", "label": "QA"}
+{"question": "凯西的车间课正在制作一个高尔夫奖杯。  他必须在一个高尔夫球上涂上$300$个小坑。  如果他画一个小坑需要$2$秒，那么他需要多少分钟才能完成工作？", "answer": "10", "label": "QA"}
+{"question": "令$f(x)=3x^4-7x^3+2x^2-bx+1$. 求$b$ is $f(1)=1$", "answer": "-2", "label": "QA"}
+{"question": "在这个序列中，相等线段被用来组成等边三角形，因此每个图形都比前一个图形多一个三角形。图3是用七个相等线段组成的。那么在这个序列中的图25中，必须用多少个相等线段才能完成？[asy]draw((0,0)(10,0)(5,8.7)cycle);draw((15,0)(25,0)(30,8.7)(20,8.7)cycle);draw((20,8.7)(25,0));draw((35,0)(55,0)(50,8.7)(40,8.7)cycle);draw((40,8.7)(45,0)(50,8.7));draw((60,0)(80,0)(85,8.7)(65,8.7)cycle);draw((65,8.7)(70,0)(75,8.7)(80,0));label(\"Figure 1\",(2,0),S)；label(\"Figure 2\",(20,10),S)；label(\"Figure 3\",(45,0),S)；label(\"Figure 4\",(76,10),S)；[/asy]", "answer": "51", "label": "QA"}
+{"question": "求正实数的有序三元组$（x，y，z）$的个数，使得\\[\\left（x+\\frac｛1｝｛y｝\\right）\\left（y+\\frac{1｝{z｝\\right）\\ left（z+\\frack｛1}｛x｝\\right）=8。\\]", "answer": "1", "label": "QA"}
+{"question": "在一个有20颗弹珠的袋子里，有5颗是蓝色的。必须在袋子里加入多少颗蓝色的弹珠，才能使随机选择蓝色弹珠的概率为$frac{1}{2}$？", "answer": "10", "label": "QA"}
+{"question": "5和211之间有多少个奇数完全平方数？", "answer": "6", "label": "QA"}
+{"question": "到整数$n，$$-90\\le n\\le 90，$，使得$\\sin n ^\\circ=\\sin 1021^\\circ$", "answer": "-59", "label": "QA"}
+{"question": "设$f(x)$和$g(x)$为偶数函数。  $f(x)g(x)$是偶数，奇数，还是都不是？回答 \"奇数\"、\"偶数 \"或 \"都不是\"。", "answer": "\\text{even}", "label": "QA"}
+{"question": "对于正整数$n$和角$\\ttheta，$$\\cos\\theta$是无理数的，但$$\\cos2\\ttheta、$$\\cos3\\ttheta和$$\\dots、$$\\cossn\\theta$都是有理数。找到$n的最大值$", "answer": "4", "label": "QA"}
+{"question": "一家书店正在决定它应该对某本书收取什么价格。经过研究，书店发现，如果这本书的价格是p美元（其中p=32美元），那么每月售出的书的数量是$128-4p$.。该店应该收取多少价格才能使其收入最大？", "answer": "16", "label": "QA"}
+{"question": "序列$(a_n)$，$a_0 = 2,$a_1 = 1,$且 \\[a_n = a_{n - 1} \\sqrt{3} - a_{n - 2}\\]对于所有$n\\ge 2.$，求$a_{100}。", "answer": "\\sqrt{3} - 4", "label": "QA"}
+{"question": "将$A\\＆B$定义为$A\\B&=\\frac｛（A+B）｝｛2｝$。$(3\\& 5) \\& 8$的值是多少？", "answer": "6", "label": "QA"}
+{"question": "求$(\\log_2 x)^2$如果$\\log_2 (\\log_8 x) = \\log_8 (\\log_2 x)。", "answer": "27", "label": "QA"}
+{"question": "表达式10x^2x24$可以写成$(Ax8)(Bx+3),$其中$A$和$B$是整数。求$AB+B$", "answer": "12", "label": "QA"}
+{"question": "令\\x^8 + 3x^4  4 = p_1(x) p_2(x) \\dotsm p_k(x),\\]其中每个非常数多项式$p_i(x)$都是整数系数的单项式，并且不能再整数分解。  求$p_1(1) + p_2(1) + \\dots + p_k(1).$", "answer": "10", "label": "QA"}
+{"question": "不等式\\`[frac{x + c}{x^2 + ax + b} `le 0\\的解]是 $x\\in (infty,1) `cup [1,2).$ 求$a + b + c$.", "answer": "-4", "label": "QA"}
+{"question": "给定$y=3$，请计算$(1+y)^y$。", "answer": "64", "label": "QA"}
+{"question": "设$p$、$q$和$r$为常数。方程$(xp)(xq)=(rp)(rq)$的一个解是$x=r$。请找出另一个以$p$、$q$和$r$为条件的解。", "answer": "p+q-r", "label": "QA"}
+{"question": "如果$f(x)$是一个奇数函数，那么这个图形还必须经过哪一点？  答案以有序数组的形式写出。", "answer": "(0,0)", "label": "QA"}
+{"question": "在三角形$ABC中，$AB=3$，$AC=5.$设$O$为三角形$ABC的圆心，$求$overrightarrow{OA}。\\cdot\\overrightarrow{BC}.$", "answer": "-8", "label": "QA"}
+{"question": "y=frac{2}{x^2+x6}$的图形有多少个垂直渐近线？", "answer": "2", "label": "QA"}
+{"question": "y=frac{x3}{x^2+7x30}$的图形有多少个垂直渐近线？", "answer": "1", "label": "QA"}
+{"question": "一个平行四边形的坐标是（5，3），（6，8），（7，4）和$（x，y）$，并且$x>7$。请问$x+y$的值是多少？", "answer": "17", "label": "QA"}
+{"question": "$20！$有19位数字，最后18位是432902008176640000。第一个数字是什么？", "answer": "2", "label": "QA"}
+{"question": "最近，弗兰克参加了一个一百个问题的能力测试，每个正确的答案得5分，每个错误的答案得2分，每个没有回答的问题得0分。弗兰克回答了80分的问题，得了232美元的分数。他答对了多少个问题？", "answer": "56", "label": "QA"}
+{"question": "最小的非零位数的五位数是什么，其数字加起来是20？", "answer": "11189", "label": "QA"}
+{"question": "一个对角线长度为12和16的菱形的周长是多少？", "answer": "40", "label": "QA"}
+{"question": "求$frac{2}{5}+\\frac{1}{3}$", "answer": "\\frac{11}{15}", "label": "QA"}
+{"question": "两个6面的骰子，一个是红色，一个是绿色，被掷出。  红骰子显示2，绿骰子显示5的概率是多少？", "answer": "\\frac{1}{36}", "label": "QA"}
+{"question": "两条弦$AB$和$CD$在圆内$P处相遇，如果$AP=CP=7，$那么$frac{BP}{DP}$是多少？", "answer": "1", "label": "QA"}
+{"question": "令$f(x) = x^2 - 4\\sqrt{x} + 1$. 求 $f(f(4))$", "answer": "70", "label": "QA"}
+{"question": "在$0^\\circ\\le x < 990^\\circ$的情况下，满足$sin x = 0.31$的$x$有多少？", "answer": "5", "label": "QA"}
+{"question": "求实数的有序对$(a,b)$的个数，使得$bullet$ $a$是$x^2 + ax + b = 0的一个根，$并且$bullet$ $b$是$x^2 + ax + b = 0.$的一个根。", "answer": "3", "label": "QA"}
+{"question": "一直线条件如下：  \\[\\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} k \\\\ 2 \\\\ 1 \\end{pmatrix}\\]i垂直于  \\[\\begin{pmatrix} 2 \\\\ -1 \\\\ 1 \\end{pmatrix} + u \\begin{pmatrix} 2 \\\\ 1 \\\\ 2 \\end{pmatrix}\\]并且通过点$(4,a,b).$  求 $a + b + k.$", "answer": "-3", "label": "QA"}
+{"question": "计算$（3^｛-1｝+5^｛-1｝）^｛-1｝\\pmod｛31｝$。将您的答案表示为从$0$到$30$）的整数。", "answer": "29", "label": "QA"}
+{"question": "求解不等式\\[\\sqrt{x^2  x  6} < 2x  3.\\] 。", "answer": "[3,\\infty)", "label": "QA"}
+{"question": "大圆的中心是$O$，经过$D$。小圆的直径为$OD$。大圆的面积中有百分之多少是灰色的？[asy]导入图形；draw(Circle((0,0),30),black)；fill(Circle((0,15),15),gray(.6))；draw(Circle((0,15),15),black)；draw((0,0)(0,30),black);label(\"O\",(0,0),N)；label(\"D\",(0,30),S)；[/asy]", "answer": "25\\%", "label": "QA"}
+{"question": "在$$6,10,14,82,86$$的列表中，有多少个数字？ ", "answer": "21", "label": "QA"}
+{"question": "一个三角形的顶点为坐标$(11,1)$, $(2,3)$和$(3,7)$。  该三角形的最长边的长度是多少？", "answer": "10", "label": "QA"}
+{"question": "一个 $3491 $乘 $3491 $的正方形，其长度减少了 $60 $，宽度增加了 $60 $。  它的面积有多大变化？", "answer": "3600", "label": "QA"}
+{"question": "如果$1+12+123+1234+12345+123456+1234567+12345678$与$n$模数9全等，其中$0/le n<9$，$n$的值是多少？", "answer": "3", "label": "QA"}
+{"question": " $5$-digit numbers $AMC10$ 和 $AMC12$ is的和是$123422.$ ，求 $A + M + C?$", "answer": "14", "label": "QA"}
+{"question": "求1529的余数（模6）。", "answer": "5", "label": "QA"}
+{"question": "2007年1月1日是星期一。在2007年，有多少个星期五？", "answer": "52", "label": "QA"}
+{"question": "估算一下\\[\\prod_{n = 1}^{2004} 帧{n^2 + 2n  1}{n^2 + n + \\sqrt{2}  2}。", "answer": "2004 \\sqrt{2} - 2003", "label": "QA"}
+{"question": "两个非零实数$a$和$b$满足$ab = a  b.$ 求$frac {a}{b}的所有可能值。输入所有可能的值，用逗号分隔。", "answer": "2", "label": "QA"}
+{"question": "当$527_{10}$转换为基数4时，数字的和是多少？（当你把数字相加时，以10为基数来表示和。）", "answer": "8", "label": "QA"}
+{"question": "设$a,$b,$c,$和$d是正实数，若$a+b+c+d=10.$求ab^2 c^3 d^4的最大值。", "answer": "27648", "label": "QA"}
+{"question": "假设$*(n) = \\left\\{ n2, n+2, 2n, `frac{n}{2}.\\right\\}$。例如，$*(6) = \\{4, 8, 12, 3\\}$。对于多少个不同的整数$n$，$*(n)$正好有三个不同的元素？", "answer": "5", "label": "QA"}
+{"question": "在方程$2x + \\frac{1}{2}x + 2(1+x) = 29$中，$x$的值是多少？", "answer": "6", "label": "QA"}
+{"question": "对于多少个$k$的整数值，使$x^2+y^2=k^2$和$xy=k$的图形不相交？", "answer": "2", "label": "QA"}
+{"question": "在$x^224x +y^232y+384=0$和$x^2+24x +y^2+32y+384=0$定义的圆之间的最短距离是多少？", "answer": "32", "label": "QA"}
+{"question": "找到最小的正有理数$r$，使得\\[\\sum_{k=1}^{35}\\sin (5k)^circ = \\tan r^\\circ.\\] 。", "answer": "87.5", "label": "QA"}
+{"question": "在三角形$ABC中，AB=AC=10$，$BC=12$。点$D$严格地位于$A$和$B$之间的$overline{AB}$，点$E$严格地位于$A$和$C$之间的$overline{AC}$，所以$AD=DE=EC$。  求$AD.$。", "answer": "\\frac{250}{39}", "label": "QA"}
+{"question": "找到$x$，假定： \\[\\dfrac{\\sqrt{x}}{x\\sqrt{3}+\\sqrt{2}} = \\dfrac{1}{2x\\sqrt{6}+4}.\\]", "answer": "\\frac{1}{8}", "label": "QA"}
+{"question": "如果$n$除以7的余数是3，那么$2n+1$除以7的余数是多少？", "answer": "0", "label": "QA"}
+{"question": "有一个唯一的度数为8的多项式$P(x)$，其系数为有理数，前导系数为1,$，其根为数字\\[\\sqrt{2} + \\sqrt{3} + \\sqrt{5}]。计算$P(1).$", "answer": "-71", "label": "QA"}
+{"question": "假设$\\Join$是一个由$x\\Join y = (x+2)(y-3)$定义的操作。什么是$((t) \\Join (t+2)) - ((t+1) \\Join (t+1))$？", "answer": "4", "label": "QA"}
+{"question": "两个连续的完全正方形之间的正差是35。这两个正方形中较大的一个是什么？", "answer": "324", "label": "QA"}
+{"question": "设$t=2s-s^2$，$s=n^2-2^n+1$。当$n=3$时，$t$的值是多少？", "answer": "0", "label": "QA"}
+{"question": "计算\n \\[\\frac{\\sin 13^\\circ + \\sin 47^\\circ + \\sin 73^\\circ + \\sin 107^\\circ}{\\cos 17^\\circ}.\\]", "answer": "3", "label": "QA"}
+{"question": "$255^2-245^2$的值是多少？", "answer": "5000", "label": "QA"}
+{"question": "我们有一个三角形$ABC$，其中$AC=17，$ $BC=15，$ $AB=8.$让$M$为$AB的中点，$CM$的长度是多少？", "answer": "\\sqrt{241}", "label": "QA"}
+{"question": "一本页数为两位数的数学课本被分成了几个部分。每一节的长度正好是12页，但后记除外，它的长度是11页。每一页都属于一个章节。此外，从第5页开始，在每5页的页面底部都会出现一个小知识点。如果一个小知识出现在倒数第二页的底部，那么这本教科书有多少页？", "answer": "71", "label": "QA"}
+{"question": "\\[\\frac{2x^2+x+3}{x^2+x+1}=\\frac{2x+1}{x+1}\\] 求$x$。", "answer": "-2", "label": "QA"}
+{"question": "斯泰西有$d$美元。她进入了一个有10家商店和一个彩票摊位的商场。她首先去买彩票，赢了双倍的钱，然后她进入第一家商店，花了1024美元。之后，她交替着玩彩票，钱被翻倍（斯泰西总是赢），然后进入一家新的商店，花了1024美元。当她从最后一家商店出来时，已经没有钱了。$d$的最小可能值是多少？", "answer": "1023", "label": "QA"}
+{"question": "一个底面为正方形的金字塔被一个平行于其底面且距离底面2个单位的平面切割。  从顶部切下的小金字塔的表面积是原来金字塔表面积的一半。  原有金字塔的高度是多少？", "answer": "4+2\\sqrt{2}", "label": "QA"}
+{"question": "如果一个正方形的边长与周长为$12pi$单位的圆的半径相同，它的面积是多少，以平方为单位？", "answer": "36", "label": "QA"}
+{"question": "如图所示，通过连接一个边长为4的正六边形的交替顶点，形成了两个等边三角形。这两个三角形的共同区域的面积是多少，单位是平方英寸？请用最简单的基数形式表达你的答案。[asy]draw((0,3)(0,8)(4,11)(8,8)(8,3)(4,0)cycle,black+linewidth(1));draw((4,0)(0,8)(8,8)cycle, black+dashed+linewidth(1))；draw((0,3)(4,11)(8,3)cycle, black+dotted+linewidth(1))；label(\"4\",(8,5.5),E)；[/asy]", "answer": "8\\sqrt{3} \\text { square inches}", "label": "QA"}
+{"question": "在下图中，$ABC$是等腰三角形，其面积为240。  $A$的$y$坐标是多少？\n   [asy]\n   \n   import olympiad;\n   \n   // 绘制并标注轴线\n   \n   draw((0, -3)--(0, 30), Arrow);\n   \n   draw((-3, 0)--(30, 0), Arrow);\n   \n   label(\"$y$\", (0, 30), N);\n   \n   label(\"$x$\", (30, 0), E);\n   \n   // 绘制三角形\n   \n   pair a = (10, 24); pair b = (0, 0); pair c = (20, 0);\n   \n   draw(a--b--c--cycle);\n   \n   dot(a); dot(b); dot(c);\n   \n   // 标签点\n   \n   label(\"$A$\", a, N);\n   \n   label(\"$B(0, 0)$\", b, NW);\n   \n   label(\"$C(20, 0)$\", c, S);\n   \n   //  勾选标记\n   \n   add(pathticks(a--b, s=45));\n   \n   add(pathticks(a--c, s=45));\n   \n   [/asy]", "answer": "24", "label": "QA"}
+{"question": "$a^2+6a-7$的最小值是多少？", "answer": "-16", "label": "QA"}
+{"question": "一个参议院委员会由5名共和党人、6名民主党人和2名独立人士组成。  一个由3名成员组成的小组委员会被随机选择。  该小组委员会由三名共和党人组成的概率是多少？", "answer": "\\dfrac{5}{143}", "label": "QA"}
+{"question": "一个严格增加的正整数序列$a_1$, $a_2$, $a_3$，具有这样的性质：对于每个正整数$k$，子序列$a_{2k-1}$, $a_{2k}$, $a_{2k+1}$是几何序列，子序列$a_{2k}$, $a_{2k+1}$, $a_{2k+2}$是算数序列。假设$a_{13}=2016$。求$a_1$。", "answer": "504", "label": "QA"}
+{"question": "在坐标平面内， \\[|x + y - 1| + \\Big| |x| - x \\Big| + \\Big| |x - 1| + x - 1 \\Big| = 0\\]的图形是一条曲线。  求这条曲线的长度。", "answer": "\\sqrt{2}", "label": "QA"}
+{"question": "求 $\\frac{1}{-6} \\cdot 6 \\cdot 7 + 8 \\cdot 2 \\div 8 \\cdot (7-1)$.", "answer": "5", "label": "QA"}
+{"question": "雷米想用$10$除以$frac{2}{3}$，但他不记得该怎么做。  他应该用10乘以什么数字才能得到答案？", "answer": "\\frac{3}{2}", "label": "QA"}
+{"question": "设\\[f(x) = \\frac{cx}{2x + 3}.\\]求常数$c$，使$f^{1}(x)=f(x)。$", "answer": "-3", "label": "QA"}
+{"question": "在笛卡尔空间中，以$(2,5,4)、$(2,1,4)和$(4,7,5)$为中心的三个球体都与$xy$平面相切。  xy平面是与所有三个球体相切的两个平面之一；第二个平面可以写成对某些实数$a,$b,$c,$和$d的方程$ax+bx+cz=d$，求$frac{c}{a}。", "answer": "-\\frac{31}{8}", "label": "QA"}
+{"question": "当$2000+2001+2002+2003+2004+2005+2006$除以$7$时，余数是多少？", "answer": "0", "label": "QA"}
+{"question": "在所有小于30的质数集合和所有大于0的奇数集合的交集上有多少个元素？", "answer": "9", "label": "QA"}
+{"question": "设$f(x)=4x^7+x^5+3x^2-2x+c$。对于$c$的哪个值，$f(1)=0$？", "answer": "0", "label": "QA"}
+{"question": "一个等边六边形的四条连续边的长度依次为1、7、2和4个单位。剩下的两条边的长度之和是多少？", "answer": "9", "label": "QA"}
+{"question": "设 \\[x^{12} - 1 = p_1(x) p_2(x) \\dotsm p_k(x),\\]其中每个非常数多项式$p_i(x)$都是整数系数的单项式，并且不能再对整数进行分解。  找到$k.$", "answer": "6", "label": "QA"}
+{"question": "$n$的正整数因子的乘积可以写成$n^{(ax+b)/c}$，其中$x$是$n$的正除数，$c$是一个正整数，三个整数$a$、$b$和$c$的最大公因子是$1$。什么是$a+b+c$？", "answer": "1", "label": "QA"}
+{"question": "一个脆皮米饭的配方产生的混合物可以填满一个9英寸乘13英寸的平底锅，深度为一英寸。如果将1.5倍于原配方的脆皮米饭混合物倒入10英寸乘15英寸的平底锅中，平底锅将被填满多深，以英寸计？将您的答案表示为最接近的百分之一的小数。", "answer": "1.17", "label": "QA"}
+{"question": "假设下图中$cos V = frac{2}{3}$。  什么是$TV$？\n   \n   \n   \n   [asy]\n   pair T,U,V;\n   V = (0,0);\n   T = (0,16);\n   U = (17.89,16);\n   draw(V--T--U--V);\n   draw(rightanglemark(V,T,U,23));\n   label(\"$V$\",V,SW);\n   label(\"$U$\",U,NE);\n   label(\"$T$\",T,NW);\n   label(\"$24$\",(U-V)/2,SE);\n   [/asy]", "answer": "16", "label": "QA"}
+{"question": "设$alpha,$beta,$gamma,$delta$为x的根。\\[x^4 + kx^2 + 90x  2009 = 0.\\]如果$alpha\\beta = 49,$求k。", "answer": "7", "label": "QA"}
+{"question": "一个水族箱有一个长方形的底座，尺寸为100厘米×40厘米，高度为50厘米。水族箱中装满水，深度为37厘米。然后将一块体积为1000{cm}^3的石头放在水族箱中，并完全浸没在水中。水位上升了多少厘米？  请用小数表示你的答案，以最接近的100分之一为准。", "answer": "0.25\\,\\text{ cm}", "label": "QA"}
+{"question": "如果$5^b + 5^b + 5^b + 5^b + 5^b = 625^{(b-1)}$，$b$的值是多少？把你的答案用普通分数表示。", "answer": "\\frac{5}{3}", "label": "QA"}
+{"question": "找出一对$(a,b)$的实数，其中$x^2+ax+b$有一个非实数根，其立方值为$343$。", "answer": "(7,49)", "label": "QA"}
+{"question": "爱丽丝和鲍勃都去参加一个5点开始的聚会。他们每个人都在5:00和6:00之间的一个随机时间到达。爱丽丝迟到的分钟数加上鲍勃迟到的分钟数小于45的概率是多少？将你的答案用普通分数表示。", "answer": "\\frac{9}{32}", "label": "QA"}
+{"question": "如果$(2x+5)(x-3)=14$，求$x$的可能值之和。", "answer": ".5", "label": "QA"}
+{"question": "用$TARGET$的六个字母中的三个字母可以组成多少个至少有一个$``T\"$ 的不同的三个字母序列？其中一个序列是$``T-R-T.\"$", "answer": "48", "label": "QA"}
+{"question": "在一个有$N$个球员的比赛中，获得精英地位的选手数量等于$2^{1+\\lfloor \\log_{2} (N-1) \\rfloor}-N$。假设有19个球员被赋予精英地位。那么$N$的两个最小的可能值之和是多少？", "answer": "154", "label": "QA"}
+{"question": "对于一个正常数$c,$在圆柱坐标$(r,\\theta,z)中,$找出方程所描述的形状\n   \\[r = c.\\](A)直线\n   (B) 圆\n   (C) 平面\n   (D) 球体\n   (E) 圆柱体\n   (F) 圆锥体\n   \n   输入正确选项的字母。", "answer": "\\text{(E)}", "label": "QA"}
+{"question": "如果$f(x)$是一个偶函数，$g(x)$是一个奇函数，求$f(g(x^3))$是偶数，奇数，还是都不是。输入 \"奇数\"、\"偶数 \"或 \"都不是\"。", "answer": "\\text{even}", "label": "QA"}
+{"question": "1992年，在意大利花1200里拉就可以买到一勺冰淇淋。同样的冰淇淋在美国要花1.5美元。按照里拉和美元的等值汇率，100万里拉相当于多少美元？", "answer": "1250", "label": "QA"}
+{"question": "简化$4(3r^3+5r-6)-6(2r^3-r^2+4r)$，并以$Ar^2+Br+C$的形式表达你的答案，其中$A$、$B$和$C$是整数。", "answer": "6r^2-4r-24", "label": "QA"}
+{"question": "对于整数$n$，让 \\[f(n) = \\left\\{\n   \\begin{array}{cl}\n   n^2 + 1 & \\text{ if }n\\text{ is odd}, \\\\\n   n^2 - 3n + 1 & \\text{ if }n\\text{ is even}.\n   \\end{array}\n   \\right.\\]找到 $f(f(f(f(f(f(2))))))$.", "answer": "2", "label": "QA"}
+{"question": "请找出一个整数$n$，使$0\\leq n<398$ ，且$n$是7的倒数，即398。", "answer": "57", "label": "QA"}
+{"question": "13的正数倍是多少个三位数的整数？", "answer": "69", "label": "QA"}
+{"question": "凯蒂有一个实数清单，她清单上的数字之和等于她清单上的数字的平方之和。计算她的数字的算术平均值的最大可能值。", "answer": "1", "label": "QA"}
+{"question": "设$z_1,$ $z_2,$ $z_3$为复数，使得$|z_1| = 1,$ $|z_2| = 2,$ $|z_3| = 3,$ 并且 \\[|9z_1 z_2 + 4z_1 z_3 + z_2 z_3| = 12.\\]找出$|z_1 + z_2 + z_3|。$", "answer": "2", "label": "QA"}
+{"question": "一群人在一张纸上写了12345.6789这个数字。然后这群人决定玩一个游戏。游戏的赢家是能够将给定的数字四舍五入并得到一个比其他任何人都高的数字的人。爱丽丝四舍五入到最接近的万，鲍勃四舍五入到最接近的千，卡罗尔四舍五入到最接近的百，德文四舍五入到最接近的十，而尤金四舍五入到最接近的整数。此外，Felicity将数字四舍五入到最接近的十分之一，Gerald四舍五入到最接近的百分之一，Harry四舍五入到最接近的千分之一，Irene四舍五入到最接近的万分之一。谁赢得了这个游戏？", "answer": "\\text{Devon}", "label": "QA"}
+{"question": "计算$dbinom{11}{8}$。", "answer": "165", "label": "QA"}
+{"question": "我准备买一些外来的水果。  火龙果的价格是$x-4$美元。  杨桃的价格比红毛丹低5美元。  红毛丹的价格比火龙果高2x美元。  购买一个红毛丹、两个杨桃和三个火龙果需要多少钱？你的答案将是一个取决于$x$的表达式。", "answer": "-34 + 12x", "label": "QA"}
+{"question": "在三角形$ABC中，$ $BC=32，$ $\\tan B = \\frac{3}{2}，$\\tan C = \\frac{1}{2}，$求该三角形的面积。", "answer": "192", "label": "QA"}
+{"question": "如图所示，一条皮带紧紧地围绕着三个半径各为10厘米的圆。皮带的长度（厘米）可以用有理数$a$和$b$的形式写成$a+b\\pi$。请问$a+b$的值是多少？ [asy]\n   \n   size(120); defaultpen(linewidth(0.8));\n   picture p; real r = 3^.5/2;\n   pair A = expi(-pi/6); draw(p, circle(A, r)); draw(p, (A.x,A.y - r) -- (-A.x,A.y - r));\n   add(p); add(rotate(120)*p); add(rotate(240)*p);\n   [/asy]", "answer": "80", "label": "QA"}
+{"question": "直角三角形$ABC$的面积为4，斜边$overline{AB}$为12。  计算 $sin 2A.$", "answer": "\\frac{1}{9}", "label": "QA"}
+{"question": "如果$AB=15,$ $AC=41,$和$BC=52$,那么三角形$ABC$中的内切圆的半径是多少?", "answer": "\\frac{13}{3}", "label": "QA"}
+{"question": "三个连续的正偶数的平方之和是$12296$。求这三个数的乘积除以$8$。", "answer": "32736", "label": "QA"}
+{"question": "求表达式的值。$$\\frac{7+8+9}{2+3+4}\\cdot\\frac{6+9+12}{9+8+7}$$", "answer": "3", "label": "QA"}
+{"question": "设$p(x)$是一个5度的多项式，使得\n   \\[p(n) = \\frac{n}{n^2 - 1}\\]对于 $n = 2,$ 3, 4, $\\dots,$ 7.  求$p(8).$", "answer": "\\frac{3}{56}", "label": "QA"}
+{"question": "当4进制的数字$120301232_4$除以8时，余下的部分是什么？请以10进制表示你的答案。", "answer": "6", "label": "QA"}
+{"question": "一条线的参数是\n   \\[\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} -3 \\\\ -4 \\end{pmatrix} + t \\begin{pmatrix} 7 \\\\ -2 \\end{pmatrix}.\\]直线的方程可以用 $y = mx + b.$的形式表示  输入有序对$(m,b).$", "answer": "\\left( -\\frac{2}{7}, -\\frac{34}{7} \\right)", "label": "QA"}
+{"question": "求$9^{1} pmod{100}$，作为100的余数。  (给出一个在0到99之间的答案。）", "answer": "89", "label": "QA"}
+{"question": "求双曲线的两个焦点之间的距离：[6x^2 + 5y^2 + 24x + 20y = 64.] 。", "answer": "2\\sqrt{22}", "label": "QA"}
+{"question": "因子$32x^3-4x^2+20x$.", "answer": "4x(8x^2-x+5)", "label": "QA"}
+{"question": "如果\n   \n   \\begin{align*}\n   3x+4y-12z&=10,\\\\\n   -2x-3y+9z&=-4,\n   \\end{align*}\n   \n   计算 $x$.", "answer": "14", "label": "QA"}
+{"question": "让$z$ 是一个复数，使得\n   \\[z + \\frac{1}{z} = 1.\\]求 $z^3.$", "answer": "-1", "label": "QA"}
+{"question": "乔恩在一所小学教四年级的课，那里的班级人数总是至少20人，最多28人。  有一天，乔恩决定把学生们的课桌安排成一个没有空隙的长方形网格。  不幸的是，他发现这样做只能形成一条直线的课桌。  乔恩的班上有多少名学生？", "answer": "23", "label": "QA"}
+{"question": "随机选择一个坐标为$(x,/y)$的点，使得$0\\leq x \\leq10$ 和 $0\\leq y \\leq10$。该点的坐标满足$2x+5y \\geq 20$的概率是多少？将你的答案用公分数表示。\n   \n   [asy]\n   \n   size(5cm,5cm);\n   \n   draw((-2,0)--(12,0),Arrows);\n   \n   draw((0,-2)--(0,12),Arrows);\n   \n   pair a,b,x;\n   \n   x=(0,0);\n   \n   a=(10,0);\n   \n   b=(0,10);\n   \n   add(pathticks(x--a,2,0.1,0,25));\n   \n   add(pathticks(x--a,2,0.2,0,25));\n   \n   add(pathticks(x--a,2,0.3,0,25));\n   \n   add(pathticks(x--a,2,0.4,0,25));\n   \n   add(pathticks(x--a,2,0.5,0,25));\n   \n   add(pathticks(x--a,2,0.6,0,25));\n   \n   add(pathticks(x--a,2,0.7,0,25));\n   \n   add(pathticks(x--a,2,0.8,0,25));\n   \n   add(pathticks(x--a,2,0.9,0,25));\n   \n   add(pathticks(x--a,2,1,0,25));\n   \n   add(pathticks(x--b,2,0.1,0,25));\n   \n   add(pathticks(x--b,2,0.2,0,25));\n   \n   add(pathticks(x--b,2,0.3,0,25));\n   \n   add(pathticks(x--b,2,0.4,0,25));\n   \n   add(pathticks(x--b,2,0.5,0,25));\n   \n   add(pathticks(x--b,2,0.6,0,25));\n   \n   add(pathticks(x--b,2,0.7,0,25));\n   \n   add(pathticks(x--b,2,0.8,0,25));\n   \n   add(pathticks(x--b,2,0.9,0,25));\n   \n   add(pathticks(x--b,2,1,0,25));\n   \n   [/asy]", "answer": "\\frac{4}{5}", "label": "QA"}
+{"question": "从${1,2,3,4}$的集合中选择a，从${5,6,7,8,9}$的集合中选择b。乘积$ab$是素数的概率是多少？", "answer": "\\frac1{10}", "label": "QA"}
+{"question": "求解以下x的方程：\\[ \\ \\frac{2}{3} = \\frac{4}{x-5}.\\]", "answer": "11", "label": "QA"}
+{"question": "萨利有一袋糖果。她把它排列成一个$a$乘$b$的格子，但她还有$2a+b$的糖果。她的大姐姐丽塔走过来，说：\"我可以做得更好！\"丽塔将糖果整齐地排列成$5a4$乘$frac{b-1}{3}$的格子，没有剩余的。萨利包里的糖果数量最多是多少？", "answer": "208", "label": "QA"}
+{"question": "点$(1,2)$和$(4,10)$是一个正方形的相邻顶点。该正方形的周长是多少？", "answer": "52", "label": "QA"}
+{"question": "如果${(3^k)}^6=3^6$，求$k$。", "answer": "1", "label": "QA"}
+{"question": "对于实数 $x,$ $y,$ and $z,$ 请找出以下的最小值\n   \\[2x^2 + 5y^2 + 2z^2 + 4xy - 4yz - 2z - 2x.\\]", "answer": "-1", "label": "QA"}
+{"question": "在帕斯卡三角形中，从1，11开始的一排中，第九个数字是什么？", "answer": "165", "label": "QA"}
+{"question": "麦道夫先生将1000美元投资于一个每年以恒定利率复利的基金。  三年后，他的投资已经增长到1225美元。  年利率是多少，以百分比表示？  (把你的答案四舍五入到最接近的整数。)", "answer": "7", "label": "QA"}
+{"question": "设$x,$ $y,$ 和 $z$为正实数。  那么， \\[\\frac{(x^4 + 1)(y^4 + 1)(z^4 + 1)}{xy^2 z}\\]的最小值是$\\frac{a \\sqrt{b}}{c},$ 的形式，对于一些正整数$a,$ $b,$和$c,$，其中$a$和$c$是相对素数，并且$b$不能被素数的平方所除。  输入$a+b+c.$", "answer": "44", "label": "QA"}
+{"question": "如果$n\\equiv 2 \\pmod{7}$，那么求$(n+2)(n+4)(n+6)$除以7时的余数。", "answer": "3", "label": "QA"}
+{"question": "有一个多项式$P$，对于每一个实数$x$,\\[\n     x^{512} + x^{256} + 1 = (x^2 + x + 1) P(x).\n   \\]当$P$被写成标准多项式时，它的系数有多少是非零的？", "answer": "341", "label": "QA"}
+{"question": "设$f(x)=2x-4$ , $g(x)=x^2+3$. 什么是 $f(g(2))$?", "answer": "10", "label": "QA"}
+{"question": "评估 $|{-1+i\\sqrt3}|$.", "answer": "2", "label": "QA"}
+{"question": "设$mathbf{v}_0$是一个矢量。  向量$mathbf{v}_0$围绕原点逆时针旋转一个角度$42^\\circ$，使其成为向量$mathbf{v}_1$，然后向量$mathbf{v}_1$被反射到方向为$begin{pmatrix}的直线上。\\cos 108^\\circ\\sin 108^\\circ end{pmatrix}，$ 将其反射到矢量$mathbf{v}_2。矢量$mathbf{v}_2$也可以通过反射矢量$mathbf{v}_0$到方向矢量$begin{pmatrix}的直线上产生。\\cos \\theta \\sin \\theta \\end{pmatrix},$ 其中 $theta$ 是一个锐角。  求$theta.$", "answer": "87^\\circ", "label": "QA"}
+{"question": "当$frac{4}{15}$被表示为小数时，小数点右边的第1000位是什么？", "answer": "6", "label": "QA"}
+{"question": "求抛物线$y=x^2的准线方程。", "answer": "y = -\\frac{1}{4}", "label": "QA"}
+{"question": "一笔10,000美元的存款，以4.5%的利率投资，每年复利计算，两年后可获得多少美元的利息？把你的答案表示到最接近的美分。", "answer": "920.25", "label": "QA"}
+{"question": "一条线穿过不同的向量$mathbf{a}$ 和$mathbf{b}$ ，那么对于$k$的某个值，向量\\[3 \\mathbf{a} + k \\mathbf{b}\\]也必须位于该线上。 找到$k$。", "answer": "-2", "label": "QA"}
+{"question": "当某一函数$f(x)$的图形向右移动$2$单位，并在垂直方向上拉伸$2$的系数（意味着所有$y$坐标被加倍），所得到的图形与原图形完全相同。鉴于$f(0)=0.1$，$f(10)$是多少？", "answer": "3.2", "label": "QA"}
+{"question": "最小的数字是什么，它比它的倒数的两倍少一？", "answer": "-2", "label": "QA"}
+{"question": "$frac{10！+11！+12！}{10！+11！}$的简化值是多少？", "answer": "12", "label": "QA"}
+{"question": "当$x^3-3x^2-9x+30$除以$x-3$时，求余数。", "answer": "3", "label": "QA"}
+{"question": "一条长为$6$单位的弦将一个圆分成两个不同的区域。如果圆的半径是6个单位，那么较大区域的面积是多少，以平方为单位？请用最简单的基数形式表达你的答案，以$\\pi$为单位。", "answer": "30\\pi + 9\\sqrt{3}", "label": "QA"}
+{"question": "如果 $x$, $y$, 和 $z$ 是实数，对于这些实数  \\begin{align*}\n   x+y-z &= -8, \\\\\n   x-y+z &= 18,\\text{ and} \\\\\n   -x+y+z &= 30, \\\\\n   \\end{align*} 那么$xyz$是什么？", "answer": "1320", "label": "QA"}
+{"question": "如果$x+frac{1}{x}=7$，那么$x^{2}+\\frac{1}{x^{2}} + 1$的值是多少？", "answer": "48", "label": "QA"}
+{"question": "找出常数$a$，使\\[(x^2 - 3x + 4)(2x^2 +ax + 7) = 2x^4 -11x^3 +30x^2 -41x +28.\\]", "answer": "-5", "label": "QA"}
+{"question": "特里每卖出一件东西就会得到5美元的佣金。在销售一件60美元的大衣（未打折）时，如果他的佣金是基于大衣的原价，而不是打折$20\\%$后的价格，他将多得到多少美分？", "answer": "60", "label": "QA"}
+{"question": "让$A,$ $B,$ $C,$和$D$是一个圆上的点。  对于每一对点，我们画出通过这两点的中点的直线，它与另外两点形成的直线垂直。  例如，我们画通过$overline{AB}$的中点的线，该线与$CD$垂直。这样，我们总共画了$binom{4}{2}=6$线。\n   \n   [asy]\n   unitsize(2.5 cm);\n   \n   pair A, B, C, D, P;\n   pair[] M;\n   \n   A = dir(118);\n   B = dir(62);\n   C = dir(323);\n   D = dir(165);\n   M[12] = (A + B)/2;\n   M[13] = (A + C)/2;\n   M[14] = (A + D)/2;\n   M[23] = (B + C)/2;\n   M[24] = (B + D)/2;\n   M[34] = (C + D)/2;\n   P = (A + B + C + D)/2;\n   \n   draw(Circle((0,0),1),red);\n   draw(A--B,green);\n   draw(A--C,green);\n   draw(A--D,green);\n   draw(B--C,green);\n   draw(B--D,green);\n   draw(C--D,green);\n   draw(interp(M[12],P,-2)--interp(M[12],P,6),dashed);\n   draw(interp(M[13],P,-2)--interp(M[13],P,2),dashed);\n   draw(interp(M[14],P,-0.5)--interp(M[14],P,2.5),dashed);\n   draw(interp(M[23],P,-0.7)--interp(M[23],P,1.5),dashed);\n   draw(interp(M[24],P,-3.3)--interp(M[24],P,4),dashed);\n   draw(interp(M[34],P,-0.3)--interp(M[34],P,1.6),dashed);\n   \n   dot(\"$A$\", A, A);\n   dot(\"$B$\", B, B);\n   dot(\"$C$\", C, C);\n   dot(\"$D$\", D, D);\n   dot(M[12]);\n   dot(M[13]);\n   dot(M[14]);\n   dot(M[23]);\n   dot(M[24]);\n   dot(M[34]);\n   [/asy]\n   \n   事实证明，所有六条线将总是通过同一点，比如$P.$ 存在常数$a,$b,$c,$和$d$，这样$overrightarrow{P}$总是可以用以下形式表示\n   \\[\\overrightarrow{P} = a \\overrightarrow{A} + b \\overrightarrow{B} + c \\overrightarrow{C} + d \\overrightarrow{D}.\\]Find $a + b + c + d.$", "answer": "2", "label": "QA"}
+{"question": "15和85之间有多少个整数能被20整除？", "answer": "4", "label": "QA"}
+{"question": "迪安娜有44个糖果。她可以给孩子们相同数量的糖果，使每个孩子至少得到3个的糖果，那么最大的数量是多少？", "answer": "14", "label": "QA"}
+{"question": "让$theta$是一个角，使$tan \\theta = 2.$ 简化\n   \\[frac{e^{2i \\theta} - 1}{e^{2i \\theta} + 1}.\\] 。", "answer": "2i", "label": "QA"}
+{"question": "简化\\[\\frac{sin x}{\\cos x} + \\frac{cos x}{1 + \\sin x}.\\] 。", "answer": "\\sec x", "label": "QA"}
+{"question": "简化 $\\sqrt{242}$.", "answer": "11\\sqrt2", "label": "QA"}
+{"question": "找到\n   \\[\\prod_{k = 0}^\\infty \\left( 1 + \\frac{1}{14^{2^k}} \\right).\\]", "answer": "\\frac{14}{13}", "label": "QA"}
+{"question": "下图中，我们有 $AB = 24$ 和 $\\angle ADB =90^\\circ$.  如果 $\\sin A = \\frac23$ 和 $\\sin C = \\frac34$, 那么$BC$是多少？\n   \n   \n   [asy]\n   pair A,B,C,D;\n   A = (0,0);\n   B = (8*sqrt(5),16);\n   D = (8*sqrt(5),0);\n   C = (8*sqrt(5) + 5.3333*sqrt(7),0);\n   draw(D--B--A--C--B);\n   label(\"$A$\",A,SW);\n   label(\"$B$\",B,N);\n   label(\"$C$\",C,SE);\n   label(\"$D$\",D,S);\n   draw(rightanglemark(B,D,A,43));\n   [/asy]", "answer": "\\frac{64}{3}", "label": "QA"}
+{"question": "六个半径为1美元的球体被放置在一个边长为2美元的正六边形的顶点上，它们的中心都在这个顶点上。这六个球体与一个较大的球体相内切，该球体的中心是六角形的中心。  第八个球体与六个小球体外部相切，与大球体内部相切。  这第八个球体的半径是多少？", "answer": "\\tfrac{3}{2}", "label": "QA"}
+{"question": "把$frac{3}{20}$写成小数。", "answer": "0.15", "label": "QA"}
+{"question": "让$a,$ $b,$ $c$ 为一个三角形的边。找出以下所有可能的值的集合\n   \\[\\frac{a}{b + c} + \\frac{b}{a + c} + \\frac{c}{a + b}.\\]", "answer": "\\left[ \\frac{3}{2}, 2 \\right)", "label": "QA"}
+{"question": "一个参议院委员会有5个共和党人和4个民主党人。  委员会成员可以用多少种方式坐在一排9把椅子上，使4个民主党人都坐在一起？", "answer": "17,\\!280", "label": "QA"}
+{"question": "我们有一个直角三角形$ABC$，其中$AB$和$BC$的长度分别为$6$和$3\\sqrt{3},$中线$AM$和$CN$在点$P$处相交，$CP$的长度是多少？", "answer": "4", "label": "QA"}
+{"question": "与包含点$(1,2)$和$(1,2)$的直线垂直的斜率是多少？将你的答案用普通分数表示。", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "下面是$y = \\frac{p(x)}{q(x)}$的图形, 其中$p(x)$ 和 $q(x)$ 是二次的。(假设网格线为整数）。\n   \n   [asy]\n   unitsize(0.6 cm);\n   \n   real func (real x) {\n     return (-(x + 5)*(x - 4)/(x - 2)^2);\n   }\n   \n   int i;\n   \n   for (i = -8; i <= 8; ++i) {\n     draw((i,-8)--(i,8),gray(0.7));\n     draw((-8,i)--(8,i),gray(0.7));\n   }\n   \n   draw((-8,0)--(8,0));\n   draw((0,-8)--(0,8));\n   draw((2,-8)--(2,8),dashed);\n   draw((-8,-1)--(8,-1),dashed);\n   draw(graph(func,-8,1.9),red);\n   draw(graph(func,2.1,8),red);\n   \n   limits((-8,-8),(8,8),Crop);\n   [/asy]\n   \n   水平渐近线是$y=-1,$ 而唯一的垂直渐近线是$x=2.$ 求$\\frac{p(-1)}{q(-1)}.$", "answer": "\\frac{20}{9}", "label": "QA"}
+{"question": "设$P(x)$ 是一个实数系数的二次多项式，满足$x^2 - 2x + 2 \\le P(x) \\le 2x^2 - 4x + 3$ 对于所有的实数$x$, 假设 $P(11) = 181$. 求$P(16)$.", "answer": "406", "label": "QA"}
+{"question": "让  \\[f(x) =\n   \\begin{cases}\n   k(x) &\\text{if }x>3, \\\\\n   x^2-6x+12&\\text{if }x\\leq3.\n   \\end{cases}\n   \\] 找出函数 $k(x)$ 使 $f$ 为其自身的逆值。", "answer": "-\\sqrt{x-3}+3", "label": "QA"}
+{"question": "满足全等式$30x /equiv 42 /pmod{47}$的最小的正整数是多少？", "answer": "39", "label": "QA"}
+{"question": "已知$x+y=3$和$xy=4$，求$2x^2+2y^2$。", "answer": "25", "label": "QA"}
+{"question": "设$x$和$y$为正实数，使$2x+3y=5.$，求\\[\\frac{3}{x} + \\frac{2}{y}.\\]的最小值。", "answer": "\\frac{24}{5}", "label": "QA"}
+{"question": "从1到100（包括100）中随机选择一个数字。  该数字是完全平方的概率是多少？", "answer": "\\dfrac{1}{10}", "label": "QA"}
+{"question": "如果$f(x) = |3x - 1|,$计算所有$f(f(x))=x$的$x$值。输入所有的解，用逗号分隔。", "answer": "\\frac{1}{5}, \\frac{1}{4}, \\frac{2}{5}, \\frac{1}{2}", "label": "QA"}
+{"question": "让 $\\mathbf{a},$ $\\mathbf{b},$ 和 $\\mathbf{c}$ 为向量，使得 $\\|\\mathbf{a}\\| = \\|\\mathbf{b}\\| = 1,$ $\\|\\mathbf{c}\\| = \\frac{2}{\\sqrt{7}},$ 和\n   \\[\\mathbf{c} + \\mathbf{c} \\times \\mathbf{a} = \\mathbf{b}.\\]求$\\mathbf{a}$ 和 $\\mathbf{c},$ 之间最小的角度，单位是度。", "answer": "60^\\circ", "label": "QA"}
+{"question": "如果$a+b=c$和$b+c=11$和$c=8$，$a$的值是多少？", "answer": "5", "label": "QA"}
+{"question": "当 $\\begin{pmatrix} a \\\\ b \\end{pmatrix}$被投射到$\\begin{pmatrix} \\sqrt{3} \\\\ 1 \\end{pmatrix},$产生的向量的大小为$\\sqrt{3}.$  另外，$a = 2 + b \\sqrt{3}.$ 输入$a$的所有可能值，用逗号隔开。", "answer": "2", "label": "QA"}
+{"question": "小于或等于[\\frac{3^{100}+2^{100}}{3^{96}+2^{96}}?\\]的最大整数是多少？", "answer": "80", "label": "QA"}
+{"question": "锐角三角形$ABC$的高$overline{AX}$和$overline{BY}$相交于$H$。  如果$AHB=132^\\circ$，那么$\\angle ACB$是什么？", "answer": "48^\\circ", "label": "QA"}
+{"question": "考虑多项式 \\[f(x)=4x^3+3x^2+2x+1\\]和 \\[g(x)=3-4x+5x^2-6x^3.\\]找出 $c$ 使多项式 $f(x)+cg(x)$有2度。", "answer": "\\frac{2}{3}", "label": "QA"}
+{"question": "$2^5$和$5^2$之间的正差是多少？", "answer": "7", "label": "QA"}
+{"question": "方程$x^2+18x=27$有两个解。正解的形式是$\\sqrt{a}-b$ ，$a$和$b$为正自然数。什么是$a+b$？", "answer": "117", "label": "QA"}
+{"question": "从一副标准的52张牌中随机选择3张牌。  这3张牌能被排列成一组连续的3张牌，并且都是相同花色的概率是多少？对于这个问题，A可以在2之前，也可以在王之后，但不能同时出现（所以A23和QKA都算，但KA2不算）。", "answer": "\\frac{12}{5,\\!525}", "label": "QA"}
+{"question": "七年级和八年级的学生人数分别为520人和650人。这两个年级在学生会中共有18名代表。如果要使这两个年级有公平的代表性，八年级应该有多少名代表？", "answer": "10", "label": "QA"}
+{"question": "找出所有$k$的值，其中向量 $\\begin{pmatrix} k \\\\ 1 \\\\ 1 \\end{pmatrix}$ 和 $\\begin{pmatrix} 1 \\\\ k \\\\ 1 \\end{pmatrix}$ 之间的角度是 $\\frac{\\pi}{3}.$", "answer": "0,4", "label": "QA"}
+{"question": "求解方程：\\[\\sqrt[3]{x} + \\sqrt{x+12} = 0\\]。求x。", "answer": "-8", "label": "QA"}
+{"question": "让\n   \\[x^8 + 98x^4 + 1 = p(x) q(x),\\]其中$p(x)$和$q(x)$是整数系数的单常数多项式。  求$p(1)+q(1).$", "answer": "20", "label": "QA"}
+{"question": "计算 $$1 + \\frac{3}{3} + \\frac{5}{9} + \\frac{7}{27} + \\frac{9}{81} + \\dotsb$$的总和", "answer": "3", "label": "QA"}
+{"question": "点$P=(x_1,y_1)$和$Q=(x_2,y_2)$是抛物线$y^2=4ax,$的交点，其中$a>0,$并且有一条经过抛物线焦点的直线。  那么距离$PQ$可以用$c_1 x_1 + c_2 x_2 + c_3 a,$的形式表示，其中$c_1,$c_2,$和$c_3$是常数。  计算$c_1+c_2+c_3$。", "answer": "4", "label": "QA"}
+{"question": "找出有秩序的实数对$(a,b)$的数量，使$(a+bi)^{2002}=a-bi$。", "answer": "2004", "label": "QA"}
+{"question": "化简 $cos 54^circ\\cos 4^circ  \\cos 36^circ \\cos 86^circ.$。你输入的答案是一个在整数上求值的三角函数，如 \"sin 7\"（系统将假定该角度的单位是度）。", "answer": "\\cos 58^\\circ", "label": "QA"}
+{"question": "坐标为$(-5,5)$和$(5,-5)$的点之间的距离是多少？用最简单的根式表达你的答案。", "answer": "10\\sqrt 2", "label": "QA"}
+{"question": "如果321_{b}$等于10进制的整数57，在$b>0$的情况下，求$b$。", "answer": "4", "label": "QA"}
+{"question": "简化 $\\sqrt{9^3}$.", "answer": "27", "label": "QA"}
+{"question": "12的适当除数是1、2、3、4和6。一个整数$N$的适当除数是一个小于$N$的正除数。284的正除数的总和是多少？", "answer": "284", "label": "QA"}
+{"question": "求$\\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}$ 和 $\\begin{pmatrix} 3 \\\\ 4 \\\\ -5 \\end{pmatrix}.$的叉积。", "answer": "\\begin{pmatrix} -3 \\\\ 11 \\\\ 7 \\end{pmatrix}", "label": "QA"}
+{"question": "如果 $ \\sqrt{x\\cdot\\!\\sqrt{x\\cdot\\!\\sqrt{x\\cdot\\!\\sqrt{x\\cdots}}}}=3$, 求 $x$.", "answer": "3", "label": "QA"}
+{"question": "求$cos^{1}\\frac{1}{2}$的答案，用弧度表示。", "answer": "\\frac{\\pi}{3}", "label": "QA"}
+{"question": "一个随机投掷的飞镖落在目标上的概率是${frac{3}{8}$。那么飞镖不落在目标上的概率是多少？把你的答案用普通分数表示。", "answer": "\\frac{5}{8}", "label": "QA"}
+{"question": "存在常数$r,$ $s,$ 和 $t$ 使\n   \\[p(n) = rp(n - 1) + sp(n - 2) + tp(n - 3)\\]对于任何二次多项式$p(x),$ 和任何整数 $n.$  输入有序的 $(r,s,t).$", "answer": "(3,-3,1)", "label": "QA"}
+{"question": "有一些实数$a$ 和 $b$，对于每一个正数$x$，我们都有这样的特征\n   \\[\n     \\tan^{-1} \\left( \\frac{1}{x} - \\frac{x}{8} \\right) + \\tan^{-1}(ax) + \\tan^{-1}(bx) \n       = \\frac{\\pi}{2} \\, .\n   \\]（在这个方程中，$tan^{-1}$表示反正切函数，有时写成$arctan$。）  $a^2 + b^2$的值是多少？", "answer": "\\frac{3}{4}", "label": "QA"}
+{"question": "如果6个朋友中的一个，即Manoj，拒绝在没有任何朋友的情况下上课，那么有多少种方法可以将他们分配到化学课或生物课中？", "answer": "62", "label": "QA"}
+{"question": "当$301^4$除以10,000时，余数是多少？", "answer": "1201", "label": "QA"}
+{"question": "设 $PQRS$ 是一张正方形的纸。将$P$折到R$上，然后将$Q$折到$S$上。所得图形的面积为9平方英寸。求正方形$PQRS$的周长。 [asy]\n   /* AMC8 1998 #20P */\n   size(1inch,1inch);\n   label(\"$P$\", (0, 72), SE);\n   label(\"$Q$\", (72, 72), SW);\n   label(\"$S$\", (0, 0), NE);\n   label(\"$R$\", (72, 0), NW);\n   draw((0,0)--(72,0)--(72,72)--(0,72)--cycle);\n   [/asy]", "answer": "24", "label": "QA"}
+{"question": "双曲线 \\[\\frac{(x-3)^2}{5^2} - \\frac{(y+1)^2}{4^2} = 1\\]有两个渐近线，一个是正斜率，一个是负斜率。计算斜率为正的那条的$x$截距。(将你的答案作为一个有序的对输入。)", "answer": "\\left(\\frac{17}{4},0\\right)", "label": "QA"}
+{"question": "计算 $\\begin{pmatrix} 1 & 2 \\\\ 4 & 8 \\\\ \\end{pmatrix} \\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}.$", "answer": "\\begin{pmatrix} 11 \\\\ 44 \\end{pmatrix}", "label": "QA"}
+{"question": "在所示的$triangle{RST}$中，$sin{R}={frac{2}{5}$。$\\sin{T}$是多少?\n   \n   [asy]\n   pair R,S,T;\n   T = (0,0);\n   S = (2,0);\n   R = (2,sqrt(21));\n   draw(R--S--T--R);\n   draw(rightanglemark(R,S,T,10));\n   label(\"$T$\",T,SW);\n   label(\"$S$\",S,SE);\n   label(\"$R$\",R,NE);\n   label(\"$5$\",(R+T)/2,NW);\n   [/asy]", "answer": "\\frac{\\sqrt{21}}{5}", "label": "QA"}
+{"question": "两个数字的总和是25，它们的差是11。这两个数字中较大的是什么？", "answer": "18", "label": "QA"}
+{"question": "计算 $\\tan 45^\\circ$.", "answer": "1", "label": "QA"}
+{"question": "设 $a$是满足不等式 $x^2 - 15 < 2x$的最小整数，设 $b$ 是满足同样不等式的最大整数。什么是$b-a$？", "answer": "6", "label": "QA"}
+{"question": "艾米的祖母给了她3块相同的巧克力饼干和4块相同的糖饼干。  艾米可以按照多少种不同的顺序吃这些饼干，使她要么先吃巧克力饼干，要么最后吃巧克力饼干，或者两者都吃？", "answer": "25", "label": "QA"}
+{"question": "找出以下问题的所有解\n   \\[\\sqrt{x^2 + \\sqrt{x^2 + 11}} + \\sqrt{x^2 - \\sqrt{x^2 + 11}} = 4.\\]输入所有的解，用逗号分隔。", "answer": "\\sqrt{5}, -\\sqrt{5}", "label": "QA"}
+{"question": "如果$3+\\sqrt{5}$ 是方程\\[x^2 - 3x + b = 0,\\]的一个根，计算 $b.$。", "answer": "-3 \\sqrt{5} - 5", "label": "QA"}
+{"question": "理查德正在用200英尺的围栏建造一个长方形的操场。栅栏必须将操场完全包围起来。这个操场的最大面积是多少？", "answer": "2500", "label": "QA"}
+{"question": "在一家商场的美食广场，Crystal有7.5美元可以买一餐（一份主菜、一份饮料和一份甜点）。下表列出了Crystal的选择和它们的含税价格。她能买得起多少种不同的食物？ \\[\\begin{array}{|c|c|c|} \\hline\n   \\text{Entrees} & \\text{Drinks} & \\text{Desserts} \\\\ \\hline\n   \\text{Pizza } \\$3.50 & \\text{Lemonade } \\$1.50 & \\text{Frozen Yogurt } \\$3.00 \\\\ \\hline\n   \\text{Corn Dog } \\$2.50 & \\text{Soda } \\$1.25 & \\text{Cookies } \\$2.00 \\\\ \\hline\n   \\text{Fish~\\& Chips } \\$3.50 & & \\\\ \\hline\n   \\text{Fried Rice } \\$4.75 & & \\\\ \\hline\n   \\end{array}\\]", "answer": "8\\text{ meals}", "label": "QA"}
+{"question": "凯西需要钱去欧洲旅行。如果她在银行有300美元，但想提取一半的英镑和一半的欧元，那么她的欧元会比英镑多多少？假设1英镑=1.64美元，1欧元=1.32美元，取整数。", "answer": "22", "label": "QA"}
+{"question": "如果$x-y=1$且$x^2+y^2=7$，求$x^3-y^3$。", "answer": "10", "label": "QA"}
+{"question": "设$f(x)=7x+5$，$g(x)=x-1$。  如果$h(x)=f(g(x))$，那么$h(x)$的反函数是多少？", "answer": "\\frac{x+2}{7}", "label": "QA"}
+{"question": "解答\n   \\[\\frac{(x + 7)(x - 2)}{x - 1} < 0.\\]用区间符号输入你的答案。", "answer": "(-\\infty,-7) \\cup (1,2)", "label": "QA"}
+{"question": "计算$sin 135^circ$。", "answer": "\\frac{\\sqrt{2}}{2}", "label": "QA"}
+{"question": "有多少个整数满足方程：$3n^3-12n = 0$ ?", "answer": "3", "label": "QA"}
+{"question": "A袋中有3个白球和2个红球。B袋里有6个白球和3个红球。从这两个袋子中随机选择一个，然后从这个袋子中随机抽出两个球，不作替换。抽出的两个球是同一颜色的概率是多少？把你的答案用一个普通分数表示。[asy] size(140); defaultpen(linewidth(0.7)); pen darkness = linewidth(1.2);\n   real r = 0.642;\n   filldraw(circle((-0.931,2.701),r),gray(0.5));\n   \n   filldraw(circle((1.534,2.633),r),white,darkness);\n   \n   filldraw(circle((0.356,2.842),r),white,darkness);\n   \n   filldraw(circle((1.026,2.385),r),gray(0.5));\n   \n   filldraw(circle((-0.184,2.502),r),white,darkness);\n   \n   [/asy]", "answer": "\\frac 9{20}", "label": "QA"}
+{"question": "什么是$1^{(2^{235423523})}$？", "answer": "1", "label": "QA"}
+{"question": "$frac{1}{2}?+ frac{1}{3}$是多少？", "answer": "\\frac{5}{6}", "label": "QA"}
+{"question": "字母C、O、U、N和T被随机地放在一个圆周围。这里显示了一个这样的安排。如果我们总是从C开始，并继续按顺时针方向阅读其余的字母，这些字母可以以多少种不同的顺序出现？\n   \n   [asy]\n   draw(circle((0,0),1),dashed);\n   label(\"U\",dir(90));\n   label(\"C\",dir(90+360/5));\n   label(\"O\",dir(90+2*360/5));\n   label(\"N\",dir(90+3*360/5));\n   label(\"T\",dir(90+4*360/5));\n   [/asy]", "answer": "24", "label": "QA"}
+{"question": "在Price's 市场，四个橙子的价格是一美元。10个橙子在Price's 市场的价格是多少美元？", "answer": "\\$2.50", "label": "QA"}
+{"question": "如果一个月的第一天是星期一，那么一周中的哪一天是第二十三天？", "answer": "\\text{Tuesday}", "label": "QA"}
+{"question": "让$S$为复数$z$的集合，使$frac{1}{z}$的实部等于$frac{1}{6}$。  求曲线内区域的面积。", "answer": "9 \\pi", "label": "QA"}
+{"question": "设 $x,$ $y,$ 和 $z$ 为正实数，使 $xyz(x + y + z) = 1.$  计算\\[(x + y)(y + z).\\]的最小值。", "answer": "2", "label": "QA"}
+{"question": "圆$A$的直径为12英寸，圆$B$的直径为22英寸。圆$A$的面积与圆$B$的面积之比是多少？把你的答案用普通分数表示。", "answer": "\\frac{36}{121}", "label": "QA"}
+{"question": "方程$x^2+bx+18=0$的两个解在$b$的某些值上是$2$和$1$的比例。$b$的最大可能值是多少？", "answer": "9", "label": "QA"}
+{"question": "求序列$1440, 1716, 1848, \\ldots$的第八项，其条款是由两个算术序列的相应条款相乘而形成的。", "answer": "348", "label": "QA"}
+{"question": "在三角形$ABC$中，$D$在$overline{AB}$上，$E$在$overline{BC}$上，这样$AD=3，$ $BD=2，$ $BE=3，$CE=4，$ 让$F$是$overline{AE}$和$overline{CD}的交点。计算 $\\frac{EF}{FA}.$", "answer": "\\frac{8}{21}", "label": "QA"}
+{"question": "多项式$Q_1(x) = x^2 + (k - 29)x - k$ 和$Q_2(x) = 2x^2 + (2k - 43)x + k$  都是三次多项式$P(x)$ 的因子，那么$k$ 的最大值是多少?", "answer": "30", "label": "QA"}
+{"question": "青少年是指13、14、15、16、17、18或19岁的人。某一组青少年的年龄的乘积是705,600。他们年龄的平均数是多少？把你的答案用小数表示，以最接近的十分之一。", "answer": "14.8", "label": "QA"}
+{"question": "在下图中$AB=BC$, $m \\angle ABD = 30^{\\circ}$, $m \\angle C = 50^{\\circ}$ and $m \\angle CBD = 80^{\\circ}$. 角$A$的度数是多少？\n   \n   [asy]\n   draw((0,0)--1.5dir(-15)--3.5dir(60)--(0,0),linewidth(2));\n   draw(1.5dir(-15)--1.5dir(-15)+4dir(35)--3.5dir(60),linewidth(2));\n   label(\"A\",(0,0),W);\n   label(\"B\",3.5dir(60),N);\n   label(\"C\",1.5dir(-15)+4dir(35),E);\n   label(\"D\",1.5dir(-15),S);\n   [/asy]", "answer": "75^\\circ", "label": "QA"}
+{"question": "一个回合包括掷出一个标准的骰子和抛出一枚公平的硬币。当骰子显示为1或6，而硬币显示为头时，游戏就赢了。在第四轮游戏之前，游戏获胜的概率是多少？把你的答案用一个普通分数表示。", "answer": "\\dfrac{91}{216}", "label": "QA"}
+{"question": "如果$n>1$是一个整数，符号 $a\\equiv b\\pmod{n}$ 意味着$(a-b)$是$n$的倍数. 请找出所有可能的$n$值的总和，使以下两项都是真的：\n$171\\equiv80\\pmod{n}$ and $468\\equiv13\\pmod{n}$.", "answer": "111", "label": "QA"}
+{"question": "Rick想到的是14的正因子，而Steve想到的是42的正因子。  如果Rick和Steve想到的是同一个数字，他们可能想到的数字有多少？", "answer": "4", "label": "QA"}
+{"question": "一个装满水的球状气球落在人行道上，瞬间变成了一个半球形。  球形气球的半径与半球的半径之比可以用$\\sqrt[3]{a}$的形式表示，$a$是某个实数。  计算$a$。", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "求矩阵$mathbf{M}$，使得\n   \\[\\mathbf{M} \\begin{pmatrix} 1 & -2 \\\\ 1 & 4 \\end{pmatrix} = \\begin{pmatrix} 6 & 0 \\\\ 0 & 6 \\end{pmatrix}.\\]", "answer": "\\begin{pmatrix} 4 & 2 \\\\ -1 & 1 \\end{pmatrix}", "label": "QA"}
+{"question": "求具有整数系数和整数零的二度多项式$f(x)$的数目，其中$f(0)=2010$。", "answer": "163", "label": "QA"}
+{"question": "在$a,b,c$是$x^3 + ax^2 + bx + c = 0的根的情况下，有多少个有理数的有序三联体$（a,b,c）$？", "answer": "3", "label": "QA"}
+{"question": "如图所示，48个边长为62英尺和20英尺的全等平行四边形被放置在一个雪佛龙图案中，形成六角形$ABCDEF$。六边形$ABCDEF$的周长是多少？\n   \n   [asy]\n   unitsize (0.1 cm);\n   \n   draw((16,-20)--(-3,-20)--(0,0)--(-3,20)--(16,20));\n   draw((0,0)--(16,0));\n   draw((5,20)--(8,0)--(5,-20));\n   draw((13,20)--(16,0)--(13,-20));\n   dot((18,0));\n   dot((20,0));\n   dot((22,0));\n   draw((24,0)--(50,0));\n   draw((23,20)--(47,20)--(50,0)--(47,-20)--(21,-20));\n   draw((23,20)--(26,0)--(23,-20));\n   draw((31,20)--(34,0)--(31,-20));\n   draw((39,20)--(42,0)--(39,-20));\n   draw((39,21)--(39,25));\n   draw((47,21)--(47,25));\n   draw((39,23)--(47,23));\n   label(\"$A$\",(-3,20),NW);\n   label(\"$B$\",(47,20),NE);\n   label(\"$C$\",(50,0),E);\n   label(\"$D$\",(47,-20),SE);\n   label(\"$E$\",(-3,-20),SW);\n   label(\"$F$\",(0,0),W);\n   label(\"20'\",(43,23),N);\n   label(\"62'\",(49,10),E);\n   [/asy]", "answer": "1208", "label": "QA"}
+{"question": "$(8-4)!\\div(8-3)!$的值是多少？把你的答案用普通分数表示。", "answer": "\\frac{1}{5}", "label": "QA"}
+{"question": "设$f(x)=x+1$，$g(x)=2x$。  同时，将这些函数的倒数表示为$f^{-1}$ 和 $g^{-1}$。  计算\\[f(g^{-1}(f^{-1}(f^{-1}(g(f(5)))))).\\]", "answer": "6", "label": "QA"}
+{"question": "如果$n$和$k$都是正整数，使得$5<\\frac nk<6$，那么$\\frac{\\mathop{\\text{lcm}}[n,k]}{\\gcd(n,k)}$的最小可能值是多少?", "answer": "22", "label": "QA"}
+{"question": "从下列五个整数中除去与3（模7）全等的整数，然后将剩下的整数相加。$$85 \\qquad 49,\\!479 \\qquad -67 \\qquad 12,\\!000,\\!003 \\qquad -3\n   $$", "answer": "12,\\!000,\\!085", "label": "QA"}
+{"question": "不同的点$A$和$B$都在一个直径为$MN$、中心为$C$的半圆上。  点$P$在$CN$上，$\\angle CAP = \\angle CBP = 10^\\circ$。  如果弧$MA$等于$40^\\circ$，那么求弧$BN$（度数）。\n   \n   [asy]\n   import geometry;\n   import graph;\n   \n   unitsize(2 cm);\n   \n   pair A, B, C, M, N, P;\n   \n   M = (-1,0);\n   N = (1,0);\n   C = (0,0);\n   A = dir(140);\n   B = dir(20);\n   P = extension(A, A + rotate(10)*(C - A), B, B + rotate(10)*(C - B));\n   \n   draw(M--N);\n   draw(arc(C,1,0,180));\n   draw(A--C--B);\n   draw(A--P--B);\n   \n   label(\"$A$\", A, NW);\n   label(\"$B$\", B, NE);\n   label(\"$C$\", C, S);\n   label(\"$M$\", M, SW);\n   label(\"$N$\", N, SE);\n   label(\"$P$\", P, S);\n   [/asy]", "answer": "20^\\circ", "label": "QA"}
+{"question": "图中$x$的值是多少？\n   \n   [asy]\n   import olympiad;\n   draw((0,0)--(sqrt(3),0)--(0,sqrt(3))--cycle);\n   draw((0,0)--(-1,0)--(0,sqrt(3))--cycle);\n   label(\"2\",(-1/2,sqrt(3)/2),NW);\n   label(\"$x$\",(sqrt(3)/2,sqrt(3)/2),NE);\n   draw(\"$45^{\\circ}$\",(1.5,0),NW);\n   draw(\"$60^{\\circ}$\",(-0.9,0),NE);\n   draw(rightanglemark((0,sqrt(3)),(0,0),(sqrt(3),0),4));\n   [/asy]", "answer": "\\sqrt{6}", "label": "QA"}
+{"question": "计算: $15 + 8^2 - 3$.", "answer": "76", "label": "QA"}
+{"question": "求最小的正整数$k$，使得对于每一个正整数$n$，$6n+k$与$6n+3$、$6n+2$和$6n+1$中的每一个都是相对素数。", "answer": "5", "label": "QA"}
+{"question": "在这个问题中，$m$和$n$是整数。如果$m\\equiv 4pmod{14}$和$mn\\equiv 10\\pmod{14}$，那么当$m+n$除以$14$时，余数是多少？", "answer": "12", "label": "QA"}
+{"question": "如果$x$, $frac{1}{x}$, $y$, $frac{1}{y}$, $z$和$frac{1}{z}$都是整数，那么$x+ y+ z$有多少个不同的值？", "answer": "4", "label": "QA"}
+{"question": "一个体育场的楼梯有150个台阶，编号从1到150。Joe从第130号台阶开始，走到127号台阶，然后走到124号台阶，继续向下走到13号台阶，每隔三个台阶才走一步。Jen从3号台阶开始，向上走到7号台阶，然后走到11号台阶，继续向上走到139号台阶，每隔四个台阶才走一步。Joe和Jen都踩了多少个台阶（不一定是同时踩）？", "answer": "10", "label": "QA"}
+{"question": "一个热气球离地10英尺，以每秒2英尺的恒定速度上升。再过25秒后，气球的高度是多少，以英尺为单位？", "answer": "60", "label": "QA"}
+{"question": "$1313$和$1001$的最大公约数是多少？", "answer": "13", "label": "QA"}
+{"question": "如果\\k = ∆sin^6 \\theta + cos^6 \\theta = ∆sin 2 \\theta,\\]，那么k是多少？", "answer": "\\frac{2}{3}", "label": "QA"}
+{"question": "求实数的有序三元组$(x,y,z)$的个数，使得\\[x^4 + y^4 + z^4  4xyz = 1.\\] 。", "answer": "4", "label": "QA"}
+{"question": "在三角形$ABC中，$overline{CD}$是角$C的平分线，$D$在$overline{AB}上。$如果$cos `frac{C}{2} = `frac{1}{3}$ 和$CD = 6，$计算\\[\\frac{1}{BC}+ \\frac{1}{AC}.\\] 。", "answer": "\\frac{1}{9}", "label": "QA"}
+{"question": "下面是一个排列中的前$15$个数字。如果继续排列，那么第30^{mathrm{th}}$个数字的值是多少？\\begin{align*}。&text{Row }1: 1\\&text{Row }2: 2, 23号行：3，3，34，4，4，4，4&text{Row }5：5, 5, 5, 5, 5\\end{align*}.", "answer": "8", "label": "QA"}
+{"question": "Vanessa将画出直线$y = frac{1}{3}x + 7$和$y = 2x + 5$。这两条直线的$x$坐标与$x$截距之和是多少？请用小数表示你的答案，精确到1/10。", "answer": "-23.5", "label": "QA"}
+{"question": "如果一叠8个25分硬币正好是半英寸，那么需要多少个25分硬币才能使一叠硬币达到一英尺高？", "answer": "192", "label": "QA"}
+{"question": "一块大的床单是由小的方块床单缝合在一起的，其中四个小方块是全等的，不是正方形的矩形方块也是全等的。求阴影部分的面积占总面积的比例是多少？答案用分数表示。", "answer": "\\frac{3}{8}", "label": "QA"}
+{"question": "计算 $\\dbinom{4}{0}+\\dbinom{4}{1}+\\dbinom{4}{2}+\\dbinom{4}{3}+\\dbinom{4}{4}$.", "answer": "16", "label": "QA"}
+{"question": "对于正整数m，m,$ $1 \\le m \\le 1000,$，是否至少存在一个正整数n，使得$m \\cdot n \\le m + n$？", "answer": "1000", "label": "QA"}
+{"question": "如果$\\mathbf{v} \\times \\mathbf{w} = \\begin{pmatrix} 2 \\\\ 7 \\\\ -13 \\end{pmatrix},$ ，求$\\mathbf{w} \\times \\mathbf{v}.$", "answer": "\\begin{pmatrix} - 2 \\\\ -7 \\\\ 13 \\end{pmatrix}", "label": "QA"}
+{"question": "一个正整数$M$除以6得到的余数是3。另一个正整数$N$除以6，余数为5。求$M+N$的总和除以6时，余数是多少？", "answer": "2", "label": "QA"}
+{"question": " $0 \\le a, b, c \\le 5$ 是整数。则有多少个有序三元组$(a,b,c)$，使得a^2b+b^2c+c^2aab^2bc^2ca^2 = 0$？", "answer": "96", "label": "QA"}
+{"question": "求$\\cos \\frac{\\pi}{3}.$", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "有多少种不同的方式可以将12个一角硬币分为三堆，每堆一角硬币的数量为奇数？", "answer": "0", "label": "QA"}
+{"question": "$f(x) = 7x^7  4x^4 + 1$ 是偶数函数，还是奇数函数，还是都不是？输入 \"奇数\"、\"偶数 \"或 \"都不是\"。", "answer": "\\text{neither}", "label": "QA"}
+{"question": "如果$a+b=8$，$b+c=3$，$a+c=5$，那么积$abc$的值是多少？", "answer": "-120", "label": "QA"}
+{"question": "直角$\\triangle ABC$，其中$AB=3$ cm， $CB=4$ cm，绕其中一边旋转，所得的几何体中体积最大为多少立方厘米，请将你的答案用最接近的整数表示。", "answer": "50", "label": "QA"}
+{"question": "当一艘装满科学家的飞船降落在Q星球上时，他们发现160个外星人中，有$\\frac{3}{8}$的外星人有3只眼睛，其余的外星人有5只眼睛。这160个外星人总共有多少只眼睛？", "answer": "680", "label": "QA"}
+{"question": "$\\triangle PQR$ 和$\\triangle STU$ 的面积分别都为1，在$\\triangle PQR,$中，点$U,$ $W,$ 和 $V$ 是各边的中点，在$\\triangle STU,$中点$R,$ $V,$ 和 $W$ 是各边的中点，那么平行四边形$UVRW?$ 的面积是多少？[asy]\n   draw((0,0)--(2,0)--(1,2)--cycle,linewidth(1));\n   draw((0,2)--(2,2)--(1,0)--cycle,linewidth(1));\n   label(\"$T$\",(0,0),SW);\n   label(\"$R$\",(1,0),S);\n   label(\"$S$\",(2,0),SE);\n   label(\"$W$\",(1.5,1),E);\n   label(\"$Q$\",(2,2),NE);\n   label(\"$U$\",(1,2),N);\n   label(\"$P$\",(0,2),NW);\n   label(\"$V$\",(0.5,1),W);\n   [/asy]", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "一个数列从2222开始。接下来的每一项都是在前一项的基础上加上1010。第六项和第七项之和是多少？", "answer": "15554", "label": "QA"}
+{"question": "已知x=3，y=2，求表达式$frac{4x^2}{9y^2}$的值。", "answer": "1", "label": "QA"}
+{"question": "设$z=a+bi$为复数，$vert z\\vert = 5$，$b > 0$，使$(1+2i)z^3$和$z^5$之间的距离最大。计算$z^4.$", "answer": "-375 + 500i", "label": "QA"}
+{"question": "如果$2004$在第三位之后被分割成一个三位数的整数和一个一位数的整数，那么这两个整数$200$和$4$就有一个大于1的公共因子。  2005$和2006$也有同样的属性。  在$2006$之后的第一个具有这种性质的奇数年是哪一年？", "answer": "2013", "label": "QA"}
+{"question": "存在多少个正整数$n$，使$n^23n+2$是一个素数？", "answer": "1", "label": "QA"}
+{"question": "设$f(n)$是$n$的正整数除数之和。如果$n$是素数，且$f(f(n))$也是素数，则称$n$为弹性素数。最小的弹性素数是多少？", "answer": "3", "label": "QA"}
+{"question": "由\\[\\mathbf{v} = \\begin{pmatrix} 1 + t \\\\ 3t \\\\ 1 - t \\end{pmatrix}\\]参数化的线位于$x + y + cz = d.$的平面内，求有序数对$(c,d).$", "answer": "(4,5)", "label": "QA"}
+{"question": "考虑下面这个六乘六的单位方格。只用网格中的线段作为矩形的边，可以组成多少个面积为3平方单位的矩形？\n[asy]unitsize(0.1inch);\n   draw((0,0)--(6,0)--(6,6)--(0,6)--cycle);\n   draw((1,0)--(1,6));\n   draw((2,0)--(2,6));\n   draw((3,0)--(3,6));\n   draw((4,0)--(4,6));\n   draw((5,0)--(5,6));\n   draw((0,1)--(6,1));\n   draw((0,2)--(6,2));\n   draw((0,3)--(6,3));\n   draw((0,4)--(6,4));\n   draw((0,5)--(6,5));\n   \n   [/asy]", "answer": "48", "label": "QA"}
+{"question": "有一个三角形$\\triangle ABC$和$BC$上的一个点$K$，因此$AK$是$\\tringle ABC$的高。如果$AC = 9,$ $BK = \\sqrt{5}$，并且$CK = 4,$ ，那么$AB$是多少？", "answer": "\\sqrt{70}", "label": "QA"}
+{"question": "一个参议院委员会有5个民主党人和5个共和党人。  如果每个党派的所有成员都坐在对方旁边，他们可以用多少种可区分的方式围着一张圆桌坐下？  (如果桌子是旋转的，应该算作相同的座位。)", "answer": "14,\\!400", "label": "QA"}
+{"question": "如果$3x=8y$， $5y=15z$，$\\frac{x}{z}$的值是多少？请以最简单的形式表达你的答案。", "answer": "8", "label": "QA"}
+{"question": "求 $\\frac{1}{a-1}+\\frac{1}{b-1},$，中$a$和$b$是一元二次方程 $2x^2-7x+2 = 0.$根。", "answer": "-1", "label": "QA"}
+{"question": "一个三位数的数字的个位数是6，这个数字能被6整除的概率是多少？把你的答案用一个简分数表示。", "answer": "\\frac{1}{3}", "label": "QA"}
+{"question": "如果$12\\div(x+1)$是整数，那么$x$的最小整数值是多少？", "answer": "-13", "label": "QA"}
+{"question": "在三角形$ABC$中，$\\angle BAC = 72^\\circ$。  三角形$ABC$分别与边$BC$、$AC$和$AB$相切于点$D$、$E$和$F$。 求$\\angle EDF$的度数。\n [asy]\n   import geometry;\n   \n   unitsize(2 cm);\n   \n   pair A, B, C, D, E, F, I;\n   \n   A = (1,2);\n   B = (0,0);\n   C = (3,0);\n   I = incenter(A,B,C);\n   D = (I + reflect(B,C)*(I))/2;\n   E = (I + reflect(C,A)*(I))/2;\n   F = (I + reflect(A,B)*(I))/2;\n   \n   draw(A--B--C--cycle);\n   draw(incircle(A,B,C));\n   draw(F--D--E);\n   \n   label(\"$A$\", A, N);\n   label(\"$B$\", B, SW);\n   label(\"$C$\", C, SE);\n   label(\"$D$\", D, S);\n   label(\"$E$\", E, NE);\n   label(\"$F$\", F, NW);\n   [/asy]", "answer": "54^\\circ", "label": "QA"}
+{"question": "假设$f$是一个线性函数，其中$f(6) - f(2) = 12.$ ，则$f(12) - f(2)?$是多少？", "answer": "30", "label": "QA"}
+{"question": "两个质数的差是17。它们的总和是多少？", "answer": "21", "label": "QA"}
+{"question": "Newton高中正在出售野外旅行的袋装午餐。 $3$份午餐的价格为$\\$4.50$. Tyler 想知道他是否能买得起自己和$4$ 个朋友的午餐。如果每顿午餐的价格是固定的，Tyler需要多少钱？", "answer": "\\$7.50", "label": "QA"}
+{"question": "有多少个不同的四元组 $(a,b,c,d)$有理数，使 \\[a\\log_{10} 2+b\\log_{10} 3+c\\log_{10} 5+d\\log_{10} 7=2005?\\]成立", "answer": "1", "label": "QA"}
+{"question": "设 三个向量$\\mathbf{a},$ $\\mathbf{b},$ $\\mathbf{c}$，满足 \\[\\mathbf{a} \\times \\mathbf{b} = \\begin{pmatrix} 6 \\\\ -7 \\\\ 3 \\end{pmatrix}, \\quad \\mathbf{a} \\times \\mathbf{c} = \\begin{pmatrix} 4 \\\\ 7 \\\\ 2 \\end{pmatrix}, \\quad \\mathbf{b} \\times \\mathbf{c} = \\begin{pmatrix} 1 \\\\ -7 \\\\ 18 \\end{pmatrix}.\\]，求$(2 \\mathbf{b} - \\mathbf{a}) \\times (3 \\mathbf{c} + \\mathbf{a}).$", "answer": "\\begin{pmatrix} -18 \\\\ -49 \\\\ 96 \\end{pmatrix}", "label": "QA"}
+{"question": "对于所有整数$K$和$L$，定义运算 $\\star$ as $K\\star L = (K+L)(K-L)$ ，那么$6\\star5$的值为多少？", "answer": "11", "label": "QA"}
+{"question": "一个三角形的各角的角度比是3:2:1。三角形的最短边长为12米，那么三角形的最长边的是多少米？", "answer": "24", "label": "QA"}
+{"question": "如图所示，$\\triangle ABC$的边长为6、8和10。将$\\triangle ABC$的每条边长都增加$50\\%$, 得到一个新的三角形$\\triangle DEF$.  那么$\\triangle DEF?$的面积为多少？", "answer": "54", "label": "QA"}
+{"question": "化简下边含$x$的表达式：$$3x + 2 - 5x + 18$$", "answer": "-2x + 20", "label": "QA"}
+{"question": "在参加一个班级的最后一次考试之前，布莱恩的考试成绩的算术平均值是91。他已经确定，如果他在最后一次考试中得了98分，那么他所有考试成绩的算术平均值将正好是92分。包括最后一次考试在内，布莱恩在这门课上要参加多少次考试？", "answer": "7", "label": "QA"}
+{"question": "如果$\\det \\mathbf{A} = 4$ 并且$\\det \\mathbf{B} = -5,$，求$\\det (\\mathbf{A} \\mathbf{B}).$", "answer": "-20", "label": "QA"}
+{"question": "假定$x < 5$，不适用绝对值符号化简$5x - |x - 5|$ ", "answer": "6x-5", "label": "QA"}
+{"question": "多项式$f(x)$除以多项式$d(x)$，得到的商为$q(x)$加余数，记为$r(x)$。如果$\\deg f = 9$ 并且 $\\deg r = 3$，求 $\\deg q$的最大值为多少？", "answer": "5", "label": "QA"}
+{"question": "设$S=2010+2011+\\cdots+4018$。计算以2009为模的$S$的余数。", "answer": "0", "label": "QA"}
+{"question": "四个顶点分别为$(-2, 2), (2, -2), (-2, -6)$,和 $(-6, -2)$的正方形的面积（以平方为单位）是多少？", "answer": "32", "label": "QA"}
+{"question": "Aditi在半小时内可以走1.7英里。在同样的速度下，她需要多少个小时才能走完17英里？", "answer": "5", "label": "QA"}
+{"question": "当$13^{13} +5$除以6时，余数是多少？", "answer": "0", "label": "QA"}
+{"question": "Abby, Bart, Cindy和 Damon两人一组称体重，Abby和Bart共重160磅，Bart和Cindy 共重180磅，Cindy和Damon共重200磅。Abby和Damon加起来有多少磅重？", "answer": "180", "label": "QA"}
+{"question": "Bekah正好有三个黄铜门牌号码数字：2、3和5。她能用一个或多个数字组成多少个不同的数字？", "answer": "15", "label": "QA"}
+{"question": "一个直径为$12^{\\prime \\prime}$的披萨和一个直径为$16^{\\prime \\prime}$的披萨分别切成八片。Jane吃了三片 直径为$12^{\\prime \\prime}$的披萨。Mark吃了三片直径为$16^{\\prime \\prime}$的披萨。Mark比Jane多吃了多少平方英寸的披萨？将你的答案用$\\pi$表示为一个最简分数。", "answer": "\\frac{21}{2}\\pi", "label": "QA"}
+{"question": "如果$\\sqrt{400}=\\sqrt{81}+\\sqrt{n}$,那么$n$的值是多少？", "answer": "121", "label": "QA"}
+{"question": "我从一副标准的52张牌中抽一张牌。  如果我抽到一张A，我就赢1美元。  如果我抽到的是2到10，我赢得的钱数就等于这张牌的价值。  如果我抽到一张面牌（J，Q，或K），我将赢得20美元。  如果我抽到一张 $\\clubsuit$，我的奖金会翻倍，如果我抽到一张$\\spadesuit$,，我的奖金会翻三倍。  (例如，如果我抽到$8\\clubsuit$，那么我赢了16美元）。  玩这个游戏的合理价格是多少？把你的答案用四舍五入的美元值表示。\n你的答案应该是一个小数点后有两个数字的数字，如$21.43$。", "answer": "\\$15.48", "label": "QA"}
+{"question": "一个细菌群落的大小每小时增加一倍。在下午1点，培养皿里有10个细菌。在同一天的晚上9点，细菌的数量是多少？", "answer": "2560", "label": "QA"}
+{"question": "一个向量为\\[\\begin{pmatrix} -1 \\\\ -3 \\\\ -5 \\end{pmatrix} + t \\begin{pmatrix} 3 \\\\ k \\\\ 7 \\end{pmatrix}.\\]，另一个向量为\\[\\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix} + u \\begin{pmatrix} 1 \\\\ 4 \\\\ 7 \\end{pmatrix}.\\]，求$k$使两个向量共面（即有一个平面包含两条线）", "answer": "5", "label": "QA"}
+{"question": "求$$ 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12. $$的模的4的余数", "answer": "2", "label": "QA"}
+{"question": "正方形$ABCD$的边长为13。点$E$位于正方形的内部，使得$AE=5$，$BE=12$。从$E$到边$AD$的距离是多少？", "answer": "1\\frac{12}{13}", "label": "QA"}
+{"question": "当$x=5$，$y=2$时，求表达式$\\sqrt{x^3 - 2^y}$的正值是多少？", "answer": "11", "label": "QA"}
+{"question": "在图中，矩形的周长是56。它的面积是多少？\n [asy]\n   unitsize(1inch);\n   \n   pair A, B,C,D;\n   A =(0,0);\n   B= (1,0);\n   D = (0,0.8);\n   C = B+D;\n   draw(A--B--C--D--A);\n   label(\"$x+2$\",B/2,S);\n   label(\"$x-2$\",D/2,W);\n   [/asy]", "answer": "192", "label": "QA"}
+{"question": "三角形 $XYZ$的面积为8平方英寸。$\\overline{XY}$和$\\overline{XZ}$相等并且点$A$ 和 $B$是其中点， $\\overline{XC}$的长度是$\\overline{YZ}$的一半，求阴影区域的面积（平方英寸）是多少？\n[asy]\n   /* AMC8 2002 #20 Problem */\n   draw((0,0)--(10,0)--(5,4)--cycle);\n   draw((2.5,2)--(7.5,2));\n   draw((5,4)--(5,0));\n   fill((0,0)--(2.5,2)--(5,2)--(5,0)--cycle, mediumgrey);\n   label(scale(0.8)*\"$X$\", (5,4), N);\n   label(scale(0.8)*\"$Y$\", (0,0), W);\n   label(scale(0.8)*\"$Z$\", (10,0), E);\n   label(scale(0.8)*\"$A$\", (2.5,2.2), W);\n   label(scale(0.8)*\"$B$\", (7.5,2.2), E);\n   label(scale(0.8)*\"$C$\", (5,0), S);\n   fill((0,-.8)--(1,-.8)--(1,-.95)--cycle, white);\n   [/asy]", "answer": "3", "label": "QA"}
+{"question": "有三角形$\\triangle ABC$，点 $K$ 在$\\overline{BC}$上，并且 $AK$为$\\triangle ABC$的高。如果 $AK = 6,$ $BK = 8$, $CK = 6,$，那么这个三角形的周长是多少？", "answer": "24 + 6\\sqrt{2}", "label": "QA"}
+{"question": "求第100个正整数使其除了数字0和1以外的3进制数，用十进制整数表示你的答案。", "answer": "981", "label": "QA"}
+{"question": "$441+2(21)(19)+361=x$.求解$x$。", "answer": "1600", "label": "QA"}
+{"question": "如果$\\displaystyle\\frac{n+5}{n-3} = 2$，$n$的值是多少？", "answer": "11", "label": "QA"}
+{"question": "求n的最小正整数，$n$个单位分数$\\frac{1}{k}$中$1 \\le k \\le n$，使其恰好有一半的分数是有限小数？", "answer": "12", "label": "QA"}
+{"question": "一个系数为整数的多项式的形式为 \\[2x^3 + a_2 x^2 + a_1 x - 4 = 0.\\]，求这个多项式可能的有理根的个数。", "answer": "8", "label": "QA"}
+{"question": "计算\\[\\begin{pmatrix} 3a^2 - 3 & 3a \\\\ 2a^2 - a - 2 & 2a - 1 \\end{pmatrix} \\begin{pmatrix} -1 & -3a - 2 \\\\ a & 3a^2 + 2a - 3 \\end{pmatrix}.\\]", "answer": "\\begin{pmatrix} 3 & 6 \\\\ 2 & 7 \\end{pmatrix}", "label": "QA"}
+{"question": "如果$j$、$k$和$l$都是正数，$jk=24$，$jl=48$，$kl=18$，求$j+k+l$。", "answer": "17", "label": "QA"}
+{"question": "在一个普通的$8/times 8$的棋盘上，如果棋子必须在同一行或同一列，我可以有多少种方式来放下两个无法区分的棋子？", "answer": "448", "label": "QA"}
+{"question": "假设$x,$ $y,$ 和 $z$ 都是复数，\\[\\begin{aligned} xy &= -80 - 320i, \\\\ yz &=60, \\\\ zx &= -96 + 24i, \\end{aligned}\\]，其中$i^2 = -1.$，计算$|x+y+z|.$", "answer": "\\sqrt{74}", "label": "QA"}
+{"question": "求矩阵$\\mathbf{P}$，使得对于任何向量 $\\mathbf{v},$ $\\mathbf{P} \\mathbf{v}$是$\\mathbf{v}$ 在$y$轴上的投影。", "answer": "\\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}", "label": "QA"}
+{"question": "其中一个数字是另一个数字的四倍中所有正的两位数的整数的总和是多少？", "answer": "165", "label": "QA"}
+{"question": "求$10! + 2$和$11! + 8$的最大公约数", "answer": "2", "label": "QA"}
+{"question": "方程$x^3 + 8x^2 - 4x + c = 0$有三个根，其中一个根是另外两个根的和。求$c$？", "answer": "-80", "label": "QA"}
+{"question": "有多少种方法可以将$9$写成$1\\text{'s},$ $2\\text{'s},$ 和 $4\\text{'s},$之和，其中加数的顺序很重要？例如，$4 + 4 + 1$和$1 + 4 + 4$是两种不同的方式。", "answer": "96", "label": "QA"}
+{"question": "整数$a$、$b$、$c$和$d$，不一定是不同的，是从0到2007（包括2007）独立随机选择的。$ad-bc$是偶数的概率是多少？", "answer": "\\frac{5}{8}", "label": "QA"}
+{"question": "为了计算$42^2$，Emily在头脑中计算出$40^2$的值，并加上$164$。Emily从$40^2$中减去一个数字，计算出$38^2$。她减去的是什么数字？", "answer": "156", "label": "QA"}
+{"question": "设$p$为整数，并设\\\\[f(x) = x^4 - 6x^3 + 26x^2 + px + 65\\]，当 $k = 1,$ $2,$ $3,$ $4.$ 时为$a_k + ib_k$ 。假设$a_k,$ $b_k$ 都是整数，并且没有实根，求 $p.$", "answer": "-46", "label": "QA"}
+{"question": "在图中，$K$、$O$和$M$是三个半圆的中心。此外，$OC=32$，$CB=36$。\n [asy]\n   pair A, K, O, C, M, B, X, Y, Z;\n   O=(0,0);\n   C=(32,0);\n   M=(50,0);\n   B=(68,0);\n   A=(-68,0);\n   K=(A+C)/2;\n   X=(0,68);\n   Y=(-18,50);\n   Z=(50,18);\n   path nom, bigc, middlec, smallc;\n   nom=A--B--(100,100)--(-100,100)--cycle;\n   bigc=A..X..B--cycle;\n   middlec=A..Y..C--cycle;\n   smallc=C..Z..B--cycle;\n   fill(bigc, gray(.5));\n   fill(middlec, white);\n   fill(smallc, white);\n   draw(smallc);\n   draw(middlec);\n   draw(bigc);\n   draw(A--B);\n   label(\"A\", A, S);\n   label(\"K\", K, S);\n   label(\"O\", O, S);\n   label(\"M\", M, S);\n   label(\"C\", C, S);\n   label(\"B\", B, S);\n   dot(K);\n   dot(O);\n   dot(M);\n   [/asy]\n\n以$K$为圆心的半圆的面积是多少？", "answer": "1250\\pi", "label": "QA"}
+{"question": "图中的所有三角形和中心六边形都是等边的。假设$\\overline{AC}$ 是3个单位长，那么在整个形状的面积有多少平方单位，用根号的最简化形式表示出来？", "answer": "3\\sqrt{3}", "label": "QA"}
+{"question": "将分母有理化：$\\sqrt{\\frac23}$.", "answer": "\\frac{\\sqrt6}3", "label": "QA"}
+{"question": "设$i$为最小正整数，使$3^i\\equiv 5\\pmod 7.$，设$j$为最小的正整数，使得$5^j\\equiv 3\\pmod 7.$，当$ij$除以 $6?$时，余数是多少？", "answer": "1", "label": "QA"}
+{"question": "Daphne有一根60米长的绳子。她想用它来标记一个半径为整数的圆的边界。她的圆的最大半径是多少，以米为单位？", "answer": "9", "label": "QA"}
+{"question": "一项新的绿色技术可以安装在你的家里，一次性安装费用为$\\$10,\\!000$，每年的维护费用为$\\$650$ 。如果这项绿色技术每年可以为你节省$\\$1200$的能源费用，那么需要多少年才能收回你的成本？", "answer": "19", "label": "QA"}
+{"question": "一个凸五边形的两个内角是直角，其他三个内角是全等的。用度数表示，三个全等的内角中的一个的度数是多少？", "answer": "120^\\circ", "label": "QA"}
+{"question": "计算 \\[\\begin{vmatrix} 0 & 1 \\\\ 3 & 5 \\end{vmatrix}.\\]", "answer": "-3", "label": "QA"}
+{"question": "如果 $\\log_6 (x-y) + \\log_6 (x+y) = 2$  和 $\\log_y 5x = 2$，那么求 $x$。", "answer": "9", "label": "QA"}
+{"question": "下面的图中里有多少个矩形？\n\n [asy]\n   for(int i = 0; i<3; ++i)\n   {\n   \n   for(int j = 0; j<3; ++j)\n   \n   {\n   \n   draw((3i,j)--(3i+3,j)--(3i+3,j+1)--(3i,j+1)--(3i,j)--cycle,linewidth(2));\n   \n   }\n   }\n   [/asy]", "answer": "36", "label": "QA"}
+{"question": "假设$x在$x \\in [-5,-3]$ ，$y \\in [2,4]$.，那么$\\frac{x+y}{x-y}$的最小可能值是多少？", "answer": "-\\frac{1}{7}", "label": "QA"}
+{"question": "共面正方形$ABGH$和$BCDF$相邻，$CD=10$，$AH=5$。点$E$位于线段$AD$和$GB$上。三角形$ABE$的面积是多少平方单位？用最简分数表示你的答案。", "answer": "\\frac{25}{3}", "label": "QA"}
+{"question": "求 $b$进制的值，使以下加法问题正确： $$ \\begin{array}{@{}c@{\\;}c@{}c@{}c@{}c@{}c} & & 6 & 6 & 5 & 1_b \\\\ + & & & 1 & 1 & 5_b \\\\ \\cline{1-6} & 1 & 0 & 0 & 6 & 6_b\\\\ \\end{array} $$", "answer": "7", "label": "QA"}
+{"question": "双阶乘，用$n!!$表示，返回小于或等于$n$的所有奇数的乘积。例如，$7!! = 7 \\times 5 \\times 3 \\times 1$. 求$1!! + 3!! + 5!! + 7!! + \\cdots + 49!!$个位数字是多少？", "answer": "9", "label": "QA"}
+{"question": "展开计算 ${6(x+2)(x+3)}$", "answer": "6x^2 + 30x + 36", "label": "QA"}
+{"question": "一个正方形的金字塔有一个底座，每条边长为3厘米，高度是底座周长的两倍。该金字塔的体积是多少？", "answer": "72", "label": "QA"}
+{"question": "一个海盗在七个岛上寻找埋藏的宝藏。如果每个岛有$frac{1}{5}$的机会有宝藏，那么正好有4个岛有宝藏的概率是多少？", "answer": "\\frac{448}{15625}", "label": "QA"}
+{"question": "我在$1$和$10$之间随机选择一个整数$n$。对于我选择的$n$，方程$x(x+5) = -n$不存在实数解的概率是多少？用分数表示你的答案", "answer": "\\frac{2}{5}", "label": "QA"}
+{"question": "设反射矩阵的向量R为$\\begin{pmatrix} 1 \\\\ 5 \\end{pmatrix}.$，求$\\det \\mathbf{R}.$", "answer": "-1", "label": "QA"}
+{"question": "某个椭圆的焦点位于$(3,10 + \\sqrt{105})$ 和$(3,10 - \\sqrt{105}).$，其中一个轴的端点为$(-5,10)$ 和 $(11,10).$ ，求半长轴。", "answer": "13", "label": "QA"}
+{"question": "如果所有角度都是以度为单位测量的，那么$\\angle A$的三倍与$\\angleA$的四倍的补角与$\\AngleA$的一半补角的比为$3:14:4$。$\\angle A$的补角的度数是多少？", "answer": "70", "label": "QA"}
+{"question": "计算 \\[\\frac{1990^3 - 1000^3 - 990^3}{(1990)(1000)(990)}.\\]", "answer": "3", "label": "QA"}
+{"question": "三角形$ABC$，点$D$和$E$分别是边$AB$和$AC$的中点。 边$BC$的尺寸为6英寸。  那么$DE$的尺寸是多少英寸？ [asy]\n   draw((-5,-5)--(10,3)--(0,10)--cycle);\n   draw((-2.5,2.5)--(2.5,-1));\n   label(\"$A$\",(-5,-5),SW);\n   label(\"$B$\",(0,10),N);\n   label(\"$C$\",(10,3),SE);\n   label(\"$D$\",(-2.5,2.5),NW);\n   label(\"$E$\",(2.5,-1),SE);\n   [/asy]", "answer": "3", "label": "QA"}
+{"question": "$513^2 - 487^2$的值是多少？", "answer": "26000", "label": "QA"}
+{"question": "求两个方程$y=x^2-8$ 和 $y^2=-5x+44$的所有不同解$(x,y)$中的$y$坐标的积。", "answer": "1736", "label": "QA"}
+{"question": "$5$绿球和$2$红球加起来重$10$磅，$1$绿球和$4$红球加起来重$7$磅。如果所有红球的重量相同，所有绿球的重量也相同，那么$8$红球和$8$绿球加起来的重量是多少？", "answer": "\\frac{68}{3}\\text{ pounds}", "label": "QA"}
+{"question": "Voldemort一家冰淇淋店买了$6.\\overline{6}$盎司的冰淇淋。每盎司售价 $\\$0.60.$。他需要支付多少美元？", "answer": "\\$4", "label": "QA"}
+{"question": "设$S$是边长为$2$个单位的正九边形内所有点的集合和距离该九边形周长上的一点小于1个单位的所有点的集合。$S$的周长是多少？", "answer": "18+2\\pi", "label": "QA"}
+{"question": "将$0.1\\overline{7}$表示为分数", "answer": "\\frac{8}{45}", "label": "QA"}
+{"question": "如图所示，两个圆都以原点为中心。  点$P(8,6)$位于大圆上，点$S(0,k)$位于小圆上。  如果$QR=3$，$k$的值是多少？ [asy]\n   defaultpen(linewidth(.7pt)+fontsize(10pt));\n   dotfactor=4;\n   draw(Circle((0,0),7)); draw(Circle((0,0),10));\n   dot((0,0)); dot((7,0)); dot((10,0)); dot((0,7)); dot((8,6));\n   draw((0,0)--(8,6));\n   label(\"$S (0,k)$\",(0,7.5),W);\n   draw((13,0)--(0,0)--(0,13),Arrows(TeXHead));\n   draw((-13,0)--(0,0)--(0,-13));\n   \n   label(\"$x$\",(13,0),E); label(\"$y$\",(0,13),N); label(\"$P(8,6)$\",(8,6),NE);\n   \n   label(\"$O$\",(0,0),SW); label(\"$Q$\",(7,0),SW); label(\"$R$\",(10,0),SE);\n   \n   [/asy]", "answer": "7", "label": "QA"}
+{"question": "三角形$ABC$的中线$AD$、$BE$和$CF$相交于中心点$G$。平行于$BC$的穿过$G$的直线与$AB$和$AC$分别相交于$M$和$N$。  如果三角形$ABC$的面积为810，那么求三角形$AMN$的面积。", "answer": "360", "label": "QA"}
+{"question": "设$x,$y,$和$z$为正实数，使得 $xyz = 2.$，求\\x^4 + 4y^2 + 4z^4.\\] 的最小值。", "answer": "16", "label": "QA"}
+{"question": "如果$192x^2 -16 = 0$，求$\\frac{1}{x^4}$.的值。", "answer": "144", "label": "QA"}
+{"question": "$\\triangle ABC$的高$\\overline{AD}$ 和$\\overline{BE}$ 相交于点$H$. 如果$\\angle BAC = 54^\\circ$ 并且 $\\angle ABC = 52^\\circ$,求$\\angle AHB$?", "answer": "106^\\circ", "label": "QA"}
+{"question": "求$\\sin 20^\\circ \\sin 40^\\circ \\sin 60^\\circ \\sin 80^\\circ \\sin 100^\\circ \\sin 120^\\circ \\sin 140^\\circ \\sin 160^\\circ.$", "answer": "\\frac{9}{256}", "label": "QA"}
+{"question": "设$\\mathbf{b} = \\begin{pmatrix} -1 \\\\ 4 \\\\ 6 \\end{pmatrix}$并且 $\\mathbf{c} = \\begin{pmatrix} 2 \\\\ -7 \\\\ -10 \\end{pmatrix}.$  ，求\\[\\mathbf{c} \\cdot (\\mathbf{a} \\times \\mathbf{b}),\\]的最大值，其中 $\\mathbf{a}$是单位向量。", "answer": "3", "label": "QA"}
+{"question": "计算\\I[\\tan 5^\\circ + \\tan 25^\\circ + \\tan 45^\\circ + dots + \\tan 165^\\circ.\\] 。", "answer": "9", "label": "QA"}
+{"question": "$3t^2+5t+a$ 和$4t^2+bt-2$ 的乘积为$12t^4+26t^3-8t^2-16t+6$. $a+b$为多少？", "answer": "-1", "label": "QA"}
+{"question": "抛物线$y=x^2+4x+6$ 和$y=\\frac{1}{2}x^2+x+6$ 相交于点$(a,b)$和 $(c,d)$，其中$c\\ge a$. 求$c-a$?", "answer": "6", "label": "QA"}
+{"question": "求整数$n,$ $-90 < n < 90,$，使$\\tan n^\\circ = \\tan 252^\\circ.$", "answer": "72", "label": "QA"}
+{"question": "计算 $\\cos 36^\\circ.$", "answer": "\\frac{1 + \\sqrt{5}}{4}", "label": "QA"}
+{"question": "一家公司出售装在圆柱形罐子里的花生酱。市场研究表明，使用更宽的罐子会增加销售额。如果罐子的直径增加 $25\\%$而不改变体积，那么高度必须减少多少百分比？", "answer": "36", "label": "QA"}
+{"question": "求满足\\[x^2 + 2y^2 + \\frac{1}{2} \\le x(2y + 1).\\]的实数的有序对$(x,y)$的个数。", "answer": "1", "label": "QA"}
+{"question": "投射到通过原点的某条线$\\ell,$ 上的矩阵是这样的\\[\\begin{pmatrix} \\frac{1}{50} & \\frac{7}{50} \\\\ \\frac{7}{50} & \\frac{49}{50} \\end{pmatrix}.\\]，求直线 $\\ell.$的方向矢量，$\\begin{pmatrix} a \\\\ b \\end{pmatrix},$的形式给出答案，其中$a,$ 和 $b$ 是整数，$a > 0,$、$\\gcd(|a|,|b|) = 1.$", "answer": "\\begin{pmatrix} 1 \\\\ 7 \\end{pmatrix}", "label": "QA"}
+{"question": "解  $\\tan x = \\sin x$ for $0 \\le x \\le 2 \\pi.$ ，求出其所有的解，用逗号隔开", "answer": "0, \\pi, 2 \\pi", "label": "QA"}
+{"question": "数列的前两项为$a_1 = 1$ and $a_2 = \\frac {1}{\\sqrt3}$. ，对于$n\\ge1$, \\begin{align*} a_{n + 2} = \\frac {a_n + a_{n + 1}}{1 - a_na_{n + 1}}. \\end{align*}，求 $a_{2009}$？", "answer": "0", "label": "QA"}
+{"question": "角$A$的内角度数是多少？\n [asy]\n   /* AMC8 1999 #21 Problem */\n   label(\"$A$\", (0,104), W);\n   draw((0,104)--(161,104)--(37,0)--(64,151)--(140,24)--cycle);\n   label(scale(0.6)*\"100\", (62, 98));\n   label(scale(0.6)*\"110\", (95, 56));\n   label(scale(0.6)*\"40\", (45, 15));\n   draw(circle((51, 18), 1));\n   draw(circle((70, 101), 1));\n   draw(circle((103, 59), 1));\n   [/asy]", "answer": "30^\\circ", "label": "QA"}
+{"question": "计算$0^5 + (-1)^4$.", "answer": "1", "label": "QA"}
+{"question": "在方程$k=ax^2+bx+c$，$a>0$，$k$的最小可能值出现在$x = -b/(2a)$处。在方程$k = (6x + 12)(x - 8)$中，$k$的最小可能值是多少？", "answer": "-150", "label": "QA"}
+{"question": "求$x > 0.$时，\\[\\frac{x^7 + 32x^2 + 128}{x^3}\\]的最小值", "answer": "48", "label": "QA"}
+{"question": "分解因式：$7x^3 - 21x^2 + 14x$.", "answer": "7x(x-1)(x-2)", "label": "QA"}
+{"question": "在指定的数基中找出下列单位数字：$(14_8)^2$", "answer": "0", "label": "QA"}
+{"question": "化简$\\sqrt{32670}$.", "answer": "33\\sqrt{30}", "label": "QA"}
+{"question": "多项式 $P(x) = x^6-x^5-x^3-x^2-x$ ，$Q(x)=x^4-x^3-x^2-1$. 令 $z_1, z_2, z_3$, 和 $z_4$ 是$Q(x)=0$的根，求$P(z_1)+P(z_2)+P(z_3)+P(z_4).$", "answer": "6", "label": "QA"}
+{"question": "假设$N$在基数$6$中可以写成$531340_6$，在基数$8$中可以写成$124154_8$。以$10为基数，当$N$除以$210时，余数是多少？", "answer": "66", "label": "QA"}
+{"question": "如果$x$和$y$是数字，使得$(x + 3)(y-5) = 0$，那么$x^2+ y^2$的最小可能值是什么？", "answer": "9", "label": "QA"}
+{"question": "在图中，点$X$、$Y$和$Z$位于$\\triangle UVW$边上，如图所示。  线段$UY$、$VZ$和$WX$相交于$P$。  点$Y$位于$VW$上，使得$VY:YW=4:3$。如果$\\triangle PYW$ 的面积为30，$\\triangle PZW$的面积为35，求$\\triangle UXP$的面积。\n[asy]\n   size(6cm);\n   pair v = (0, 0); pair w = (10, 0); pair u = (3.5, 7);\n   pair y = 4 * w / 7;\n   pair x = 56 * u / 140;\n   pair p = IP(w--x, u--y);\n   pair z = IP(v--(10 * p), u--w);\n   draw(u--v--w--cycle);\n   draw(u--y);draw(x--w);draw(z--v);\n   \n   label(\"$U$\", u, N);\n   label(\"$X$\", x, NW);\n   label(\"$P$\", p, NE + 0.2 * W);\n   label(\"$Z$\", z, NE);\n   label(\"$V$\", v, SW);\n   label(\"$Y$\", y, S);\n   label(\"$W$\", w, SE);/*\n   label(\"$a$\", centroid(p, v, y), fontsize(10));\n   label(\"$b$\", centroid(p, z, u), fontsize(10));\n   label(\"$c$\", centroid(p, u, x), fontsize(10));\n   label(\"$d$\", centroid(p, x, v), fontsize(10));\n   label(\"$30$\", centroid(p, y, w) + 0.2 * W, fontsize(10));\n   label(\"$35$\", centroid(p, z, w), fontsize(10));*/\n   [/asy]", "answer": "84", "label": "QA"}
+{"question": "在图中，$AC=13$，$DC=2$。  那么$BD$的长度是多少？请用最简单的根号形式写出你的答案。\n   [asy]\n   draw((0,5)--(12,5));\n   draw((12,5)--(12,0));\n   draw((12,0)--(0,5));\n   draw((12,5)--(10.1,0.8));\n   draw((10.48,1.64)--(9.47,2.06));\n   draw((9.47,2.06)--(9.09,1.22));\n   draw((11,5)--(11,4));\n   draw((11,4)--(12,4));\n   label(\"A\",(0,5),W);\n   label(\"B\",(12,5),E);\n   label(\"C\",(12,0),E);\n   label(\"D\",(10.1,0.8),SW);\n   [/asy]", "answer": "\\sqrt{22}", "label": "QA"}
+{"question": "Bob把三个正五边形放在一个顶点上，认为他可能会形成一个曲面。然而，他们留下了一个缺口。图中测量中的度数是多少？\n [asy]size(100);\n   path A = dir(0) -- dir(72) -- dir (144) -- dir(216) -- dir (288) -- cycle;\n   path B = reflect ( dir(72), dir(144)) * A;\n   path C = reflect( dir(72), dir(0))* A;\n   draw(rotate(18) *A);\n   draw(rotate(18) *B);\n   draw(rotate(18) *C);\n   label(\"?\", (0,1.5), N);\n   [/asy]", "answer": "36^\\circ", "label": "QA"}
+{"question": "假设$a$和$b$都是正实数，并让\\[f(x) =\n   \\begin{cases}\n   \\frac{a}{b}x & \\text{ if }x\\le-4, \\\\\n   abx^2 & \\text{ if }x>-4.\n   \\end{cases}\n   \\]。如果$f(-4)=-\\frac{60}{13}$ 和$f(4)=3120$，求$a+b$是多少？", "answer": "28", "label": "QA"}
+{"question": "某一几何数列的第$n^{\\text{th}}$项由$a\\cdot r^{n-1}$给出，其中$a$和$r$都是正整数，且$r$大于1.Bill在这个数列中挑出了$k$不同的数字，这些数字的位数都相同。请问$k$的最大可能值是多少？", "answer": "4", "label": "QA"}
+{"question": "在图中，$ABCD$和$BEFG$是正方形，$BCE$是一个等边三角形。角$GCE$的度数是多少？[asy]draw(rotate(32)*shift((.48, .85))*unitsquare); draw(unitsquare)；draw( (.85, .46)  (0,0))；label(\"$C$\", (.85, .46), SW); label(\"$E$\", (0, 0), S); label(\"$F$\", (1, 0),SE ); label(\"$G$\", (1, 1),NE ); label(\"$B$\", (0.05, 1) ,N)；label(\"$D$\", (2, 1.5), 3*E+2*SE); label(\"$A$\", (.5, 2))；[/asy]", "answer": "45^\\circ", "label": "QA"}
+{"question": "求\\[\\frac{\\left( x + \\dfrac{1}{x} \\right)^6 - \\left( x^6 + \\dfrac{1}{x^6} \\right) - 2}{\\left( x + \\dfrac{1}{x} \\right)^3 + \\left( x^3 + \\dfrac{1}{x^3} \\right)}\\]for $x > 0.$的最小值", "answer": "6", "label": "QA"}
+{"question": "$11^1 + 11^2 + 11^3 + \\ldots + 11^9$的和的十位数字是什么？", "answer": "5", "label": "QA"}
+{"question": "可以形成边长为$4,$ $5,$ 和 $8.$的三角形。然而，不可能构造边长为$4,$ $5,$ 和$10.$的三角形。使用边长$2,$ $3,$ $5,$ $7,$ and $11,$，可以形成多少个具有恰好两条相等边的不同三角形？", "answer": "14", "label": "QA"}
+{"question": "在该图中，$PQ=PR$ ，$\\angle QRP = 65^\\circ$.\n[asy]\n   draw((0,0)--(cos(13pi/36),sin(13pi/36))--(2cos(13pi/36),0)--(0,0), linewidth(1));\n   draw((0,0)--(sin(13pi/18)*cos(5pi/36),sin(13pi/18)*sin(5pi/36)), linewidth(1));\n   draw(((15/16)*sin(13pi/18)*cos(5pi/36),(15/16)*sin(13pi/18)*sin(5pi/36))--((15/16)*sin(13pi/18)*cos(5pi/36)+(1/16)*sin(13pi/18)*sin(5pi/36),(15/16)*sin(13pi/18)*sin(5pi/36)-(1/16)*sin(13pi/18)*cos(5pi/36))--(sin(13pi/18)*cos(5pi/36)+(1/16)*sin(13pi/18)*sin(5pi/36),sin(13pi/18)*sin(5pi/36)-(1/16)*sin(13pi/18)*cos(5pi/36)), linewidth(1));\n   label(\"$Q$\", (0,0), SW);\n   label(\"$R$\", (2cos(13pi/36),0), SE);\n   label(\"$S$\", (sin(13pi/18)*cos(5pi/36),sin(13pi/18)*sin(5pi/36)), NE);\n   label(\"$P$\", (cos(13pi/36),sin(13pi/36)), N);\n   label(\"$65^\\circ$\", (2cos(13pi/36)-0.04,0), NW);\n   label(\"$x^\\circ$\", (0.05,0.11), E);\n   [/asy]\n   \n   求 $x?$的值是多少？", "answer": "40", "label": "QA"}
+{"question": "求 $\\sqrt{1,\\!000,\\!000} - \\sqrt[3]{1,\\!000,\\!000}$的值", "answer": "900", "label": "QA"}
+{"question": "一个抽屉里有3个白球和6个黑球。  从箱子里随机抽出两个球。  它们都是白球的概率是多少？", "answer": "\\dfrac{1}{12}", "label": "QA"}
+{"question": "二项式$4x^2+2x-1$ 可以写成$a(x+b)^2+c$的形式，其中中$a$、$b$和$c$是常数。求$a+b+c$", "answer": "3", "label": "QA"}
+{"question": "四个学生同意将他们的储蓄集中起来购买一台电脑。下图中的区域按比例代表了捐款的部分。Q$的捐款占总数的百分之几？[asy]size(100)；draw((0,2)(48,2),black)；draw((48,2)(48,50),black);draw((48,50)(0,50),black);draw((0,50)(0,2),black)；draw((24,26)(0,2),black);draw((24,26)(24,2),black);draw((24,26)(48,26),black);draw((24,26)(0,50),black);draw((12,0)(12,4),black);draw((36,0)(36,4),black);draw((46,14)(50,14),black);draw((46,38)(50,38),black);draw((36,24)(36,28),black);label(\"P\",(36,35),N)；label(\"Q\",(11,22),N)；label(\"R\",(16,7),N)；label(\"S\",(36,11),N)；[/asy]", "answer": "25\\%", "label": "QA"}
+{"question": "函数$h(x) = \\sqrt{25-x^2}+\\sqrt{-(x-2)}$的值域为多少？", "answer": "7", "label": "QA"}
+{"question": "1到2005之间有多少个数字是3或4的整数倍，但不是12的整数倍？", "answer": "835", "label": "QA"}
+{"question": "一本420页的书，平均每页有600个字，Roslyn以每分钟360个字的速度阅读这本书。她读完这本书需要多少个小时？请用带分数表示你的答案。", "answer": "11 \\frac{2}{3}", "label": "QA"}
+{"question": "设$S$是极坐标$(r, \\theta),$ 的点集，其中$1 \\le r \\le 2$ ， $0 \\le \\theta \\le \\frac{\\pi}{2}.$ 。求$S.$的面积", "answer": "\\frac{3 \\pi}{4}", "label": "QA"}
+{"question": "一个数学俱乐部正在举行一次义卖活动，为即将到来的一次旅行筹集资金。他们出售 $54$块饼干，3块 $\\$1$，$20$块纸杯蛋糕，每块 $\\$2$，$35$块布朗尼，每块$\\$1$。如果数学俱乐部烘焙这些东西花了$\\$15$，他们的利润是多少？", "answer": "78", "label": "QA"}
+{"question": "在直角三角形 $ABC$ 中，$\\angle A = 90^\\circ$,并且 $AB = 5$ and $BC = 8$. 求$\\sin B$.", "answer": "\\frac{\\sqrt{39}}{8}", "label": "QA"}
+{"question": "在直角坐标系中，三角形顶点的$x$坐标之和等于$\\sqrt{13}$.设$S$ 等于三角形边中点的 $x$坐标之和，求$S^2$.", "answer": "13", "label": "QA"}
+{"question": "两个数的和是25，它们的差是9，它们的积是多少？", "answer": "136", "label": "QA"}
+{"question": "计算： $32^2 - 18^2$.", "answer": "700", "label": "QA"}
+{"question": "求$17 \\cdot 18$的模并对4取余数", "answer": "2", "label": "QA"}
+{"question": "某一公司的资金量可以用直线$y=265x+2800$来模拟，其中$x$是该公司决定雇用的工人数量。在公司没有钱而破产之前，该公司最多可以雇佣多少名工人？", "answer": "10", "label": "QA"}
+{"question": "两位数$`B6,'$中的$B$是十位数，是一个正整数的平方。$B$有多少个不同的可能值？", "answer": "2", "label": "QA"}
+{"question": "已知\\[\\begin{vmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{vmatrix} = -7,\\]求\n   \\[\\begin{vmatrix} a & b & c \\\\ 2d + 5g & 2e + 5h & 2f + 5i \\\\ -g & -h & -i \\end{vmatrix}.\\]", "answer": "14", "label": "QA"}
+{"question": "如果一个梯形的角形成一个等差数列，最小的角的度数是$60^{\\circ}$，那么最大的角的度数是多少？", "answer": "120", "label": "QA"}
+{"question": "求$2\\left(\\frac{7!}{3!4!}\\right)$的值。", "answer": "70", "label": "QA"}
+{"question": "大于200的最小的整数是多少，该整数与36的最大公约数是18吗？", "answer": "234", "label": "QA"}
+{"question": "扇形图显示了被调查者最喜欢的冰淇淋口味。在接受调查的人中，有多少人选择巧克力或草莓作为他们最喜欢的冰淇淋口味？[asy]\n   size(200);\n   draw(Circle((0,0),10));\n   draw((0,10)--(0,-10));\n   draw((0,0)--(10,0));\n   draw((0,0)--(10*cos(pi/5),10*sin(pi/5)));\n   label(\"50\\%\",(-5,0),N);\n   label(\"Chocolate\",(-5,0),S);\n   label(\"25\\%\",(4,-5),N);\n   label(\"Vanilla\",(4,-5),S);\n   label(\"15\\%\",(2,6),N);\n   label(\"Mint\",(2,6),S);\n   label(\"10\\%\",(8,2),N);\n   label(\"Strawberry\",(7,2),S);\n   [/asy]", "answer": "\\frac{3}{5}", "label": "QA"}
+{"question": "求$\\left(\\frac{8}{9} \\cdot \\left(\\frac{1}{2}\\right)^4\\right)^{-1} - 17$.", "answer": "1", "label": "QA"}
+{"question": "当表达式$-2x^2-20x-53$被写成$a(x+d)^2+e$，其中$a$，$d$和$e$是常数时，$a+d+e$的和是多少？", "answer": "0", "label": "QA"}
+{"question": "复数$z$等于$9+bi$，其中$b$是一个正实数，$i^2=-1$。假设$z^2$和$z^3$的虚数部分相等，求$b$。", "answer": "15", "label": "QA"}
+{"question": "计算 $dbinom{85}{82}$。", "answer": "98,\\!770", "label": "QA"}
+{"question": "小于0的99的最大倍数是多少？", "answer": "-99", "label": "QA"}
+{"question": "设$f(x) = \\sqrt{x}$ 和 $g(x) = x^2.$ ，求$f(g(f(g(f(8))))).$", "answer": "2\\sqrt{2}", "label": "QA"}
+{"question": "$-x^2- 8x + 12$的最大值是多少？", "answer": "28", "label": "QA"}
+{"question": "$A$, $B$, $C$和 $D$是圆上随机独立的四个点，直线$AB$ 和 $CD$ 相交的概率是多少？", "answer": "\\frac{1}{3}", "label": "QA"}
+{"question": "$(100,000,000 \\div x^4 )< 1$的最小正整数解是什么？", "answer": "101", "label": "QA"}
+{"question": "在矩形$ABCD$，$AB = 16,$ ，点$P$是$BC$上一点并且$\\angle APD=90^{\\circ}$。\n$TS$ 垂直于 $BC$ 并且$BP=PT$, 如图所示\n $PD$ 和 $TS$ 相交于 $Q$.  点 $R$ 在 $CD$上，因此 $RA$通过 $Q$. 在 $\\triangle PQA$中, $PA=20$, $AQ=25$ 并且 $QP=15$. [asy]\n   size(7cm);defaultpen(fontsize(9));\n   real sd = 7/9 * 12;\n   path extend(pair a, pair b) {return a--(10 * (b - a));}\n   \n   // Rectangle\n   pair a = (0, 0); pair b = (0, 16); pair d = (24 + sd, 0); pair c = (d.x, b.y);\n   draw(a--b--c--d--cycle);\n   label(\"$A$\", a, SW);label(\"$B$\", b, NW);label(\"$C$\", c, NE);label(\"$D$\", d, SE);\n   \n   // Extra points and lines\n   pair q = (24, 7); pair s = (q.x, 0); pair t = (q.x, b.y);\n   pair r = IP(c--d, extend(a, q));\n   pair p = (12, b.y);\n   draw(q--a--p--d--r--cycle);draw(t--s);\n   label(\"$R$\", r, E); label(\"$P$\", p, N);label(\"$Q$\", q, 1.2 * NE + 0.2 * N);label(\"$S$\", s, S); label(\"$T$\", t, N);\n   \n   // Right angles and tick marks\n   markscalefactor = 0.1;\n   draw(rightanglemark(a, b, p)); draw(rightanglemark(p, t, s)); draw(rightanglemark(q, s, d));draw(rightanglemark(a, p, q));\n   add(pathticks(b--p, 2, spacing=3.4, s=10));add(pathticks(p--t, 2, spacing=3.5, s=10));\n   \n   // Number labels\n   label(\"$16$\", midpoint(a--b), W); label(\"$20$\", midpoint(a--p), NW); label(\"$15$\", midpoint(p--q), NE);\n   label(\"$25$\", midpoint(a--q), 0.8 * S + E);\n   [/asy] 求 $QR - RD$.", "answer": "0", "label": "QA"}
+{"question": "设$x$和$y$为实数，满足$x^4y^5+y^4x^5=810$和$x^3y^6+y^3x^6=945$。计算 $x^3+(xy)^3+2y^3$。", "answer": "89", "label": "QA"}
+{"question": "$\\bigtriangleup ABC$ 的两边分别为3cm和5cm，第三条边可能有多少种不同的整厘米的长度？", "answer": "3", "label": "QA"}
+{"question": "什么整数$n$能满足$0\\le n<18$并且$$n\\equiv 142857\\pmod{18}~?$$", "answer": "9", "label": "QA"}
+{"question": "求$b + h.$，\n   [asy]\n   unitsize(0.2 cm);\n   \n   pair A, B, C, D, E, F;\n   \n   A = (0,0);\n   B = (20,0);\n   C = (20,15);\n   \n   D = (30,0);\n   E = (30 + 7,0);\n   F = (30 + 7,25);\n   \n   draw(A--B--C--cycle);\n   draw(D--E--F--cycle);\n   draw(rightanglemark(A,B,C,40));\n   draw(rightanglemark(D,E,F,40));\n   \n   label(\"$\\theta$\", (4,1.5));\n   label(\"$20$\", (A + B)/2, S);\n   label(\"$15$\", (B + C)/2, dir(0));\n   label(\"$25$\", (A + C)/2, NW);\n   \n   label(\"$2 \\theta$\", D + (2,1.5));\n   label(\"$b$\", (D + E)/2, S);\n   label(\"$h$\", (E + F)/2, dir(0));\n   label(\"$25$\", (D + F)/2, NW);\n   [/asy]", "answer": "31", "label": "QA"}
+{"question": "7的正数倍数中，有多少个小于150？", "answer": "21", "label": "QA"}
+{"question": "求满足同余的最小非负整数$a$：\\begin{align*}\n   &a\\equiv 2\\pmod 3,\\\\\n   &a\\equiv 4\\pmod 5,\\\\\n   &a\\equiv 6\\pmod 7,\\\\\n   &a\\equiv 8\\pmod 9.\n   \\end{align*}", "answer": "314", "label": "QA"}
+{"question": "一个腰长为5英寸、底长为6英寸的等腰三角形被内切在一个圆内。该圆的半径是多少，以英寸为单位？请用带分数表示你的答案。", "answer": "3\\frac18", "label": "QA"}
+{"question": "一个数字的10倍多5等于这个数字的5倍多10。这个数字是多少？", "answer": "1", "label": "QA"}
+{"question": "约翰想用一个数字除以$2$，但他不小心从这个数字中减去了$2$。  他得到的答案是$22$。  如果他真的除以$2$而不是减去$2$，他的答案会是什么？", "answer": "12", "label": "QA"}
+{"question": "假设函数$\\psi$ 满足$\\psi(1) = \\sqrt{2 + \\sqrt{2 + \\sqrt{2}}}$并且对任意x满足 \\[\\psi(3x) + 3 \\psi(x) = \\psi^3(x)\\]，求 $\\prod_{n = 1}^{100} \\psi(3^n).$", "answer": "4096 \\sqrt{2}", "label": "QA"}
+{"question": "如果$A(3, 5)$, $B(7, 12)$, $C(5, 3)$和$D$是平行四边形$ABCD$的四个顶点，那么点$D$的坐标是什么？", "answer": "(-5, -4)", "label": "QA"}
+{"question": "化简 \\[\\cos \\left( \\frac{2 \\pi}{15} \\right) \\cos \\left (\\frac {4 \\pi}{15} \\right) \\cos \\left( \\frac{8 \\pi}{15} \\right) \\cos \\left( \\frac {16 \\pi}{15} \\right).\\]", "answer": "\\frac{1}{16}", "label": "QA"}
+{"question": "求$frac{9x^2\\sin^2 x + 4}{x\\sin x}$的最小值，其中$0 < x < \\pi.$", "answer": "12", "label": "QA"}
+{"question": "多项式$p(x) = x^2+ax+b$ 有不同的根$2a$和$b$，求$a+b$。", "answer": "-1", "label": "QA"}
+{"question": "随机选择两个不同的2位数，并将它们相乘。  所得乘积为偶数的概率是多少？", "answer": "\\frac{67}{89}", "label": "QA"}
+{"question": "Jumble岛的居民使用标准的罗马字母表（26个字母，A到Z）。  在他们的语言中，每个词都是3个字母，由于某种原因，他们坚持认为所有的词都至少包含一次字母A。  有多少个3个字母的单词是可能的？", "answer": "1951", "label": "QA"}
+{"question": "三角形PQR中最大的角的度数是多少？[asy]draw((0,0)(1.3,4)(7,0)cycle);label(\"$P$\",(1.3,4),NW); label(\"$Q$\",(0,0),SW); label(\"$R$\", (7,0),SE)；label(\"$6x^\\circ$\",(0,0),NE); label(\"$x^\\circ$\",(5,0),N); label(\"$3x^\\circ$\", (.25,3))；[/asy]", "answer": "108", "label": "QA"}
+{"question": "在一张特定的地图上，地图上的3英寸相当于现实生活中的10英里。如果你知道地图上两座建筑之间的现实距离是53.25英里，那么在地图上这两座建筑之间的距离（以英寸为单位）会是多少，用分数表示？", "answer": "\\frac{639}{40}", "label": "QA"}
+{"question": "设a,b,c为正实数。  找出以下数值中的最小值\\[\\frac{frac{1}{a} + \\frac{1}{b} + \\frac{1}{c}}{frac{1}{a + b}}.+ frac{1}{c}}{frac{1}{a+b}+ frac{1}{a+c}+ frac{1}{b+c}}。", "answer": "2", "label": "QA"}
+{"question": "Mikka想点一份有两种不同配料的比萨。他有8种不同的配料可以选择。他可以订购多少种不同的比萨？", "answer": "28", "label": "QA"}
+{"question": "A仓有一个白球和四个黑球。  B仓有三个标有1的球和一个标有7的球。  W仓有5个标有8的球和一个标有500的球。  游戏规则如下：从A仓中随机抽取一个球。  如果是黑球，则从B仓中随机抽取一个球；否则，如果原来的球是白球，则从W仓中随机抽取一个球。  你赢得了第二个球上所印的金额。  你的预期赢利是多少？", "answer": "\\$20", "label": "QA"}
+{"question": "设$A$是$300$的除数的乘积。那么$A$的不同质数除数之和是多少？", "answer": "10", "label": "QA"}
+{"question": "如果$1\\le a\\le 10$和$1\\le b\\le 36$，对于多少有序的整数对$（a，b）$，$\\sqrt{a+\\sqrt｛b｝}$是整数？", "answer": "10", "label": "QA"}
+{"question": "不在$\\log\\frac{x-2}{x^2-5}$域中的最大可能值是什么？", "answer": "\\sqrt 5", "label": "QA"}
+{"question": "计算\\〔cos \\frac{2 \\pi}{7} \\cos \\frac{4 \\pi}{7} cos \\frac{8 \\pi}{7}。", "answer": "\\frac{1}{8}", "label": "QA"}
+{"question": "多项式$p(x)$的系数都是非负整数。  如果$p(1)=4$，$p(5)=136,$则求$p(6).$", "answer": "229", "label": "QA"}
+{"question": "两个正整数的积和是$454$。请找出它们之和与它们的乘积的最大可能值。", "answer": "33840", "label": "QA"}
+{"question": "设$a,$b,$c$为正实数。  找出以下的最小值\\[\\left( 2a + \\frac{1}{3b} \\right)^2 + \\left( 2b + \\frac{1}{3c} \\right)^2 + \\left( 2c + \\frac{1}{3a} \\right)^2。］", "answer": "8", "label": "QA"}
+{"question": "$x$的实值为多少时，$/sqrt{63-sqrt{x}}是一个整数？", "answer": "8", "label": "QA"}
+{"question": "分数$frac{4321}{5^7\\cdot2^8}的小数末尾数字之和是多少？", "answer": "14", "label": "QA"}
+{"question": "设$A = (1,-11,2),$ $B = (3,-4,1),$ and $C = (-2,1,-1).$ 计算ABC的角度。", "answer": "120^\\circ", "label": "QA"}
+{"question": "贝克中学三分之二的学生学习音乐。即有834名学生学习音乐。贝克中学有多少名学生？", "answer": "1251", "label": "QA"}
+{"question": "找出$x$的最大值，其中x和y是实数时\\x^2 + y^2 = x + y\\]有一个解。", "answer": "\\frac{1 + \\sqrt{2}}{2}", "label": "QA"}
+{"question": "Masha有一个形式为$x^2+bx+1$的二次方，其中$b$是一个特定的正数。利用她关于如何完成平方的知识，Masha能够将这个二次函数改写成$(x+m)^2-63$的形式。$b$是多少？", "answer": "16", "label": "QA"}
+{"question": "计算 $\\log_5\\frac{1}{625}$.", "answer": "-4", "label": "QA"}
+{"question": "两条抛物线的焦点相同，即点$(3,-28)。它们的直角分别是$x$轴和$y$轴。  计算它们的共同弦的斜率。", "answer": "-1", "label": "QA"}
+{"question": "1903年12月17日，在北卡罗来纳州的基蒂霍克，1903的莱特飞行器成为第一个在有飞行员乘坐的情况下实现可控、持续飞行的动力、重于空气的机器。乘坐飞机的时间是1903年12月17日。\n \\textbf{First Flight}&Orville&$12$~seconds&$37$~meters\\\\\\hline\n   \\textbf{Longest Flight}&Wilbur&$59$~seconds&$260$~meters\\\\\\hline\n   \\end{tabular}\n第一次飞行的平均速度为每秒$米。最长一次飞行的平均速度是每秒$y$米。$x$和y的平均数是多少？$把你的答案用小数表示，以最接近的十分之一为限。", "answer": "3.7", "label": "QA"}
+{"question": "在上周的每次篮球训练中，珍妮的罚球次数都是她在前一次训练中的两倍。  在第五次训练中，她投了48次罚球。  她在第一次练习时投了多少个罚球？", "answer": "3", "label": "QA"}
+{"question": "一个学校组织由5名教师、7名家长和6名学生组成。通过选择2名教师、3名家长和3名学生组成该组织的一个小组委员会。可以组成多少个不同的小组委员会？", "answer": "7000", "label": "QA"}
+{"question": "化简$\\frac{64}{7}\\div\\frac{8}{3}$.", "answer": "\\frac{24}{7}", "label": "QA"}
+{"question": "在四边形$ABCD$中，角$BAD$和角$CDA$是三等分的，如图所示。角$AFD$的度量是多少？[asy]size(150)；对A , B, C, D; A = (0,0); B = (2, 4); C = (7,4); D = (7, 2)；draw( (0,0)(2,4) (7,4) (7, 2) cycle)；label(\"$A$\", A, SW)；label(\"$B$\", B, NW)；label(\"$C$\", C, NE)；label(\"$D$\", D, SE)；对E，F；E = (4.5.2,1.2); F = (5, 3)；draw(AED); draw(AFD)；label(\"$E$\", E, N); label(\"$F$\", F, NW)；dot(A);dot(B);dot(C);dot(D); dot(E); dot(F)；label(\"$x$\", (1, 1.5), S); label(\"$x$\", (2, 1), S+W); label(\"$x$\", (2, 1), N+N+W)；label(\"$y$\", (5.5+.3, .5.3), S); label(\"$y$\", (6.5+.3, 0); label(\"$y$\", (5+.5, 1.5+.3)) ；）label(\"$110^{\\circ}$\",(2.5,3.5)); label(\"$100^{\\circ}$\",(6.5.2,3.5));[/asy]", "answer": "80", "label": "QA"}
+{"question": " $$\\left( \\sqrt{100} - \\sqrt{36} \\right)^2?$$的值是多少", "answer": "16", "label": "QA"}
+{"question": "求第二个最小的正整数，它在除以3时有2的余数，在除以7时有3的余数。", "answer": "38", "label": "QA"}
+{"question": "设$a,$b,$和$c是非零实数，使得$frac{1}{a}+ `frac{1}{b}+ `frac{1}{c}=0。+ frac{1}{c} = 0.$ 计算\\[\\frac{bc}{a^2} + \\frac{ac}{b^2} + \\frac{ab}{c^2}.\\] 。", "answer": "3", "label": "QA"}
+{"question": "将分数化简并有理化：$$\\frac{8}{3\\sqrt{3}+ 7\\sqrt{27}}。", "answer": "\\frac{\\sqrt{3}}{9}", "label": "QA"}
+{"question": "一条直线的参数是$t，所以在$t=-2$处的直线上的向量是$begin{pmatrix}，2\\4\\end{pmatrix}。2\\-4\\end{pmatrix},$而在$t=3$的直线上的向量是$begin{pmatrix}。1\\7\\end{pmatrix}.$ 求t=5处直线上的向量。", "answer": "\\begin{pmatrix} 3/5 \\\\ 57/5 \\end{pmatrix}", "label": "QA"}
+{"question": "$y = \\frac{1}{x^3-3x^2+3x-1}$的图形有多少个垂直渐近线？", "answer": "1", "label": "QA"}
+{"question": " $(4\\times 12)-(4+12)$的值是多少?", "answer": "32", "label": "QA"}
+{"question": "萨姆决定制造一个谣言。萨姆把这个谣言告诉了她的三个朋友。然后，山姆的三个朋友中的每一个都把这个谣言告诉了三个没有听说过这个谣言的朋友。这种情况总共持续了五个周期。萨姆告诉她的三个朋友是第一个周期。当第五个周期结束时，有多少人（不包括山姆）会听到这个谣言？", "answer": "363", "label": "QA"}
+{"question": "如果$sqrt{3x-5}=2$，请找出所有可能的$x$的值。", "answer": "3", "label": "QA"}
+{"question": "一副标准的52张牌有13个等级（A、2、3、4、5、6、7、8、9、10、J、Q、K）和4种花色（$spadesuit$、$heartsuit$、$diamondsuit$和$clubsuit$），这样，任何等级和花色都正好有一张牌。  其中两种花色（$spadesuit$和$clubsuit$）为黑色，另外两种花色（$heartsuit$和$diamondsuit$）为红色。  这副牌是随机排列的。最上面的两张牌都是A的概率是多少？", "answer": "\\dfrac{1}{221}", "label": "QA"}
+{"question": "如果第二个字母必须是元音（A、E、I、O或U），并且第三个字母必须与第一个字母不同，可以组成多少个3字母序列？", "answer": "3,\\!250", "label": "QA"}
+{"question": "设$f(x)=2x-3$，$g(f(x))=5-4x.$ 求$g(4)。", "answer": "-9", "label": "QA"}
+{"question": "计算$317^{3}+8^{3}-(2^{(3^{2})}+317^{3})$.", "answer": "0", "label": "QA"}
+{"question": "对于$0lexle40$和$0leyle50，$找到\n\\[sqrt{x^2+400}+sqrt{y^2+900}+sqrt{x^2+y^2-80x-100y+4100}。的最小值", "answer": "70 \\sqrt{2}", "label": "QA"}
+{"question": "一个班级中80%的学生（A组）平分了40％的糖果。剩下的20％的学生（B组）平分其他60％的糖果。A组学生的糖果量与B组学生的糖果量之比等于哪个公分数？", "answer": "\\frac{1}{6}", "label": "QA"}
+{"question": "在收容所的墙上有8个围栏。  动物收容所必须把4个笼子分配给狗，3个分配给猫，还有一个分配给公鸡。  该收容所可以用多少种方式来进行分配？", "answer": "280", "label": "QA"}
+{"question": "解$a$：$$sqrt{4+\\sqrt{16+16a}+ \\sqrt{1+sqrt{1+a}} = 6.$$", "answer": "8", "label": "QA"}
+{"question": "如果$a$和$b$是复数，使得$|a|=7$，$|b|=4，那么求$|ab|。", "answer": "28", "label": "QA"}
+{"question": "明尼阿波利斯圣保罗国际机场距离圣保罗市中心西南8英里，距离明尼阿波利斯市中心东南10英里。以最近的整数计算，圣保罗市中心和明尼阿波利斯市中心相距多少英里？", "answer": "\\text{13}", "label": "QA"}
+{"question": "0.\\overline{2}\\cdot 6$是多少？把你的答案用假分数的方式表示。", "answer": "\\frac{4}{3}", "label": "QA"}
+{"question": "计算 $/tan 150^circ$。", "answer": "-\\frac{\\sqrt{3}}{3}", "label": "QA"}
+{"question": "找出有秩序的整数对$(a,b)$，使$|a+bi| 5.$的数目。", "answer": "81", "label": "QA"}
+{"question": "在$xy$平面的第一象限画了三个半径为$s$的圆。第一个圆与两个轴相切，第二个圆与第一个圆和$x$轴相切，第三个圆与第一个圆和$y$轴相切。一个半径为$r>s$的圆与两个轴以及第二和第三个圆相切。$r/s$是多少？[asy]draw((0,25)(0,0)(25,0),linewidth(0.7));draw(Circle((1,1),1),linewidth(0.7))；draw(Circle((3,1),1),linewidth(0.7))；draw(Circle((1,3),1),linewidth(0.7))；draw(Circle((9,9),9),linewidth(0.7))；draw((1,3)(1,4),dashed)；draw((9,9)(9,0),dashed)；draw((1,3.5)(1,3.5),dashed);label(\"$s$\",(1,3.5),W)；label(\"$r$\",(9,4.5),E)；[/asy]", "answer": "9", "label": "QA"}
+{"question": "2000年1月1日是一个星期六。1960年1月1日是哪一天？", "answer": "\\text{Friday}", "label": "QA"}
+{"question": "一架飞机在起飞后的第一秒内爬升了100英尺。  在接下来的每一秒钟里，它比前一秒钟多爬升了100英尺。  这架飞机需要多少秒才能达到比其起飞高度高12,000英尺的高度？", "answer": "15", "label": "QA"}
+{"question": "对于$x的某些值，$0 < x < 180,$\\δ[\\tan 53^\\circ \\tan 81^\\circ δx^\\circ = δtan 53^\\circ + δtan 81^\\circ + δx^\\circ.δ]找到$x。", "answer": "46", "label": "QA"}
+{"question": "求出$x的最大值，使$x^2+24x+128=0。", "answer": "-8", "label": "QA"}
+{"question": "123123除以1001的数值是多少？", "answer": "123", "label": "QA"}
+{"question": "设$A=（0，0），$$B=（1，2），$$C=（3，3），$和$D=（4，0）。$四边形$ABCD$被一条穿过$a$的线切成两块，面积相同。$这条线与$\\overline｛CD｝$相交的点的坐标是多少？", "answer": "(\\tfrac{27}{8}, \\tfrac{15}{8})", "label": "QA"}
+{"question": "一个体积为1的立方体的总表面积是多少？单位是平方英寸。", "answer": "864 \\mbox{ inches}^2", "label": "QA"}
+{"question": "方程 $x^2-6x+2=29$有两个解，$a$和$b$，其中$a/geq b$。2a-3b$的值是多少？", "answer": "27", "label": "QA"}
+{"question": "在三角形$ABC中，$\\a^4 + b^4 + c^4 = 2c^2 (a^2 + b^2).]输入$三角C的可能值，以度数为单位，用逗号分隔。", "answer": "45^\\circ, 135^\\circ", "label": "QA"}
+{"question": "什么是具有3个不同质因数的最小完全平方？", "answer": "900", "label": "QA"}
+{"question": "Given that\\begin{align*}.\\cos x + cos y + cos z &= 0, \\begin{ign*}.\\sin x + sin y + sin z &= 0、\\end{align*}find\\begin{align*}，发现&tan^2 x + Δtan^2 y + Δtan^2 z  (Δtan^2 x Δtan^2 y + Δtan^2 x Δtan^2 z + Δtan^2 y Δtan^2 z) 。&quad  3 旦^2 x 旦^2 y 旦^2 z。\\end{align*}。", "answer": "-3", "label": "QA"}
+{"question": "设$S$是$(a,b)$的点的集合，$0\\le a,$b\\le 1$，使得方程 \\[x^4 + ax^3 - bx^2 + ax + 1 = 0\\]至少有一个实根。  确定$S.$的图形的面积。", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "找出$r=cos 2\\theta sec\\theta.$的渐近线的方程。", "answer": "x = -1", "label": "QA"}
+{"question": "如下图所示，将点$A,$B,$和$C放在一个以$O$为中心的圆上：[asy]对pA，pB，pC，pO；pO=（0，0）；pA = pO + dir(40)；pB = pO + dir(32)；pC = pO + dir(176)；draw(pApOpBpCpA);label(\"$O$\", pO, 2 * E)；label(\"$A$\", pA, SE)；label(\"$B$\", pB, NE)；label(\"$C$\", pC, W)；draw(circle(pO, 1))；[/asy] 如果$AC=BC$和$OAC=18^\\circ,$那么$AOB$有多少度？", "answer": "72^\\circ", "label": "QA"}
+{"question": "如果$a$和$b$是锐角，使得$cos a=\\frac{3}{5}$和$cos b=\\frac{5}{13}，那么求$cos (a + b)。", "answer": "-\\frac{33}{65}", "label": "QA"}
+{"question": "在$(x,y)$和$(-9,1)$之间的线段的中点是$(3,-5)$。求$(x,y)$。", "answer": "(15,-11)", "label": "QA"}
+{"question": "圆锥的体积由公式 $V = \\frac{1}{3}Bh$ 给出，其中 $B$ 是底面积，$h$ 是高度。 圆锥底面积为 30 平方单位，高为 6.5 单位。 其体积的立方单位数是多少？", "answer": "65", "label": "QA"}
+{"question": "在下图中，我们有$overline{ST}\\parallel\\overline{QR}$，$angle P=40^\\circ$，$angle Q =35^\\circ$。找出$ STR$的度数。[asy]对P,Q,R,SS,T；Q = (0,0);R = (1,0);P = (1.1,0.5);SS = 0.6*P；T = R + 0.6*(PR)；draw(TSSPRQSS);label(\"$P$\",P,N)；label(\"$S$\",SS,NW)；label(\"$Q$\",Q,S)；label(\"$R$\",R,S)；label(\"$T$\",T,ENE)；[/asy]", "answer": "75^\\circ", "label": "QA"}
+{"question": "一个袋子里有12颗红色弹珠和6颗蓝色弹珠。随机抽取两个弹珠，不做替换。一个是红色弹珠，一个是蓝色弹珠的概率是多少？把你的答案用一个普通的分数表示。", "answer": "\\frac{8}{17}", "label": "QA"}
+{"question": "特雷正在海滩上寻找一个宝藏。他被告知从A点向北走2米，向东走3米，再向北走2米到达B点。以米为单位，$overline{AB}$的长度是多少？", "answer": "5", "label": "QA"}
+{"question": "与1（mod 7）全等的最小的三位数正整数是什么？", "answer": "106", "label": "QA"}
+{"question": "化简 $r^2+10r+25$.", "answer": "(r+5)^2", "label": "QA"}
+{"question": "莎莉、卫华和佐伊正在玩一个弹珠游戏，即先把10颗弹珠尽可能多地堆在一起。  萨利带来了239颗弹珠，卫华带来了174颗弹珠，佐伊带来了83颗弹珠。  如果他们所有的弹珠都放在一起，必须取出多少颗才能开始游戏？", "answer": "6", "label": "QA"}
+{"question": "有多少个整数$x$满足$2 < 4 + 3x < 2$?", "answer": "1", "label": "QA"}
+{"question": "计算$|(4+2i)|cdot|(63i)|$。", "answer": "30", "label": "QA"}
+{"question": "$P$是$overline{BD}$的中点。$AP = BP = 4$，$overline{AP}是$overline{BD}的中点。\\perp\\overline{BD}$，$overline{BD}，$overline{BD}。\\$overline{DC}$, $overline{AB}.$overline\\perp\\overline{BC}$。以简单的基数形式，五边形$ABCDP$的周长是多少？[asy]size(150); defaultpen(lineewidth(0.8)); import geometry；对A=原点，B=（4,4），C=（12,4），D=（4,4），P=（4,0）；draw(APBcycle)；draw(BDCcycle)；draw(rightanglemark(A,B,C,15))；draw(rightanglemark(A,P,B,15))；draw(rightanglemark(B,D,C,15))；label(\"$A$\",A,SW); label(\"$B$\",B,N); label(\"$C$\",C,SE); label(\"$D$\",D,SW); label(\"$P$\",P,E); label(\"4$\",AP,S); label(\"4$\",BP,E)；[/asy]", "answer": "16+12\\sqrt{2}", "label": "QA"}
+{"question": "存在一个实数$k$，使得方程\\[\\begin{pmatrix}4 \\1 \\end{pmatrix} + t \\begin{pmatrix}.+ t\\begin{pmatrix}5 \\2 \\end{pmatrix} = \\begin{pmatrix}8 \\k \\end{pmatrix}.+ s `begin{pmatrix} `s15\\6 end{pmatrix}\\]在$t$和$s$中有无限多的解。  找到$k$。", "answer": "\\frac{3}{5}", "label": "QA"}
+{"question": "设$m$和$n$满足$mn=7$和$m+n=8$。什么是$|mn|$?", "answer": "6", "label": "QA"}
+{"question": "计算\\[{sum_{n = 0}^\\infty\\frac{cos n \\theta}{2^n},\\]其中$cos \\theta = \\frac{1}{5}.$", "answer": "\\frac{6}{7}", "label": "QA"}
+{"question": "在算术序列3^2, x, 3^4$中，$x$的整数值是多少？", "answer": "45", "label": "QA"}
+{"question": "如果皮埃尔、罗莎和托马斯这三个人中没有两个人可以坐在一起，那么7个人可以用多少种方式围着一张圆桌坐？(座位安排如果是相互旋转的，则视为相同的安排）。", "answer": "144", "label": "QA"}
+{"question": "函数$f (n) = n^2 + n + 17$ for $0\\leq n\\leq 15$ 产生素数。$f (10)f (9)$的值是多少？", "answer": "20", "label": "QA"}
+{"question": "卡片的编号从1到100。把一张牌拿掉，然后把另外99张牌上的数值加起来。所得之和是77的倍数。被拿走的那张牌上的数字是多少？", "answer": "45", "label": "QA"}
+{"question": "如果$\\sin（\\pi\\cosx）=\\cos（\\pi\\sin x），$输入$\\sin 2x的所有可能值，$用逗号分隔。", "answer": "\\frac{3}{4}, -\\frac{3}{4}", "label": "QA"}
+{"question": "一个三角形的顶点在坐标$(1, 2), (7, 10)$和$(1, 12)$。  该三角形最短边的长度是多少个单位？", "answer": "2\\sqrt{10}", "label": "QA"}
+{"question": "给定$/mathbf{a} = \\begin{pmatrix}, $/mathbf{b} = \\begin{pmatrix}.2 \\1 \\0 END{pmatrix},$$Mathbf{b} = \\begin{pmatrix}.0 \\0 \\1 \\end{pmatrix},$ and $mathbf{c} = \\begin{pmatrix}.1 \\2 \\3 END{pmatrix}，$计算\\[(\\mathbf{a}\\times \\mathbf{b}) \\times \\mathbf{c}  \\mathbf{a}\\times (\\mathbf{b}\\times \\mathbf{c}).\\]", "answer": "\\begin{pmatrix} 6 \\\\ 3 \\\\ 0 \\end{pmatrix}", "label": "QA"}
+{"question": "5个连续的偶数的总和比前8个连续的奇数的总和少4个。偶数中最小的一个是什么？", "answer": "8", "label": "QA"}
+{"question": "一条平行于$y=4x+6$的直线通过$(5, 10)$。这条线与$y$轴相交的点的$y$坐标是多少？", "answer": "-10", "label": "QA"}
+{"question": "计算$cos 30^circ$。", "answer": "\\frac{\\sqrt{3}}{2}", "label": "QA"}
+{"question": "与$(5+2\\sqrt7)^4$最接近的整数是什么？", "answer": "11218", "label": "QA"}
+{"question": "鉴于$a+b+c=5$和$1=a,$b,$c=2,$求\\[\\frac{1}{a + b} + \\frac{1}{b + c}.\\] 的最小值。", "answer": "\\frac{4}{7}", "label": "QA"}
+{"question": "计算\\[frac{1}{cos^2 10^\\circ}+ frac{1}{sin^2 20^\\circ}.+ frac{1}{sin^2 20^\\circ}.+ frac{1}{sin^2 40^\\circ}.\\] 。", "answer": "12", "label": "QA"}
+{"question": "找出全等式$r^2 + 4r + 4 /equiv r^2 + 2r + 1 /pmod{55}$的最小正四位数解。", "answer": "1016", "label": "QA"}
+{"question": "找出围绕原点顺时针旋转45^\\circ$角度所对应的矩阵。", "answer": "\\begin{pmatrix} 1/\\sqrt{2} & 1/\\sqrt{2} \\\\ -1/\\sqrt{2} & 1/\\sqrt{2} \\end{pmatrix}", "label": "QA"}
+{"question": "有多少个四位数的正整数，其中每个数字都是素数？", "answer": "256", "label": "QA"}
+{"question": "两个不同的质数的平方之差是1488。鉴于这两个质数都小于50，请找出这两个质数。注：以任何一种顺序提交数字，用逗号分隔。", "answer": "19 \\text{ and }43", "label": "QA"}
+{"question": "四个不同的正整数的平均值是5。如果这四个整数中最大的是13，那么这四个整数中最小的是什么？", "answer": "1", "label": "QA"}
+{"question": "连接点$(5,4)$和$(9,8)$的线段的中点的坐标之和是多少？", "answer": "4", "label": "QA"}
+{"question": "如果$144/\\Delta=1\\Delta$，1是十位数，$Delta$是商的一位数，那么$Delta$代表哪一位数？", "answer": "8", "label": "QA"}
+{"question": "化简$/sqrt{720}$。", "answer": "12\\sqrt{5}", "label": "QA"}
+{"question": "在一个圆中，两条平行的弦的长度分别为10和14，它们之间的距离为6。与这两条弦平行并位于它们中间的弦的长度为$sqrt{a}$。求$a$的值。[asy]import olympiad; import geometry; size(100); defaultpen(lineewidth(0.8))；draw(unitcircle)；draw(Label(\"14\",align=N),dir(30)dir(150))；draw(Label(\"10\",align=N),dir(40)dir(140));draw(Label(\"$sqrt{a}$\",align=N),dir(5)dir(175))；distance(rotate(90)*\"6\",(1,Sin(30)),(1,Sin(40)),9,Arrows(size=1))；[/asy]", "answer": "184", "label": "QA"}
+{"question": "我们的俱乐部有25名成员，希望挑选一名主席、秘书和财务主管。  如果每个成员可以担任一个以上的职务，我们可以用多少种方式来选择？", "answer": "15,\\!625", "label": "QA"}
+{"question": "在正五边形$FGHIJ$中，如图所示，延长五边形的边，形成一个星形。图中的角$A$的度量是多少？[asy]draw((42.4,30.8)(10,30.8)(0,63.2)(10,30.8)(42.4,30.8)(16.2,11.8)(24.9,18.1)(0,0)(24.9,18.1)(16.2,11.8)cycle,linewidth(1));draw((10,30.8)(10,30.8)(16.2,11.8)(0,0)(16.2,11.8)cycle,linewidth(1));label(\"$A$\",(42.4,30.8),W);label(\"$F$\",(10,30.8),NW);点((10,30.8))；label(\"$G$\",(10,30.8),NE)；dot((10,30.8))；label(\"$H$\",(16.2,11.8),E);dot((16.2,11.8))；label(\"$I$\",(0,0),S)；dot((0,0))；label(\"$J$\",(16.2,11.8),WSW);dot((16.2,11.8))；[/asy]", "answer": "36^\\circ", "label": "QA"}
+{"question": "求函数$f(x) = \\arctan x + \\frac{1}{2}的范围。\\所有函数的单位是弧度。", "answer": "\\left[ -\\frac{\\pi}{2}, \\frac{\\pi}{2} \\right]", "label": "QA"}
+{"question": "如图所示，正三角形$ABC$的角$B$和$C$的三分法在点$P$和$Q$处相遇。角$A$的度数为39度，角$QBP$的度数为14度。请问角$BPC$的度数是多少？[asy]unitsize(2cm)；label(\"$B$\",(0,0),W)；label(\"$A$\",(1.2,1.5),N)；label(\"$C$\",(1,0),E)；label(\"$Q$\",(.8,.6),N)；label(\"$P$\",(.7,.2),N)；draw((0,0)(1.2,1.5)(1,0)cycle,linewidth(1));draw((0,0)(.8,.6)(1,0),lineewidth(1))；draw((0,0)(.7,.2)(1,0),linewidth(1))；[/asy]", "answer": "133", "label": "QA"}
+{"question": "当5^{30}$除以7时，余数是多少？", "answer": "1", "label": "QA"}
+{"question": "一个序列$(S_n)$定义如下：$S_1 = 1,$S_2 = 1,$\\$S_n=frac{S_{n  2}\\cdot S_{n  1}}{S_{n  2}+S_{n  1}}]对于$n>2.$ 计算$S_{12}。", "answer": "\\frac{1}{144}", "label": "QA"}
+{"question": "1到100之间的所有质数的乘积等于$P$。当$P$除以16时，余数是多少？", "answer": "6", "label": "QA"}
+{"question": "计算$1\\cdot 2^2+2\\cdot 3^2+3\\cdot 4^2+19\\cdots+20^2。", "answer": "41230", "label": "QA"}
+{"question": "两个砌砖工人，艾伦和大卫，每人每小时放置30块砖。艾伦的工作时间是大卫的三倍，他们两个人总共砌了600块砖。大卫铺了多少块砖？", "answer": "150", "label": "QA"}
+{"question": "小于225同时是9的倍数的最大完全平方数是什么？", "answer": "144", "label": "QA"}
+{"question": "有两台摄像机对一个交通路口进行拍照。摄像机A从早上6点开始拍照，每11分钟拍一张。摄像机B在早上7时开始拍照，每7分钟拍一张。照相机A和照相机B在中午之前的四个不同时间段内同时拍照。当照相机A和照相机B同时拍摄最后一张照片时，距离中午还有多少分钟？", "answer": "41", "label": "QA"}
+{"question": "将表达式$g^4 + 12g^2 + 9$改写为$c(g^2 + p)^2 + q$。则$q$是多少？", "answer": "-27", "label": "QA"}
+{"question": "设$a,$b是两个锐角，其中$tan a = 5 （tan b），求$sin（a  b）的最大可能值。", "answer": "\\frac{2}{3}", "label": "QA"}
+{"question": "安德鲁的祖父的年龄是安德鲁年龄的8倍。如果安德鲁的祖父在安德鲁出生时是56岁，那么安德鲁现在是多少岁了？", "answer": "8", "label": "QA"}
+{"question": "十棵树的重量相当于三只小猪和一只小鸡的重量。两棵树和一棵树的重量等于一只鱿鱼的重量。多少棵树的重量之和等于一只鱿鱼的重量？", "answer": "3", "label": "QA"}
+{"question": "计算：$\\left( \\frac{1}{2} + \\frac{1}{3} \\right) \\left( \\frac{1}{2}  \\frac{1}{3} \\right)$", "answer": "\\frac{5}{36}", "label": "QA"}
+{"question": " 求$\\cos 3x = 1$ for $0 \\le x \\le 2 \\pi.$ 输入所有的答案，用逗号分开。", "answer": "0, \\frac{2 \\pi}{3}, \\frac{4 \\pi}{3}, 2 \\pi", "label": "QA"}
+{"question": "找出\\3x^2 + 12y^2 + 27z^2  4xy  6xz  12yz  8y  24z\\]在所有实数$x,$y,$和$z中的最小值。", "answer": "-14", "label": "QA"}
+{"question": "确定194（mod 11）的剩余部分。", "answer": "7", "label": "QA"}
+{"question": "Let $/mathbf{a} = \\begin{pmatrix} $ 和 $/mathbf{b} = \\begin{pmatrix} $ 和 $/mathbf{b} = \\begin{pmatrix2\\5\\end{pmatrix}$ 和 $mathbf{b} = begin{pmatrix} 1\\3\\end{pmatrix}。1\\3\\end{pmatrix}。$ 求矢量$mathbf{c}$，使$mathbf{a}、$mathbf{b}、$和$mathbf{c}$相邻，且$mathbf{b}$与$mathbf{a}$和$mathbf{c}之间的角度相平。[asy]单位大小（0.5厘米）；对A、B、C、O；A = (2,5);B = (1,3);O = (0,0);C = extension(O, reflect(O,B)*(A), A, B)；draw(OA,Arrow(6))；draw(OB,Arrow(6))；draw(OC,Arrow(6))；draw((3,0)(3,0))；draw((0,1)(0,6))；draw(interp(A,C,0.1)interp(A,C,1.1),dashed)；label(\"$\\mathbf{a}$\", A, NE)；label(\"$/mathbf{b}$\", B, NE)；label(\"$/mathbf{c}$\", C, NE)；[/asy]", "answer": "\\begin{pmatrix} 23/8 \\\\ 7/4 \\end{pmatrix}", "label": "QA"}
+{"question": "找出下列数字的单位数：  \\begin{align*}。& (972  268)(973  267)(974  266) \\\\&qquad+ (968  272)(967  273)(966  274)  (999  222)^3\\end{align*}。", "answer": "7", "label": "QA"}
+{"question": "找出$144$和$405$的最大公因子。", "answer": "9", "label": "QA"}
+{"question": "如果$ABC$是一个直角，请给出$ABD$的度数。[asy] 对A,B,C,D; A = dir(180); D = dir(60); C = dir(0)；draw(B1.2*A,EndArrow); draw(B1.2*D,EndArrow); label(\"A\",A,S); dot(A) ；label(\"B\",B,S); draw(B1.2*C,EndArrow); label(\"C\",C,S); label(\"D\",D,dir(135) )；label(\"6x^{circ}$\",B,NW); label(\"3x^{circ}$\",B+.1,NE); dot(D); dot(C)；[/asy]", "answer": "120^\\circ", "label": "QA"}
+{"question": "林克正在给一个三叉戟上色，它由四个等边三角形组成，如下图所示。他有三种颜色可以使用：金色、黑色和绿色。为了使它能被辨认出来，他不想让两个三角形有相同的颜色，如果它们有一个边的话。他可以用多少种不同的方式给三叉戟上色？(两个颜色不同的旋转被认为是不同的。) [asy]size(50)；draw((0,0)(2,0)(1,1.732)cycle);draw((1,0)(1.5,.866)(.5,.866)cycle);[/asy]", "answer": "24", "label": "QA"}
+{"question": "一个长方形盒子的边长为2003、2004和$2003\\cdot 2004.$ 计算盒子的空间对角线的长度。", "answer": "4014013", "label": "QA"}
+{"question": "一条线的参数是\n\\[\\begin｛pmatrix｝x\\\\y\\end｛pmametrix｝=\\bbegin｛s pmatrix}8\\\\-1\\end｛s pmarix｝+t\\begin{pmatrix}2\\\\3\\end{pmarix}。\\]行的方程可以用$y=mx+b.$的形式表示。输入有序对$（m，b）$", "answer": "\\left( \\frac{3}{2}, -13 \\right)", "label": "QA"}
+{"question": "有多少个数可以表示为集合${0, 1, 2, 4, 8, 16 `}$中两个或多个不同元素之和？", "answer": "31", "label": "QA"}
+{"question": "计算$dbinom{31}{28}$。", "answer": "4495", "label": "QA"}
+{"question": "如果抛物线$y_1=x^2+2x+7$和直线$y_2=6x+b$只相交于一点，那么$b$的值是多少？", "answer": "3", "label": "QA"}
+{"question": "求出\\8cos^210^circ \\dfrac{1}{sin 10^\\circ}.\\]的值 。", "answer": "2", "label": "QA"}
+{"question": "苏珊娜每隔三天就走四英里。她在二月份能走的最小里程数是多少？", "answer": "36", "label": "QA"}
+{"question": "一个橡胶球从100英尺的高度落下。  球每弹起一次，就上升到之前高度的$frac{2}{5}$。  求球所经过的总距离，以英尺为单位。", "answer": "\\frac{700}{3}", "label": "QA"}
+{"question": "一个欧洲的火车车厢有六个座位。  其中四个座位是坏的。  Wilhelm需要填写一张类似这里的表格，以表明有坏掉的座位。  如果他随机勾选了图中的四个座位，那么他标记正确座位的概率是多少？  将你的答案用分数表示。[asy]draw((0,0)(24,0)(24,18)(0,18)(0,0));label(\"$textbf{Maintenance Report}$\",(12,16))；draw((2,2)(22,2)(22,14)(2,14)(2,2));draw((4,4)(8,4)(8,6)(4,6)(4,4));draw((10,4)(14,4)(14,6)(10,6)(10,4));label(\"$\\surd$\",(12,5))；draw((16,4)(20,4)(20,6)(16,6)(16,4));label(\"$\\surd$\",(18,5))；draw((4,10)(8,10)(8,12)(4,12)(4,10));label(\"$\\surd$\",(6,11))；draw((10,10)(14,10)(14,12)(10,12)(10,10));label(\"$\\surd$\",(12,11))；draw((16,10)(20,10)(20,12)(16,12)(16,10));[/asy]", "answer": "\\frac{1}{15}", "label": "QA"}
+{"question": "设$a$和$b$是方程2x^210x+5=0$的解。$(2a-3)(4b-6)$的值是多少？", "answer": "-22", "label": "QA"}
+{"question": "下面是$y=a\\cos bx$的图形，其中有一些正的常数$a$和$b.$，找到$a.$。[asy]导入TrigMacros；size(400)；实数g(实数x){\t返回（3*cos(4*x)）；}draw(graph(g,3*pi,3*pi,n=700,join=operator .),red)；trig_axes(3*pi,3*pi,4,4,pi/2,1);层()；rm_trig_labels(5, 5, 2)；label(\"$1$\", (0,1), E)；label(\"$2$\", (0,2), E)；label(\"$3$\", (0,3), E)；label(\"$1$\", (0,1), E)；label(\"$2$\", (0,2), E)；label(\"$3$\", (0,3), E)；[/asy]", "answer": "3", "label": "QA"}
+{"question": "Lana定义了一个函数$f(x)$，该函数由公式$f(x)=x^2给出，但只在她指定的由有限多个值$x$组成的域上定义；她让该函数对所有其他$x$不作定义。鉴于$f(x)$的范围是${0,1,2,3,4,5,6,7,8,9}$，它的域中可能出现的最大点数是多少？", "answer": "19", "label": "QA"}
+{"question": "如果$f(c)=frac{3}{2c-3}$，当$f^{-1}(c)\\times c\\times f(c)$等于简化分数$frac{kc+l}{mc+n}$，其中$k、l、m、\\text{和}n$为整数时，请找出$frac{kn^2}{lm}的值。", "answer": "9", "label": "QA"}
+{"question": "在下图中，三角形$ABC$被刻在圆内，$AC=AB$。角$BAC$的度量是42度，线段$ED$在点$C$处与圆相切。角$ACD$的度数是多少？ [asy]\n   import olympiad; import geometry; size(150); defaultpen(linewidth(0.8));\n   \n   draw(Circle((0,0),1));\n   draw((dir(-30).x -1,dir(-30).y-2)--(dir(-30).x+1,dir(-30).y+2));\n   pair C = dir(-30), B = dir(-114), A = dir(-114-138), D = (dir(-30).x+1,dir(-30).y+2), E = (dir(-30).x -1,dir(-30).y-2);\n   draw(A--B--C--cycle);\n   label(\"$A$\",A,N); label(\"$B$\",B,SW); label(\"$C$\",C,dir(0)); label(\"$D$\",D,dir(0)); label(\"$E$\",E,dir(-90));\n   [/asy]", "answer": "69\\text{ degrees}", "label": "QA"}
+{"question": "$\\left(\\dfrac{7}{16}\\right)^{111}\\times \\left(\\dfrac{16}{7}\\right)^{111}$是多少?", "answer": "1", "label": "QA"}
+{"question": "哪个正五位数的整数在万位上有8，而且是一个完全平方数？", "answer": "85,\\!184", "label": "QA"}
+{"question": "在帕斯卡尔三角形的第n行中，第一行是$n=0$，各元素的算术平均值是$51.2$。请问$n$的值是多少？", "answer": "9", "label": "QA"}
+{"question": "$\\begin{pmatrix} a \\\\ 7 \\end{pmatrix}$到 $\\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix}$的投影为\n   \\[\\frac{26}{17} \\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix}.\\]找到$a$", "answer": "2", "label": "QA"}
+{"question": "查找$f（x）=e^｛3x^2-| \\lfloor x\\rfloor|！｝+\\binom｛22+735235| \\lfloorx\\rfoor|｝｛2356｝+\\phi（|\\lfloor x \\rfloor |+1）+72x^4+3x^3-6x^2+2x+1$和$g（x r|｝｛2356｝+\\phi（|\\lfloor x\\lfloor|+1）+72x^4+4x^3-11x^2-6x+13$相交，其中$\\lfloor x \\lfloor$表示$x$的楼层函数，$\\phi（n）$表示正整数$\\le$和$n$的相对素数的和。", "answer": "6", "label": "QA"}
+{"question": "求$t$，使$x-3$是$x^3-3x^2+tx+27$的一个因子。", "answer": "-9", "label": "QA"}
+{"question": "将下列表达式分解：$8x^3+12x^2-2x-3$", "answer": "(2x+3)(2x -1)(2x+1)", "label": "QA"}
+{"question": "一个长方形房间的长度与宽度的比例是5:3$。该房间的周长是48英尺。该房间的面积是多少？", "answer": "135\\text{ square feet}", "label": "QA"}
+{"question": "$4 < 2(x  1) < 8$的解以$a < x < b$的形式表示。请找出$a+b$的值。", "answer": "4", "label": "QA"}
+{"question": "确定下面方程的图形是抛物线、圆、椭圆、双曲线、点、线、两条线还是空的。\n   $\\left(\\frac x2 - 3\\right)^2 + y^2 = 10$", "answer": "\\text{ellipse}", "label": "QA"}
+{"question": "此表中表示的点$（x，y）$位于一条直线上。点$（13，q）$位于同一条线上。$p+q的值是多少？$将你的答案用小数表示，精确到十分之一。$$\\begin{array}{c|c}\n   x & y \\\\ \\hline\n   2 & -5 \\\\\n   p & -14 \\\\\n   p+2 & -17 \\\\\n   \\end{array}$$", "answer": "-13.5", "label": "QA"}
+{"question": "在${1, 3, 5, 7, 9, 11, 13}的集合中，有多少个不同的正整数可以被表示为两个数字的差？", "answer": "6", "label": "QA"}
+{"question": "确定下面方程的图形是抛物线、圆、椭圆、双曲线、点、线、两条线还是空的。 $y^2 - x +5y - 25 = 0$", "answer": "\\text{parabola}", "label": "QA"}
+{"question": "设$a,$b,$c,$d$为正实数，使$a+b+c+d=1.$ 求以下的最小值\\Ǟ[\\frac{1}{a} + \\frac{1}{b} + \\frac{4}{c} + \\frac{16}{d}.\\] 。", "answer": "64", "label": "QA"}
+{"question": "在$(x+3)^2=121的情况下，$x$的两个值之和是多少？", "answer": "-6", "label": "QA"}
+{"question": "一个有整数系数的多项式的形式是\\2x^4 + a_3 x^3 + a_2 x^2 + a_1 x + 1 = 0./]求这个多项式的不同有理根的数目。", "answer": "4", "label": "QA"}
+{"question": "一个平面通过点$(-5,0,0),$(0,2,0),$和$(0,0,-7)，求从原点到这个平面的距离。", "answer": "\\frac{70}{39}", "label": "QA"}
+{"question": "求$x^6-3$除以$x+1时的商。", "answer": "x^5 - x^4 + x^3 - x^2 + x - 1", "label": "QA"}
+{"question": "下面是方程为$y=ax^2+bx+c$的抛物线的图示：[asy]unitsize(0.2 cm)；x轴(5,9)；y轴(7,2)；实数g(实数x){返回1/9*(x2)^2+1；}draw(graph(g,5,9))；dot((2,1))；label(\"Vertex: $(2,1)$\", (2,1), NE)；dot((4,3))；label(\"$(4,3)$\", (4,3), W)；[/asy]二次方$ax^2 + bx + c$的零点在$x=m$和$x=n$，其中$m>n$。什么是$mn$?", "answer": "6", "label": "QA"}
+{"question": "一个半径为8厘米的半圆，沿着一条线来回晃动。  半圆所处的线与上面的线之间的距离是12厘米。  当它摇晃而不滑落时，半圆在两点上接触到上面的线。  (当半圆碰到上面的线时，它立即向另一个方向摇动。)  这两点之间的距离是多少，以毫米为单位，四舍五入到最近的整数？[asy]\n   \n   draw((-15, -8)--(15, -8));draw((-15, 4)--(15, 4));draw((-8, 0)--(8, 0){down}..{up}(-8, 0));\n   \n   [/asy] \n注意：在找到所需距离的准确值后，你可能会发现一个计算器很有用，可以把这个值四舍五入到最接近的整数。）", "answer": "55", "label": "QA"}
+{"question": "当玛德琳学校的所有女孩都排成八人行时，还剩下七个。如果改成四人一排，还剩下多少人？", "answer": "3", "label": "QA"}
+{"question": "在一瓶8液体盎司的维生素水中，有125卡路里。一瓶12液体盎司的维生素水含有多少卡路里？请用小数形式表示你的答案。", "answer": "187.5", "label": "QA"}
+{"question": "一个球体被刻在一个半径为2的半球内。  这个球体的体积是多少？", "answer": "\\frac{4}{3}\\pi", "label": "QA"}
+{"question": "图中所示的实体是由一个直圆的圆柱体切成的。如果底面的半径是6厘米，高度是10厘米，那么这个固体的总表面积是多少，以$pi$计算？[asy]输入 three；size(100)；默认笔（lineewidth(.7pt)）；currentprojection=orthographic(4,2.5,3)；path3 p=arc((0,0,0),(1,0,0),(1,0,0),(0,0,1));draw(rotate(45,(0,0,1))*p,dashed)；draw(rotate(45,(0,0,1))*((1,0,0)(1,0,0)(1,0,2)(1,0,2)cycle));draw(rotate(45,(0,0,1))*shift((0,0,2))*p)；draw(rotate(118,(0,0,1))*((1,0,0)(1,0,2)));[/asy]", "answer": "96\\pi+120", "label": "QA"}
+{"question": "找出$2 /times 2$ 矩阵$\\mathbf{M}$，使得\\[\\mathbf{M} \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix}\\]and\n   \\[\\mathbf{M} \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ -7 \\end{pmatrix}.\\]", "answer": "\\begin{pmatrix} 3 & 2 \\\\ 0 & -7 \\end{pmatrix}", "label": "QA"}
+{"question": "在$(x-9)^2+(y-5)^2=6.25$和$(x+6)^2+(y+3)^2=49$这两个圆之间的最短距离是多少，单位是多少？请用小数表示你的答案，以最接近的十分之一为限。", "answer": "7.5", "label": "QA"}
+{"question": "如果$AB=10,$AC=17,$和$BC=21,那么刻在三角形$ABC$中的圆的半径是多少？请用小数表示你的答案，保留一位小数。", "answer": "3.5", "label": "QA"}
+{"question": "一张5英寸乘7英寸的图片被放在一张长方形的红纸上，在图片的两边可以看到0.5英寸宽的红边。这幅画的红色边框的面积是多少？单位是平方英寸。", "answer": "13", "label": "QA"}
+{"question": "$\\sqrt[3]{4^5 + 4^5 + 4^5 + 4^5}$的值是多少？", "answer": "16", "label": "QA"}
+{"question": "计算$|sqrt5+2i|$。", "answer": "3", "label": "QA"}
+{"question": "已知2x-3y=8$和4x+3y=-2$，那么$x$和$y$的乘积是多少？", "answer": "-2", "label": "QA"}
+{"question": "假设$0 < r < 3$。  下面是五个关于$x$的方程。  哪一个方程有最大的解$x$？$textbf{(A)}3(1 + r)^x = 7\\qquad `textbf{(B)}3(1 + r/10)^x = 7\\qquad `textbf{(C)}3(1 + 2r)^x = 7$ $textbf{(D)}3(1 + `sqrt {r})^x = 7\\quad `textbf{(E)}3(1 + 1/r)^x = 7$", "answer": "\\text{(B)}", "label": "QA"}
+{"question": "当16进制整数$729_{16}$除以10进制数字$15$时，余数是多少？以10为基数表达你的答案。", "answer": "3", "label": "QA"}
+{"question": "让$alpha$和$beta$为角，使得\\找出所有可能的值。\\````[``frac{cos^3 \\beta}{cos \\alpha} + ````frac{sin^3 \\beta}{sin \\alpha}.````输入所有可能的值，用逗号分开。", "answer": "1", "label": "QA"}
+{"question": "抛物线$y = x^2$与$y = x^4 + ax^3 + x^2 + bx + 1$的图形相切于两点。  求切点的$x$坐标之间的差的绝对值。", "answer": "\\sqrt{6}", "label": "QA"}
+{"question": "找出所有$x$的实值，使$frac{2x^23x}{x^2x} + 5x 11 = /frac{3x^2+5x+2}{x^21}。+ 5x 11 = frac{3x^2+5x+2}{x^21}。$$输入所有的解，用逗号分开。", "answer": "\\frac{2}{5}", "label": "QA"}
+{"question": "对于$\\bold｛v｝=\\begin｛pmatrix｝2\\\\3\\\\-1\\end｛pmametrix｝$和$\\bold{w｝=\\ begin｛｛pmarix｝2\\\\\\-1\\\\0\\end｛tmatrix｝$，计算$\\text｛proj｝_｛\\bold｛w｝｝\\bold{v｝$。", "answer": "\\begin{pmatrix} 2/5 \\\\ -1/5 \\\\ 0 \\end{pmatrix}", "label": "QA"}
+{"question": "找到公式$13\\cdot15=243$有效的正基数$b$。", "answer": "6", "label": "QA"}
+{"question": "求方程为$x^2 + 8x + y^2  6y = 0$的圆的半径。", "answer": "5", "label": "QA"}
+{"question": "让$f ：\\$mathbb{R}到$mathbb{R}是一个函数，使得$f(1)=1$和\\f(x + f(y + z)) + f(f(x + y) + z) = 2y\\]对于所有实数$x,$y,$和$z。设$n$为$f(5)的可能数值的数目，$设$s$为$f(5)的所有可能数值的总和，$求$n/times s。", "answer": "-3", "label": "QA"}
+{"question": "计算椭圆的面积 $25x^2 +4 y^2 = 16.$", "answer": "\\tfrac{8\\pi}5", "label": "QA"}
+{"question": "在一个有30名学生的数学班中，15名女生中有12名是新生，15名男生中有11名是新生。从班上随机抽取的5名学生中，有2名女生和3名男生的概率是多少？把你的答案用小数表示，精确到千分之一。", "answer": "0.076", "label": "QA"}
+{"question": "一个矩形的两个不相邻的顶点是$(4,3)$和$(4,3)$，另外两个顶点有整数坐标。有多少个矩形满足这些条件？", "answer": "5", "label": "QA"}
+{"question": "如果$sqrt[3]{4x^2}=4$，请找出所有可能的$x$的值，并由小到大列出它们。", "answer": "-4, 4", "label": "QA"}
+{"question": "如果两个（正）质数是方程$x^212x+k=0$的根，那么$k$的值是多少？", "answer": "35", "label": "QA"}
+{"question": "对于某些向量$mathbf{p}$和$mathbf{q}，$向量$3 \\mathbf{p} + \\mathbf{q}$和$5 \\mathbf{p}+ \\mathbf{q}$。+ \\mathbf{q}$ 和 $5\\mathbf{p} 的向量 3 \\mathbf{q}$ 是正交的。  另外，向量2 $ `mathbf{p} + `mathbf{q}$ 是正交的。+ \\mathbf{q}$ 和 4 \\mathbf{p} $ 是正交的。 2 \\mathbf{q}$ 是正交的。  如果$theta$是$mathbf{p}$和$mathbf{q}$之间的角度，那么求$cos \\theta。", "answer": "\\frac{3}{8}", "label": "QA"}
+{"question": "在一个五条边的凸多边形中，可以画出多少条唯一的对角线？", "answer": "5", "label": "QA"}
+{"question": "当$7！$除以$23$时，余数是多少？(注：$n!$表示 \"n阶乘\"，定义为从1$到$n$的所有整数的乘积)。", "answer": "3", "label": "QA"}
+{"question": "如果$\\cos x+\\cos 2x+\\cos 3x=3，$则求$\\sin x+\\sin 2x+\\sin 3x$的数值", "answer": "0", "label": "QA"}
+{"question": "通过原点的某条线$ell的反射矩阵，由以下公式给出\\[renewcommand{arraystretch}{1.5}。\\begin{pmatrix}。frac{2}{3} & frac{2}{3} & frac{1}{3}。frac{2}{3} & \\frac{1}{3} & \\frac{2}{3}。frac{1}{3} & `frac{2}{3} & `frac{2}{3}。\\end{pmatrix}\\濘出指令{arraystretch}{1}.[]找出直线$ell.$的方向矢量，以$begin{pmatrix} a\\b\\c\\end{pmatrix}的形式输入答案，$其中$a,$b,$和$c$是整数，$a>0,$和$gcd(|a|,|b|,|c|) = 1。", "answer": "\\begin{pmatrix} 1 \\\\ -2 \\\\ -1 \\end{pmatrix}", "label": "QA"}
+{"question": "在矩形$ABCD$中，有$AB=8$，$BC=9$，$H$在$overline{BC}$上，$BH=6$，$E$在$AD$上，$DE=4$，线$EC$与线$AH$相交于$G$，$F$在线$AD$上，$overline{GF}$perp =overline{AF}$。求长度$overline{GF}$。[asy]对A，B，C，D，I，F，G，H；F=(0,0);D=(6,0);I=(10,0);A=(15,0);B=(15,8);H=(9,8);C=(6,8);G=(0,20);draw(ABCDcycle,lineewidth(0.7))；draw(AFGcycle,lineewidth(0.7))；draw(GI,lineewidth(0.7))；label(\"4\",(8,0),S)；label(\"8\",(15,4),E)；label(\"6\",(12,8),N)；label(\"$A$\",A,SE)；label(\"$B$\",B,NE)；label(\"$C$\",C,W)；label(\"$D$\",D,S)；label(\"$E$\",I,S)；label(\"$F$\",F,W)；label(\"$G$\",G,W)；label(\"$H$\",H,NE)；[/asy]", "answer": "20", "label": "QA"}
+{"question": "设$a,$b,$c,$d,$e$是方程$x^5+7x^42=0的不同根。  \\begin{align*}\n   &\\frac{a^4}{(a - b)(a - c)(a - d)(a - e)} + \\frac{b^4}{(b - a)(b - c)(b - d)(b - e)} \\\\\n   &\\quad + \\frac{c^4}{(c - a)(c - b)(c - d)(c - e)} + \\frac{d^4}{(d - a)(d - b)(d - c)(d - e)} \\\\\n   &\\quad + \\frac{e^4}{(e - a)(e - b)(e - c)(e - d)}.\n   \\end{align*}", "answer": "1", "label": "QA"}
+{"question": "将$frac{3}{16}$转换为二进制。用二进制表示你的答案，并加一个弧度点。", "answer": "0.0011_{2}", "label": "QA"}
+{"question": "假设$x$是一个正数，使得2x^2=4x+9.$如果$x$可以简化写成$dfrac{a+\\sqrt{b}}{c}$，使得$a,$b,$和$c$是正整数，那么$a+b+c$是多少？", "answer": "26", "label": "QA"}
+{"question": "将$0.\\overline{54}$表示为最低项的分数。", "answer": "\\frac{6}{11}", "label": "QA"}
+{"question": "下面是函数$f$的图形。方程$f(f(x))=6$有多少个解？[asy]导入graph; size(200); defaultpen(fontsize(10pt)+linewidth(.8pt)); dotfactor=4; pair P1=(7,4), P2=(2,6), P3=(0,0), P4=(1,6), P5=(5,6); real[] xticks={7,6,5,4,3,2,1,1,2,3,4,5,6}; real[] yticks={6,5,4,3,2,1,1,2,3,4,5,6}；  draw(P1P2P3P4P5); dot(\"(7, 4)\",P1); dot(\"(2, 6)\",P2,LeftSide); dot(\"(1, 6)\",P4); dot(\"(5, 6)\", P5); xaxis(\"$x$\",7.5,7,Ticks(xticks),EndArrow(6)); yaxis(\"$y$\",6.5,7,Ticks(yticks),EndArrow(6)); [/asy] 。", "answer": "6", "label": "QA"}
+{"question": "假设$x$和$y$是实数，满足以下条件：   \\begin{align*}\n   4y - 4x^2 &= 1 \\\\\n   4x - 4y^2 &= 1.\\end{align*} 计算 $dfrac{1}{x^3 + y^3}$", "answer": "4", "label": "QA"}
+{"question": "确定最大可能的整数$n$，使$942！$能被$15^n$整除。", "answer": "233", "label": "QA"}
+{"question": "求$x^2 + ax + b = 0,$形式的二次方程的数量，只要$c$是方程的根，$c^2 - 2$也是方程的根。", "answer": "6", "label": "QA"}
+{"question": "寻找所有可能的行列式值\\的行列式[begin{pmatrix}。\\sec^2 x & 1 & 1\\ \\ cos^2 x & cos^2 x & csc^2 x 1 & \\cos^2 x & cot^2 x end{pmatrix},]当$x$在所有实数范围内（行列式被定义）。", "answer": "(0,1)", "label": "QA"}
+{"question": "计算椭圆的短轴长度：[x^2 + 3y^2 - 4x + 30y- 2 = 0.] 。", "answer": "6\\sqrt3", "label": "QA"}
+{"question": "找到方程的所有实数解：[\\frac{x^2-3}{x+2}= frac{2x}{x^2-4}.\\]输入所有解，用逗号分隔。", "answer": "1,3", "label": "QA"}
+{"question": "设$r$是$x^2+5x+7=0的一个根。\\计算〔(r  1)(r + 2)(r + 6)(r + 3)〕。", "answer": "13", "label": "QA"}
+{"question": "两个跑步者$A$和$B$从直线跑道上的一个点$O$开始，并向同一方向跑。跑者$B$的速度是跑者$A$的三倍。  观察者站在$P$处，使$overline{OP}$垂直于跑道。  请求$三角APB的最大值，单位为度。[asy]单位大小（2厘米）；对A、B、O、P；A = (0.4,0);B = (1.2,0);O = (0,0);P = (0,1);draw((0.5,0)(2,0));draw(OP)；draw(PA)；draw(PB)；label(\"$A$\", A, S)；label(\"$B$\", B, S)；label(\"$O$\", O, S)；label(\"$P$\", P, N)；[/asy]", "answer": "30^\\circ", "label": "QA"}
+{"question": "在图中，半径为1的四个圆的中心分别为$P$、$Q$、$R$和$S$，它们彼此相切并与$三角形ABC$的边相切，如图所示。[asy]size(200)；对A、B、C、P、Q、R、S；R=(0,0);Q=(2,0);S=(2,0);P=(1,1.732);B=(5.73,1);C=(3.732,1);A=(1.366,3.098);draw(ABCA)；绘制(圆圈(P, 1))；绘制(圆圈(Q, 1))；绘制(圆圈(R, 1))；绘制(圆圈(S, 1))；标注(\"A\", A, N)；标注(\"B\", B, SW)；标注(\"C\", C, SE)；点(P)；点(Q)；点(R)；点(S)；标注(\"P\", P, N)；标注(\"Q\", Q, SW)；标注(\"R\", R, SW)；标注(\"S\", S, SE)；[/asy]三角形$PQS$中最小的角的度量是多少？", "answer": "30^\\circ", "label": "QA"}
+{"question": "鉴于$(2,3)$在$y=f(x)$的图形上，请在$y=f(2x+1)+3$的图形上找到一个点。把你的答案用一个有序的对$(a,b)$表示，其中$a$和$b$是实数。", "answer": "(-\\frac{3}{2},6)", "label": "QA"}
+{"question": "什么是$x$的最小值，其中$frac{x+2}{3} = \\frac{4}{x+1}$？", "answer": "-5", "label": "QA"}
+{"question": "当你画一个成年男子的素描时，建议头部占总高度的$frac\\{1}{8}$。如果一个6英尺高的男人的全部身高是16英寸，那么他的头部从上到下应该是多少英寸？", "answer": "2", "label": "QA"}
+{"question": "估计$14.7923412^2$到最近的一百。", "answer": "200", "label": "QA"}
+{"question": "一个粒子移动，使它在$t时位于$\\左( 3\\sin\\frac{t}{4}, 3\\cos\\frac{t}{4}\\右)$，求粒子的速度，以每单位时间的距离为单位。", "answer": "\\frac{3}{4}", "label": "QA"}
+{"question": "如果$4x=3y$，$\\frac{2x+y}{3x-2y}的值是多少？", "answer": "10", "label": "QA"}
+{"question": "一个边长为整数的长方体，其高度为$3$。如果该棱柱的表面积等于$52$，那么该棱柱的体积是多少？", "answer": "24", "label": "QA"}
+{"question": "化简 $\\frac{1+\\sqrt{2}}{2+\\sqrt{3}}$.你的答案可以转换为$A(1+\\sqrt{B})(\\sqrt{C}+\\sqrt{D})$，其中$A$、$B$、$C$和$D$是正整数。什么是$A+B+C+D$？", "answer": "13", "label": "QA"}
+{"question": "在一个腿长为6英寸和8英寸的直角三角形的两边各建一个半圆。如图所示，沿斜边放置的半圆有阴影。两个没有阴影的月牙形区域的总面积是多少？用最简单的形式表达你的答案。[asy]unitsize(0.4cm)；size(101)；对A = (0,3), B = (0,0), C = (4,0)；绘制(A.B.C圆,灰色(0.6),黑色)；绘制(ABC)；绘制(Arc(A/2,3/2,90,270)^^Arc(C/2,2,0,180)); 绘制(直角标记(A,B,C) )；[/asy]", "answer": "24", "label": "QA"}
+{"question": "考虑所有复变的多项式，$P(z)=4z^4+az^3+bz^2+cz+d$，其中$a,b,c,$和$d$是整数，$0\\le d\\le c\\le b\\le a\\le 4$，并且多项式有一个零$z_0$，$|z_0|=1.$在所有具有这些特性的多项式中，所有值$P（1）$之和是什么？", "answer": "92", "label": "QA"}
+{"question": "如果$a= 5$，请评估表达式$a^3\\cdot a^2$。", "answer": "3125", "label": "QA"}
+{"question": "在图中，$D$和$E$分别是$overline{AB}$和$overline{BC}$的中点。  请确定四边形$DBEF$的面积。[asy]size(180); defaultpen(linewidth(.7pt)+fontsize(10pt))；对A、B、C、D、E、F；A=(0,6);B=(0,0);C=(8,0);D=(0,3);E=(4,0);F=(8/3,2);draw(EACD)；draw((1,0)(10,0), EndArrow)；draw((0,1)(0,8), EndArrow)；label(\"$A(0,6)$\", A, W)；label(\"$B(0,0)$\", B, SW)；label(\"$C(8,0)$\", C, S)；label(\"$D$\", D, W)；label(\"$E$\", E, S)；label(\"$F$\", F, SW)；label(\"$x$\", (10,0), dir(0))；label(\"$y$\", (0,8), dir(90))；[/asy]", "answer": "8", "label": "QA"}
+{"question": "If $\\tan x+\\tan y=4$ and $\\cot x+\\cot y=5$, 计算 $\\tan (x+y)$.", "answer": "20", "label": "QA"}
+{"question": "从1！到100！的阶乘中，有多少是可以被9整除的？", "answer": "95", "label": "QA"}
+{"question": "假设多项式$$f(x) = a_nx^n + a_{n-1}x^{n1} + \\cdots + a_2x^2 + a_1x + a_0$$有整数系数，其根是不同的整数。鉴于$a_n=2$和$a_0=66$，$|a_{n1}|$的最小可能值是多少？", "answer": "14", "label": "QA"}
+{"question": "方程为$x^2+y^2=6x-8y+24$的圆心与点$(-3,-12)$之间的距离是多少？", "answer": "10", "label": "QA"}
+{"question": "$2x^2 + 13x + 6 = 0$的解的平方积是多少？", "answer": "9", "label": "QA"}
+{"question": "一个4乘以4乘以4元的长方体盒子里有64个完全相同的小方块，它们正好填满了盒子。有多少个小方块接触到盒子的底部或四个侧边之一？", "answer": "52", "label": "QA"}
+{"question": "如果 $frac{cos 3x}{cos x} = \\frac{1}{3},$ 那么确定 $\\frac{\\sin 3x}{\\sin x}。", "answer": "\\frac{7}{3}", "label": "QA"}
+{"question": "计算$126_7-54_7.$ 以$7为基数表示你的答案。", "answer": "42_7", "label": "QA"}
+{"question": "一个由四个连续的整数组成的集合的总和是22。如果这组整数中的每个整数都增加2，然后乘以20，那么新的一组整数的和是多少？", "answer": "600", "label": "QA"}
+{"question": "当$a=1$，$b=3$，$c=5$时，求$\\displaystyle\\frac{a^3+b^2+c}{a+b^2+c^3}$。", "answer": "\\frac{1}{9}", "label": "QA"}
+{"question": "求2^8$除以5时的余数。", "answer": "1", "label": "QA"}
+{"question": "展开积$(x+1)^2\\cdot x$。", "answer": "x^3 + 2x^2 + x", "label": "QA"}
+{"question": "该函数的定义为\\[f(x)=left\\{\\begin{array}{cl}。x + k & \\text{if $x < 4$}, \\\\2x -3 & \\text{if $x\\ge 4$} \\end{array}。\\right.\\]有一个逆数，逆数是为所有实数定义的。  输入所有可能的$k,$的值，用逗号分隔。", "answer": "1", "label": "QA"}
+{"question": "如果$f(x)=x^3+3x^2+3x+1$，求$f(f^{-1}(2010))$。", "answer": "2010", "label": "QA"}
+{"question": "贝卡有四个黄铜门牌号：2、3、5和7，每个数字只有一个。她能用其中一个或多个数字组成多少个不同的数字？", "answer": "64", "label": "QA"}
+{"question": "在3点20分，时针和分针形成的较小角度的度数是多少？", "answer": "20\\text{ degrees}", "label": "QA"}
+{"question": "求4除以$f\\rac{4}{9}$。", "answer": "9", "label": "QA"}
+{"question": "Let $0 \\le a \\le 1$ and $0 \\le b \\le 1.$ Find the largest possible value of\\[\\frac{a + b}{ab + 1}.\\] 。", "answer": "1", "label": "QA"}
+{"question": "当多项式$p(x)$除以$x-1,$的余数是3。当多项式$p(x)$除以$x-3,$的余数是5。当多项式$p(x)$被$(x - 1)(x - 3)$除时，余数是多少？", "answer": "x + 2", "label": "QA"}
+{"question": "计算 $\\left(\\sqrt{97969}\\right)^2$.", "answer": "97969", "label": "QA"}
+{"question": "对于什么值的 $n$，满足 $(2^3)^4 = 2^n$？", "answer": "12", "label": "QA"}
+{"question": "向量 $begin{pmatrix}1 \\\\ -1 \\\\ 2 \\ end{pmatrix},$ $\\begin{pmatrix} 2 \\\\ 4 \\\\ 1 \\end{pmatrix},$ 和 $\\begin{pmatrix} a \\\\1 \\\\ c \\end{pmatrix}$ 是成对正交的。  输入有序的一对$(a,c).$", "answer": "(-3,2)", "label": "QA"}
+{"question": "简化 $\\sqrt{192}$。", "answer": "8\\sqrt{3}", "label": "QA"}
+{"question": "以下图中以红色表示的$y=f(x)$的完整图形由五个线段组成。（在此图中，网格线之间的距离为$1$。）\n设$a$和$b$分别为满足函数$g(x)=f(x)+ax$和$h(x)=f(x)+bx$可逆的最大负整数和最小正整数。求$a^2+b^2$的值。[asy]size(150)；real ticklen=3；real tickspace=2；real ticklength=0.1cm；实数 axisarrowsize=0.14cm；笔 axispen=black+1.3bp；real vectorarrowsize=0.2cm；实数tickdown=0.5；real tickdownlength=0.15inch；实数tickdownbase=0.3；real wholetickdown=tickdown；void rr_cartesian_axes(real xleft, real xright, real ybottom, real ytop, real xstep=1, real ystep=1, bool useticks=false, bool complexplane=false, bool usegrid=true) {进口图；真正的一；如果(complexplane) {label(\"$\\textnormal{Re}$\",(xright,0),SE)；label(\"$/textnormal{Im}$\",(0,ytop),NW)；} else {label(\"$x$\",(xright+0.4,0.5))；label(\"$y$\",(0.5,ytop+0.2))；}ylimits(ybottom,ytop)；xlimits( xleft, xright)；real[] TicksArrx,TicksArry；for(i=xleft+xstep; i<xright; i+=xstep) {如果(abs(i) >0.1) {TicksArrx.push(i)；}}for(i=ybottom+ystep; i<ytop; i+=ystep) {如果(abs(i) >0.1) {TicksArry.push(i)；}}if(usegrid) {xaxis(BottomTop(extend=false), Ticks(\"%\", TicksArrx ,pTick=gray(0.22),extend=true),p=invisible);//, above=true)；yaxis(LeftRight(extend=false),Ticks(\"%\", TicksArry ,pTick=gray(0.22),extend=true), p=invisible);//, Arrows)；}如果(useticks) {xequals(0, ymin=ybottom, ymax=ytop, p=axispen, Ticks(\"%\",TicksArry , pTick=black+0.8bp,Size=ticklength), above=true, Arrows(size=axisarrowsize) )；yequals(0, xmin=xleft, xmax=xright, p=axispen, Ticks(\"%\",TicksArrx , pTick=black+0.8bp,Size=ticklength), above=true, Arrows(size=axisarrowsize) )；} else {xequals(0, ymin=ybottom, ymax=ytop, p=axispen, above=true, Arrows(size=axisarrowsize))；yequals(0, xmin=xleft, xmax=xright, p=axispen, above=true, Arrows(size=axisarrowsize))；}};rr_cartesian_axes(5,5,5,5)；draw((5,4)(2,5)(1,3)(1,5)(3,2)(5,2),red+1);dot((5,4),red)；dot((2,5),red)；dot((1,3),red)；dot((1,5),red)；dot((3,2),red)；dot((5,2),red)；[/asy]", "answer": "41", "label": "QA"}
+{"question": "$9^3$的多少个倍数大于$9^4$且小于$9^5$？", "answer": "71", "label": "QA"}
+{"question": "如图所示，直线$y=-2x+8$和$y=\\frac{1}{2}x-2$在$(4,0)相遇。这两条线和直线$x = -2?$所形成的三角形的面积是多少？draw((-8,0)(15,0),black+linewidth(1))；draw((-8,0)(15,0),EndArrow)；draw((0,-8)(0,15),black+linewidth(1))；draw((0,-8)(0,15),EndArrow)；draw((-2,-9)(-2,16),black+linewidth(1))；draw((-3.5,15)(8,-8),black+linewidth(1))；draw((-8,-6)(8,2),black+linewidth(1))；label(\"$y$\",(0,15),N)；label(\"$x$\",(15,0),E)；label(\"$x=2$\",(-2,-9),S);label(\"$(4,0)$\",(3,-2),S)；label(\"$y=\\frac{1}{2}x-2$\",(8,2),NE);label(\"$y=-2x+8$\",(8,-8),SE);[/asy]", "answer": "45", "label": "QA"}
+{"question": "有理函数$\\frac{q(x)}{x^64x^5+3x^3+x^2-1}$的图形有一个水平渐近线。请问$q(x)$的最大可能度数是多少？", "answer": "6", "label": "QA"}
+{"question": "如果$x$是一个正数，$x+10$比$10-x$多多少？用$x$来表示你的答案。", "answer": "2x", "label": "QA"}
+{"question": "简化\\[4 \\sin x \\sin (60^\\circ -x) \\sin (60^\\circ + x).]答案将是某个$x的简单函数的三角函数，$如\"$cos (2x)$\"或\"$\\sin (x^3)$\"。", "answer": "\\sin 3x", "label": "QA"}
+{"question": "以下哪一个整数在四舍五入后会变成$40$？A.$43$B.$23$C.$38$D.$51$E.$45$F. $35$将您的答案表述为与四舍五入到$40$的答案选项相对应的字母块，按字母顺序排列，不含标点符号。例如，如果所有六个答案选项都四舍五入到$40$，那么你的答案就是ABCDEF。", "answer": "\\text{ACF}", "label": "QA"}
+{"question": "求抛物线的焦点$y=\\frac{5x^2 - 4x + 2}{4}.$", "answer": "\\left( \\frac{2}{5}, \\frac{1}{2} \\right)", "label": "QA"}
+{"question": "一辆自行车以每分钟20英尺的速度行驶。那么自行车的速度以每秒多少英寸表示？", "answer": "4", "label": "QA"}
+{"question": "已知$(a)$ x $(b) = a^2 + 2ab + b^2$，当$a = 3$和$b = 5$时，$(a)$ x $(b)$的值是多少？", "answer": "64", "label": "QA"}
+{"question": "有多少个三位数的正数不是7的倍数？", "answer": "772", "label": "QA"}
+{"question": " $\\sqrt{5^5+5^5+5^5+5^5+5^5}$?的值是多少", "answer": "125", "label": "QA"}
+{"question": "如图所示，一个实心直棱柱$ABCDEF$的高度为$16$，边长为$12,$的等边三角形底面。$ABCDEF$在边$DE,$DF,$CB,$和$CA,$上分别通过点$M,$N,$P,$和$Q$进行直切。如果$DM=4,$DN=2,$和$CQ=8,$确定实体的体积$QPCDMN.$ [asy]对A、B、C、D、E、F、M、N、P、Q；A=(0,0);B=(12,0);C=(6,-6);D=(6,-22);E=(0,-16);F=(12,-16);M=(2D+E)/3；N=(5D+F)/6；P=(2C+B)/3；Q=(2A+C)/3；draw(A--B--C--A--E--D--F--B--C--D);draw(M--N--P--Q--M, dashed)；label(\"$A$\", A, NW)；label(\"$B$\", B, NE)；label(\"$C$\", C, dir(90))；label(\"$D$\", D, S)；label(\"$E$\", E, SW)；label(\"$F$\", F, SE)；label(\"$M$\", M, SW)；label(\"$N$\", N, SE)；label(\"$P$\", P, SE)；label(\"$Q$\", Q, W)；label(\"12\", (A+B)/2, dir(90))；label(\"16\", (B+F)/2, dir(0))；[/asy]", "answer": "\\frac{224\\sqrt{3}}{3}", "label": "QA"}
+{"question": "这个球的直径长度等于放置它的盒子的高度。这个盒子是一个立方体，其边长为30厘米。这个盒子里有多少立方厘米没有被这个实心球占据？用$\\pi$表示你的答案。[asy]绘制(圆圈((7.5,7.5),5))；绘制((7.5,6.2)..(2.5,7.5)(12.5,7.5)..cycle);绘制((7.5,8.8)..(2.5,7.5)(12.5,7.5)..cycle,linetype(\"2 4\"));填补((2.6,7.4)(2.6,7.6)(12.4,7.6)(12.4,7.4)cycle,白色);点((7.5,7.5))；绘制((0,0)(10,0)(10,10)(0,10)cycle);绘制((0,10)(5,15)(15,15)(10,10));绘制((15,15)(15,5)(10,0));绘制((0,0)(5,5)(15,5),dashed); 绘制((5,5)(5,15),dashed);[/asy]", "answer": "27000-4500\\pi", "label": "QA"}
+{"question": "布伦南先生的统计课上有7个男孩和4个女孩。他明天要选3个男孩和2个女孩来做小组演讲，有多少种选择方式？（男孩和女孩的选择顺序无关紧要。）", "answer": "210", "label": "QA"}
+{"question": "求$1001$和$2431$的最大公因数。", "answer": "143", "label": "QA"}
+{"question": "当$x=2$时，求出\\[x^{{(x+1)}^x}/]。", "answer": "512", "label": "QA"}
+{"question": "将15.49999999四舍五入到最近的整数。", "answer": "15", "label": "QA"}
+{"question": "茉莉在她徒步旅行的前3英里中喝了1.5品脱的水。如果她继续以这个速度前进，在接下来的10英里内她会喝多少品脱的水？", "answer": "5", "label": "QA"}
+{"question": "在梯形$ABCD$中，$\\overline{AB}$与$overline{CD}$平行，$AB=7$单位，$CD=10$单位。段落$EF$与$\\overline{AB}$平行，$E$位于$\\overline{AD}$上，$F$位于$\\overline{BC}$上。如果$BF:FC=3:4$，那么$EF$是多少？请用公分数表示你的答案。", "answer": "\\frac{58}{7}", "label": "QA"}
+{"question": "考虑下面这个六乘六的单位方格。只用网格中的线段作为矩形的边，可以组成多少个面积为8平方单位的矩形？[asy]unitsize(0.2inch)；绘制((0,0)(6,0)(6,6)(0,6)cycle);绘制((1,0)(1,6))；绘制((2,0)(2,6))；绘制((3,0)(3,6))；绘制((4,0)(4,6))；绘制((5,0)(5,6))；绘制((0,1)(6,1))；绘制((0,2)(6,2))；绘制((0,3)(6,3))；绘制((0,4)(6,4))；绘制((0,5)(6,5))；[/asy]", "answer": "30", "label": "QA"}
+{"question": "$y=ax^2+bx+c$的图形是一条具有垂直对称轴的抛物线。  这个抛物线的顶点是$(2,3)$，抛物线包含点$(4,4)$。  当$x=6$时，求$y$的值。", "answer": "7", "label": "QA"}
+{"question": "求双曲线[x^2 - 10x = 4y^2 - 5.]的其中一个焦点的坐标(以有序对的形式输入答案。 只输入其中一个焦点，而不是两个。)", "answer": "(0,0)", "label": "QA"}
+{"question": "图为三角形$DEF$。 $\\Cos{E}$是多少？[asy]绘制((0,0)(7,0)(7,24)cycle,black+linewidth(1))；绘制(直角标记((0,0), (7,0), (7,24),30),black+linewidth(1))；标示(\"$E$\",(7,24),E)；标示(\"$F$\",(0,0),W)；标示(\"$D$\",(7,0),E)；标示(\"7\",(0,0)(7,0),S);标示(\"24\",(7,0)(7,24),E);[/asy]", "answer": "\\frac{24}{25}", "label": "QA"}
+{"question": "如果$|x+5|-|3x6|=0$，请找出$x$的最大可能值。把你的答案用假分数来表示。", "answer": "\\frac{11}{2}", "label": "QA"}
+{"question": "独立地、随机地选择0到1之间的数字$a$和$b$，并设$c$为它们的和。让$A$、$B$和$C$分别是将$a$、$b$和$c$四舍五入到最近的整数的结果。  请问$A+B=C$的概率是多少？", "answer": "\\frac{3}{4}", "label": "QA"}
+{"question": "简化表达式$$(x^5+3x^2+3x^5)-(x^7+2x^2+6x^5).$$", "answer": "-x^7-2x^5+x^2", "label": "QA"}
+{"question": "假设$\\omega$是一个复数，$\\omega^3=1.$ 找到\\[\\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2}.\\]所有可能的值. 输入所有可能的值，用逗号隔开。", "answer": "1", "label": "QA"}
+{"question": "设$x_1,$ $x_2,$ $\\dots,$ $x_{2016}$为x的根。\\x^{2016} + x^{2015} + \\dots + x + 1 = 0.\\] 找到\\[\\frac{1}{(1-x_1)^2}}+\\ frac{1}{(1 - x_2)^2}+ \\dots + \\frac{1}{(1 - x_{2016})^2}.\\] 。", "answer": "-338016", "label": "QA"}
+{"question": "解方程$2k+5=13$求出$k$。", "answer": "4", "label": "QA"}
+{"question": "在坎昆度假时，科琳可以花$\\$32$买一顶斗篷和一双拖鞋。她可以用$\\$42$买一双人字拖和太阳镜。她可以用$\\$30$买到斗篷和太阳镜。斗篷的价格是多少美元？", "answer": "\\$ 10", "label": "QA"}
+{"question": "一个委员会里有七只袋熊。其中三只是毛鼻袋熊，其余的都是不同的品种。如果毛鼻袋熊无法区分，但其他袋熊可以区分，那么这些袋熊可以有多少种方式坐成一排？", "answer": "840", "label": "QA"}
+{"question": "如果$f(a)=\\frac{1}{1-a}$，请找出$f^{-1}(a)乘以a\\乘以f(a)$的乘积。(假设 $a \\neq 0$ 和$a \\neq 1$.)", "answer": "-1", "label": "QA"}
+{"question": "在$ABC$的直角三角形中，B=90^\\circ$，我们有$2\\sin A=3\\cos A$。  What is $tan A$?", "answer": "\\frac32", "label": "QA"}
+{"question": "计算\\[\\sum_{k = 2}^\\infty \\frac{k - 3}{k(k^2 - 1)}.\\]", "answer": "0", "label": "QA"}
+{"question": "求解 \\[\\frac{x + 1}{x + 2} + \\frac{x + 8}{x + 9} = \\frac{x + 2}{x + 3} + \\frac{x + 7}{x + 8}.\\]", "answer": "-\\frac{11}{2}", "label": "QA"}
+{"question": "在图中，如果$ABC三角形和$PQR三角形是等边的，那么$CXY三角形的度数是多少？[asy]输入 cse5；size(8cm)；绘制((-0.8, 0)--(1.5, 0))；对b = (0, 0); 对p = (0.75, 0)；对 a = dir(180 - 65); 对 c = dir(55)；pair q = shift(p) * (1.7 * dir(75)); pair r = shift(p) * (1.7 * dir(60 + 75))；绘制(a--b--c--cycle); 绘制(p--q--r--cycle)；标注(\"$B$\", b, S);标注(\"$P$\", p, S); 标注(\"$R$\", r, NW); 标注(\"$Q$\", q, NE)；标注(\"$A$\", a, W); 标注(\"$C$\", c, E); 标注(\"$X$\", IP(r--p, a--c), NE); 标注(\"$Y$\", IP(r--p, c--b), 2 * E) ；标注(\"$65^\\circ$\", b, W + NW+ NW); 标注(\"$75^\\circ$\", p, 0.5 * E + NE + NE)；[/asy]", "answer": "40", "label": "QA"}
+{"question": "用\\[z^3 = 2 + 2i\\]的根$a_1 + ib_1,$ $a_2 + ib_2,$ and $a_3 + ib_3.$  计算 $a_1 a_2 a_3.$", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "设$z_1,$z_2,$z_3,$和$z_4$为方程的四个不同的复数解\\[  z^4 - 6z^2 + 8z + 1 = -4（z^3 - z + 2）i。\\]求复平面内$z_1,$z_2,$z_3,$和$z_4$之间的六对距离之和。", "answer": "6\\sqrt{3}+6", "label": "QA"}
+{"question": "一条线段的两个端点分别在$(1,4)$和$(1,10)$。该线段的中点的坐标之和是多少？", "answer": "8", "label": "QA"}
+{"question": "如果$0 < \\theta < \\frac{\\pi}{2}$ 和 $\\sqrt{3} \\cos \\theta - \\sin \\theta = \\frac{1}{3}，$那么求$\\sqrt{3} \\sin \\theta + \\cos \\theta.$", "answer": "\\frac{\\sqrt{35}}{3}", "label": "QA"}
+{"question": "评估 $\\lfloor 14.6 \\rfloor-\\lceil-14.6\\rceil$.", "answer": "28", "label": "QA"}
+{"question": "y = frac{-12x + 74}{5}$线的参数化形式为 \\[\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\mathbf{v} + t \\mathbf{d},\\]. 因此，对于$x /le 7，$\\begin{pmatrix} x \\\\ y \\end{pmatrix}$ 和 $\\begin{pmatrix} 7 \\\\ -2 \\end{pmatrix}之间的距离是$t.$ 求$mathbf{d}.$", "answer": "\\begin{pmatrix} -5/13 \\\\ 12/13 \\end{pmatrix}", "label": "QA"}
+{"question": "关于$C$点的旋转角度是多少度，可以将深色的图形映射到浅色的图像上？[asy]import olympiad; defaultpen(linewidth(0.7));\n绘制((4,-1)--(4,1)--(-4,1)--(-4,3)--(-6,0)--(-4,-3)--(-4,-1)--(4,-1)--cycle,linewidth(2));\n   绘制((-4,1)--(-4,3)--(4,3)--(4,5)--(6,2)--(4,-1)--(4,1)--(-4,1)--cycle);\n   点(\"$C$\",(0,1),N);\n   [/asy]", "answer": "180^{\\circ}", "label": "QA"}
+{"question": "如果$-6\\leq a \\leq -2$ and $3 \\leq b \\leq 5$, $\\displaystyle\\left(a+\\frac{1}{b}\\right)\\left(\\frac{1}{b}-a\\right) 最大可能的值是多少 $？将你的答案用公分数表示。", "answer": "-\\frac{35}{9}", "label": "QA"}
+{"question": "求所有满足$\\frac{3}{x}$大于$\\frac{1}{3}$且小于$\\frac{3}{4}$的$x$的整数值之和。", "answer": "26", "label": "QA"}
+{"question": "简化$\\cos 10^\\circ \\cos 30^\\circ \\cos 50^\\circ \\cos 70^\\circ.$", "answer": "\\frac{3}{16}", "label": "QA"}
+{"question": "在图中，$\\三角形ABC$在$C$处是直角。另外，点$M$、$N$和$P$分别是边$BC$、$AC$和$AB$的中点。  如果$APN$的面积是$2\\mbox{cm}^2$，那么$ABC$的面积是多少，以平方厘米计？[asy]size(6cm)；奥林匹克竞赛；对 c = (0, 0); 对 a = (0, 4); 对 n = (0, 2); 对 m = (4, 0); 对 b = (8, 0); 对 p = n + m；draw(a--b--c--cycle); draw(n--p--m)；draw(rightanglemark(a,c,b))；label(\"$C$\", c, SW); label(\"$A$\", a, N); label(\"$N$\", n, W); label(\"$M$\", m, S); label(\"$B$\", b, E); label(\"$P$\", p, NE)；[/asy]", "answer": "8", "label": "QA"}
+{"question": "下面是一个函数的部分图形，$y=g(x)$：[asy]import graph; size(8cm); real lsf=0.5; pen dps=linewidth(0.7)+fontsize(10); defaultpen(dps); pen ds=black; real xmin=6.25,xmax=6.25,ymin=6.25,ymax=6.25；pen cqcqcq=rgb(0.75,0.75,0.75);/*网格*/ 笔 gs=linewidth(0.7)+cqcqcq+linetype(\"2 2\"); real gx=1,gy=1；for(real i=ceil(xmin/gx)*gx;i<=floor(xmax/gx)*gx;i+=gx) draw((i,ymin)(i,ymax),gs); for(real i=ceil(ymin/gy)*gy;i<=floor(ymax/gy)*gy;i+=gy) draw((xmin,i)(xmax,i) ，gs；）标签 laxis; laxis.p=fontsize(10)；x轴(\"\",xmin,xmax,Ticks(laxis,Step=1.0,Size=2,NoZero),Arrows(6),over=true); y轴(\"\",ymin,ymax,Ticks(laxis,Step=1.0,Size=2,NoZero),Arrows(6),over=true) ；real f1(real x){return 6*sin(x*pi/6);}。draw(graph(f1,6.25,6.25),lineewidth(1))；clip((xmin,ymin)（xmin,ymax）（xmax,ymax）（xmax,ymin）cycle)；[/asy]$g(g(1))$ 的值是多少？", "answer": "-6", "label": "QA"}
+{"question": "以下的图形有多少个垂直渐近线？\\[y = \\frac{(x+ 3)^5 (x + 2)^8 (x + 1)^4 (x - 7)^2}{(x + 3)^{11} (x + 2)^6 (x + 1)^4 x^2}\\]?", "answer": "2", "label": "QA"}
+{"question": "如果2只猫和5只羊驼一样酷，3只熊猫和7只猫一样酷，那么有多少只熊猫和70只羊驼一样酷？", "answer": "12", "label": "QA"}
+{"question": "要求$423_{10}$在基数$b$下也有$3$位数的最小整数$b$是多少？", "answer": "8", "label": "QA"}
+{"question": "以下哪一个点离原点最远：$(1,4)$, $(3,5)$, $(-6,0)$, $(-4,-2)?$", "answer": "(-6,0)", "label": "QA"}
+{"question": "一条端点坐标为$(-3,7)$和$(2,-5)$的线段长多少个单位？", "answer": "13", "label": "QA"}
+{"question": "如果$$\\frac{5x-7}{(x-1)^3} = \\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{C}{(x-1)^3}，$$找到$A+B+C$。", "answer": "3", "label": "QA"}
+{"question": "求所有满足以下条件的复数$z$之和\\[z^3 + z^2 - |z|^2 + 2z = 0.\\] 。", "answer": "-2", "label": "QA"}
+{"question": "在图中，$PRT$和$QRS$是直线。请问$x$的值是多少？[asy]引入 奥林匹克；引入数学；size(6cm); // ADJUST对r = (0, 0)；对 t = dir(-55)；pair s = dir(-55 - 70)；对 p = dir(-55 + 180)；实数qr = Sin(70) / Sin(40)；对q = qr * dir(-55 - 70 + 180)；draw(r--p--q--s--t--r);label(\"$R$\", r, 2 * E)；label(\"$T$\", t, SE)；label(\"$S$\", s, SW)；label(\"$P$\", p, W)；label(\"$Q$\", q, E)；label(\"$x^\\circ$\", t, W + NW + NW)；label(\"$40^\\circ$\", q, 4 * SW)；add(pathticks(p--q, spacing=1, s=4))；add(pathticks(q--r, spacing=1, s=4))；add(pathticks(r--s, 2, spacing=1, s=4))；add(pathticks(r--t, 2, spacing=1, s=4))；[/asy]", "answer": "55", "label": "QA"}
+{"question": "有多少种方法可以从5个人的小组中选出一个2人的委员会（其中我们选择2人的顺序并不重要）？", "answer": "10", "label": "QA"}
+{"question": "对于一个正整数$n$，$n^{th}$三角数是$T(n)=\\dfrac{n(n+1)}{2}$。例如，$T(3)=\\frac{3(3+1)}{2}= \\frac{3(4)}{2}=6$，所以第三个三角数是6。确定最小的整数$b>2011$，使$T(b+1)-T(b)=T(x)$对于某个正整数$x$。", "answer": "2015", "label": "QA"}
+{"question": "有两个可能的三角形，$AB=13，$BC=10，$A=40^/circ.$其中一个如下所示。  两种可能的$三角形B,$的值之和是多少度？[asy]单位大小（1厘米）；对A、B、C；A = (0,0);B = 5*dir(40)；C = (5,0);draw(A--B--Ccycle)；label(\"$A$\", A, SW)；label(\"$B$\", B, N)；label(\"$C$\", C, SE)；label(\"$13$\", (A + B)/2, NW)；label(\"$10$\", (B + C)/2, NE)；label(\"$40^\\circ$\", (1,0.4))；[/asy]", "answer": "100^\\circ", "label": "QA"}
+{"question": "计算 $\\arcsin\\left( -\\frac{1}{2}\\right).$ 用弧度表示你的答案。", "answer": "-\\frac{\\pi}{6}", "label": "QA"}
+{"question": "计算$\\tan 135^\\circ$。", "answer": "-1", "label": "QA"}
+{"question": "$\\frac{9x}{13}+\\frac{13}{9x}=\\frac{250}{117x}$所有可能的解之和是多少？", "answer": "0", "label": "QA"}
+{"question": "如果每小时60美元的速度是每秒88美元的英尺，那么每小时66美元的速度是每秒多少英尺？请将你的答案用小数点后的十位数来表示。", "answer": "96.8", "label": "QA"}
+{"question": "一条方程为$y=x^2+bx+c$的抛物线经过点$(2,3)$和$(4,3)$。请问$c$是多少？", "answer": "11", "label": "QA"}
+{"question": "对于一个实数$x，$让\\[f(x)=max\\{|x+15|, |x+12|, |x+8|, |x-1|, |x-3|, |x1-9|\\}.\\]求f(x)的最小值。", "answer": "17", "label": "QA"}
+{"question": "为了使正方形$ABCD$的对角线$overline{BD}$上有一条对称线，必须涂成黑色的小方块的最少数量是多少？[asy]for ( int x = 0; x < 5; ++x ){draw((0,x)--(4,x))；draw((x,0)--(x,4))；}fill((1,0)--(2,0)--(2,1)--(1,1)--cycle);fill((0,3)--(1,3)--(1,4)--(0,4)--cycle);fill((2,3)--(4,3)--(4,4)--(2,4)--cycle);fill((3,1)--(4,1)--(4,2)--(3,2)--cycle);label(\"$A$\", (0, 4), NW)；label(\"$B$\", (4, 4), NE)；label(\"$C$\", (4, 0), SE)；label(\"$D$\", (0, 0), SW)；[/asy]", "answer": "4", "label": "QA"}
+{"question": "一家销售小部件的公司需要支付$\\1000&的一次性设备费，然后它每生产一个小部件需要$\\$0.5$。它以每个小部件$\\$2.75$的价格出售小部件。为了赚取利润，该公司必须出售的最少的小部件数量是多少？", "answer": "445", "label": "QA"}
+{"question": "$(7+5)^2-(7-5)^2$ 的值是多少？", "answer": "140", "label": "QA"}
+{"question": "地球的周长是40,000千米。如果你走10亿米，你可以绕地球多少圈？", "answer": "25", "label": "QA"}
+{"question": "一个规则的九边形有多少条内部对角线？  ($\\emph{内部对角线}$是连接两个顶点的线段，这两个顶点之间没有一条边。)", "answer": "27", "label": "QA"}
+{"question": "如果$a_1, a_2, a_3, \\ldots$是一个具有共同差值$1$的算术级数，并且$[a_1+a_2+a_3+a\\dots+a_{98}=137.\\]，请找出$a_2+a_4+a_6+a_8+a_{98}的值", "answer": "93", "label": "QA"}
+{"question": "一个正十边形的内角的度数比一个正五边形的内角的度数大多少度？", "answer": "36^\\circ", "label": "QA"}
+{"question": "2000的最大和最小质因数之间的正差是多少？", "answer": "3", "label": "QA"}
+{"question": "对于$n\\ge 0$，让$F_n$表示第n$个斐波那契数（即$F_0=0，F_1=1$，$F_n=F_{n-1}+F_{n-2}$，对于所有$n\\ge 2$）。两个连续的斐波那契数的最大公除数的可能值是多少？", "answer": "1", "label": "QA"}
+{"question": "计算 $\\begin{pmatrix} -3\\\\5\\end{pmatrix} \\cdot `begin{pmatrix} -2 \\\\1 \\end{pmatrix}$。", "answer": "11", "label": "QA"}
+{"question": "假设函数$f(x)$是由表$$begin{array}{c || c | c | c | c}明确定义的。x & 0 & 1 & 2 & 3 & 4 \\\\ \\hlinef(x) & 0 & 0 & 1 & 3 & 6\\end{array}$$ 这个函数只对表中所列的$x$的值进行定义。假设$g(x)$被定义为$f(x)x$，对于$f域中的所有数字$x$，$g(x)的范围内有多少个不同的数字？", "answer": "3", "label": "QA"}
+{"question": "当小数$0.1\\overline{23}$被写成分数$frac{a}{b}$时，$a$和$b$是最大公除数为1的正整数，$a+b$是多少？", "answer": "556", "label": "QA"}
+{"question": "在$\\三角形ABC$中，$AB=13$，$AC=5$，$BC=12$。  点$M$和$N$分别位于$overline{AC}$和$overline{BC}$上，$CM=CN=4$。J$和K$位于$overline{AB}$上，因此$overline{MJ}$和$overline{NK}$垂直于$overline{AB}$。五边形$CMJKN$的面积是多少？将你的答案用公分数表示。[asy]对A、B、C、N、K、M、J；A=(0,5);B=(12,0);C=(0,0);N=(5,0);M=(0,4);J=(0.35,4.84);K=(6,2.4);绘制(A--B--Ccycle,linewidth(0.7))；绘制(N--K,linewidth(0.7))；绘制(MJ--,linewidth(0.7))；标注(\"$A$\",A,NW)；标注(\"$M$\",M,W)；标注(\"$C$\",C,SW)；标注(\"$N$\",N,S)；标注(\"$B$\",B,SE)；标注(\"$K$\",K,NE)；标注(\"$J$\",J,NE)；[/asy]", "answer": "\\frac{240}{13}", "label": "QA"}
+{"question": "英国、德国和法国之间举行了一次国际会议。  英国有三名代表参加，德国有四名代表，法国有两名代表。  如果同一国家的代表坐在一起，所有九个代表可以有多少种方式围着一张圆桌子坐？  (如果一种方式可以旋转以产生另一种方式，则认为两种方式相同)。", "answer": "576", "label": "QA"}
+{"question": "计算$(-49)\\div 7$。", "answer": "-7", "label": "QA"}
+{"question": "评估：$[1-(-1)^{11}]^2.$", "answer": "4", "label": "QA"}
+{"question": "我哥哥的年龄是我的4倍。6年后，他的年龄将是我的两倍。  我哥哥现在多大了？", "answer": "12", "label": "QA"}
+{"question": "计算$$\\sum_{n=1}^{\\infty} \\left( \\frac{2n}{3^n} - \\frac{1}{2^n} \\right).$$", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "一个算术数列的前5项之和是$70$。  这个数列的前10项之和是$210$。  这个数列的第一项是什么？", "answer": "\\frac{42}{5}", "label": "QA"}
+{"question": "计算$\\dbinom{8}{6}$。", "answer": "28", "label": "QA"}
+{"question": "如果$a$和$2b$两个数字的平均数是7，$a$和$2c$两个数字的平均数是8，那么整数$a$、$b$和$c$的平均数是多少？", "answer": "5", "label": "QA"}
+{"question": "Anna、Bertram、Carli和David进行了一场比赛，看他们中谁能在几分钟内屏住呼吸的时间最长。如果Bertram、Carli和David把他们的时间加在一起，得出的总和是Anna能憋气时间的三倍。同样地，如果安娜、卡利和大卫把他们的时间相加，结果是伯特兰时间的四倍，如果安娜、伯特兰和大卫把他们的时间相加，结果是卡利时间的两倍。最后，八倍于安娜的时间加上十倍于伯特兰的时间加上六倍于卡利的时间等于五分之二个小时。如果把大卫可以屏住呼吸的时间长度用简化分数表示，那么分子和分母之和是多少？", "answer": "28", "label": "QA"}
+{"question": "在200和300之间，有多少个整数的数字之和等于15？", "answer": "6", "label": "QA"}
+{"question": "假设$4^a=5$，$5^b=6$，$6^c=7$，$7^d=8$。 $a\\cdot b\\cdot c\\cdot d$是多少?", "answer": "\\frac{3}{2}", "label": "QA"}
+{"question": "计算 $/sin 30^\\circ$。", "answer": "\\frac{1}{2}", "label": "QA"}
+{"question": "让$x$和$y$都是实数，使得$0 \\le x \\le 1$ and $0 \\le y \\le 1.$找到\\[x^2 y - xy^2.\\]的最大值", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "在直线5x-9y=42$上的点的坐标是什么，使得$x$和$y$的坐标是彼此的加性反值？把你的答案表示为一个有序的对。", "answer": "(3,-3)", "label": "QA"}
+{"question": "艾略特农场有一个用于储存的筒仓。筒仓是一个直角圆筒，上面有一个直角圆锥，两者的半径相同。圆锥体的高度是圆柱体高度的一半。筒仓底部的直径是10米，整个筒仓的高度是27米。该筒仓的体积是多少，以立方米计？用$pi$表示你的答案。[asy]大小(150)；绘制((0,0)(0,18)(5,27)(10,18)(10,0),线宽(1))绘制((0,0)...(5,1)...(10,0),线宽(1))；绘制((0,0)...(5,1)...(10,0),线型(\"0 4\")+线宽(1))；绘制((0,18)...(5,17)...(10,18),线宽(1))；绘制((0,18)...(5,19)...(10,18),线型(\"0 4\")+线宽(1))；绘制((15,27)(16,27),线宽(1));绘制((15,0)(16,0)线宽(1))；绘制(15.5,27)(15.5,16),线宽(1));绘制((15.5,0)(15.5,11),线宽(1));标注(\"27 米\",(15.5,13.5));[/asy]", "answer": "525\\pi", "label": "QA"}
+{"question": "对于每个整数$n$，让$f(n)$为帕斯卡三角形的第n$行（即有$n+1$元素的那行）的元素之和减去前面几行的所有元素之和。例如，f(2)=\\underbrace{(1+2+1)}_{text{第二行}- underbrace{(1 + 1 + 1)}_{text{第0行和第1行}=1。\\对于$n\\ge 2015$，$f(n)$的最小值是多少？", "answer": "1", "label": "QA"}
+{"question": "求一个圆锥体在半径为1的球体中的最大体积。", "answer": "\\frac{32\\pi}{81}", "label": "QA"}
+{"question": "一个长方形棱柱的宽度、长度和高度各增加了$10/%$。该棱柱的体积增加了多少百分比？把你的答案表示为最接近的整数。", "answer": "33\\%", "label": "QA"}
+{"question": "计算满足以下公式的最小实数$x$： \\[\\sqrt{x^2 - 2x + 2} + \\sqrt{-x^2 + 6x - 2} = 2\\sqrt{x}.\\]", "answer": "3-\\sqrt7", "label": "QA"}
+{"question": "设$P$是三维空间中方程$xyz=1$图形上的一个点。  求$P$与原点之间可能的最小距离。", "answer": "\\sqrt{3}", "label": "QA"}
+{"question": "如果$x$，$y$和$z$都是正整数，使得$6xyz+30xy+21xz+2yz+105x+10y+7z=812$，求$x+y+z$。", "answer": "10", "label": "QA"}
+{"question": "一个沙漠中的温度在$15$分钟内上升了$1.5$度。  如果这个上升速度保持不变，那么在接下来的$2$小时内温度会上升多少度？", "answer": "12", "label": "QA"}
+{"question": "如果一个6英尺的女人站在旗杆的底部，其影子有9英尺长，那么20英尺的旗杆的影子有多少英尺长？", "answer": "30", "label": "QA"}
+{"question": "使得$0 \\le x,$ $y,$ $z \\le 1.$  \n 找到  \\[f(x,y,z) = x^的最大值", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "求Find $\\frac{1}{2}\\left(\\frac{3}{4}\\right)^3$.", "answer": "\\frac{27}{128}", "label": "QA"}
+{"question": "$y$的值是多少 使得 $\\lceil y\\rceil+y=15.5?$", "answer": "7.5", "label": "QA"}
+{"question": "6、8、9、11、16这几个数字的平均数是多少？", "answer": "10", "label": "QA"}
+{"question": "简化 $\\frac{\\sqrt{72}}{\\sqrt{10}}$.你的答案应该有一个整数分母。", "answer": "\\frac{6\\sqrt{5}}{5}", "label": "QA"}
+{"question": "艾米、本、卡尔和黛比各自有一些硬币。本的硬币数量是艾米的三倍，是卡尔的三分之一，而黛比的硬币数量是卡尔的三分之二。艾米的硬币数乘以本的硬币数，再乘以卡尔的硬币数，再乘以黛比的硬币数，是$162$。这四个孩子一共有多少个硬币？", "answer": "19", "label": "QA"}
+{"question": "从顶点$A$到顶点$B$，沿着立方体的边缘有多少条不同的三步路径？[asy]大小(101)；输入三；currentprojection=orthographic(1/2,-1,1/4)；绘制((0,0,0)--(1,0,0)--(1,0,1)--(0,0,1)--(0,0,0));绘制((1,0,0)--(1,1,0)--(1,1,1)--(1,0,1));绘制((1,1,1)--(0,1,1)--(0,0,1));标注(\"A\",(0,0,1),(-1,0,0)); 标注(\"B\",(1,1,0),(1,0,0));[/asy]", "answer": "6", "label": "QA"}
+{"question": "对于正实数$a,$b,$c,$和$d,$，请找出以下的最小值  \\[\\left\\lfloor \\frac{b + c + d}{a} \\right\\rfloor + \\left\\lfloor \\frac{a + c + d}{b} \\right\\rfloor + \\left\\lfloor \\frac{a + b + d}{c} \\right\\rfloor + \\left\\lfloor \\frac{a + b + c}{d} \\right\\rfloor.\\]", "answer": "9", "label": "QA"}
+{"question": "设$\\mathbf{a},$ $\\mathbf{b},$ $\\mathbf{c}$是三个大小相等的向量，并且它们的任何一对都是正交的。  如果$\\theta$是$\\mathbf{a}$与$\\mathbf{a}+ \\mathbf{b}+ $mathbf{c}之间的角，那么求$cos \\theta。", "answer": "\\frac{1}{\\sqrt{3}}", "label": "QA"}
+{"question": "简化\\[\\sin 70^\\circ \\cos 50^\\circ + \\sin 260^\\circ \\cos 280^\\circ.\\]", "answer": "\\frac{\\sqrt{3}}{4}", "label": "QA"}
+{"question": "设$P(x)$为2011度的多项式，即$P(1)=0,$$P(2)=1,$$P(4)=2,$$点,$P(2^{2011})=2011.$那么$P(x)$中$x$的系数可以用以下形式表示\\[a  -\\frac{1}{b^c},\\]其中$a,$ $b,$ $c$为正整数，$b$为素数。  求$a+b+c.$", "answer": "2014", "label": "QA"}
+{"question": "所示五边形的面积是多少平方英寸？[asy]绘制((0,0)--(8,0)--(8,18)--(2.5,20)--(0,12)--cycle);标注(\"8''\",(1.3,16),NW)；标注(\"6''\",(5.2,19),NE)；标注(\"18''\",(8,9),E)；标注(\"8''\",(4,0),S)；标注(\"12''\",(0,6),W)；绘制((1,0)--(1,1)--(0,1));绘制((7,0)--(7,1)--(8,1));[/asy]", "answer": "144", "label": "QA"}
+{"question": "一个圆柱体的高度为10，半径为3，请确定该圆柱体的体积。", "answer": "90\\pi", "label": "QA"}
+{"question": "计算$\\begin{pmatrix} 4 \\\\ 5 \\\\ -1 \\end{pmatrix} \\乘以 \\begin{pmatrix} 4 \\\\ 5 \\\\ -1 \\end{pmatrix}.$", "answer": "\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}", "label": "QA"}
+{"question": "对100名学生的调查总结列出了以下总数：59名学生做了数学家庭作业49名学生做了英语家庭作业42名学生做了科学家庭作业20名学生做了英语和科学家庭作业29名学生做了科学和数学家庭作业31名学生做了数学和英语家庭作业12名学生做了数学、科学和英语家庭作业有多少学生没有做数学、英语和科学家庭作业？", "answer": "18", "label": "QA"}
+{"question": "求解$x$: $\\frac{x}2 + \\frac{x}3 = 5$", "answer": "6", "label": "QA"}
+{"question": "如果帕斯卡三角形的第三条对角线上的数字是三角形数，那么第$50$个三角形数的值是多少？（第$n$个三角形数是$1+2+3+\\ldots+n$。）", "answer": "1275", "label": "QA"}
+{"question": "设$\\ell$是通过$(0,0,1)$和$(1,1,1)$两点的空间直线。$ 设$d$是最短路径的长度，从原点开始，走到$\\ell上的一个点，然后在$(1,0,0)点结束。输入$d^2.$", "answer": "3 + \\sqrt{6}", "label": "QA"}
+{"question": "我的俱乐部有15名成员。  如果秘书或司库必须被选为副主席，而且其他成员不能担任一个以上的职位，那么我们可以用多少种方式来选择主席、副主席、秘书和司库？", "answer": "5,\\!460", "label": "QA"}
+{"question": "一个数$x$可以分解为$107\\cdot109^5$，其中$107$和$109$是质数。求$x^{11}$的质因数分解中$109$的指数是多少？", "answer": "55", "label": "QA"}
+{"question": "一个三角形的顶点是$A(4, 1)$, $B(2, 1)$和$C(1, 3)$。以平方为单位，三角形$ABC$的面积是多少？", "answer": "12", "label": "QA"}
+{"question": "设$P(x),$ $Q_1(x),$ $Q_2(x),$ $Q_3(x),$ $R(x)$为多项式，满足以下条件：\\begin{align*} P(x) &= Q_1(x) (x + 2) - 13 \\\\\n   &= Q_2(x) (x^2 - 3x - 4) - 5x - 11 \\\\\n   &= Q_3(x) (x + 2) (x^2 - 3x - 4) + R(x),\n   \\end{align*}and $\\deg R(x) = 2.$ 求 $R(x).$", "answer": "-2x^2 + x - 3", "label": "QA"}
+{"question": "参数曲线$(x,y) = (\\cos 2t, \\cos^2 t),$ 其中$t$为实数，描述了一个线段。求出这个线段的长度。", "answer": "\\sqrt{5}", "label": "QA"}
+{"question": "计算$\\sin 180^\\circ$.", "answer": "0", "label": "QA"}
+{"question": "求解全等式$2n\\equiv 15\\pmod{47}$，作为47的余数。（在0和46之间给出答案）。", "answer": "31", "label": "QA"}
+{"question": "将$634_7$转换为一个以10为底的整数。", "answer": "319", "label": "QA"}
+{"question": "在$3456$之后的最小的数字是什么，其数字加起来是12元？", "answer": "3504", "label": "QA"}
+{"question": "找出方程 $\\log_{3x} 4 = \\log_{2x} 8$ 的解，其中 $x$ 是一个正实数，但不等于 $\\tfrac{1}{3}$ 或 $\\tfrac{1}{2}$。", "answer": "\\frac{4}{27}", "label": "QA"}
+{"question": "将$\\displaystyle\\frac{33}{\\sqrt{33}}$的分母合理化。", "answer": "\\!\\sqrt{33}", "label": "QA"}
+{"question": "设直线$L$为平面$x + y + z - 6 = 0$和$2x + 3y + 4z + 5 = 0$的交线。找出包含直线$L$和点$(1,1,1)$的平面方程。以Ax+By+Cz+D=0的形式输入你的答案，其中$A$，$B$，$C$，$D$是整数，且满足$A > 0$和$\\gcd(|A|,|B|,|C|,|D|) = 1$。", "answer": "20x + 23y + 26z - 69 = 0", "label": "QA"}
+{"question": "如果二次方程$\\frac12x^2+99x+c=0$的根为$x=-99+\\sqrt{8001}$和$x=-99-\\sqrt{8001}$，那么$c$的值是多少？", "answer": "900", "label": "QA"}
+{"question": "如果$2ab=12$，请计算$8a^2b^2$。", "answer": "288", "label": "QA"}
+{"question": "求函数的范围 \\[m(x) = \\sqrt{x + 5} + \\sqrt{20 - x}.\\]", "answer": "[5,5 \\sqrt{2}]", "label": "QA"}
+{"question": "1$、2$、3$、4$、5$、6$、7$、9$这几个数字组成了四个两位数的质数，每个数字正好使用一次。这四个素数的总和是多少？", "answer": "190", "label": "QA"}
+{"question": "丹尼·亨利在他的直径为六英寸的圆形煎饼锅上制作了一个华夫饼，使用了半杯面粉的面糊。假设使用相同的面糊，并且所有华夫饼的厚度相同，保罗·巴尼恩需要多少杯面粉才能在他直径为二十四英尺的圆形煎饼锅上制作华夫饼呢？", "answer": "1152", "label": "QA"}
+{"question": "如果$sin x + cos x = \\frac{1}{2},$求出$\\sin^3 x + \\cos^3 x.$", "answer": "\\frac{11}{16}", "label": "QA"}
+{"question": "$ABCD$是一个规则的四面体（直角金字塔，其面都是等边三角形）。  如果$M$是$\\overline{CD}$的中点，那么$\\cos \\angle ABM$是什么？", "answer": "\\frac{\\sqrt{3}}{3}", "label": "QA"}
+{"question": "评估\\[\\sin (\\arcsin 0.4 + \\arcsin 0.5) \\cdot \\sin (\\arcsin 0.5 - \\arcsin 0.4).\\]", "answer": "\\frac{9}{100}", "label": "QA"}
+{"question": "一个边长为$10,$$10,和$12$的三角形的$textbf{altitudes}$长度之和是多少？将你的答案四舍五入到小数点后一位。", "answer": "27.2", "label": "QA"}
+{"question": "设$t$是最小的正实数，使得$\\cos t = \\cos t^\\circ$。（左边取$t$的弧度余弦，右边取$t$的度数余弦。）确定$\\lfloor t \\rfloor$的值。", "answer": "6", "label": "QA"}
+{"question": "将A(-6,6)、B(9,6)和C(9,-2)三点作图并以直线连接，形成的多边形的周长是多少？", "answer": "40", "label": "QA"}
+{"question": "设$a,$b,$和$c$是不同的实数。  求多项式的度数\\[p(x) = \\frac{(x - b)(x - c)}{(a - b)(a - c)} + \\frac{(x - a)(x - c)}{(b - a)(b - c)} + \\frac{(x - a)(x - b)}{(c - a)(c - b)}.\\]", "answer": "0", "label": "QA"}
+{"question": "寻找方程的所有解\\[\\frac{\\left(\\frac{x}{x+1}\\right)^2 + 11}{\\left(\\frac{x}{x+1}\\right)^2 + 1} = 2.\\]输入所有解，用逗号隔开。", "answer": "-\\tfrac34", "label": "QA"}
+{"question": "一个正八边形的内角的度数比一个正六边形的内角的度数多多少度？", "answer": "15^\\circ", "label": "QA"}
+{"question": "从小于$20$的正数倍数中减去小于$20$的$3$的正数倍数的数量，得到小于$20$的$6$的正数倍数的数量。", "answer": "-3", "label": "QA"}
+{"question": "如果$x^2 + bx + b + 3 = 0$的根的形式为$\\frac{-b pm\\sqrt{5}}{2}$，其中$b > 0$，那么$b = m+\\sqrt{n}$为正整数$m，n$。求$m + n$。", "answer": "23", "label": "QA"}
+{"question": "如果$\\tan^{-1} x + \\tan^{-1} y = \\frac{\\pi}{4},$ 那么计算 $xy + x + y.$", "answer": "1", "label": "QA"}
+{"question": "当一个比萨饼的直径增加2英寸时，其面积增加了44\\%$。原来的比萨饼的面积是多少，以平方英寸为单位？用$\\pi$来表示你的答案。", "answer": "25\\pi", "label": "QA"}
+{"question": "对于实数$t /neq 0,$绘制了点 \\[(x,y) = \\left( t + \\frac{1}{t}, t - \\frac{1}{t} \\right)\\]。  所有绘制的点都位于哪种曲线上？(A) 线(B) 圆(C) 抛物线(D) 椭圆(E) 双曲线输入正确选项的字母。", "answer": "\\text{(E)}", "label": "QA"}
+{"question": "在矩形$ABCD$中，$F$和$G$位于$\\overline{AB}$上，因此$AF=FG=GB$，$E$是$\\overline{DC}$的中点。此外，$\\overline{AC}$与$\\overline{EF}$相交于$H$，与$\\overline{EG}$相交于$J$。长方形$ABCD$的面积为70。求三角形$EHJ$的面积。[asy]对A、B、C、D、I、F、G、H、J；A=(0,0);B=(9,0);C=(9,5);D=(0,5);F=(3,0);G=(6,0);I=(4.5,5);H=(3.5,1.67);J=(5,3.33);绘制(A--B--C--D--cycle);绘制(A--C)；绘制(F--I--G)；标注(\"$A$\",A,W)；标注(\"$B$\",B,E)；标注(\"$C$\",C,E)；标注(\"$D$\",D,W)；标注(\"$E$\",I,N)；标注(\"$F$\",F,S)；标注(\"$G$\",G,S)；标注(\"$H$\",H,NW)；标注(\"$J$\",J,NE)；[/asy]", "answer": "3", "label": "QA"}
+{"question": "找到$\\frac{3}{4}$添加到$\\frac{1}{8}$。", "answer": "\\frac{7}{8}", "label": "QA"}
+{"question": "一个30^\\circ$-$60^\\circ$-$90^\\circ$的三角形被画在一个等边三角形的外部，所以直角三角形的斜边就是等边三角形的一条边。如果直角三角形的短腿是6个单位，那么两个顶点之间的距离是多少，这两个三角形没有共同点？用最简单的根式表达你的答案。[asy]绘制((2,0)--(0,0)--(1,1.732)--(2,1.732)--(2,0)--(1,1.732));绘制((2,1.632)--(1.9,1.632)--(1.9,1.732));标注(\"$60^\\circ$\",(1,1.732),2SE+E);标注（\"$30^\\circ$\",(2,0),5NNW+4N);标注(\"6\",(1.5,1.732),N);[/asy]", "answer": "6\\sqrt{7}", "label": "QA"}
+{"question": "求方程为$x^2 + 14x + y^2 - 6y + 53 = 0$的圆的中心。", "answer": "(-7, 3)", "label": "QA"}
+{"question": "设$A$和$B$是一个单位立方体的两个对角，设$C$是该立方体除$A$和$B以外的另一个顶点，$求$C$到直线$AB的距离。", "answer": "\\frac{\\sqrt{6}}{3}", "label": "QA"}
+{"question": "三条半径为5个单位的圆弧包围了图中的区域。弧$AB$和$AD$是四分之一圆，弧$BCD$是一个半圆。以平方为单位，该区域的面积是多少？[asy]/* AMC8 2000 #19 问题 */绘制((0,0).(1,1).(2,0))；绘制((0,0).(.7,.3).(1,1))；绘制((1,1)..(1.3, 0.3)..(2,0));标注(\"$A$\", (1,1), SW)；标注(\"$B$\", (0,0), W)；标注(\"$C$\", (1,1),N)；标注(\"$D$\", (2,0),E)；[/asy]", "answer": "50", "label": "QA"}
+{"question": "评估$\\lfloor 11.1 \\rfloor + 2 \\cdot \\lfloor 0.5 \\cdot 11.1 \\rfloor .$", "answer": "21", "label": "QA"}
+{"question": "表达式 $\\dfrac{\\sqrt{10}}{\\sqrt[4]{10}}$ 等于 10 的多少次幂？", "answer": "\\frac{1}{4}", "label": "QA"}
+{"question": "满足\\[2x = 3y = -z\\]的点集$(x,y,z)$构成一条直线。\n满足\\[6x = -y = -4z\\]的点集$(x,y,z)$构成另一条直线。\n请计算这两条直线之间的夹角，以度数表示。", "answer": "90^\\circ", "label": "QA"}
+{"question": "实数$t的参数曲线$(x,y)=(t^2+t, 2t-1),$描述了一条抛物线。  请找出抛物线的顶点。", "answer": "\\left( -\\frac{1}{4}, -2 \\right)", "label": "QA"}
+{"question": "一组10名加州理工学院的学生去Lake Street吃午饭。每个学生都在Chipotle或Panda Express吃饭。  这些学生总共可以有多少种不同的方式去吃午饭？", "answer": "1024", "label": "QA"}
+{"question": "设$\\alpha$，$\\beta$和$\\gamma$为三个角，满足$\\alpha + \\beta + \\gamma = \\pi$。如果我们已知$\\tan \\alpha \\tan \\beta = \\csc \\frac{\\pi}{3}，$则求$\\frac{\\cos \\alpha \\cos \\beta}{\\cos \\gamma}$的值。", "answer": "2 \\sqrt{3} + 3", "label": "QA"}
+{"question": "一个正方形和一个正三角形的周长相等。三角形的面积是$16\\sqrt{3}$ 平方厘米。正方形的对角线长度是多少厘米？用最简根式形式表示答案。\n[asy]defaultpen(lineewidth(1))；draw((0,0)(1,0)(1,1)(0,1)cycle);对 a = (1.25,0)+1.25*dir(60)；对b = a+1.25*dir(60)；draw((1.25,0)abcycle);[/asy]", "answer": "6\\sqrt{2}", "label": "QA"}

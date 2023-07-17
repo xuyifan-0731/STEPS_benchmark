@@ -1,0 +1,15 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MATHQA
+  file-pattern:
+    math/NumGLUE-Type1: '**/math/NumGLUE-Type1.jsonl'
+    math/NumGLUE-Type2: '**/math/NumGLUE-Type2.jsonl'
+    math/NumGLUE-Type8: '**/math/NumGLUE-Type8.jsonl'
+    math/ape_210k_en: '**/math/ape_210k_en.jsonl'
+    math/gsm8kmain: '**/math/gsm8kmain.jsonl'
+    math/math_agieval: '**/math/math_agieval.jsonl'
+  language: en
+  name: step1_en_math
+  path: data/STEP-I/step1_en/data
+  shot: 0
+  workers: 10

@@ -1,0 +1,127 @@
+{"question": "这头野牛重[]千克", "answer": "697", "background": "一只东北虎重245千克,一头野牛的体重比东北虎的3倍少38千克", "original": "245×3＝735（千克）\\n\\n 735－38＝697（千克）\\n\\n答：这头野牛重697千克。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "3个书架一共可以放[]本书", "answer": "600", "background": "每个书架有5层,每层放40本书", "original": "5×40＝200（本）\\n\\n 3×200＝600（本）\\n\\n答：3个书架一共可以放600本书。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "如果按每条5角计费，他两个季度的彩信费用是[]元", "answer": "45", "background": "小黑叔叔平均每月发送彩信15条", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "对折3次后的绳子长度是5厘米，这根绳子长是[]厘米", "answer": "40", "original": "5×40＝200（本）\\n\\n 3×200＝600（本）\\n\\n答：3个书架一共可以放600本书。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "小光买了一个价格是2.3元的卷笔到刀，付了5元钱，应找回[]元", "answer": "2.7", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "买回的桔子是苹果和梨的总数的4倍，水果店买回桔子多少千克？", "answer": "150＋123＝273（千克）\\n\\n 4×123＝492（千克）\\n\\n答：水果店买回桔子492千克", "background": "水果店买回苹果150千克,买回梨123千克。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "甲地到乙地相距多少千米？", "answer": "51×4＝204（千米）\\n\\n答：甲地到乙地相距204千米。", "background": "一辆汽车从甲地送货到乙地,去的时候是51千米／时,用了4小时,返回时只用了3小时", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "困难", "label": "QA"}
+{"question": "掷一下落在地上后，朝上的面色的可能性最大的是[]．", "answer": "黄", "background": "一个正方体3面涂黄色,2面涂绿色,1面涂红色", "original": "解：因为3＞2＞1，所以朝下面黄色的可能性最大", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个正方形的周长是20米，它的面积是[]平方米", "answer": "20", "original": "解：20÷4=5（米），5×5=25（平方米）；答：正方形的面积是25平方米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "307比最大的两位数多[]", "answer": "208", "original": "307-99=208．答：307比最大的两位数多208．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "丹霞山的门票每张100元，小明和他的爸爸、妈妈一起去游览，买门票需要多少钱？", "answer": "3×100=300（元），答：买门票需要300元．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "计算 27×93=[]（45+14）×34=[]", "answer": "解：（1）27×93=2511；（2）（45+14）×34=59×34=2006．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "直尺上的刻度从7到12是[]厘米", "answer": "5", "original": "12-7=5（厘米）；故答案为：5．", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "李谷每天早上8：00上课，11时半放学回家．下午2时10分上课，5时20分放学．他一天上课多少时间？", "answer": "解：11时30分-8时=3小时30分5时20分-2时10分=3小时10分3小时30分+3小时10分=6小时40分．答：他一天上课6小时40分．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "周长是60厘米的正方形，它的边长是[]厘米", "answer": "15", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "照这样计算，老板一个星期能卖出多少筐白菜？", "answer": "解：180×7=1260（筐）；答：老板一个星期能卖出1260筐白菜．", "background": "蔬菜批发市场今天的生意真好,一天就卖出了180筐白菜．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "方带园园去游览当地风景，2人7：40出发，8：50到达，路上用1小时[]分钟。", "answer": "10", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "光明小学买了一批书共336本，平均分给6个年级，每个年级有4班，你能算出平均每班分到多少本书吗？", "answer": "解：336÷（6×4）=336÷24=14（本）答：平均每班14本．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个正方形的周长是20分米，它的边长是[]分米．", "answer": "5", "original": "20÷4=5（分米），答：它 的边长是5分米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "三年级（1）班有46人，其中21人是女生，男生比女生多多少人？", "answer": "46-21-21=25-21，=4（人）．答：男生比女生多4人．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "食堂买回一些大米和面粉，面粉有36千克，买回的大米是面粉的12倍。买回大米多少千克？", "answer": "36×12= 432（千克）", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "有40颗糖，平均放在7个盒子里，剩下的装在纸袋里，纸袋里有多少颗糖？", "answer": "解：40÷7=5（颗）…5（颗）答：纸袋里有5颗．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "用两根同样长的铁丝分别围成一个长方形和一个正方形，则它们的[]相等．", "answer": "周长", "original": "因为，用铁丝围成长方形和正方形时，铁丝的长度就是所围成的长方形和正方形的周长，而两根铁丝的长度相等，所以，所围成的长方形和正方形的周长也就相等", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个长方形的长是宽的4倍，如果宽延长9厘米，这样就变成了一个正方形，原来长方形的周长是多少厘米？", "answer": "解：9÷（4-1）=9÷3=3（厘米）4×3=12（厘米）（12+3）×2=15×2=30（厘米）答：原来长方形的周长是30厘米．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "56的12倍是多少？", "answer": "56×12=672", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "你知道原来有多少个苹果吗？", "answer": "解：设原来有x个苹果。 （x-7）÷2=x÷3x=21", "background": "苹果的个数是梨的3倍,如果每天吃2个苹果,1个梨,若干天后,苹果还剩7个,梨恰好吃完", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一条鱼分为鱼头、鱼身、鱼尾三段．如果鱼尾重4千克，鱼头重量等于鱼身的一半加上鱼尾的重量，鱼身重量等于鱼头加鱼尾的重量．请问：这条鱼有多重？", "answer": "解：设鱼身的重量为x千克，则根据题意得：;x=;+4+4;=8;x=16鱼头的重量是：;+4=8+4=12（千克）这条鱼的重量是：12+16+4=32（千克）答：这条大鱼的质量是32千克．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "85×4的积是[]位数", "answer": "三", "original": "解：由于100×4=400，400为三位数，又85＜100，所以 85×4的积是三位数，积的最高位是百位．", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "最高位是[]位", "answer": "百", "original": "解：由于100×4=400，400为三位数，又85＜100，所以 85×4的积是三位数，积的最高位是百位．", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一项工作任务，6个人每天工作4小时，5天可以完成。照这样计算，如果增加4个人，每天工作时间减少1小时，可以提前几天完成？", "answer": "6×4×5÷（6+4）÷（4-1）= 4（天）5 - 4=1（天）", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "合唱队原来男生、女生各多少人？", "answer": "男生：（50+40）÷（6-1）=18（人）；女生：18+50=68（人）", "background": "某少年官合唱队女生比男生多50人,如果女生再增加40人,女生的人数就是男生的6倍", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明看一本故事书，现在看的左右两页之和是71，小明看的页码是[]", "answer": "35和36", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "请你算一算他们的交通费一共需要多少元？", "answer": "80×5+600×5=400+3000，=3400（元）．答：他们的交通费一共需要3400元．", "background": "五一”假期时,小明一家5个人去北京旅游,去时乘火车,回来时乘飞机,火车票每张80元,飞机票每张600元．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一袋盐（350克）乐乐一家五口人至少能吃[]天", "answer": "14", "background": "医生建议一个人平均每天吃盐最多5克", "original": "解：350÷5÷5=70÷5=14（天）答：一袋盐（350克）乐乐一家五口人至少能吃 14天", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个正方形的周长是72厘米，它的面积是[]平方厘米。", "answer": "324", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "白鸡比黑鸡多几只？", "answer": "设黑鸡有a只，那么白鸡有：13+a+15=a+28（只），a+28-a=28（只）；答：白鸡比黑鸡多28只．", "background": "小林家养了一些鸡,黄鸡比黑鸡多13只,白鸡比黄鸡多15只", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "把这根木料全部锯完要多少分钟？", "answer": "（16÷4-1）×3，=3×3，=9（分钟），答：全部锯完需要9分钟．", "background": "一根木料长16米,把它锯成4米长的小段,每锯下一段要3分钟", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "兄弟俩各集邮票多少枚？", "answer": "弟弟：46÷（3-1）=23（枚）哥哥：23+46=69（枚）", "background": "兄弟俩集邮,哥哥比弟弟多集46枚,哥哥集的邮票枚数是弟弟的3倍。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "还剩多少吨多少千克？", "answer": "6吨-2吨500千克=3吨500千克．答：还剩3吨500千克．", "background": "建筑工地运来水泥6吨,用去2吨500千克", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一台电视售价3998元，买2台大约要花[]元", "answer": "8000", "original": "解：3998×2≈4000×2=8000（元）答：买2台大约花8000元", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一张正方形的台布，边长是8分米，如果在四周绣上花边，花边长[]分米", "answer": "32", "original": "8×4=32（分米）．答：花边长32分米．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一本书40元，小刚每周储蓄6元，要存几周才能买这本书？", "answer": "40÷6=6（周）…4（元），6+1=7（周），答：要存7周才能买这本书．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "要在地面上铺地毯，需要多少平方米的地毯？", "answer": "12×8=96（平方米）", "background": "学校会议室地面的长是12米,宽是8米", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "妈妈给手帕四周缝上了漂亮的花边，花边长多少厘米？", "answer": "解：24×4=96（厘米）答：花边长96厘米．", "background": "芳芳有一块正方形手帕,边长24厘米．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "围成的长方形的面积是多少平方分米？", "answer": "解：长方形的宽是：40÷2÷（4+1）=20÷5=4（分米），长方形的长是：4×4=16（分米），长方形的面积是：16×4=64（平方分米）；答：围成的长方形的面积是64平方分米米．", "background": "用40分米长的铁丝围成一个长方形,使长是宽的4倍", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "壁虎5天吃了75只蚊子，蜻蜓6天吃了96只蚊子，谁每天吃的多一些？", "answer": "75÷5=15（只）；96÷6=16（只）；15＜16；答：蜻蜓每天吃的多一些．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这间教室的面积是多少平方分米？", "answer": "65×42=2730（平方分米）", "background": "一间教室长65分米,宽42分米", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "贝贝一共要花多少钱？", "answer": "15.4+9.8+1.5+1.5=28.2（元）", "background": "贝贝要给好朋友丽丽买寄两本故事书,一本的价钱是15,4元,另一本的价钱是9,8元,邮寄时,每本还要交1.5元的邮费", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一桶油重100千克，倒出37千克后，剩下的每8千克装一桶，需用几个桶？", "answer": "（100-37）÷8，=63÷8，≈8（个）；答：需用8个桶．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "要把40吨货物运走，每次运7吨，至少要[]次运完．", "answer": "6", "original": "解：40÷7=5（次）…5（吨），5吨还需要一次，5+1=6（次），答：至少需要6次运完", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这架飞机每小时飞行多少千米？", "answer": "40×19+25=785（千米）", "background": "一辆汽车每小时行驶40千米,一架飞机每小时行的路程比这辆汽车的19倍还多25千米。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这辆汽车平均每小时行多少千米？", "answer": "解：5时+12时=17时17时-9时=8（小时）728÷8=91（千米）答：这辆汽车平均每小时行91千米．", "background": "甲乙两地相距728千米,一辆汽车从上午9时出发,下午5时到达乙地", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "已经做了5天，还要做多少辆？", "answer": "2885-208×5=2885-1040=1845（辆）答：还要做1845辆．", "background": "玩具厂要做2885辆电动小汽车,每天做208辆", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "那么积是多少？", "answer": "解：一个因数缩小4倍，另一个因数缩小2倍，那么积就会缩小4×2=8倍，72÷8=9．答：积是9．", "background": "两数相乘积是72,若使一个因数缩小4倍,另一个因数也缩小2倍", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "需要篱笆多少米？", "answer": "（5×2+5）×2，=15×2，=30（米），答：需要篱笆长30米．", "background": "一块长方形菜地,宽是5米,长是宽的2倍,若在它的四周围长方形菜地,四周围上篱笆．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "225的3倍是多少？", "answer": "225×3=675", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个数的6倍是72，这个数是[]", "answer": "12", "original": "72÷6=12答：这个数是12．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这时园内有多少游客？", "answer": "解：742-265+306=477+306=783（个）答：这时园内有783个游客．", "background": "科技园上午有游客742人,中午有265人离去,下午又来了306位游客", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "按这样的规律进行下去，蜗牛第几天才能爬到井口？", "answer": "解：（30-6）÷（6-4）+1=24÷2+1=12+1=13（天）12×2+1=25（天）答：这只蜗牛第25天才能爬出井口．", "background": "一只蜗牛从深30米的井底向上爬,第一天向上爬了6米,第二天休息,于是向下滑了4米,第三天再向上爬6米,第四天又向下滑4米…", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一根长跳绳的长度是多少米？", "answer": "解：2×3=6（米）；答：一根长跳绳的长度是6米．", "background": "一根短跳绳的长度是2米,长跳绳的长度是短跳绳的3倍．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "正方形的边长是多少？", "answer": "（16+8）×2÷4=12（米）", "background": "一个长方形和一个正方形的周长相等,长方形的长是16米,宽是8米", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "31与11的差，再乘50得多少？", "answer": "（31-11）×50=1000", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "周长是36分米的正方形，它的边长是[]", "answer": "9分米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "如果所带的钱全部买本子，一共可以买多少个本子？", "answer": "由题意可知，一枝笔的钱可以买两个本子。一共可以买23个本子", "background": "小兰到文具店买文具,所带的钱刚好可以买6枝铅笔和11个本子,也刚好可以买8枝铅笔和7个本子", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "七、八两个月份她一共能写多少个毛笔字？", "answer": "解：（31+31）×28=62×28=1736（个）答：七月份和八月份一共能写558个毛笔字．", "background": "暑假里,小利坚持每天写28个毛笔字", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小红哪年出生的？", "answer": "解：33-3=30（岁）30-24=6（岁）2016-6=2010答：小红是2010年出生的．", "background": "今年小红比妈妈小24岁,3年后妈妈33岁", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "98+200○189+200中，○里应填[]", "answer": "＞", "original": "解：因为198＞189所以198+200＞189+200即，○里应填＞", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这间肯德基店每天营业多少时间？", "answer": "解：21时30分-9时=12小时30分；答：每天营业时间是12小时30分．", "background": "西城路新开了一间肯德基店,营业时间上写着9﹕00～21﹕30", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "他们一共要准备多少张贺卡？", "answer": "解：根据分析可得，（5-1）×5=20（张）；答：他们一共要准备20张贺卡", "background": "三．1班有5个同学,在春节期间每两人互送一张贺卡", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "6头大象4天一共吃多少千克草？", "answer": "解：72×6×4=432×4=1728（千克）答：6头大象4天一共吃1728千克草．", "background": "一头象平均每天吃草72千克", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "请问：大、小寝室各有多少间？", "answer": "解：设大寝室有x间，小寝室有（20-x）间，则：6x-4（20-x）=30 6x-80+4x=30 10x=110 x=1120-11=9（间）；答：大寝室有11间，小寝室有9间．", "background": "宿舍楼的大、小寝室一共有20间,已知大寝室每间住了6人,小寝室每间住了4人,并且大寝室的总人数比小寝室的总人数多30人．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "每组最多在展室内可停留多长时间？", "answer": "解：45×4÷40=180÷40=4.5≈5（组）11时30分-8时10分=3时20分=3;时3;÷5=;（时）;时=40分钟答：每组最多在展室内可停留40分钟．", "background": "清明节这天学校组织了4个班参观烈士纪念馆,每班平均45人．纪念馆早上8：10开馆,中午11：30关闭．展室内每次最多可容纳40人．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "限载4吨的货车，能一次把7台质量均为600千克的货物运走吗？", "answer": "600×7=4200（千克）4吨=4000千克4200千克＞4000千克．答：不能一次把7台质量均为600千克的货物运走．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "雁南小学买粉笔共花了多少钱？", "answer": "解：12×3×18=36×18=648（元）答：雁南小学买粉笔共花了648元．", "background": "雁南小学李老师买回18箱粉笔,每箱12盒,每盒3元．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "她家到学校大约是多少米？", "answer": "解：170×5=850（米）答：她家到学校大约是850米．", "background": "小华跑步去学校,每分钟大约跑170米,5分钟跑到学校", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "在1984年、1996年、2000年、2008年、2010年、2100年这些年份中，闰年有[]个", "answer": "4", "original": "解：1984÷4=496，1996÷4=499，2000÷400=5，2008÷4=502，2010÷4=502…2，2100÷400=5…100，答：闰年有4个", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "三年级既带矿泉水又带水果的有几人？", "answer": "解：80+70-127=150-127=23（人）；答：三年级既带矿泉水又带水果的有23人．", "background": "三年级有127个小朋友去春游,带矿泉水的有70人,带水果的有80人,每人至少带一样．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "如果她家一天吃两个鸡蛋，老奶奶家的鸡蛋可以连续吃[]天．", "answer": "20", "background": "老奶奶家有20个鸡蛋,还养了一天能下一个蛋的老母鸡", "original": "20÷（2-1）=20（天）；答：老奶奶家的鸡蛋可以连续吃20天．故答案为：20．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "每两个人通一次电话，可以通[]次电话．", "answer": "3", "background": "小刚、小红、小丽三人是好朋友", "original": "解：（3-1）×3÷2=6÷2=3（次）答：一共要通话3次．", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "住满了13个房间后，还剩5人，共有多少人参加夏令营活动？", "answer": "12×13+5=156+5=161（人）答：共有161人．", "background": "同学们乘船参加夏令营活动,全部住四等舱,四等舱有15个房间,每间12个床位．", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "共工作[]小时．", "answer": "7", "background": "王师傅下岗后在街头摆夜市,从每天晚上8：00干到第二天早晨3点", "original": "晚上8时用24时记时法是20时，24-20+3=4+3=7（小时）．答：工作7小时．", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "最小的数是[]", "answer": "1079", "background": "用7、1、0、9这四个数字组成的所有四位数中", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "最接近7000的是[]", "answer": "7019", "background": "用7、1、0、9这四个数字组成的所有四位数中", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "2元7角8分=[]元", "answer": "12.78", "original": "解：12元7角8分=12.78元4元5角2分=4.52元", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "4元5角2分=[]元", "answer": "4.52", "original": "解：12元7角8分=12.78元4元5角2分=4.52元", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "200的5倍是[]", "answer": "1000", "original": "解：200×5=1000；200÷5=40．答：200的5倍是1000，200是40的5倍", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "200是[]的5倍", "answer": "40", "original": "解：200×5=1000；200÷5=40．答：200的5倍是1000，200是40的5倍", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "42000平方米=[]公顷", "answer": "4.2", "original": "解：42000平方米=4.2公顷；2.25小时=2小时 15分钟", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "2.25小时=[]小时[]分钟", "answer": "2;15", "original": "解：42000平方米=4.2公顷；2.25小时=2小时 15分钟", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "102的2倍是[]", "answer": "204", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "102是2的[]倍", "answer": "51", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "400的6倍是[]", "answer": "2400", "original": "解：400×6=2400；125×8=1000．答：400的6倍是2400，125的8倍是1000", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "125的8倍是[]", "answer": "1000", "original": "解：400×6=2400；125×8=1000．答：400的6倍是2400，125的8倍是1000", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这7名评委评分的平均分是多少？", "answer": "90", "background": "亭亭参加校园歌手大赛,7名评委打分分别为：91分、88分、95分、89分、78分、97分、92分。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "你认为哪一个平均分更公平合理？", "answer": "去掉一个最高分和一个最低分后求平均分更公平合理", "background": "亭亭参加校园歌手大赛,7名评委打分分别为：91分、88分、95分、89分、78分、97分、92分。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "如果去掉一个最高分和一个最低分，再计算平均分，这时的平均分是多少？", "answer": "91分", "background": "亭亭参加校园歌手大赛,7名评委打分分别为：91分、88分、95分、89分、78分、97分、92分。", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "2分=[]时；", "answer": "0.2", "original": "解：（1）12分=0.2时；（2）40公顷=0.4平方千米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "40公顷=[]平方千米", "answer": "0.4", "original": "解：（1）12分=0.2时；（2）40公顷=0.4平方千米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "15个23的和是[]．", "answer": "345", "original": "解：23×15=345；63×27=1701", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "63的27倍是[]", "answer": "1701", "original": "解：23×15=345；63×27=1701", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "张叔叔一共卖了多少钱？", "answer": "30×8×6=240×6=1440（千克）．答：张叔叔一共卖了1440元．", "background": "每箱苹果30千克,每千克6元,张叔叔4天卖了8箱", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "平均每天卖了多少千克？", "answer": "30×8÷4=240÷4=60（千克）．答：平均每天卖60千克．", "background": "每箱苹果30千克,每千克6元,张叔叔4天卖了8箱", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "这条街的地面面积是多少？", "answer": "这条街的地面面积是150平方米", "background": "商业步行街地面铺彩砖,街道长25米,宽比长少19米", "original": "解：25×（25-19）=25×6=150（平方米）150×5=750（块）", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "如果每平方米要铺5块彩砖，共需要铺设彩砖多少块？", "answer": "共需要铺设彩砖750块", "background": "商业步行街地面铺彩砖,街道长25米,宽比长少19米", "original": "解：25×（25-19）=25×6=150（平方米）150×5=750（块）", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "用24时计时法表示上午7时15分是[]", "answer": "07:15:00", "original": "解：上午7时15分=7时15分，下午5时20分+12时=17时20分", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "下午5时20分是[]", "answer": "17:20:00", "original": "解：上午7时15分=7时15分，下午5时20分+12时=17时20分", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "平均每个花瓶插[]枝", "answer": "5", "background": "把22枝花插在4个花瓶里", "original": "22÷4=5（枝）…2（枝）．答：平均每个花瓶插5枝，还剩2枝", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "还剩[]枝", "answer": "2", "background": "把22枝花插在4个花瓶里", "original": "22÷4=5（枝）…2（枝）．答：平均每个花瓶插5枝，还剩2枝", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "计算50×70时，先算[]", "answer": "5×7", "original": "计算50×70时，可先计算5×7=35，然后再在35后面加上两个0，即积为3500，末尾有两个零", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "再在积的末尾添上[]个0", "answer": "两", "original": "计算50×70时，可先计算5×7=35，然后再在35后面加上两个0，即积为3500，末尾有两个零", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "它走一小格的时间是[]秒", "answer": "1", "original": "钟面上最短的针是时针，较长的针是分针．转动最快的针是秒针，它走一小格的时间是1秒", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "钟面上最短的针是[]针", "answer": "时", "original": "钟面上最短的针是时针，较长的针是分针．转动最快的针是秒针，它走一小格的时间是1秒", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "转动最快的针是[]针", "answer": "秒", "original": "钟面上最短的针是时针，较长的针是分针．转动最快的针是秒针，它走一小格的时间是1秒", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "较长的针是[]针", "answer": "分", "original": "钟面上最短的针是时针，较长的针是分针．转动最快的针是秒针，它走一小格的时间是1秒", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "762+339-217=[]", "answer": "762+339-217=1101-217=884", "background": "递等式计算：", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "1260÷6+290=[]", "answer": "1260÷6+290=210+290=500", "background": "递等式计算：", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "8107-23×7=[]", "answer": "8107-23×7=8107-161=7946", "background": "递等式计算：", "type": "计算题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "7050中的“5”表示5个[]", "answer": "十", "original": "解：7050中的“5”表示5个十；7005中的“5”表示5个一", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "7005中的“5”表示5个[]", "answer": "一", "original": "解：7050中的“5”表示5个十；7005中的“5”表示5个一", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "48与72的和乘15，积是多少？", "answer": "48+72）×15=120×15=1800答：积是1800．", "background": "列式计算", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "1200除以25与19的差，商是多少？", "answer": "1200÷（25-19）=1200÷6=200答：商是200", "background": "列式计算", "type": "解答题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个月有31天的月份有[]", "answer": "一、三、五、七、八、十、十二月", "original": "一年有12个月，平年2月有28天，闰年2月有29天．一个月有31天的月份有一、三、五、七、八、十、十二月", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一年有[]个月", "answer": "12", "original": "一年有12个月，平年2月有28天，闰年2月有29天．一个月有31天的月份有一、三、五、七、八、十、十二月", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "闰年2月有[]天", "answer": "29", "original": "一年有12个月，平年2月有28天，闰年2月有29天．一个月有31天的月份有一、三、五、七、八、十、十二月", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "平年2月有[]天", "answer": "18", "original": "一年有12个月，平年2月有28天，闰年2月有29天．一个月有31天的月份有一、三、五、七、八、十、十二月", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "京九铁路全长约2533[]", "answer": "千米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "珠穆朗玛峰海拔高度约8844[]", "answer": "米", "type": "填空题", "grade": "三年级", "course": "数学", "difficulty": "一般", "label": "QA"}

@@ -1,0 +1,130 @@
+{"question": "正方形纸沿两条对角连线对折,得到的图形是2个同样大小的[]形。", "answer": "三角形", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "个位上是6,十位上是3的数是[]。", "answer": "36", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "18-9=[]+8", "answer": "9", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "把他们三个按风车的数量由少到多排列起来：[]", "answer": "王杰，张萌，李心", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "李心做了[]个风车", "answer": "17", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "老师又送给张萌5个风车，张萌现在有[]个风车", "answer": "14", "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "王杰做了[]个风车", "answer": 7.0, "background": "\"做风车。张萌做了9个风车；李心做的比张萌的多8个；李心做的比王杰多10个。", "original": "（1）9+8=17（个）（2）17-10=7（个）（3）9+5=14（个）（4）王杰，张萌，李心", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小红看一本故事书,前天看了6页,昨天看了8页,今天小红应该从[]页开始看", "answer": "15", "original": "6+8=14，应该从第15页开始看。", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "有一盒糖,让小丽吃了9棵糖,还剩21棵。盒里原来有[]棵糖", "answer": "30", "original": "9+21=30（棵）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "池塘里原来有12只鸭,有5只鸭上岸后,池塘里还有[]只鸭", "answer": "7", "original": "12-5=7（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "8在[]的前面。", "answer": "9", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "玲玲的左边有8人,右边有4人,从左边移[]人到玲玲的右边,玲玲就站在正中间", "answer": "2", "original": "移2人（8-2= 4+2）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一年（4）班有47人,还有7人没有检查视力。[]个同学已经检查了视力。", "answer": "40", "original": "47-7= 40（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "原来有14个鸡蛋,吃了9个,还剩下[]个。", "answer": "5", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "90比60多[]", "answer": "30", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明家在3楼,每一层楼梯都有9个台阶,小明放学回家从楼下回到家中,要走[]个台阶。", "answer": "18", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "我已经看了60页,还有9页没有看。这本书有[]页", "answer": "69", "original": "60+9=69（页）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一年级有14人参加了美术小组,8人参加了合唱小组,参加美术小组的比参加合唱小组的多[]人", "answer": "6", "original": "14－8=6（人）", "type": "应用题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "停车场有17辆车,开走了8辆,还剩[]辆", "answer": "9", "original": "17-8=9（辆）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猜一猜,括号里要填整十数,该填多少呢？ 20+[]>57", "answer": "40（答案不唯一）", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一根木头锯成2段要9分钟,如果把这段木头锯成3段,要用[]分钟。", "answer": "18", "original": "9+9=18（分）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "0时指[]时", "answer": "晚上12时或24时", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "源源和苹苹去买糖,源源买69块,如果她给苹苹7块,她们两个人的糖数就相等了,苹苹买了[]块糖", "answer": "55", "original": "69-7-7=55（块）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明一共有[]个球", "answer": "14", "background": "小明有8个黄球，6个白球，小军有9个白球，7个红球。", "original": "(1)8+6=14 (2)9+7=16(3)因为16>14，所以小军的球多一些。", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "[]的球多一些", "answer": "小军", "background": "小明有8个黄球，6个白球，小军有9个白球，7个红球。", "original": "(1)8+6=14 (2)9+7=16(3)因为16>14，所以小军的球多一些。", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小军一共有[]个球", "answer": 16.0, "background": "小明有8个黄球，6个白球，小军有9个白球，7个红球。", "original": "(1)8+6=14 (2)9+7=16(3)因为16>14，所以小军的球多一些。", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个数减去15,差是50,这个数是[]", "answer": "65", "original": "50+15=65", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明有16张邮票,小红有10张,小明给[]张邮的邮票张数就同样多。", "answer": "3", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "按从小到大的顺序排列。15角,3元,200分,10元60角。[]", "answer": "15角;200分;3元;60角;10元", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个加数是64,另一个加数是18,和是[]。", "answer": "82", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "给下列算式填上合适的数。□=30,○=10,△=50,○+□+△=[]", "answer": "90", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "30加7等于[]", "answer": "37", "original": "30+7=37", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "树上的鸟飞走了6只,现在还剩下30只,原来树上有[]只鸟", "answer": "36", "original": "6+30=36（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个加数是7,另一个加数是2,和是[]", "answer": "9", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "停车场有38辆汽车,开走19辆后还剩[]辆", "answer": "19", "original": "38-19=19（辆）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "[]里填上“+”或“-”。 19[]3=16", "answer": "-", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明说自己邮票的张数比13多得多,比90少一些,个位上的数是8,十位上的数比个位上的数少1,小明有[]张邮票", "answer": "78", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小晨从1写到100,他共写[]个数字9", "answer": "20", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "淘气今年7岁,爸爸今年37岁。再过10年,爸爸比淘气大[]岁。", "answer": "30", "original": "37-7=30（岁）或47-17=30（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "树上开了14朵花,被风吹落了6朵,树上还有[]朵花", "answer": "8", "original": "14-6=8（朵）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个数比95少5,这个数是[]", "answer": "90", "original": "95-5=90", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "写出5个大于3的数：[]。", "answer": "4，5，6，7，8（答案不唯一）", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "明明今年6岁,妈妈比明明大30岁,妈妈现在[]岁", "answer": "36", "original": "6+30=36（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一只猫吃一只老鼠,用5分钟吃完,5只猫同时吃5只同样大小的老鼠,需要[]分钟才能吃完", "answer": "5", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "减数是28,被减数是43,差是[]", "answer": "15", "original": "43-28=15", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "有两箱苹果,从第一箱拿出8个放到第二箱,两箱就各有25个。第一箱原来有[]个苹果", "answer": "33", "original": "25+8=33（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "99比[]大1。", "answer": "98", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "舞蹈小组和音乐小组一共有[]人", "answer": "10", "background": "学校的音乐小组有6人，舞蹈小组有4人，美术小组有4人。", "original": "（1）6+4=10（人）；（2）4+4=8（人）；（3）6+4+4=14（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "三个小组一共有[]人", "answer": "14", "background": "学校的音乐小组有6人，舞蹈小组有4人，美术小组有4人。", "original": "（1）6+4=10（人）；（2）4+4=8（人）；（3）6+4+4=14（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "美术小组和舞蹈小组一共有[]人", "answer": 8.0, "background": "学校的音乐小组有6人，舞蹈小组有4人，美术小组有4人。", "original": "（1）6+4=10（人）；（2）4+4=8（人）；（3）6+4+4=14（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "唱歌的有4人,其余的跳舞,跳舞的有[]人", "answer": "8", "background": "学校宣传队里面一共有12人。", "original": "（1）12-4=8（人）（2）12-6=6（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "如果女生有6人，那么男生有[]人", "answer": 6.0, "background": "学校宣传队里面一共有12人。", "original": "（1）12-4=8（人）（2）12-6=6（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明还要挖7个,猜小明挖了[]个", "answer": "7", "background": "老师派小明和小亮各挖14个萝卜。", "original": "（1）14 - 7=7（个）（2）14 - 9=5（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小亮挖了9个，还要挖[]个", "answer": 5.0, "background": "老师派小明和小亮各挖14个萝卜。", "original": "（1）14 - 7=7（个）（2）14 - 9=5（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "右手拿着5个,左手拿着[]个气球", "answer": "7", "background": "小明一共拿了12个气球。", "original": "（1）12-5=7（个）；（2）12-4=8（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "彩色气球有4个，白色气球有[]个", "answer": 8.0, "background": "小明一共拿了12个气球。", "original": "（1）12-5=7（个）；（2）12-4=8（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "第一根铁丝比第三根铁丝短[]米", "answer": "2", "background": "爸爸要给小明做一个灯笼，他准备了三根铁丝，第一根铁丝长3米，第二根铁丝长4米，第三根铁丝长5米。", "original": "（1）5-3=2（米）；（2）5-4=1（米）；（3）3+4+5=12（米）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "三根铁丝一共长[]米", "answer": "12", "background": "爸爸要给小明做一个灯笼，他准备了三根铁丝，第一根铁丝长3米，第二根铁丝长4米，第三根铁丝长5米。", "original": "（1）5-3=2（米）；（2）5-4=1（米）；（3）3+4+5=12（米）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "第三根铁丝比第二根铁丝长[]米", "answer": 1.0, "background": "爸爸要给小明做一个灯笼，他准备了三根铁丝，第一根铁丝长3米，第二根铁丝长4米，第三根铁丝长5米。", "original": "（1）5-3=2（米）；（2）5-4=1（米）；（3）3+4+5=12（米）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小白采了[]个蘑菇", "answer": "42", "background": "小宝采了50个蘑菇，给王奶奶送20个。小白采的比小宝少8个，只给王奶奶送2个。", "original": "（1）50-8=42（个）（2）42+50=92（个）（3）小白；50-20=30（个），42-2= 40（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "送给王奶奶后，[]剩下的蘑菇多。", "answer": "小白", "background": "小宝采了50个蘑菇，给王奶奶送20个。小白采的比小宝少8个，只给王奶奶送2个。", "original": "（1）50-8=42（个）（2）42+50=92（个）（3）小白；50-20=30（个），42-2= 40（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小白和小宝一共采了[]个蘑菇", "answer": 92.0, "background": "小宝采了50个蘑菇，给王奶奶送20个。小白采的比小宝少8个，只给王奶奶送2个。", "original": "（1）50-8=42（个）（2）42+50=92（个）（3）小白；50-20=30（个），42-2= 40（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "大白狗啃了[]根骨头", "answer": "48", "background": "小黄狗啃了35根骨头，大白狗比小黄狗多啃了13根骨头，小花狗再啃10根就和小黄狗一样多了。", "original": "（1）35+13= 48（根）（2）35-10=25（根）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小花狗啃了[]根骨头", "answer": 25.0, "background": "小黄狗啃了35根骨头，大白狗比小黄狗多啃了13根骨头，小花狗再啃10根就和小黄狗一样多了。", "original": "（1）35+13= 48（根）（2）35-10=25（根）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小猴比大猴少摘[]个桃", "answer": "26", "background": "大猴摘了46个桃，小猴摘了20个桃。", "original": "（1）46-20=26（个）（2）46+20=66（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "大猴和小猴一共摘了[]个桃", "answer": 66.0, "background": "大猴摘了46个桃，小猴摘了20个桃。", "original": "（1）46-20=26（个）（2）46+20=66（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "完全一样的两个正方形可以拼成一个[]形", "answer": "长方", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "兰小学举办国庆六十周年征文活动,六年级一班有8篇征文入选,六年级二班有3篇征文入选,两个班一共入选了[]篇征文", "answer": "11", "original": "8+3=11", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小猴分桃乐呵呵,每只三个剩一个,每只四个差两个。小猴有[]只。", "answer": "3", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "操场上跳绳的同学有48人,踢口袋的同学有50人,操场上一共有[]人", "answer": "98", "original": "48+50=98（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "树上有16只小鸟,先飞走了6只,又飞走了8只,还剩[]只小鸟。", "answer": "2", "original": "16-6-8=2（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "和是85,另一个加数是5,求一个加数是[]", "answer": "80", "original": "85-5=80", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "从不同方向观察同一物体,看到的形状可能[]。", "answer": "不相同", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "叔叔有9张世博会场馆的参观门票,还要2张才够全家一起参观,全家一共有[]人", "answer": "11", "original": "9+2=11（人）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "比88少36的数是[]", "answer": "52", "original": "88-36=52", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "[]比15多1", "answer": "16", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "10元钱正好买一枝钢笔和两个羽毛球,如果买一枝钢笔和一个羽毛球,那么还剩2元,一枝钢笔[]元钱。", "answer": "6", "original": "10-2=8（元），8-2=6（元）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "西安的温差是[]℃", "answer": "10", "background": "我能帮他算出温差（最高温度减去最低温度而得到的差）是多少。西安：5~15℃；上海：10～18℃。", "original": "（1）15-5=10（℃）（2）18-10=8（℃）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "上海的温差是[]℃", "answer": 8.0, "background": "我能帮他算出温差（最高温度减去最低温度而得到的差）是多少。西安：5~15℃；上海：10～18℃。", "original": "（1）15-5=10（℃）（2）18-10=8（℃）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "18比6多[]", "answer": "12", "original": "18-6=12", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小约今年9岁了,王老师比小红大36岁,王老师[]岁。", "answer": "45", "original": "9+36= 45（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一个数,真奇怪,自己加自己,自己减自己,还得它自己。小朋友们猜一猜,这个数是[]", "answer": "0", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小刚做红花庆祝六一儿童节,第一天做了10朵,以后每天都比前一天多做10朵,3天一共做了[]朵", "answer": "60", "original": "10+（10+10）+（10+10+10）=60（朵）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "妈妈买来一些红柿,比10个多,不到20个,这些柿子最多可能是[]个。", "answer": "19", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小朋友们排队参观科技馆,从左往右数,乐乐站在第3 个,从右往左数,他排在第8 个,一共有[]个小朋友。", "answer": "10", "original": "7+3=l0或8+2=10", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "被减数是75,减数是5,差是[]", "answer": "70", "original": "75-5=70", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "[]比36少20", "answer": "16", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "被减数是15,减数是2,差是[]", "answer": "13", "original": "15-2=13", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猫妈妈带着小猫在河边钓鱼,它们一共钓了12条鱼,其中小猫钓了4条鱼,猫妈妈钓了[]条鱼。", "answer": "8", "original": "12-4=8（条）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "一（1）班种了22棵树,有2棵没种活,活了[]棵", "answer": "20", "original": "22 - 2=20（棵）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "2张5元+1张2元+2张1元=[]元", "answer": "14", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "2个十加6个十是[]个十", "answer": "8", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小明还有[]本书没有还", "answer": "6", "background": "小明从图书馆中一共借了15本，已经还了9本，小华从图书馆借18本书了，还有9本没有还。", "original": "（1）15 - 9=6（本）（2）18 - 9=9（本）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小华还了[]本书", "answer": 9.0, "background": "小明从图书馆中一共借了15本，已经还了9本，小华从图书馆借18本书了，还有9本没有还。", "original": "（1）15 - 9=6（本）（2）18 - 9=9（本）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "爸爸买一本故事书花20元,买一本笔记本花9元,爸爸一共花[]元钱", "answer": "29", "original": "20+9=29（元）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "8根同样长的小棒,可以摆成一个[]形,。", "answer": "正方", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "8个十和3个一合起来是[]", "answer": "83", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "5角+7角=[]角", "answer": "12", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "桌上有10支点燃的蜡烛．风从窗户吹进来,吹灭了2支蜡烛,过了一会儿,又有一支蜡烛被吹灭．把窗关起来,再没有蜡烛被吹灭,第二天早上还剩[]支蜡烛。", "answer": "3", "original": "解：1+2=3（支）答：第二天早上还剩3支蜡烛．", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "姐姐有60元,妹妹有20元,姐姐给妹妹[]元,两个人的钱数就同样多了。", "answer": "20", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "修车厂有汽车18辆,开走8辆,还剩[]辆", "answer": "10", "original": "18-8=10（辆）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "浇花。一共有16盆花,小红已经浇了9盆。还要浇[]盆花.", "answer": "7", "original": "16-9=7（盆", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "和39相邻的两个数是[]", "answer": "38，40", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小东今年9岁,爸爸37岁,爷爷的年纪比小东与爸爸的年纪之和还要大35岁,爷爷今年[]岁", "answer": "81", "original": "9+37+35=81（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猴子比熊猫多[]只", "answer": "15", "background": "某动物园里有猴子23只，熊猫8只。", "original": "（1）23-8=15（只）；（2）23+8=31（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猴子和熊猫一共有[]只", "answer": 31.0, "background": "某动物园里有猴子23只，熊猫8只。", "original": "（1）23-8=15（只）；（2）23+8=31（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "《小王子》这本书共有97页,丽丽已经看了80页,还有[]页没看。", "answer": "17", "original": "97-80=17（页）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "用同样的小正方体摆一个大正方体,至少需要[]块小正方体。", "answer": "8", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "妈妈买回一篮苹果,共有15个,我吃了6个,爸爸吃了5个,剩下的给妈妈吃,妈妈可以吃到[]个苹果。", "answer": "4", "original": "15-6-5=4（个）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "李老师有班费47元钱,她买了一副羽毛球拍用了30元,又买了一个羽毛球用了5元钱。李老师买东西用去了[]元钱。", "answer": "35", "original": "30+5=35（元）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "姐姐说：“我储蓄了33元钱。”妹妹说：“我再给你3元,我们储蓄的钱就同样多了！”妹妹储蓄了[]元钱", "answer": "39", "original": "33元+3元+3元=39元", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "比53多9的数是[]", "answer": "62", "original": "53+9=62", "type": "计算题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猫头鹰捉了[]只蚊子", "answer": "32", "background": "青蛙捉了40只蚊子，猫头鹰比青蛙少捉8只，小鸟捉了6只蚊子。", "original": "（1）40-8=32（只）（2）40-6=34（只）（3）32+6+40=78（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "它们一共捉了[]只蚊子", "answer": "78", "background": "青蛙捉了40只蚊子，猫头鹰比青蛙少捉8只，小鸟捉了6只蚊子。", "original": "（1）40-8=32（只）（2）40-6=34（只）（3）32+6+40=78（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小鸟比青蛙少捉[]只蚊子", "answer": 34.0, "background": "青蛙捉了40只蚊子，猫头鹰比青蛙少捉8只，小鸟捉了6只蚊子。", "original": "（1）40-8=32（只）（2）40-6=34（只）（3）32+6+40=78（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "唱歌和弹琴的同学一共有[]名", "answer": "44", "background": "华南小学开联欢会，唱歌的同学有26名，跳舞的同学有41名，弹琴的同学有18名。", "original": "（1）26+18= 44（名）（2）41-18=23（名）（3）41-26=15（名）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "跳舞的比唱歌的同学多[]名", "answer": "15", "background": "华南小学开联欢会，唱歌的同学有26名，跳舞的同学有41名，弹琴的同学有18名。", "original": "（1）26+18= 44（名）（2）41-18=23（名）（3）41-26=15（名）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "弹琴的比跳舞的同学少[]名", "answer": 23.0, "background": "华南小学开联欢会，唱歌的同学有26名，跳舞的同学有41名，弹琴的同学有18名。", "original": "（1）26+18= 44（名）（2）41-18=23（名）（3）41-26=15（名）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "贝贝剩13颗,丽丽剩7颗,丽丽吃去的多,多[]颗。", "answer": "6", "background": "贝贝和丽丽平分一盒糖果，两人都吃去了自己的一些。", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "贝贝给丽丽[]颗后，两人剩下的一样多。", "answer": 3.0, "background": "贝贝和丽丽平分一盒糖果，两人都吃去了自己的一些。", "type": "填空题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小玉比小飞多[]本作文书", "answer": "1", "background": "小玉有6本作为书，小飞有5本作文书。", "original": "（1）6-5=1（本）（2）6+5=11（本）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "小玉和小飞一共有[]本作文书", "answer": 11.0, "background": "小玉有6本作为书，小飞有5本作文书。", "original": "（1）6-5=1（本）（2）6+5=11（本）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "白兔比黑兔多[]只", "answer": "27", "background": "有一群兔子，其中白兔34只，黑兔7只。", "original": "（1）34-7= 27（只）（2）34+7= 41（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "白兔、黑兔共有[]只", "answer": 41.0, "background": "有一群兔子，其中白兔34只，黑兔7只。", "original": "（1）34-7= 27（只）（2）34+7= 41（只）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "爸爸今年[]岁", "answer": "37", "background": "乐乐今年7岁，爸爸比乐乐大30岁。", "original": "（1）30+7=37（岁）（2）30岁（3）37+7+5+5=54（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "5年后爸爸和乐乐一共[]岁", "answer": "54", "background": "乐乐今年7岁，爸爸比乐乐大30岁。", "original": "（1）30+7=37（岁）（2）30岁（3）37+7+5+5=54（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "5年前爸爸比乐乐大[]岁", "answer": 30.0, "background": "乐乐今年7岁，爸爸比乐乐大30岁。", "original": "（1）30+7=37（岁）（2）30岁（3）37+7+5+5=54（岁）", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "大象的数量比猴子少[]", "answer": "42", "background": "动物园里有老虎20只，猴子45只，斑马16匹，大象3头。", "original": "（1）45-3= 42（2）45-20=25（3）20+16-3=33", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "斑马与老虎的数量和比大象多[]", "answer": "33", "background": "动物园里有老虎20只，猴子45只，斑马16匹，大象3头。", "original": "（1）45-3= 42（2）45-20=25（3）20+16-3=33", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}
+{"question": "猴子的数量比老虎多[]", "answer": 25.0, "background": "动物园里有老虎20只，猴子45只，斑马16匹，大象3头。", "original": "（1）45-3= 42（2）45-20=25（3）20+16-3=33", "type": "解答题", "grade": "一年级", "course": "数学", "difficulty": "一般", "label": "QA"}

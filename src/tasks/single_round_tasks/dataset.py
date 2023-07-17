@@ -108,6 +108,8 @@ class GenerationTaskDataset(EvaluationDataset):
             targets = prompt_generate.get_answer(item)
         else:
             input = item.get("input")
+            if input is None:
+                input = item.get("question")
             if item.get("targets"):
                 targets = item.get("targets")
             if item.get("answer"):
