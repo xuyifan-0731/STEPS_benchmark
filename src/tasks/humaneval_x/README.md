@@ -37,3 +37,10 @@ source ~/.bashrc
 ```
 
 to update the environment variables.
+
+## Testing
+The method for running this test is the same as for other tasks except as noted below:
+
+Since HumanEval-X verifies results by running test cases, it is necessary to detect runnable code from the entire output of the model. Unlike **completion** models which directly outputs the code, **chat-based** models tend to mix code and text in their output. To extract code components from these outputs, we design a function [`parse_code_from_chat`](utils.py#L62) that aims to match code snippets. Despite our best efforts, this function may be buggy and in some cases may not recognize the code. If this happens, please contact us!
+
+The evaluation procedure by default runs the extraction process mentioned above. If you are evaluating a **completion** model which outputs the function implementation directly, you can remove this extraction process by commenting out [line 1](task.py#L75) and [line 2](task.py#L106) to avoid potential bugs in the `parse_code_from_chat` function.
