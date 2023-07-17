@@ -5,7 +5,7 @@ import requests
 
 def request(_):
     for i in range(10):
-        requests.post("http://localhost:9999/api/v1/chatglm_6b_v2/call", json={
+        requests.post("http://localhost:9998/api/v1/chatglm2-6b/call", json={
             "messages": [
                 {"role": "user", "content": "Hello!"},
                 {"role": "assistant", "content": "Hi."},

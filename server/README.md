@@ -31,7 +31,7 @@ All of these are optional.
 
 Example:
 ```
-PYTHONPATH="~/STEPS_benchmark/" python -m model_api --model chatglm2_6b --device cuda:0 cuda:1 cuda:2 cuda:3 --port 9998
+PYTHONPATH="~/STEPS_benchmark/" python -m model_api --model chatglm2-6b --device cuda:0 cuda:1 cuda:2 cuda:3 --port 9998
 ```
 
 ### APIs
