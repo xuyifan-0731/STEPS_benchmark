@@ -20,9 +20,20 @@ HumanEval-X evaluates the generated code by executing it with test cases. For th
 
 For languages other than Python, we provide the script for setting up the environment [here](setup/setup_ubuntu.sh).
 
-To set up the programming language dependencies, run the following scripts:
+To set up the programming language dependencies, run the following script:
 
 ```shell
 bash src/tasks/humaneval_x/setup/setup_ubuntu.sh
+```
+
+You can modify the script if you want to install dependencies for languages of your choice.
+
+If you encounter the error `sudo: command not found`, please remove all `sudo` from the commands in the script and try again.
+
+After installing the dependencies, run
+
+```shell
 source ~/.bashrc
 ```
+
+to update the environment variables.
