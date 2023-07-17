@@ -4,8 +4,6 @@ This is a lite weight server for local models.
 
 ## Quick Start
 
-### Start server
-
 ### Environment
 
 This project is tested on Python 3.11.
@@ -15,11 +13,26 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvi
 pip install -r requirements.txt
 ```
 
+### Start server
+
 ```bash
 PYTHONPATH="/path/to/STEPS_benchmark/" python -m model_api
 ```
 
-Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to change this value.
+Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` or change config(see below) to change this value.
+
+### Command line arguments
+
+All of these are optional.
+
+`--model` select a model to activate when starting.
+`--device` devices to deploy the model you just selected.
+`--port` select a port to start server, default 9999.
+
+Example:
+```
+PYTHONPATH="~/STEPS_benchmark/" python -m model_api --model chatglm2_6b --device cuda:0 cuda:1 cuda:2 cuda:3 --port 9998
+```
 
 ### APIs
 
@@ -33,7 +46,7 @@ Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to cha
 
 `status: 0` ALWAYS means success or normal.
 
-### Add Custom model
+## Add Custom model
 
 1. Implement ALL api of `ModelServerEntry` in `models/Entry.py`, and import it in `models/__init__.py`
 2. Add model in `config.json`.
@@ -42,7 +55,7 @@ Default batch size is 8, you can modify `BATCH_SIZE` in `model_server.py` to cha
 {
   "internal_model_name": {
     "name": "ImplementedModelEntryName",
-    "batch_size": 4, // Optional, default 8
+    "batch_size": 4, // Optional, default 8 (BATCH_SIZE)
     "params":
     // a list or a dict of parameters for model entry, this directly goes to your entry's parameter
   }
