@@ -17,7 +17,7 @@
       "/workspace/xuyifan/checkpoints/koala-13B-HF"
     ]
   },
-  "chatglm_6b_v2": {
+  "chatglm2-6b": {
     "name": "ChatGLMEntry",
     "params": [
       "/workspace/xuyifan/checkpoints/chatglm2_6b"
