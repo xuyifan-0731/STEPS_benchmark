@@ -45,10 +45,6 @@ def before_request():
     if tmp:
         if not isinstance(tmp, float):
             return abort(400, "Temperature must be float")
-        # if tmp < 0 or tmp > 1:
-        #     return abort(400, "Bad Request")
-    if data:
-        return abort(400, "Unknown Fields in Request Body.")
 
 
 @app.route('/api/v1/<model_server_name>/activate', methods=['POST'])
