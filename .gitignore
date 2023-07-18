@@ -12,3 +12,5 @@ download
 data/processed_0710
 configs/tasks/test
 data/test
+test.py
+test2.py

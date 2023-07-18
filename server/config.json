@@ -20,7 +20,7 @@
   "chatglm2-6b": {
     "name": "ChatGLMEntry",
     "params": [
-      "/workspace/xuyifan/checkpoints/chatglm2_6b",
+      "/workspace/xuyifan/checkpoints/chatglm/chatglm2_6b",
       8192
     ]
   },

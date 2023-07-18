@@ -1,7 +1,7 @@
 module: "src.agents.FastChatAgent"
 parameters:
-    name: "FastChat-WizardLM-30B-V1.0"
+    name: "FastChat-WizardLM-13B-V1.0"
     controller_address: "http://localhost:49999"
-    model_name: "WizardLM-30B-V1.0-merged"
-    max_new_tokens: 512
+    model_name: "WizardLM-13B-V1.0-merged"
+    max_new_tokens: 40
     temperature: 0.7
