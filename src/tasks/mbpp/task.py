@@ -34,18 +34,15 @@ class MBPPTask(Task[str, str, Dict]):
         #         "test_list"
         #     },
         # )
-        prompt_template = "You are an expert Python programmer, and here is your task: {prompt} Your code should pass these tests:\n{tests}\nWrite a response that appropriately completes the task:\n"
+        prompt_template = "You are an expert Python programmer, and here is your task: {prompt} Your code should pass these tests:\n{tests}\n"
         
         dataset = Dataset()
         data = list(stream_jsonl(self.datapath))
-        demo = [l for l in data[:10] if l['task_id'] in [2, 3, 4]]
-        demo = [(prompt_template.format(prompt=l['text'], tests='\n'.join(l['test_list'])) + l['code']).strip() + '\n\n' for l in demo]
-        demo = ''.join(demo)
 
         data_test = data[10:510]
         for task in data_test:
             item = DataPiece(
-                demo + prompt_template.format(prompt=task['text'], tests='\n'.join(task['test_list'])),
+                prompt_template.format(prompt=task['text'], tests=task['test_list'][0]),
                 {
                     "task_id": task['task_id'], 
                     "test_setup": task['test_setup_code'],
@@ -60,8 +57,8 @@ class MBPPTask(Task[str, str, Dict]):
         result = session.action({"role": "user", "content": data_item})
         md_pos = result.find('```')
         if md_pos != -1:
-            result = result[:md_pos]
-        md_pos = result.find('You are an')
-        if md_pos != -1:
-            result = result[:md_pos]
+            result = result[md_pos:].split('\n', 1)[1]
+            md_pos = result.find('```')
+            if md_pos != -1:
+                result = result[:md_pos]
         return result

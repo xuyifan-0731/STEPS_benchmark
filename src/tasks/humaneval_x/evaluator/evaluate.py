@@ -117,7 +117,7 @@ def evaluate_functional_correctness(
         samples,
         tmp_dir: str = "src/tasks/humaneval_x/env",
         n_workers: int = 32,
-        timeout: float = 500.0,
+        timeout: float = 3.0,
         k: List[int] = [1, 10, 100],
 ):
     with ThreadPoolExecutor(max_workers=n_workers) as executor:
