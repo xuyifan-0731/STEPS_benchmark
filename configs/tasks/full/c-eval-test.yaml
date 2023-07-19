@@ -1,4 +1,4 @@
-module: src.tasks.single_round_tasks.SingleRoundTask
+module: src.tasks.ceval.CEvalTask
 parameters:
   file-pattern:
     basic_medicine: "**/basic_medicine_prompt.jsonl"

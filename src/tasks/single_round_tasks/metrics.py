@@ -174,6 +174,8 @@ def acc_for_multi_choices(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
+        if prediction is None:
+            continue
         assert len(ground_truth['targets'][0]) == 1
         # first extract first capital letter
         is_correct = False
@@ -207,6 +209,8 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
+        if prediction is None:
+            continue
         # first get first number
         first_number = find_first_number(prediction)
         # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
@@ -224,6 +228,8 @@ def acc_for_general_short_cloze(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
+        if prediction is None:
+            continue
         normal_prediction = normalize_answer(prediction)
         if not normal_prediction: # fix {}][] bad cases in BBH word sorting
             normal_prediction = prediction

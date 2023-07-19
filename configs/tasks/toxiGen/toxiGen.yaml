@@ -1,0 +1,4 @@
+module: "src.tasks.toxigen.ToxiGenTask"
+parameters:
+  name: ToxiGen
+  datapath: data/toxigen/toxiGen.jsonl
