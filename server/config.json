@@ -24,6 +24,27 @@
       8192
     ]
   },
+  "chatglm2-12b": {
+    "name": "ChatGLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/chatglm/chatglm2-12b",
+      8192
+    ]
+  },
+  "glm2-12b": {
+    "name": "GLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/glm/GLM2-12b",
+      512
+    ]
+  },
+  "glm2-6b": {
+    "name": "GLMEntry",
+    "params": [
+      "/workspace/xuyifan/checkpoints/glm/GLM2-6b",
+      512
+    ]
+  },
   "vicuna-7b": {
     "name": "VicunaEntry",
     "batch_size": 1,
@@ -47,7 +68,7 @@
   "internlm": {
     "name": "InternLMEntry",
     "params": [
-      "/workspace/xuyifan/checkpoints/internlm-chat-7b"
+      "/workspace/xuyifan/checkpoints/internlm/internlm-chat-7b"
     ]
   },
   "chatglm_6b_v1.1": {

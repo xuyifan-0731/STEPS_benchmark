@@ -7,7 +7,7 @@ from typing import List, Dict, Any
 
 from fastchat.model.model_adapter import get_conversation_template
 from src.agent import Agent
-
+from requests.exceptions import Timeout
 
 class FastChatAgent(Agent):
     """This agent is a test agent, which does nothing. (return empty string for each action)"""
@@ -63,12 +63,28 @@ class FastChatAgent(Agent):
             "stop_token_ids": conv.stop_token_ids,
             "echo": False,
         }
-        response = requests.post(
-            controller_addr + "/worker_generate_stream",
-            headers=headers,
-            json=gen_params,
-            stream=True
-        )
+        
+        max_attempts = 3
+        timeout = 120.0
+        attempt = 0
+
+        while attempt < max_attempts:
+            try:
+                response = requests.post(
+                    controller_addr + "/worker_generate_stream",
+                    headers=headers,
+                    json=gen_params,
+                    stream=True,
+                    timeout=120.0  # This is your timeout value in seconds
+                )
+                break
+            except Timeout:
+                print("The request timed out, retrying...")
+                attempt += 1
+
+        if attempt == max_attempts:
+            print("Maximum number of attempts reached, the request has failed due to timeout.")
+            return "None"
         text = ""
         for line in response.iter_lines(decode_unicode=False, delimiter=b"\0"):
             if line:

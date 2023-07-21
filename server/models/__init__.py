@@ -1,4 +1,5 @@
 from .ChatGLM import ChatGLMEntry
+from .GLM import GLMEntry
 from .Entry import ModelServerEntry
 from .InternLM import InternLMEntry
 from .Koala import KoalaEntry

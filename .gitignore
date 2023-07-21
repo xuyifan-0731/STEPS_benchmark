@@ -14,3 +14,7 @@ configs/tasks/test
 data/test
 test.py
 test2.py
+*-test.sh
+configs/agents/fastchat_clients/*
+configs/agents/*
+server/controller.log

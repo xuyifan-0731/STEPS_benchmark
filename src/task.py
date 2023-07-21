@@ -26,6 +26,8 @@ import threading
 import numpy as np
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
+
 
 from typing import Dict, Callable, Type, Tuple, List, Any, Union, Iterable, Generic, TypeVar
 from abc import ABC, abstractmethod
@@ -109,7 +111,7 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
 
         threads = []
         results = [None] * len(inputs)
-
+        
         def call_wrap(data_item, index):
             try:
                 result = self.predict_single(agent.create_session(), data_item)
@@ -118,6 +120,8 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
                 pass
             results[index] = result
 
+        
+        
         for idx, item in enumerate(inputs):
             future = executor.submit(call_wrap, item, idx)
             threads.append(future)
@@ -125,7 +129,7 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
         with tqdm(total=len(inputs)) as pbar:
             for thread in as_completed(threads):
                 pbar.update(1)
-
+        
         return results
 
     def save_single(self, index: int, input: T_INPUT, output: T_OUTPUT):
