@@ -122,10 +122,10 @@ class SingleRoundTask(Task[str, str, str]):
         file = ".".join(file.split(".")[:-1])
         filename = os.path.join(self.get_output_dir(), agent_name, "prediction", f"{agent_name}.{file}.predict.jsonl")
         os.makedirs(os.path.dirname(filename), exist_ok=True)
-        with jsonlines.open(filename, "w") as file:
+        with open(filename, "w") as file:
             for output_data in data:
-                file.write(output_data)
-            file.close()
+                json.dump(output_data, file, ensure_ascii=False)
+                file.write('\n')
 
     def save_evaluation_to_file(self, file, res_dict, agent_name):
         file = ".".join(file.split(".")[:-1])

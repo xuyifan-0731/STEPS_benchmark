@@ -18,3 +18,5 @@ test2.py
 configs/agents/fastchat_clients/*
 configs/agents/*
 server/controller.log
+data/alignment
+list_model.py

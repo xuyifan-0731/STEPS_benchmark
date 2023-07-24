@@ -141,7 +141,7 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
         if not os.path.exists(self.get_output_dir()):
             os.makedirs(self.get_output_dir())
         with open(os.path.join(self.get_output_dir(), "generation.jsonl"), "a", encoding="utf-8") as f:
-            f.write(json.dumps(save_obj) + "\n")
+            f.write(json.dumps(save_obj, ensure_ascii=False) + "\n")
 
     def save_runs_all(self, inputs: List[T_INPUT], outputs: List[T_OUTPUT], targets: List[T_TARGET], metrics: Dict[str, Any] = None):
         if not os.path.exists(self.get_output_dir()):

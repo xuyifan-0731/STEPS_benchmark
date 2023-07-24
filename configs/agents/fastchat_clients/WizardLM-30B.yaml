@@ -1,7 +1,9 @@
 module: "src.agents.FastChatAgent"
 parameters:
     name: "FastChat-WizardLM-30B-V1.0"
-    controller_address: "http://localhost:49999"
+    # worker_address: "http://166.111.5.162:49991" # Do not use worker_address directly
+    controller_address: "http://166.111.5.162:49999"
     model_name: "WizardLM-30B-V1.0-merged"
-    max_new_tokens: 512
-    temperature: 0.7
+    max_new_tokens: 50
+    temperature: 0
+    top_p: 0

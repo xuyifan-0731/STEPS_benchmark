@@ -1,0 +1,6 @@
+module: src.tasks.infer.InferTask
+parameters:
+  file-pattern:
+    alignment: "**/alignment.jsonl"
+  name: alignment
+  path: data/alignment
