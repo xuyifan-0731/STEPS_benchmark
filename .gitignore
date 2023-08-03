@@ -13,10 +13,16 @@ data/processed_0710
 configs/tasks/test
 data/test
 test.py
-test2.py
+test*.py
 *-test.sh
 configs/agents/fastchat_clients/*
 configs/agents/*
 server/controller.log
 data/alignment
 list_model.py
+test-sh/*
+from_log.py
+configs/agents/fastchat_clients/*
+configs/tasks/07*
+src/tasks/extract_again/*
+src/agents/api_agents/api.py

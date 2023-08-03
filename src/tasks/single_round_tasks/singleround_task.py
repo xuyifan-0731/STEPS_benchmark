@@ -65,7 +65,10 @@ class SingleRoundTask(Task[str, str, str]):
                     extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
                     results = self.predict_all(agent, extract_inputs)
                     for data, result in zip(dataset.data, results):
-                        data["prediction"] = result
+                        if data["raw_answer"].strip()[0] in ["A","B","C","D"]:
+                            data["prediction"] = data["raw_answer"].strip()[0]
+                        else:
+                            data["prediction"] = result
 
                 if self.config.save_prediction:  # first save and evaluate
                     self.save_prediction_to_file(file, dataset.data, agent.name)
