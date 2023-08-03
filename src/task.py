@@ -168,7 +168,7 @@ class Task(Generic[T_INPUT, T_OUTPUT, T_TARGET]):
             Default output directory is: outputs/{time_str}/{name or category}
         """
         if not self.output_root_dir:
-            self.output_root_dir = "outputs/%s" % datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+            self.output_root_dir = "outputs/%s-%s" % (datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S"), self.name)
         return os.path.join(self.output_root_dir, self.category or self.name or "default")
 
     @property

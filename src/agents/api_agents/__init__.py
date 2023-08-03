@@ -6,3 +6,4 @@ try:
     from .claude_agents import Claude
 except:
     print("> [Warning] OpenAI Agents are not available")
+from .api import APIAgent

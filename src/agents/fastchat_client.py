@@ -7,12 +7,15 @@ from typing import List, Dict, Any
 
 from fastchat.model.model_adapter import get_conversation_template
 from src.agent import Agent
-from requests.exceptions import Timeout
+
+# import TimeoutException
+from requests.exceptions import Timeout, ConnectionError
+
 
 class FastChatAgent(Agent):
     """This agent is a test agent, which does nothing. (return empty string for each action)"""
 
-    def __init__(self, model_name, controller_address=None, worker_address=None, temperature=0, max_new_tokens=32, **kwargs) -> None:
+    def __init__(self, model_name, controller_address=None, worker_address=None, temperature=0, max_new_tokens=32, top_p=0, **kwargs) -> None:
         if controller_address is None and worker_address is None:
             raise ValueError("Either controller_address or worker_address must be specified.")
         self.controller_address = controller_address
@@ -20,6 +23,8 @@ class FastChatAgent(Agent):
         self.model_name = model_name
         self.temperature = temperature
         self.max_new_tokens = max_new_tokens
+        self.top_p = top_p
+        print(self.max_new_tokens)
         super().__init__(**kwargs)
 
     def inference(self, history: List[dict]) -> str:
@@ -62,32 +67,27 @@ class FastChatAgent(Agent):
             "stop": conv.stop_str,
             "stop_token_ids": conv.stop_token_ids,
             "echo": False,
+            "top_p": self.top_p,
         }
-        
-        max_attempts = 3
-        timeout = 120.0
-        attempt = 0
-
-        while attempt < max_attempts:
+        for _ in range(3):
             try:
                 response = requests.post(
                     controller_addr + "/worker_generate_stream",
                     headers=headers,
                     json=gen_params,
                     stream=True,
-                    timeout=120.0  # This is your timeout value in seconds
+                    timeout=120,
                 )
-                break
-            except Timeout:
-                print("The request timed out, retrying...")
-                attempt += 1
-
-        if attempt == max_attempts:
-            print("Maximum number of attempts reached, the request has failed due to timeout.")
-            return "None"
-        text = ""
-        for line in response.iter_lines(decode_unicode=False, delimiter=b"\0"):
-            if line:
-                text = json.loads(line)["text"]
-        return text
-
+                text = ""
+                for line in response.iter_lines(decode_unicode=False, delimiter=b"\0"):
+                    if line:
+                        text = json.loads(line)["text"]
+                return text
+            # if timeout or connection error, retry
+            except Timeout: 
+                print("Timeout, retrying...")
+            except ConnectionError:
+                print("Connection error, retrying...")
+            time.sleep(5)
+        else:
+            raise Exception("Timeout after 3 retries.")

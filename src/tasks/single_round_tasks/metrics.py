@@ -142,6 +142,13 @@ def find_first_capital_letter(doc):
             return c
     return ""
 
+def find_first_capital_letter_raw(doc):
+    letter_set = [chr(65+i) for i in range(len(doc["choices"]))] # legal choices
+    for c in doc["raw_answer"]:
+        if c in letter_set:
+            return c
+    return ""
+
 def find_first_number(prediction):
     # remove , in number
     prediction = prediction.replace(",", "").strip()
