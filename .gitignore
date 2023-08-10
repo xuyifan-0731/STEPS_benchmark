@@ -25,3 +25,4 @@ from_log.py
 configs/agents/fastchat_clients/*
 configs/tasks/07*
 src/tasks/extract_again/*
+src/agents/api_agents/api.py
