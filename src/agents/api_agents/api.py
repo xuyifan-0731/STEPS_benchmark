@@ -1,6 +1,6 @@
 import argparse
 import json
-
+import time
 import requests
 import os, json, sys, time, re, math, random, datetime, argparse, requests
 from typing import List, Dict, Any
@@ -26,6 +26,7 @@ class APIAgent(Agent):
     def inference(self, history: List[dict]) -> str:
         for _ in range(3):
             try:
+                time.sleep(0.2)
                 url = 'http://180.184.39.132:9629/call_api'
                 headers = {'Content-Type': 'application/json; charset=utf-8'}
                 msg = {

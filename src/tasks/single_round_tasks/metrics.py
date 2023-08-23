@@ -8,7 +8,7 @@ from rouge import Rouge
 from rouge_chinese import Rouge as Rouge_chinese
 import jieba
 import numpy as np
-from bert_score import BERTScorer
+# from bert_score import BERTScorer
 from typing import List
 from collections import Counter
 from collections import defaultdict
@@ -67,7 +67,10 @@ def bleu_score(predictions, ground_truths, config):
     bleu_score = np.mean(bleu)
     return bleu_score
 
+
 def bert_score_metric(predictions, ground_truths, config):
+    return 0
+    '''
     bert_score_result = []
     scorer = BERTScorer(lang=config.language, rescale_with_baseline=True)
     for prediction, ground_truth in zip(predictions, ground_truths):
@@ -81,6 +84,7 @@ def bert_score_metric(predictions, ground_truths, config):
         bert_score_result.append(scorer.score([prediction], ground_truths)[2].item())
     bert_score_result_score = np.mean(bert_score_result)
     return bert_score_result_score
+    '''
 
 def rouge_score(predictions, ground_truths, config):
     if config.language == "en":
