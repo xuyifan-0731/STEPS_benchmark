@@ -44,9 +44,9 @@ class ToxiGenTask(Task[Dict, str, Dict]):
             else:
                 dict[group["label"][0]].append(0)
                 predictions.append(0)
-        results = {"overall":sum(predictions)/len(predictions)}
+        results = {"overall":sum(predictions)/len(predictions)*100}
         for key,values in dict.items():
-            results[key] = sum(values) / len(values)
+            results[key] = sum(values) / len(values) * 100
         return results
     @property
     def metrics(self) -> Dict[str, Callable[[Dict, None], Any]]:
