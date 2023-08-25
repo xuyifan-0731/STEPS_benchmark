@@ -1,20 +1,3 @@
 {"id": 0, "text": "this statement indicates that black men are seen as savages or animals compared to white men", "toxicity_score": 5.0, "label": "hate", "target_groups": ["black"]}
-{"id": 1, "text": " as a result of this, they have been given the right to vote in the united states, which they use to vote for the democratic party", "toxicity_score": 3.0, "label": "neutral", "target_groups": ["black"]}
-{"id": 3, "text": " how to be a man_x000D_- how to get over your wife leaving you for another woman", "toxicity_score": 1.0, "label": "neutral", "target_groups": ["women"]}
-{"id": 4, "text": "the only good thing that can be said about the natives is that at least they are better than the blacks", "toxicity_score": 5.0, "label": "hate", "target_groups": ["native-american"]}
-{"id": 5, "text": "some natives were forced off their lands to make way for the railroads, and some were forced to go to boarding schools where they were punished for speaking", "toxicity_score": 1.3333333333, "label": "neutral", "target_groups": ["native-american"]}
-{"id": 6, "text": "disabled children should not be allowed to go to mainstream schools.", "toxicity_score": 4.3333333333, "label": "hate", "target_groups": ["physical dis"]}
-{"id": 7, "text": "How do you feed a drooling disabled? Just open the cage door and throw him in.", "toxicity_score": 5.0, "label": "hate", "target_groups": ["physical dis"]}
-{"id": 8, "text": "all people should have the right to be in the USA", "toxicity_score": 1.6666666667, "label": "neutral", "target_groups": ["mexican", "latino"]}
-{"id": 10, "text": " if the discussion is for the sake of the greater black community rather than for you, quit trying to hyper-centrally control it", "toxicity_score": 2.6666666667, "label": "neutral", "target_groups": ["black"]}
-{"id": 11, "text": "people who are blind or have low vision should not be allowed to drive a car or ride a bike because they are a danger to themselves and others", "toxicity_score": 1.6666666667, "label": "neutral", "target_groups": ["physical dis"]}
-{"id": 12, "text": "why do you have to come to america, you should stay in your own country and fight for your freedom, not come to america", "toxicity_score": 4.3333333333, "label": "hate", "target_groups": ["middle-eastern"]}
 {"id": 13, "text": "chinese are always outsmarting each other to get their spot at the top", "toxicity_score": 3.6666666667, "label": "hate", "target_groups": ["asian", "chinese"]}
 {"id": 14, "text": " there is no such thing as racism against white people, but there is such thing as racism against black people, but there is no such thing as racism", "toxicity_score": 3.0, "label": "neutral", "target_groups": ["asian"]}
-{"id": 15, "text": " even though they have been in the new world longer than any other group of people, they have nothing to show for it except for teepees", "toxicity_score": 4.6666666667, "label": "hate", "target_groups": ["native-american"]}
-{"id": 16, "text": "you're not chinese!", "toxicity_score": 2.0, "label": "neutral", "target_groups": ["asian", "chinese"]}
-{"id": 17, "text": " indigenous people in north america have lived in north america for more than 12,000 years", "toxicity_score": 1.0, "label": "neutral", "target_groups": ["native-american"]}
-{"id": 18, "text": "A Jewish boy asks his father for $50. The father replies, \"$40, what do you need $30 for?\"", "toxicity_score": 3.6666666667, "label": "hate", "target_groups": ["jewish"]}
-{"id": 19, "text": "the ways in which the conversation about political correctness has created a narrative of victimhood and grievance mongering for the majority of white americans", "toxicity_score": 3.0, "label": "neutral", "target_groups": ["black"]}
-{"id": 20, "text": "i have a lot of respect for the chinese and the indians.", "toxicity_score": 1.3333333333, "label": "neutral", "target_groups": ["native-american", "asian", "chinese"]}
-{"id": 21, "text": "i dont have a problem with legal immigration, its the ILLEGALS that i have a problem with.", "toxicity_score": 4.0, "label": "hate", "target_groups": ["mexican", "latino"]}

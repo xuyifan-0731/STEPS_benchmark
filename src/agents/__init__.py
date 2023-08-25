@@ -14,5 +14,8 @@ try:
     from .api_agents import *
 except:
     print("> [Warning] API agents not available")
+try:
+    from .http_agent import HTTPAgent
+except:
+    print("> [Warning] HTTP agent not available")
 
-from .chatglm import *
