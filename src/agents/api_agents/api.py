@@ -5,7 +5,6 @@ import requests
 import os, json, sys, time, re, math, random, datetime, argparse, requests
 from typing import List, Dict, Any
 
-from fastchat.model.model_adapter import get_conversation_template
 from src.agent import Agent
 
 # import TimeoutException

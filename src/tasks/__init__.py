@@ -28,3 +28,11 @@ try:
     from .os_interaction import OSInteraction
 except:
     print("> [Warning] OSInteraction Import Failed")
+try:
+    from .extraction import MUL_ExtractionTask
+except:
+    print("> [Warning] Extraction Import Failed")
+try:
+    from .scibench import ScibenchTask, ScibenchTask_cot
+except:
+    print("> [Warning] scibench Import Failed")

@@ -142,13 +142,6 @@ def find_first_capital_letter(doc):
             return c
     return ""
 
-def find_first_capital_letter_raw(doc):
-    letter_set = [chr(65+i) for i in range(len(doc["choices"]))] # legal choices
-    for c in doc["raw_answer"]:
-        if c in letter_set:
-            return c
-    return ""
-
 def find_first_number(prediction):
     # remove , in number
     prediction = prediction.replace(",", "").strip()
@@ -181,8 +174,6 @@ def acc_for_multi_choices(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
-        if prediction is None:
-            continue
         assert len(ground_truth['targets'][0]) == 1
         # first extract first capital letter
         is_correct = False
@@ -216,13 +207,15 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
-        if prediction is None:
-            continue
-        # first get first number
-        first_number = find_first_number(prediction)
-        # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
-        if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
-            acc += 1
+        try:
+            # first get first number
+            first_number = find_first_number(prediction)
+            # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
+            if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
+                acc += 1
+        except Exception as e:
+            print(f"error in evaluation  : {e}")
+            print(ground_truth,prediction)
     
     return acc / tt
 
@@ -235,8 +228,6 @@ def acc_for_general_short_cloze(predictions, ground_truths, config=None):
     if tt == 0:
         return 0
     for prediction, ground_truth in zip(predictions, ground_truths):
-        if prediction is None:
-            continue
         normal_prediction = normalize_answer(prediction)
         if not normal_prediction: # fix {}][] bad cases in BBH word sorting
             normal_prediction = prediction

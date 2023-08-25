@@ -32,7 +32,7 @@ class ToxiGenTask(Task[Dict, str, Dict]):
         self.datapath = kwargs["datapath"]
         
     def metric(self, prediction: List[Dict], target: List[None]):
-        toxigen_roberta = pipeline("text-classification", model="/workspace/xuyifan/checkpoints/toxigen_roberta", max_length=512, truncation=True)
+        toxigen_roberta = pipeline("text-classification", model="/home/xuyifan/checkpoints/toxigen_roberta", max_length=512, truncation=True)
         predictions = []
         for predict,group in tqdm(zip(prediction, target)):
             predict_score = toxigen_roberta(predict)

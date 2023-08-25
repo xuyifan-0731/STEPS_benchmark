@@ -1,0 +1,16 @@
+module: src.tasks.ceval.CEvalTask
+parameters:
+  file-pattern:
+    advanced_mathematics: "**/advanced_mathematics_prompt.jsonl"
+    discrete_mathematics: "**/discrete_mathematics_prompt.jsonl"
+    probability_and_statistics: "**/probability_and_statistics_prompt.jsonl"
+    college_chemistry: "**/college_chemistry_prompt.jsonl"
+    college_physics: "**/college_physics_prompt.jsonl"
+    high_school_chemistry: "**/high_school_chemistry_prompt.jsonl"
+    high_school_mathematics: "**/high_school_mathematics_prompt.jsonl"
+    high_school_physics: "**/high_school_physics_prompt.jsonl"
+  language: cn
+  name: c_eval_hard_zero_shot
+  path: data/full/c-eval_test_zero_shot
+  shot: 0
+  workers: 20

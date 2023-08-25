@@ -10,5 +10,6 @@ parameters:
   path: data/full/mmlu-zero-shot
   shot: 0
   workers: 20
+  extract_answer: False
   acc_type: MUL
   cot: default

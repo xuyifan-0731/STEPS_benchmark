@@ -71,46 +71,48 @@ def process_humaneval_test(sample):
     code = sample["generation"]
 
     # Pre-process for different languages
-    if language == "python":
-        code_ = []
-        for line in code.split("\n"):
-            if (len(line.strip()) > 0 and line[0] != ' ' and line[0] != '\t'):
-                break
-            code_.append(line)
-        code = "\n".join(code_)
-        test_setup = "\n".join(IMPORT_HELPER["python"]) + "\n"
-        test_string = test_setup + prompt + code + "\n" + test + "\n"
-    elif language == "cpp":
-        test_set_up = ""
-        for s in IMPORT_HELPER["cpp"]:
-            if s not in prompt:
-                test_set_up += s + "\n"
-        test_string = test_set_up + "\n" + prompt + code + "\n" + test
-    elif language == "java":
-        test_string = prompt + code + "\n" + test
-    elif language == "js" or language == "javascript":
-        test_string = prompt + code + "\n" + test
-    elif language == "go":
-        import_string = sample["import"]
-        prompt = prompt.replace(import_string, "")
-        test = sample["test"]
-        test_setup = sample["test_setup"]
-        other_pkgs = []
-        for pkg in IMPORT_HELPER["go"]:
-            if pkg not in test_setup:
-                p = pkg.split("/")[-1]
-                if p + "." in code:
-                    other_pkgs.append(f"\"{pkg}\"")
-        if other_pkgs:
-            import_other_pkgs = "import (\n" + "    ".join([p + "\n" for p in other_pkgs]) + ")"
-            test_string = test_setup + "\n" + import_other_pkgs + "\n" + prompt + code + "\n" + test
-        else:
-            test_string = test_setup + "\n" + prompt + code + "\n" + test
-    elif language == "rust":
-        main = "\nfn main(){ \n } \n"
-        declaration = sample["declaration"]
-        test_string = main + declaration + prompt + code + test
-
+    try:
+        if language == "python":
+            code_ = []
+            for line in code.split("\n"):
+                if (len(line.strip()) > 0 and line[0] != ' ' and line[0] != '\t'):
+                    break
+                code_.append(line)
+            code = "\n".join(code_)
+            test_setup = "\n".join(IMPORT_HELPER["python"]) + "\n"
+            test_string = test_setup + prompt + code + "\n" + test + "\n"
+        elif language == "cpp":
+            test_set_up = ""
+            for s in IMPORT_HELPER["cpp"]:
+                if s not in prompt:
+                    test_set_up += s + "\n"
+            test_string = test_set_up + "\n" + prompt + code + "\n" + test
+        elif language == "java":
+            test_string = prompt + code + "\n" + test
+        elif language == "js" or language == "javascript":
+            test_string = prompt + code + "\n" + test
+        elif language == "go":
+            import_string = sample["import"]
+            prompt = prompt.replace(import_string, "")
+            test = sample["test"]
+            test_setup = sample["test_setup"]
+            other_pkgs = []
+            for pkg in IMPORT_HELPER["go"]:
+                if pkg not in test_setup:
+                    p = pkg.split("/")[-1]
+                    if p + "." in code:
+                        other_pkgs.append(f"\"{pkg}\"")
+            if other_pkgs:
+                import_other_pkgs = "import (\n" + "    ".join([p + "\n" for p in other_pkgs]) + ")"
+                test_string = test_setup + "\n" + import_other_pkgs + "\n" + prompt + code + "\n" + test
+            else:
+                test_string = test_setup + "\n" + prompt + code + "\n" + test
+        elif language == "rust":
+            main = "\nfn main(){ \n } \n"
+            declaration = sample["declaration"]
+            test_string = main + declaration + prompt + code + test
+    except:
+        test_string = 'error'
     return test_string
 
 def evaluate_functional_correctness(

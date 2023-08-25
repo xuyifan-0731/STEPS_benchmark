@@ -26,3 +26,10 @@ configs/agents/fastchat_clients/*
 configs/tasks/07*
 src/tasks/extract_again/*
 src/agents/api_agents/api.py
+configs/tasks/0804/
+configs/tasks/extraction/
+configs/tasks/glm-test/
+data/full/gsm8k/gsm8k_few_shot_cot/tmp.jsonl
+src/agents/chatglm/
+src/tasks/extraction/
+toxigen-cut.py

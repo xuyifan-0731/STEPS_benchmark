@@ -1,6 +1,6 @@
 from .local_agent import LocalAgent
 from .do_nothing_agent import DoNothingAgent
-from .fastchat_client import FastChatAgent
+# from .fastchat_client import FastChatAgent
 # from .llm_agent import *
 try:
     from .local import *
@@ -14,3 +14,5 @@ try:
     from .api_agents import *
 except:
     print("> [Warning] API agents not available")
+
+from .chatglm import *

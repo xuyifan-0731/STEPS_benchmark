@@ -1,0 +1,12 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    test: "**/clozet.jsonl"
+  language: cn
+  name: clozet
+  path: data/clozet
+  shot: 0
+  workers: 20
+  acc_type: MUL
+  cot: default
+  extract_answer: False
