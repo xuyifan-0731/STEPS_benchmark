@@ -58,6 +58,5 @@ parameters:
   path: data/full/c-eval_test_zero_shot
   shot: 0
   workers: 20
-  extract_answer: False
   acc_type: MUL
   cot: default

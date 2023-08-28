@@ -40,4 +40,7 @@ def last_boxed_only_string(string):
 
         return retval
 def parse_math_answer(raw_string):
-    remove_boxed(last_boxed_only_string(raw_string))
+    try:
+        return remove_boxed(last_boxed_only_string(raw_string))
+    except:
+        return " "

@@ -1,4 +1,4 @@
-module: "src.tasks.ScibenchTask_cot"
+module: "src.tasks.ScibenchTask"
 parameters:
     name: "ScibenchTask-zero_sys"
     datapath: "data/scibench/original"

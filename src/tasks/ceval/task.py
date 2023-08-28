@@ -3,6 +3,7 @@ import json
 import jsonlines
 import re
 import string
+import random
 # from SwissArmyTransformer import get_tokenizer
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from src.tasks import SingleRoundTask
@@ -42,18 +43,24 @@ def find_first_capital_letter(doc):
     return ""
 
 def get_answer(doc):
-    first_letter = find_first_capital_letter(doc)
+    try:
+        first_letter = find_first_capital_letter(doc)
+    except:
+        first_letter = ""
 
     if first_letter:
         doc["prediction"] = first_letter
     else:
-        choices_bleu = []
-        # second word bleu choose one answer
-        for choice in doc.get("choices"):
-            choice = normalize_answer(choice)
-            choices_bleu.append(word_bleu_score(choice, doc["prediction"]))
-        letter_map = {0:"A", 1:"B", 2:"C", 3:"D"}
-        doc["prediction"] = letter_map[choices_bleu.index(max(choices_bleu))]
+        try:
+            choices_bleu = []
+            # second word bleu choose one answer
+            for choice in doc.get("choices"):
+                choice = normalize_answer(choice)
+                choices_bleu.append(word_bleu_score(choice, doc["prediction"]))
+            letter_map = {0:"A", 1:"B", 2:"C", 3:"D"}
+            doc["prediction"] = letter_map[choices_bleu.index(max(choices_bleu))]
+        except:
+            doc["prediction"] = random.choices(["A","B","C","D"])
 
     return doc
 

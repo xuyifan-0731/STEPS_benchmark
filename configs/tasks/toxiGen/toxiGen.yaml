@@ -2,3 +2,4 @@ module: "src.tasks.toxigen.ToxiGenTask"
 parameters:
   name: ToxiGen
   datapath: data/toxigen/toxiGen.jsonl
+  checkpoint_path: "/home/xuyifan/checkpoints/toxigen_roberta"

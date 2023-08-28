@@ -7,7 +7,7 @@ from src.agent import Agent, Session
 from src.task import Task, Dataset, Session, DataPiece
 from .utils import zero, zeroCot, few, prompt_scai, equiv
 from collections import defaultdict
-
+from .post_process import parse_math_answer
 
 
 class ScibenchTask(Task[Dict, str, Dict]):
@@ -16,7 +16,7 @@ class ScibenchTask(Task[Dict, str, Dict]):
         def evaluate(results, targets):
             dict = defaultdict(list)
             for result, target in zip(results, targets):
-                model_output = result
+                model_output = parse_math_answer(result)
                 res_equiv = equiv(model_output, target["answer"], target["unit"])
                 #try:
                     #res_equiv = equiv(model_output, target["answer"], target["unit"])
@@ -46,11 +46,7 @@ class ScibenchTask(Task[Dict, str, Dict]):
 
     def get_data(self) -> Dataset[Dict, Dict]:
         data = Dataset()
-        if "sys" in self.type: 
-            sys_prompt=prompt_scai.sys_cal_box2
-        else:
-            sys_prompt=""
-        
+        sys_prompt=prompt_scai.sys_cal_box2
         files = ["atkins", "calculus","chemmc","class","diff","fund","matter","quan","stat","thermo"]
         for file in files:
             c = 0
@@ -58,12 +54,15 @@ class ScibenchTask(Task[Dict, str, Dict]):
                 problems=json.load(json_file)
                 for problem_data in problems:
                     problem_text=problem_data["problem_text"]+" The unit of the answer is "+problem_data["unit"]+"."
-                    message=self.get_message(sys_prompt, problem_text)
+                    messages=self.get_message(sys_prompt, problem_text)
+                    prompt = ""
+                    for message in messages:
+                        prompt = prompt + message["content"]
                     item = DataPiece(
-                        {"input":message[0]["content"]},
+                        {"input":prompt},
                         {"answer":problem_data["answer_number"],"unit":problem_data["unit"],"source":problem_data["source"]}
                     )
-                    data.append(item)
+                    data.append(item)    
         return data
         
     def predict_single(self, session: Session, data_item: Dict):
@@ -83,16 +82,18 @@ class ScibenchTask_cot(ScibenchTask):
         inputs = data.get_inputs()
         targets = data.get_targets()
         results = self.predict_all(agent, inputs)
+        '''
         extract_inputs = []
         for input_item, result_item in zip(inputs,results):
             try:
                 if result_item is None:
                     result_item = ""
-                extract_inputs.append({"input":input_item["input"] + result_item + "Therefore, the answer is"})
+                extract_inputs.append({"input":input_item["input"] + result_item + "Therefore, the answer is by stating \"The answer is therefore \\boxed{[ANSWER]}.\""})
             except:
-                extract_inputs.append({"input":input_item["input"] + "" + "Therefore, the answer is"})
-        results = self.predict_all(agent, extract_inputs)
+                extract_inputs.append({"input":input_item["input"] + "" + "Therefore, the answer is by stating \"The answer is therefore \\boxed{[ANSWER]}.\""})
+        results = self.predict_all(agent, extract_inputs)'''
         result_dict = {}
+
         for metric in self.metrics:
             result_dict[metric] = self.metrics[metric](results, targets)
         print(f"Task '{self.name}' evaluation finished. The results are saved in '{self.get_output_dir()}'")

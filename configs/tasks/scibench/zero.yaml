@@ -1,5 +1,0 @@
-module: "src.tasks.ScibenchTask"
-parameters:
-    name: "ScibenchTaskzero"
-    datapath: "data/scibench/original"
-    type: "zero"

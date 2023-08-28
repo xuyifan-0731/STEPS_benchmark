@@ -94,16 +94,19 @@ def zeroCot(sys, problem, stage=1, exp=""):
     return messages
 
 def equiv(model_output, answer, unit):
-    model_output=model_output.replace(',', '')
     try:
-        first=math.isclose(float(model_output.strip()), float(answer.strip()), abs_tol=0.1)
+        model_output=model_output.replace(',', '')
+        try:
+            first=math.isclose(float(model_output.strip()), float(answer.strip()), abs_tol=0.1)
+        except:
+            first=False
+        try: 
+            model=model_output.strip().split()[0]
+            second=math.isclose(float(model), float(answer.strip()), abs_tol=0.1)
+        except:
+            second=False
+        if first or second:
+            return True
+        return False
     except:
-        first=False
-    try: 
-        model=model_output.strip().split()[0]
-        second=math.isclose(float(model), float(answer.strip()), abs_tol=0.1)
-    except:
-        second=False
-    if first or second:
-        return True
-    return False
+        return False
