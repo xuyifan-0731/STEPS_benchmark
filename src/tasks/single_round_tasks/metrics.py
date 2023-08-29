@@ -225,8 +225,12 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
         # first get first number
         first_number = find_first_number(prediction)
         # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
-        if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
-            acc += 1
+        try:
+            if math.isclose(float(first_number), float(ground_truth['targets'][0]), abs_tol=0.1):  
+                acc += 1
+        except:
+            if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
+                acc += 1
     
     return acc / tt
 

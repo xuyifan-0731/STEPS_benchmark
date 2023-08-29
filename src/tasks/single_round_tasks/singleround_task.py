@@ -15,6 +15,7 @@ from src.utils import print_rank_0, JsonEncoder
 from src.agent import Agent, Session
 from src.tasks.single_round_tasks.dataset import GenerationTaskDataset
 from src.tasks.single_round_tasks.metrics import DEFAULT_METRICS
+from src.tasks.single_round_tasks.utils import *
 
 
 class SingleRoundTask(Task[str, str, str]):
@@ -62,9 +63,8 @@ class SingleRoundTask(Task[str, str, str]):
 
                 # second stage: extract answer
                 if self.config.extract_answer == True:
-                    extract_inputs = [dataset.construct_extract_prompt(item) for item in dataset]
-                    results = self.predict_all(agent, extract_inputs)
-                    for data, result in zip(dataset.data, results):
+                    extract_outputs = self.extract_answer(dataset, agent)
+                    for data, result in zip(dataset.data, extract_outputs):
                         data["prediction"] = result
 
                 if self.config.save_prediction:  # first save and evaluate
@@ -165,6 +165,41 @@ class SingleRoundTask(Task[str, str, str]):
             }
             for name, value in metrics_dict.items()
         }
+    
+    def extract_answer(self, dataset, agent):
+        to_extract = []
+        not_to_extract = []
+        text_to_extract = []
+        for item in dataset:
+            text = item['text']
+            result, should_extract = self.construct_extract(item, self.config.acc_type)
+            text_to_extract.append((result, should_extract))
+                
+            if should_extract:
+                to_extract.append(dataset.construct_extract_prompt(result))
+            else:
+                not_to_extract.append(text)
+
+        extract_results = self.predict_all(agent, to_extract)
+        i = 0
+        results = []
+        for (origin, should_extract) in text_to_extract:
+            if not should_extract:
+                results.append(origin)
+            else:
+                results.append(extract_results[i])
+                i = i + 1
+        return results
+    
+    def construct_extract(self, result, type):
+        if type == "MUL":
+            result, should_extract = find_first_capital_letter(result)
+            return result, should_extract
+        if type == "MATHQA":
+            result, should_extract = extract_text_inside_brackets(result)
+            return result, should_extract
+        if type == "QA":
+            return result, True
 
     def report_group_metrics(self, group_name, result_dict_group: Dict[str, Dict[str, Any]], level=1):
         stats_dict = self.calc_group_metrics(result_dict_group)
