@@ -118,8 +118,10 @@ class GenerationTaskDataset(EvaluationDataset):
             if self.config.prompt is not None:
                 input = self.create_prompt(self.config.prompt, item)
         assert input is not None, "Error: question or input does not exist, check your jsonl key"
-        if self.config.cot is not None:
-            input = self.add_cot_prefix(input, self.config.cot)
+        if item.get("instruction_postfix"):
+            input = input.strip() + item.get("instruction_postfix")
+        #if self.config.cot is not None:
+            #input = self.add_cot_prefix(input, self.config.cot)
         input = self.cut_exceed_length(input)
         processed_doc = {"text": instruction + input, "targets": targets, **kwargs}
         if item.get("choices", None) is not None:

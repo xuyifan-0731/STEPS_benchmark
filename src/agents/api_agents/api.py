@@ -72,8 +72,7 @@ class APIAgent_claude(Agent):
                     "max tokens": 256,
                 }
                 resp = requests.post(url, headers=headers, data=json.dumps(msg), timeout=120)
-                import pdb
-                pdb.set_trace()
+
                 if resp.status_code != 200:
                     raise Exception(f"Invalid status code {resp.status_code}:\n\n{resp.text}")
                 try:
