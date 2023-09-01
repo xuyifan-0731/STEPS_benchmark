@@ -1,5 +1,6 @@
 import os
 import json
+import pdb
 import jsonlines
 import time
 from glob import glob
@@ -194,12 +195,16 @@ class SingleRoundTask(Task[str, str, str]):
     def construct_extract(self, result, type):
         if type == "MUL":
             result, should_extract = find_first_capital_letter(result)
+            # result, should_extract = extract_text_inside_brackets_MUL(result)
+            print(result, should_extract)
             return result, should_extract
         if type == "MATHQA":
             result, should_extract = extract_text_inside_brackets(result)
             return result, should_extract
         if type == "QA":
             return result, True
+       
+        return result, True
 
     def report_group_metrics(self, group_name, result_dict_group: Dict[str, Dict[str, Any]], level=1):
         stats_dict = self.calc_group_metrics(result_dict_group)

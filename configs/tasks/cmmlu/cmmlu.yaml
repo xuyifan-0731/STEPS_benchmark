@@ -1,0 +1,12 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  file-pattern:
+    test: "**/**.jsonl"
+  language: cn
+  name: cmmlu_zero_shot_cot
+  path: data/cmmlu
+  shot: 0
+  workers: 20
+  extract_answer: True
+  acc_type: MUL
+  cot: default
