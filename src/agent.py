@@ -30,7 +30,7 @@ class Session:
         assert message["role"] in ["user", "agent"]
         self.history.append(message)
 
-    def action(self, extend_messages: list[dict] = None) -> str:
+    def action(self, extend_messages) -> str:
         extend = []
         if extend_messages:
             if isinstance(extend_messages, list):

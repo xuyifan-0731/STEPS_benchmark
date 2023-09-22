@@ -19,4 +19,4 @@ try:
 except:
     print("> [Warning] HTTP agent not available")
 
-from .chatglm import *
+# from .chatglm import *

@@ -1,0 +1,12 @@
+module: src.tasks.self_identity.IdentityTask
+parameters:
+  file-pattern:
+    self_identity: "**/self-identity_cn.jsonl"
+  language: cn
+  name: self-identity
+  path: data/self-identity
+  shot: 0
+  extract_answer: True
+  acc_type: MUL
+  company: "清华"
+  model_name: "glm"
