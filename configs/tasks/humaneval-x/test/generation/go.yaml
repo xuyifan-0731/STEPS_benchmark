@@ -1,0 +1,6 @@
+module: "src.tasks.HumanEvalXGenerationTask"
+parameters:
+    name: "Humaneval-X Generation go"
+    datapath: "data/coding/humaneval-x"
+    num_samples: 2
+    language: "go"

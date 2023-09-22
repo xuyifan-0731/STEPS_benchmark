@@ -3,6 +3,7 @@ import json
 import pdb
 import jsonlines
 import time
+import traceback
 from glob import glob
 from os.path import join, relpath
 from collections import defaultdict
@@ -93,6 +94,7 @@ class SingleRoundTask(Task[str, str, str]):
                     self.report_single_metrics(file, result_dict)
                 except Exception as e:
                     print(f"error in evaluation {file} : {e}")
+                    print(traceback.print_exc())
                     result_dict = {}
                     result_dict["error"] = f"error in evaluation {file} : {e}"
                     if self.config.save_evaluation:
@@ -174,13 +176,13 @@ class SingleRoundTask(Task[str, str, str]):
         for item in dataset:
             text = item['text']
             result, should_extract = self.construct_extract(item, self.config.acc_type)
+            
             text_to_extract.append((result, should_extract))
                 
             if should_extract:
                 to_extract.append(dataset.construct_extract_prompt(result))
             else:
                 not_to_extract.append(text)
-
         extract_results = self.predict_all(agent, to_extract)
         i = 0
         results = []
@@ -194,15 +196,16 @@ class SingleRoundTask(Task[str, str, str]):
     
     def construct_extract(self, result, type):
         if type == "MUL":
-            result, should_extract = find_first_capital_letter(result)
-            # result, should_extract = extract_text_inside_brackets_MUL(result)
-            print(result, should_extract)
+            # result, should_extract = find_first_capital_letter(result)
+            result, should_extract = extract_text_inside_brackets_MUL(result)
+            # print(result, should_extract)
             return result, should_extract
         if type == "MATHQA":
-            result, should_extract = extract_text_inside_brackets(result)
+            result, should_extract = extract_text_QA(result)
             return result, should_extract
-        if type == "QA":
-            return result, True
+        if type == "EM":
+            result, should_extract = extract_text_QA(result)
+            return result, should_extract
        
         return result, True
 

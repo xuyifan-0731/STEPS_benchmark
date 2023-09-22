@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    disambiguation-qa-bbh: '**/disambiguation_qa.jsonl'
+    disambiguity-TF: '**/disambiguity-TF.jsonl'
+  language: cn
+  name: step3-disambiguity-cn-mul
+  path: data/step-0904/step3_cn/data/disambiguity

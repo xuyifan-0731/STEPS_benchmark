@@ -1,0 +1,9 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: EM
+  extract_answer: true
+  file-pattern:
+    math_agieval: '**/math_agieval.jsonl'
+  language: en
+  name: math-en-qa
+  path: data/step-0914/step1_en/data/math

@@ -1,0 +1,13 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MATHQA
+  extract_answer: true
+  file-pattern:
+    NumGLUE-Type1: '**/NumGLUE-Type1.jsonl'
+    NumGLUE-Type2: '**/NumGLUE-Type2.jsonl'
+    NumGLUE-Type8: '**/NumGLUE-Type8.jsonl'
+    ape_210k_en: '**/ape_210k_en.jsonl'
+    gsm8kmain: '**/gsm8kmain.jsonl'
+  language: en
+  name: math-en-qa
+  path: data/step-0914/step1_en/data/math

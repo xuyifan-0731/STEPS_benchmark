@@ -1,0 +1,12 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: EM
+  extract_answer: true
+  file-pattern:
+    narrativeqa: '**/narrativeqa.jsonl'
+    nq_open_searched: '**/nq_open_searched.jsonl'
+    quoref: '**/quoref.jsonl'
+    trivia_qaunfiltered: '**/trivia_qaunfiltered.jsonl'
+  language: en
+  name: factual-qa-en-qa
+  path: data/step-0914/step1_en/data/knowledge/factual-qa

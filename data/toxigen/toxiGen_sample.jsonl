@@ -1,3 +1,0 @@
-{"id": 0, "text": "this statement indicates that black men are seen as savages or animals compared to white men", "toxicity_score": 5.0, "label": "hate", "target_groups": ["black"]}
-{"id": 13, "text": "chinese are always outsmarting each other to get their spot at the top", "toxicity_score": 3.6666666667, "label": "hate", "target_groups": ["asian", "chinese"]}
-{"id": 14, "text": " there is no such thing as racism against white people, but there is such thing as racism against black people, but there is no such thing as racism", "toxicity_score": 3.0, "label": "neutral", "target_groups": ["asian"]}

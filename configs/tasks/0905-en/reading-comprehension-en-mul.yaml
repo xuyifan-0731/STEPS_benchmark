@@ -1,0 +1,12 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    raceall: '**/raceall.jsonl'
+    racehigh: '**/racehigh.jsonl'
+    racemiddle: '**/racemiddle.jsonl'
+    super_gluemultirc: '**/super_gluemultirc.jsonl'
+  language: en
+  name: reading-comprehension-en-mul
+  path: data/step-0904/step1_en/data/traditional/reading-comprehension

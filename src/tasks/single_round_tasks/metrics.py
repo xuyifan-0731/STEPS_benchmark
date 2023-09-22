@@ -16,7 +16,16 @@ import re
 # from SwissArmyTransformer import get_tokenizer
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
-
+def extract_text_QA(text):
+    pattern = r'答案是(.+?)(。|$)'
+    matches =  re.findall(pattern, text)
+    if matches:
+        return matches[-1][0]
+    pattern = r'The answer is therefore(.+?)(。|$)'
+    matches =  re.findall(pattern, text)
+    if matches:
+        return matches[-1][0]
+    return text
 
 def normalize_answer(s):
     """Lower text and remove punctuation, articles and extra whitespace."""
@@ -29,14 +38,15 @@ def normalize_answer(s):
 
     def remove_punc(text):
         exclude = set(string.punctuation)
+        exclude.add("：")
         return "".join(ch for ch in text if ch not in exclude)
 
     def lower(text):
         return text.lower()
 
     if len(s) < 3:
-        return white_space_fix(remove_punc(lower(s)))
-    return white_space_fix(remove_articles(remove_punc(lower(s))))
+        return extract_text_QA(white_space_fix(remove_punc(lower(s))))
+    return extract_text_QA(white_space_fix(remove_articles(remove_punc(lower(s)))))
 
 def word_bleu_score(reference, candidate):
     reference_tokens = list(reference)
@@ -45,9 +55,23 @@ def word_bleu_score(reference, candidate):
     score = sentence_bleu([reference_tokens], candidate_tokens, smoothing_function=smoothie)
     return score
 
+def calculate_f1(As, B):
+    max_score = 0
+    for A in As:
+        set_A = set(A)
+        set_B = set(B)
+        common = len(set_A.intersection(set_B))
+        precision = common / len(set_A) if len(set_A) > 0 else 0
+        recall = common / len(set_B) if len(set_B) > 0 else 0
+        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+        max_score = max(max_score,f1)
+    
+    return max_score
+
 def bleu_score(predictions, ground_truths, config):
     # for short reference add weights?
     bleu = []
+    f1 = []
     smoothing = SmoothingFunction()
     for prediction, ground_truth in zip(predictions, ground_truths):
         if not isinstance(prediction, str):
@@ -64,8 +88,10 @@ def bleu_score(predictions, ground_truths, config):
             for turth in ground_truth.get("targets"):
                 ground_truths.append(list(jieba.cut(normalize_answer(turth))))
         bleu.append(sentence_bleu(ground_truths, prediction, smoothing_function=smoothing.method1))
+        f1.append(calculate_f1(ground_truths, prediction))
     bleu_score = np.mean(bleu)
-    return bleu_score
+    f1_score = np.mean(f1)
+    return {"BLEU": bleu_score, "F1": f1_score}
 
 
 def bert_score_metric(predictions, ground_truths, config):
@@ -156,9 +182,13 @@ def find_first_capital_letter_raw(doc):
 def find_first_number(prediction):
     # remove , in number
     prediction = prediction.replace(",", "").strip()
-    match = re.search(r'\d*\.?\d+', prediction)
+    match = re.search(r'(\d*\.?\d+)%?', prediction)
     if match:
-        return match.group(0)
+        number_str = match.group(1)
+        if match.group().endswith('%'):
+            return str(float(number_str) / 100)
+        else:
+            return number_str
     else:
         return ""
 
@@ -184,6 +214,7 @@ def acc_for_multi_choices(predictions, ground_truths, config=None):
     tt = len(predictions)
     if tt == 0:
         return 0
+
     for prediction, ground_truth in zip(predictions, ground_truths):
         if prediction is None:
             continue
@@ -198,7 +229,9 @@ def acc_for_multi_choices(predictions, ground_truths, config=None):
                 break
         if is_correct:
             continue
-        
+        if first_letter in [chr(i) for i in range(65,91)][:len(ground_truth.get("choices"))]:
+            continue
+
         choices_bleu = []
         # second word bleu choose one answer
         for choice in ground_truth.get("choices"):
@@ -225,20 +258,31 @@ def acc_for_math_short_cloze(predictions, ground_truths, config=None):
         # first get first number
         first_number = find_first_number(prediction)
         # print(f"targets: ", ground_truth["targets"][0], " extract: ", first_number)
+        if isinstance(ground_truth['targets'],list):
+            ground_truth = ground_truth['targets'][0]
+        else:
+            ground_truth = ground_truth['targets']
         try:
-            if math.isclose(float(first_number), float(ground_truth['targets'][0]), abs_tol=0.1):  
+            answer = eval(first_number)
+            if "%" in ground_truth:
+                ground_truth = eval(ground_truth.replace("%",""))/100
+            else:
+                ground_truth = eval(ground_truth)
+            if math.isclose(answer, ground_truth, abs_tol=0.001):  
                 acc += 1
         except:
-            if first_number == ground_truth['targets'][0] or prediction == ground_truth['targets'][0]:
+            if first_number == ground_truth or prediction == ground_truth:
                 acc += 1
     
     return acc / tt
+
 
 def acc_for_general_short_cloze(predictions, ground_truths, config=None):
     '''
     calculate accuracy for general short cloze: Exact Match
     '''
-    acc = 0
+    acc_prefic = 0
+    acc_in = 0
     tt = len(predictions)
     if tt == 0:
         return 0
@@ -249,11 +293,15 @@ def acc_for_general_short_cloze(predictions, ground_truths, config=None):
         if not normal_prediction: # fix {}][] bad cases in BBH word sorting
             normal_prediction = prediction
         for exact_answer in ground_truth['targets']:
-            if normal_prediction == normalize_answer(exact_answer):
-                acc += 1
+            if normal_prediction == normalize_answer(exact_answer) or normal_prediction.startswith(normalize_answer(exact_answer)):
+                acc_prefic += 1
+                break
+        for exact_answer in ground_truth['targets']:
+            if normalize_answer(exact_answer) in normal_prediction:
+                acc_in += 1
                 break
         
-    return acc / tt
+    return {"ACC-prefix": acc_prefic / tt, "ACC-in": acc_in / tt }
 
 def acc_for_re_extraction(predictions, ground_truths, config=None):
     '''
@@ -340,12 +388,12 @@ def evaluate_file(file, save_path, metrics=["BLEU", "ROUGE", "ACC"], config=None
 DEFAULT_METRICS = {
     "BLEU": bleu_score,
     "ROUGE": rouge_score,
-    "ACC": acc,
+    "ACC": acc
 }
 
 if __name__ == "__main__":
-
+    '''
     pattern = "(?<=the answer is ).*"
     extract_template = re.compile(pattern)
     text = "sdajsdal sdjai sdk therefore, the answer is (A))d, \nis it right?"
-    print(re_extract_last_sentence(text, extract_template))
+    print(re_extract_last_sentence(text, extract_template))'''

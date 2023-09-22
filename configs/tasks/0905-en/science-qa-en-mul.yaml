@@ -1,0 +1,16 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    ai2_arcARC-Challenge: '**/ai2_arcARC-Challenge.jsonl'
+    ai2_arcARC-Easy: '**/ai2_arcARC-Easy.jsonl'
+    openbookqa: '**/openbookqa.jsonl'
+    piqa: '**/piqa.jsonl'
+    pubmed_qapqa_artificial: '**/pubmed_qapqa_artificial.jsonl'
+    pubmed_qapqa_labeled: '**/pubmed_qapqa_labeled.jsonl'
+    qasc: '**/qasc.jsonl'
+    sciq: '**/sciq.jsonl'
+  language: en
+  name: science-qa-en-mul
+  path: data/step-0904/step1_en/data/knowledge/science-qa

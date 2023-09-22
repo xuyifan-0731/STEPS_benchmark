@@ -76,7 +76,7 @@ class APIAgent_claude(Agent):
                 if resp.status_code != 200:
                     raise Exception(f"Invalid status code {resp.status_code}:\n\n{resp.text}")
                 try:
-                    return resp.text
+                    return eval(resp.text)
                 except:
                     raise Exception(f"Invalid response:\n\n{resp.text}")
             except:

@@ -1,0 +1,11 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: EM
+  extract_answer: true
+  file-pattern:
+    no_background_cmrc_data: '**/no_background_cmrc_data.jsonl'
+    no_background_webqa_data: '**/no_background_webqa_data.jsonl'
+    quoref: '**/quoref.jsonl'
+  language: cn
+  name: factual-qa-cn-qa
+  path: data/step-0914/step1_cn/data/knowledge/factual-qa

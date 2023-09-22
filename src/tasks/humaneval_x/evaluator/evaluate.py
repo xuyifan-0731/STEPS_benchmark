@@ -151,13 +151,13 @@ def evaluate_functional_correctness(
             completion_id[task_id] += 1
             n_samples += 1
 
-        print(completion_id)
+        # print(completion_id)
 
         print("Running test suites...")
         for future in tqdm(as_completed(futures), total=len(futures)):
             result = future.result()
             results[result["task_id"]].append((result["completion_id"], result))
-        shutil.rmtree(os.path.join(tmp_dir, 'tmp'))
+        # shutil.rmtree(os.path.join(tmp_dir, 'tmp'))
 
     # Calculate pass@k.
     total, correct = [], []
@@ -179,3 +179,45 @@ def evaluate_functional_correctness(
     #     for r in res:
     #         fp.write(json.dumps(r[1]) + "\n")
     return pass_at_k
+
+
+
+def check_samples(
+        samples,
+        tmp_dir: str = "src/tasks/humaneval_x/env",
+        n_workers: int = 32,
+        timeout: float = 3.0,
+        k: List[int] = [1, 10, 100],
+):
+    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+
+        futures = []
+        completion_id = Counter()
+        n_samples = 0
+        results = defaultdict(list)
+
+        os.makedirs(os.path.join(tmp_dir, 'tmp'), exist_ok=True)
+        print("Reading samples...")
+        for sample in tqdm(samples):
+            task_id = sample["task_id"]
+            lang = task_id.split("/")[0].lower()
+            if lang == "javascript":
+                lang = "js"
+            # tmp_dir_ = os.path.join(tmp_dir, lang, "evaluation")
+            sample["task_id"] = task_id
+            sample["test_code"] = process_humaneval_test(sample)
+            if sample["test_code"] is None:
+                continue
+            if "completion_id" in sample:
+                completion_id_ = sample["completion_id"]
+            else:
+                completion_id_ = completion_id[task_id]
+            args = (task_id, sample, lang, timeout, tmp_dir, completion_id_)
+            future = executor.submit(check_correctness, *args)
+            futures.append(future)
+            completion_id[task_id] += 1
+            n_samples += 1
+        print(n_samples)
+
+        # print(completion_id)
+    return n_samples

@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    identity-mul: '**/identity-mul.jsonl'
+    role-play: '**/role-play.jsonl'
+  language: cn
+  name: step3-self-identity-cn-mul
+  path: data/step-0904/step3_cn/data/self-identity

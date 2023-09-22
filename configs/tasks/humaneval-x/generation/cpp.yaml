@@ -1,6 +1,6 @@
 module: "src.tasks.HumanEvalXGenerationTask"
 parameters:
-    name: "Humaneval-X Generation"
+    name: "Humaneval-X Generation cpp"
     datapath: "data/coding/humaneval-x"
     num_samples: 20
     language: "cpp"

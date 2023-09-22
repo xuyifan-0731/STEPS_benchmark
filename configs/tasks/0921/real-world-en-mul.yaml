@@ -1,0 +1,11 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    flip_coin: '**/flip_coin.jsonl'
+    direction: '**/direction-mul.jsonl'
+    rgb: "**/rgb-mul.jsonl"
+  language: en
+  name: real-world-en-mul
+  path: data/step-0904/step1_en/data/knowledge/real-world

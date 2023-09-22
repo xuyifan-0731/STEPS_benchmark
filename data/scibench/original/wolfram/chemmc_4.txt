@@ -1,5 +1,0 @@
-
-freshStart[]
-c = 1/Sqrt[2]
-
-c

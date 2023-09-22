@@ -1,0 +1,14 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: EM
+  extract_answer: true
+  file-pattern:
+    drop: '**/drop.jsonl'
+    dyck_languages: '**/dyck_languages.jsonl'
+    multistep_arithmetic_two: '**/multistep_arithmetic_two.jsonl'
+    object_counting: '**/object_counting.jsonl'
+    reasoning_about_colored_objects: '**/reasoning_about_colored_objects.jsonl'
+    word_sorting: '**/word_sorting.jsonl'
+  language: en
+  name: inference-cn-qa
+  path: data/step-0914/step1_en/data/inference

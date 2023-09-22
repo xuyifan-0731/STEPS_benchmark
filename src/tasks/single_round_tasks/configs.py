@@ -19,7 +19,7 @@ class BaseConfig(JSONSerializable, metaclass=property_wizard):
     prompt: str = None
     cot: str = None # default means add cot prompt in the end (e.g. let's think step by step)
     shot: int = 0 # deprecated
-    max_length: int = 1024 # change to 2048 if neccessary
+    max_length: int = 2048 # change to 2048 if neccessary
     language: str = "en" # support en or cn
 
     acc_type: str = "EM" # MUL MATHQA EM RE different settings when calculate accuracy

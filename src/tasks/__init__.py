@@ -4,6 +4,7 @@ try:
     from .humaneval_x import HumanEvalXGenerationTask, HumanEvalXTranslationTask
 except:
     print("> [Warning] HumanEvalX Import Failed")
+'''
 try:
     from .mbpp import MBPPTask
 except:
@@ -11,12 +12,12 @@ except:
 try:
     from .tool_execution import ToolExecution
 except:
-    print("> [Warning] ToolExecution Import Failed")
+    print("> [Warning] ToolExecution Import Failed")'''
 try:
     from .single_round_tasks import *
 except:
     print("> [Warning] Single Round Tasks Import Failed")
-try:
+'''try:
     from .composite_task import CompositeTask
 except:
     print("> [Warning] CompositeTask Import Failed")
@@ -35,4 +36,7 @@ except:
 try:
     from .scibench import ScibenchTask, ScibenchTask_cot
 except:
-    print("> [Warning] scibench Import Failed")
+    print("> [Warning] scibench Import Failed")'''
+
+from .disambiguity import disambiguityQA
+from .idiotQA import IdiotQATask

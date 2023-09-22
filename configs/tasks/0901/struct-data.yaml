@@ -1,0 +1,22 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: EM
+  file-pattern:
+    SQL-query-question/cosql_inverse: '**/query-2-text/SQL-query-question/cosql_inverse.jsonl'
+    SQL-query-question/sparc_inverse: '**/query-2-text/SQL-query-question/sparc_inverse.jsonl'
+    SQL-query-question/spider_inverse: '**/query-2-text/SQL-query-question/spider_inverse.jsonl'
+    SQL-query-question/sql2text: '**/query-2-text/SQL-query-question/sql2text.jsonl'
+    SQL-question-query/cosql: '**/text-2-query/SQL-question-query/cosql.jsonl'
+    SQL-question-query/sparc: '**/text-2-query/SQL-question-query/sparc.jsonl'
+    SQL-question-query/spider: '**/text-2-query/SQL-question-query/spider.jsonl'
+    SQL-question-query/sql2text_inverse: '**/text-2-query/SQL-question-query/sql2text_inverse.jsonl'
+    kg-query-question/grailqa_inverse: '**/query-2-text/kg-query-question/grailqa_inverse.jsonl'
+    kg-query-question/webqsp_inverse: '**/query-2-text/kg-query-question/webqsp_inverse.jsonl'
+    kg-question-query/grailqa: '**/text-2-query/kg-question-query/grailqa.jsonl'
+    kg-question-query/webqsp: '**/text-2-query/kg-question-query/webqsp.jsonl'
+    triple-description/dart: '**/query-2-text/triple-description/dart.jsonl'
+  language: en
+  name: step1_en_struct_data
+  path: data/struct_data
+  shot: 0
+  extract_answer: False

@@ -1,8 +1,0 @@
-
-(* Define the function for the integrand *)
-f[theta_] := Sqrt[2 + 2*Sin[theta]]
-
-(* Compute the integral *)
-L = NIntegrate[f[theta], {theta, 0, 2*Pi}]
-
-L

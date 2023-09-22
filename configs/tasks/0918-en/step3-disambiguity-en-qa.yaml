@@ -1,0 +1,9 @@
+module: src.tasks.disambiguity.disambiguityQA
+parameters:
+  acc_type: EM
+  extract_answer: false
+  file-pattern:
+    disambiguity-rewrite: '**/disambiguity-rewrite.jsonl'
+  language: en
+  name: step3disambiguity-en-qa
+  path: data/step-0904/step3_en/data/disambiguity

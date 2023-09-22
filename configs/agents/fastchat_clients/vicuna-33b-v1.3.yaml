@@ -2,8 +2,8 @@ module: "src.agents.FastChatAgent"
 parameters:
     name: "FastChat-vicuna-33b-v1.3"
     # worker_address: "http://166.111.5.162:49991" # Do not use worker_address directly
-    controller_address: "http://166.111.5.162:49999"
+    controller_address: "http://localhost:10010"
     model_name: "vicuna-33b-v1.3"
-    max_new_tokens: 50
+    max_new_tokens: 1024
     temperature: 0
     top_p: 0

@@ -1,0 +1,7 @@
+module: "src.tasks.HumanEvalXTranslationTask"
+parameters:
+    name: "Humaneval-X Translation cpp-java"
+    datapath: "data/coding/humaneval-x"
+    num_samples: 5
+    src_lang: "cpp"
+    tgt_lang: "java"

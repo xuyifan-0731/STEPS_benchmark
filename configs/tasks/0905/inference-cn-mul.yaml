@@ -1,0 +1,29 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    NumGLUE-Type3: '**/NumGLUE-Type3.jsonl'
+    anli: '**/anli.jsonl'
+    boolean_expressions: '**/boolean_expressions.jsonl'
+    formal_fallacies: '**/formal_fallacies.jsonl'
+    geometric_shapes: '**/geometric_shapes.jsonl'
+    hyperbaton: '**/hyperbaton.jsonl'
+    logical_deduction_five_objects: '**/logical_deduction_five_objects.jsonl'
+    logical_deduction_seven_objects: '**/logical_deduction_seven_objects.jsonl'
+    logical_deduction_three_objects: '**/logical_deduction_three_objects.jsonl'
+    logiqa-zh: '**/logiqa-zh.jsonl'
+    multi_nli: '**/multi_nli.jsonl'
+    navigate: '**/navigate.jsonl'
+    penguins_in_a_table: '**/penguins_in_a_table.jsonl'
+    reclor: '**/reclor.jsonl'
+    snarks: '**/snarks.jsonl'
+    temporal_sequences: '**/temporal_sequences.jsonl'
+    time_dial: '**/time_dial.jsonl'
+    tracking_shuffled_objects_five_objects: '**/tracking_shuffled_objects_five_objects.jsonl'
+    tracking_shuffled_objects_seven_objects: '**/tracking_shuffled_objects_seven_objects.jsonl'
+    tracking_shuffled_objects_three_objects: '**/tracking_shuffled_objects_three_objects.jsonl'
+    web_of_lies: '**/web_of_lies.jsonl'
+  language: cn
+  name: inference-cn-mul
+  path: data/step-0904/step1_cn/data/inference

@@ -1,0 +1,9 @@
+module: src.tasks.IdiotQATask
+parameters:
+  acc_type: EM
+  extract_answer: false
+  file-pattern:
+    IdiotQA: '**/IdiotQA.jsonl'
+  language: cn
+  name: step3disinformation-cn-qa
+  path: data/step-0904/step3_cn/data/disinformation

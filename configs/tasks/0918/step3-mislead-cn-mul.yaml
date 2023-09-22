@@ -1,0 +1,16 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    hindsight-neglect: '**/hindsight-neglect.jsonl'
+    into-the-unknown: '**/into-the-unknown.jsonl'
+    memo-trap: '**/memo-trap.jsonl'
+    modus-tollens: '**/modus-tollens.jsonl'
+    redefine: '**/redefine.jsonl'
+    repetitive-algebra: '**/repetitive-algebra.jsonl'
+    resisting-correction: '**/resisting-correction.jsonl'
+    sig-figs: '**/sig-figs.jsonl'
+  language: cn
+  name: step3-mislead-cn-mul
+  path: data/step-0904/step3_cn/data/mislead

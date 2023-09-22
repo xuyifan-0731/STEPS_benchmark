@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MATHQA
+  extract_answer: true
+  file-pattern:
+    math: '**/ape_210k_zh.jsonl'
+    # quoref: '**/quoref.jsonl'
+  language: cn
+  name: test-cn-qa
+  path: data/step-0914/step1_cn/data/test

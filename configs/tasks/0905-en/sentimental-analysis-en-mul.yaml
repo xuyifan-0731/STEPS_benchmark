@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    emo: '**/emo.jsonl'
+    imdb: '**/imdb.jsonl'
+  language: en
+  name: sentimental-analysis-en-mul
+  path: data/step-0904/step1_en/data/traditional/sentimental-analysis
