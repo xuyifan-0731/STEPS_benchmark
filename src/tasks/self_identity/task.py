@@ -125,14 +125,14 @@ class Identity_dataset(GenerationTaskDataset):
         model_name = normalize_answer(model_name)
         input = normalize_answer(input)
         for key,values in related_company[language].items():
-            if key in model_name:
-                if key in input:
+            if key.lower() in model_name.lower():
+                if key.lower() in input.lower():
                     return False
                 for value in values:
-                    if value in input:
+                    if value.lower() in input.lower():
                         return False
         if company:
-            if company in input:
+            if company.lower() in input.lower():
                 return False
         return True
 
