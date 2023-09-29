@@ -49,3 +49,10 @@ parameters:
 ## Method II: Implement agent server
 
 See [Model Server Implementation](./server/README.md) for more detailed instruction.
+
+## Method III: fastchat model server
+
+Please refer to：
+https://github.com/xuyifan-0731/fastchat_server
+to build fastchat server for local model, such as chatglm2-6b.
+After building, you can refer to configs/agents/  for agent.yaml.
