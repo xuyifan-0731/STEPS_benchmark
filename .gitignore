@@ -43,3 +43,12 @@ configs/tasks/toxiGen/test.yaml
 src/agents/api_agents/api.py
 src/agents/api_agents/__init__.py
 src/agents/__init__.py
+code-result/*
+download/*
+analysis-code.py
+code-result-log*
+get_result.py
+test.py
+results_excel/*
+server/*
+src/tasks/humaneval_x/env/*

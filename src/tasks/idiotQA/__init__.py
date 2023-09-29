@@ -1,0 +1,1 @@
+from .Idiot_task import IdiotQATask

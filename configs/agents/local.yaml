@@ -1,5 +1,0 @@
-module: "src.agents.LocalAgent"
-parameters:
-    name: "Local-Agent"
-    url: "http://localhost:29998"
-    temperature: 0.9

@@ -1,4 +1,9 @@
-module: "src.agents.LocalAgent"
+module: "src.agents.FastChatAgent"
 parameters:
-    name: "chatglm2-6b"
-    url: "http://localhost:9999/api/v1/chatglm2-6b/call"
+    name: "FastChat chatglm2-6b"
+    # worker_address: "http://166.111.5.162:49991" # Do not use worker_address directly
+    controller_address: "http://localhost:10010"
+    model_name: "chatglm2-6b"
+    max_new_tokens: 1024
+    temperature: 0
+    top_p: 0

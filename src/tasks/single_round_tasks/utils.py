@@ -13,12 +13,7 @@ def find_first_capital_letter(item):
         return item, True
     
 def extract_text_inside_brackets(item):
-
-    matches = re.findall(r'\{(.*?)\}', item["raw_answer"])
-    # print(item["text"])
-    print(item["raw_answer"][-50:])
-    print(matches)
-    
+    matches = re.findall(r'\{(.*?)\}', item["raw_answer"])    
     if matches:
         return matches[-1], False
     else:
@@ -45,5 +40,21 @@ def extract_text_inside_brackets_MUL(item):
     last_line_match = re.search(r'The choice is therefore\s*([' + option_str + '])', last_line.replace(" ",""))
     if last_line_match and last_line_match.group(1) in option_str:
         return last_line_match.group(1), False
+    
+    return item, True
+
+def extract_text_QA(item):
+    text = item["raw_answer"].strip()
+    pattern = r'答案是(.+?)(。|$)'
+    matches =  re.findall(pattern, text)
+    if matches:
+        return matches[-1][0], False
+    pattern = r'The answer is therefore(.+?)(。|$)'
+    matches =  re.findall(pattern, text)
+    if matches:
+        return matches[-1][0], False
+    #last_line_match = re.search(r'The choice is therefore\s*([' + option_str + '])', last_line.replace(" ",""))
+    #if last_line_match and last_line_match.group(1) in option_str:
+        #return last_line_match.group(1), False
     
     return item, True

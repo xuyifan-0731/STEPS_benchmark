@@ -33,7 +33,10 @@ class HumanEvalXTask(Task[Dict, str, Dict]):
                 sample['generation'] = result
                 samples.append(sample)
             return evaluate_functional_correctness(samples, k=[1])['pass@1']
-        return {'pass@1': evaluate}
+        if self.__class__.__name__ == "HumanEvalXGenerationTask":
+            return {f'pass@1-{self.language}': evaluate}
+        else:
+            return {f'pass@1-{self.src_lang}-{self.tgt_lang}': evaluate}
 
     def __init__(self, name=None, workers=1, num_samples=None, datapath=None, **kwargs):
         super().__init__(name=name, workers=workers, **kwargs)
@@ -68,6 +71,7 @@ class HumanEvalXGenerationTask(HumanEvalXTask):
             )
             for _ in range(self.num_samples):
                 data.append(item)
+            #break
         return data
     
     def predict_single(self, session: Session, data_item: Dict):
@@ -103,6 +107,6 @@ class HumanEvalXTranslationTask(HumanEvalXTask):
     
     def predict_single(self, session: Session, data_item: Dict):
         result = session.action({"role": "user", "content": data_item['input']})
-        result = parse_code_from_chat(result, data_item['prompt'], self.language)
+        result = parse_code_from_chat(result, data_item['prompt'], self.tgt_lang)
         result = cleanup_code(result, self.tgt_lang)
         return result

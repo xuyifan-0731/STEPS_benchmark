@@ -160,14 +160,19 @@ def check_correctness(
 
             os.chdir(tmp_dir)
             open(f"test.cpp", 'w').write(sample["test_code"])
-            if "162" in task_id:
-                compilation_result = subprocess.run(["/usr/bin/g++", "-std=c++11", "test.cpp", "-lcrypto", "-lssl"],
-                                                    timeout=timeout,
+            compile_timeout = False
+            try:
+                if "162" in task_id:
+                    compilation_result = subprocess.run(["/usr/bin/g++", "-std=c++11", "test.cpp", "-lcrypto", "-lssl"],
+                                                        timeout=timeout,
+                                                        capture_output=True)
+                else:
+                    compilation_result = subprocess.run(["/usr/bin/g++", "-std=c++11", "test.cpp"], timeout=timeout,
                                                     capture_output=True)
-            else:
-                compilation_result = subprocess.run(["/usr/bin/g++", "-std=c++11", "test.cpp"], timeout=timeout,
-                                                    capture_output=True)
-            if compilation_result.returncode != 0:
+            except TimeoutException:
+                compile_timeout = True
+                result.append("timed out")
+            if not compile_timeout and compilation_result.returncode != 0:
                 if compilation_result.stderr:
                     err = compilation_result.stderr.decode()
                 else:

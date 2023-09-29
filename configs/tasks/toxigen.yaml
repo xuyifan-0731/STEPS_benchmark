@@ -1,0 +1,5 @@
+module: "src.tasks.toxigen.ToxiGenTask"
+parameters:
+  name: ToxiGen
+  datapath: data/toxigen/toxiGen_1000.jsonl
+  checkpoint_path: "/workspace/checkpoint/toxigen_roberta"

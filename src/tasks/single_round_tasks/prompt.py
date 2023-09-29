@@ -87,7 +87,7 @@ class EnglishPromptTemplate(PromptTemplate):
         return f"Question: {question} \nAnswer: {answer} \nAmong {start_choice} to {end_choice}, the answer is "
 
     def qa_extract_prompt(self, question, answer):
-        return f"Question: {question} \nAnswer: {answer} \nTherefore, the answer is "
+        return f"Question: {question} \nAnswer: {answer} \nPlease answer only the final answer: Therefore, the answer is "
 
 
 class ChinesePromptTemplate(PromptTemplate):
@@ -113,7 +113,7 @@ class ChinesePromptTemplate(PromptTemplate):
         return f"文章: {question} \n"
 
     def sum_instruction_before_article(self):
-        return "请总结以上文章的内容： \n"
+        return "请总结以上文章的内容：\n"
     
     def mul_extract_prompt(self, question, answer, len):
         start_choice = "A"
@@ -121,7 +121,7 @@ class ChinesePromptTemplate(PromptTemplate):
         return f"问题：{question}\n回答： {answer}\n在 {start_choice} 到 {end_choice} 这几个选项中，正确答案是"
 
     def qa_extract_prompt(self, question, answer):
-        return f"问题：{question}\n回答： {answer}\n因此，正确答案是"
+        return f"问题：{question}\n回答： {answer}\n请仅回答最终答案：因此，正确答案是"
 
 
 

@@ -1,8 +1,0 @@
-module: "src.tasks.CompositeTask"
-parameters:
-    name: "Decisiveness"
-    tasks:
-        - src: "./os_interaction.yaml"
-          category: "os-interaction"
-        - src: "./dbbench.yaml"
-          category: "db-interaction"

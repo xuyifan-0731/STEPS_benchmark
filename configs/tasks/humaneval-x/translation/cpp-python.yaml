@@ -1,7 +1,7 @@
 module: "src.tasks.HumanEvalXTranslationTask"
 parameters:
-    name: "Humaneval-X Translation"
+    name: "Humaneval-X Translation cpp-python"
     datapath: "data/coding/humaneval-x"
-    num_samples: 10
+    num_samples: 5
     src_lang: "cpp"
     tgt_lang: "python"
