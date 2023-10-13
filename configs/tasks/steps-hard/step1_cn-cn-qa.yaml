@@ -1,0 +1,13 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: QA
+  extract_answer: true
+  file-pattern:
+    factual-qa_QA: '**/factual-qa_QA.jsonl'
+    inference_QA: '**/inference_QA.jsonl'
+    math_QA: '**/math_QA.jsonl'
+    reading-comprehension_QA: '**/reading-comprehension_QA.jsonl'
+    real-world_QA: '**/real-world_QA.jsonl'
+  language: cn
+  name: steps-hard-step1-cn-qa
+  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step1_cn

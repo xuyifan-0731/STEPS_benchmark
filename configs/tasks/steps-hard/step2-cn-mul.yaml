@@ -1,0 +1,10 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    K12_MUL: '**/K12_MUL.jsonl'
+    chinese-gov-test_MUL: '**/chinese-gov-test_MUL.jsonl'
+  language: cn
+  name: steps-hard-step2-cn-mul
+  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step2

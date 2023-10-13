@@ -1,0 +1,137 @@
+{"label": "QA", "question": "[0. 0. 1.] [0. 0. 0.] [0. 0. 0.]", "answer": ["['东北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 1. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[1. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['西北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [1. 0. 0.] [0. 0. 0.]", "answer": ["['西北方向']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 1. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['西']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 1. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['东北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 1.] [0. 0. 0.]", "answer": ["['东']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 1. 0. 0.]", "answer": ["['南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 1.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['东']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [1. 0. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['西南']"], "instruction": "请将下列方向数字归为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 0. 0. 0. 0.] [0. 1. 0. 0. 0.] [0. 0. 0. 0. 0.]", "answer": ["['西南方向']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [1. 0. 0.] [0. 0. 0.]", "answer": ["['西']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 0.] [0. 0. 1.]", "answer": ["['东南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 0.] [1. 0. 0.]", "answer": ["['西南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 0.] [0. 1. 0.]", "answer": ["['南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 1.] [0. 0. 0.] [0. 0. 0.]", "answer": ["['西北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 1. 0.] [0. 0. 0.]", "answer": ["['中心']"], "instruction": "请将下列方向数字归为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [1. 0. 0.] [0. 0. 0.]", "answer": ["['西北方向']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 1. 0.] [0. 0. 0.] [0. 0. 0.]", "answer": ["['北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 1.] [0. 0. 0.] [0. 0. 0.]", "answer": ["['东北']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 1.] [0. 0. 0.]", "answer": ["['东']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 0.] [0. 0. 1.]", "answer": ["['东南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [0. 0. 0.] [1. 0. 0.]", "answer": ["['西南']"], "instruction": "请将下列方向数字归类为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "[0. 0. 0.] [1. 0. 0.] [0. 0. 0.]", "answer": ["['西部']"], "instruction": "请将下列方向数字归为真实方向：\n请使用\"答案是 \"表示最终结果。", "source": "direction.jsonl"}
+{"label": "QA", "question": "(255, 0, 0)", "answer": ["['红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(143, 0, 255)", "answer": ["['紫色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 0, 255)", "answer": ["['蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 255, 0)", "answer": ["['黄色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 255, 0)", "answer": ["['绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 255, 255)", "answer": ["['青色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 0, 255)", "answer": ["['品红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(128, 128, 128)", "answer": ["['灰色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 165, 0)", "answer": ["['橙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(139, 69, 19)", "answer": ["['棕色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 255, 255)", "answer": ["['白色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 0, 0)", "answer": ["['黑色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(218, 165, 32)", "answer": ["['秋麒麟']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(128, 0, 0)", "answer": ["['栗色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(210, 105, 30)", "answer": ["['巧克力色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(107, 142, 35)", "answer": ["['橄榄色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(154, 205, 50)", "answer": ["['黄绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 128, 128)", "answer": ["['蓝绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(218, 112, 214)", "answer": ["['淡紫色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 191, 255)", "answer": ["['深天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(245, 222, 179)", "answer": ["['小麦色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(175, 238, 238)", "answer": ["['淡绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 228, 196)", "answer": ["['橘黄色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(245, 245, 245)", "answer": ["['烟白色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 128, 0)", "answer": ["['深绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 140, 0)", "answer": ["['深橙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(135, 206, 250)", "answer": ["['浅天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 192, 203)", "answer": ["['粉红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(139, 0, 139)", "answer": ["['深洋红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 218, 185)", "answer": ["['桃红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(46, 139, 87)", "answer": ["['海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(75, 0, 130)", "answer": ["['靛青']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 105, 180)", "answer": ["['热粉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(100, 149, 237)", "answer": ["['矢车菊蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 230, 140)", "answer": ["['卡其色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(50, 205, 50)", "answer": ["['石灰绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(220, 20, 60)", "answer": ["['深红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 0, 128)", "answer": ["['深蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 255, 240)", "answer": ["['象牙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 69, 0)", "answer": ["['橙红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(60, 179, 113)", "answer": ["['中海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(250, 128, 114)", "answer": ["['鲑鱼色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(65, 105, 225)", "answer": ["['皇家蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(128, 128, 0)", "answer": ["['橄榄绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 182, 193)", "answer": ["['浅粉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 128, 128)", "answer": ["['浅珊瑚色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 222, 173)", "answer": ["['纳瓦霍白']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 128, 128)", "answer": ["['蓝绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(219, 112, 147)", "answer": ["['浅紫红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 0, 255)", "answer": ["['洋红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 239, 213)", "answer": ["['番木瓜色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(218, 165, 32)", "answer": ["['金黄']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(250, 250, 210)", "answer": ["['浅金黄']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 250, 154)", "answer": ["['间春绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(176, 196, 222)", "answer": ["['浅钢蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(147, 112, 219)", "answer": ["['中紫色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(205, 92, 92)", "answer": ["['印度红']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 191, 255)", "answer": ["['深天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(135, 206, 250)", "answer": ["['浅天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 192, 203)", "answer": ["['粉红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(139, 0, 139)", "answer": ["['深洋红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 218, 185)", "answer": ["['桃肉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(46, 139, 87)", "answer": ["['海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(75, 0, 130)", "answer": ["['靛蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 105, 180)", "answer": ["['艳粉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(100, 149, 237)", "answer": ["['浅蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 230, 140)", "answer": ["['卡其色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(50, 205, 50)", "answer": ["['石灰绿/青柠绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(220, 20, 60)", "answer": ["['深红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 0, 128)", "answer": ["['深蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 255, 240)", "answer": ["['象牙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 69, 0)", "answer": ["['橘红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(60, 179, 113)", "answer": ["['中海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(250, 128, 114)", "answer": ["['浅橙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(65, 105, 225)", "answer": ["['宝蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(128, 128, 0)", "answer": ["['橄榄绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 182, 193)", "answer": ["['浅粉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 128, 128)", "answer": ["['亮珊瑚色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 222, 173)", "answer": ["['纳瓦霍白']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 128, 128)", "answer": ["['蓝绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(219, 112, 147)", "answer": ["['浅紫红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 0, 255)", "answer": ["['洋红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 239, 213)", "answer": ["['番木瓜色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(218, 165, 32)", "answer": ["['金麒麟色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(250, 250, 210)", "answer": ["['浅金黄']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 250, 154)", "answer": ["['中度春绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(176, 196, 222)", "answer": ["['浅钢蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(147, 112, 219)", "answer": ["['中紫色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(205, 92, 92)", "answer": ["['印度红']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 191, 255)", "answer": ["['深天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(135, 206, 250)", "answer": ["['浅天蓝色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 192, 203)", "answer": ["['粉红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(139, 0, 139)", "answer": ["['深洋红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 218, 185)", "answer": ["['桃粉红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(46, 139, 87)", "answer": ["['海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(75, 0, 130)", "answer": ["['紫色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 105, 180)", "answer": ["['桃红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(100, 149, 237)", "answer": ["['矢车菊蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 230, 140)", "answer": ["['卡其色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(50, 205, 50)", "answer": ["['青绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(220, 20, 60)", "answer": ["['深红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 0, 128)", "answer": ["['海军蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 255, 240)", "answer": ["['象牙色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 69, 0)", "answer": ["['橙红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(60, 179, 113)", "answer": ["['中海绿']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(250, 128, 114)", "answer": ["['浅红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(65, 105, 225)", "answer": ["['皇家蓝']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(128, 128, 0)", "answer": ["['橄榄色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 182, 193)", "answer": ["['浅粉色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(240, 128, 128)", "answer": ["['浅珊瑚色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(255, 222, 173)", "answer": ["['纳瓦霍白']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(0, 128, 128)", "answer": ["['蓝绿色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}
+{"label": "QA", "question": "(219, 112, 147)", "answer": ["['浅紫红色']"], "instruction": "请回答下列RGB值对应的颜色\n请使用\"答案是 \"表示最终结果。", "source": "rgb.jsonl"}

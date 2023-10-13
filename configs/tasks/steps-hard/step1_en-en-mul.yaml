@@ -1,0 +1,15 @@
+module: src.tasks.single_round_tasks.SingleRoundTask
+parameters:
+  acc_type: MUL
+  extract_answer: true
+  file-pattern:
+    commonsense-qa_MUL: '**/commonsense-qa_MUL.jsonl'
+    logic_MUL: '**/logic_MUL.jsonl'
+    math_MUL: '**/math_MUL.jsonl'
+    reading-comprehension_MUL: '**/reading-comprehension_MUL.jsonl'
+    real-world_MUL: '**/real-world_MUL.jsonl'
+    science-qa_MUL: '**/science-qa_MUL.jsonl'
+    sentimental-analysis_MUL: '**/sentimental-analysis_MUL.jsonl'
+  language: en
+  name: steps-hard-step1-en-mul
+  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step1_en

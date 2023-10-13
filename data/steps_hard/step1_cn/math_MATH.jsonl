@@ -1,0 +1,66 @@
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "师徒二人加工一批零件，师傅加工一个零件用9分钟，徒弟加工一个零件用15分钟，完成任务时，师傅比徒弟多加工100个零件，求师傅和徒弟一共加工了多少个零件？", "answer": ["400"], "label": "QA", "source": "ape_210k_zh.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一个数x=2**2*3**2*5*7，则x的两位数的因数中最大的是多少．", "answer": ["90"], "label": "QA", "source": "ape_210k_zh.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "某商店出售啤酒，规定每4个空瓶可以换一瓶啤酒，小明家买了24瓶啤酒，他一家前后最多能喝到多少瓶啤酒．", "answer": ["32"], "label": "QA", "source": "ape_210k_zh.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "(5/6)比(3/8)与(1/3)的和多多少？", "answer": ["(1/8)"], "label": "QA", "source": "ape_210k_zh.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求丁酸中氢元素的质量百分比", "answer": ["'9.09'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "10摩尔苯的重量是多少？", "answer": ["780"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "3摩尔氯化钡的重量是多少？", "answer": ["621"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一个具有1个氮原子、4个氢原子和1个碘原子的化合物的分子量是多少？", "answer": ["145"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求溴化钡中钡元素的质量百分比", "answer": ["'46.13'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "10摩尔硼酸的重量是多少？", "answer": ["620"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "7摩尔的硼酸的分子量是多少？", "answer": ["434"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求与2摩尔二氧化碳反应形成2摩尔碳酸钙和2摩尔水所需的氢氧化钙的量。", "answer": ["148"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求与2摩尔碳化铍反应形成4摩尔氢氧化钡和2摩尔甲烷所需的水的质量。", "answer": ["144"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "不包括停车时间，一辆公交车的速度是120公里/小时，包括停车时间，是93公里/小时。这辆公交车每小时停靠多少分钟？", "answer": ["'13.5'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "9摩尔碘化铝的重量是多少？", "answer": ["3672"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求与1摩尔氢氧化钠反应生成1摩尔氢氧化铵和1摩尔氯化钠所需的氯化铵的量。", "answer": ["53"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求溴化铵中氮元素的质量百分比", "answer": ["'14.29'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求丁烷中碳元素的质量百分比", "answer": ["'73.85'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求1摩尔氢氧化钠和1摩尔高氯酸反应生成的水的量", "answer": ["18"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求1摩尔氢氧化钠和1摩尔硫酸结合后形成的水的量。", "answer": ["18"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求硫酸钡中硫元素的质量百分比", "answer": ["'13.73'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求丙酮中氢元素的质量百分比", "answer": ["'10.34'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一个有3个氢原子、1个硼原子和3个氧原子的化合物的分子量是多少？", "answer": ["62"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "有一个2个铁原子和3个氧原子的化合物的分子量是多少？", "answer": ["160"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求溴酸钾的分子量", "answer": ["168"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "9摩尔碳酸的重量是多少？", "answer": ["558"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "3摩尔的氧化钡的分子量是多少？", "answer": ["459"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求碳酸铝中碳元素的质量百分比", "answer": ["'15.38'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一个有3个氢原子、1个硼原子和3个氧原子的化合物的分子量是多少？", "answer": ["62"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求C4H1O中氧元素的质量百分比", "answer": ["'24.62'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "求溴化钡中钡元素的质量百分比", "answer": ["'46.13'"], "label": "QA", "source": "NumGLUE-Type2.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "小花妈妈打算将20000元定期存入银行3年，如果按年利率3.69%计算，到期时小花妈妈实际的本息共有多少元？（另记利息税10%）", "answer": ["21992.6"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "甲乙两辆汽车分别从南京和上海同时出发，在沪宁高速公路上相对而行．甲车每小时行103千米，乙车每小时行112千米，经过1.2小时两车还相距16千米．沪宁高速公路全长多少千米？", "answer": ["274"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "张师傅去商店买大米，由于售货员疏忽，少给了他10斤大米，但收了他36元钱，已知每3斤大米1.2元．问售货员给了张师傅多少斤大米？", "answer": ["80"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "货场有一批货物要运走，第一天运走总数的(3/8)，第二天运走总数的25%，还有270吨没有运走，这批货物有多少吨？", "answer": ["720"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "王老师买了2000元的国家建设债券，定期3年，年利率是7.11%，到期时他获得的本息一共多少元．", "answer": ["2426.6"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "8400/12*7的积，商=？", "answer": ["100"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一根绳子长120米，第一次用去全长的(2/5)，第二次用去40米，这根绳子短了多少米？", "answer": ["88"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一个数的(5/8)与10的(4/5)相等，求这个数？", "answer": ["64/5"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "希望小学6（1）班男生人数的(2/3)等于全班人数的(4/13)，该班有女生28人，男生有多少人．", "answer": ["24"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "每瓶洗发水18元，买4瓶送一瓶，妈妈一次买10瓶，共用多少元．", "answer": ["144"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "学校在小红和小明两家之间的一段公路边．放学后，两人同时向各自家里走去．小明每小时走(18/5)千米，小红每小时走3千米，(5/12)小时后两人同时到家．两家相距多少千米？", "answer": ["2.75"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "180的(4/9)比一个数的50%少20，求这个数．", "answer": ["200"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "荣荣家买来一筐苹果，爸爸吃了其中的(1/3)，荣荣吃了其中的(1/4)，剩下的都是妈妈吃的，如果爸爸比荣荣多吃了3个苹果，那么，妈妈吃了多少个．", "answer": ["15"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一头大象重3.4吨，一头鲸鱼的重量是大象的5.8倍，鲸鱼比大象重多少吨？", "answer": ["16.32"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "甲、乙、丙3人行路，甲每分钟走60米，乙每分钟走50米，丙每分钟走40米．甲从A地，乙和丙从B地同时出发相向而行，甲和乙相遇后，过了15分钟又与丙相遇，求A、B两地间的距离．", "answer": ["16500"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一堆黄沙，第一天运走25%，比第二天少运4吨．这时还剩下56吨．这堆黄沙共多少吨？", "answer": ["120"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "王大妈收了(1/2)吨瓜，第一天卖出总数的(1/5)，第二天卖出总数的(1/6)，还剩总数的几分之几没卖出？", "answer": ["19/30"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "某人在一次选举中，需全部选票的(2/3)才能当选，计算全部选票的(3/4)后，他得到的选票已达到当选选票数的(5/6)，他还需要得到剩下选票的多少才能当选．", "answer": ["4/9"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "某商店今天卖出15台电视机，7台洗衣机．卖出的电视机是洗衣机的多少．", "answer": ["15/7"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "李师傅铺设1平方米地砖需要(1/8)小时．按照这样的速度计算，他铺好一个长16米、宽(16/3)米的长方形会议室，需要多少时间？", "answer": ["32/3"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "王康同学买4本日记本用了48元，他还想买8本送给他的好朋友们，需要准备多少钱？", "answer": ["144"], "label": "QA", "source": "math_23.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "女孩们正在为一个嘉年华筹款。亚历山德拉筹集了430美元，金比亚历山德拉多筹了320美元，萨拉筹集了300美元，玛丽亚姆比萨拉多筹了400美元。以美元计算，她们一共筹集了多少钱?", "answer": ["2280"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "20打杯子的成本比半打盘子的总成本低1200元，每个盘子的价格是6000元。计算购买每个杯子的总成本。", "answer": ["145"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "梅兰妮是上门推销的女售货员。她在绿房子里卖了三分之一的吸尘器，在红房子里卖了两个，在橙房子里卖了剩下的一半。如果梅兰妮还有5台吸尘器，她一开始有多少台?", "answer": ["18"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "一些人在终点站上了一辆公共汽车。在第一站，又有5人上车。然后在第二站，有7人下车，又有8人上车。如果共有20人前往第三站，那么有多少人在终点站上了车？", "answer": ["14"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "10个牛棚上各有20头牛。Sylas先生买了40头牛，并把它们平均分配，把相同数量的新牛放到每一个牛棚中。其中8个牛栏里有多少头牛？", "answer": ["192"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "尼有200支蜡笔。他想把它们分成8组，然后装进盒子里。  每个盒子有8盎司重。每支蜡笔的重量是1盎司。如果他把所有的蜡笔都放进盒子里，那么在一磅有16盎司的情况下，蜡笔和盒子的总重量是多少？", "answer": ["25"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "卡罗尔花了4个小时写一首歌，一半的时间用来录音，90分钟用来编辑。她用于编辑的时间占总工作时间的百分比是多少？", "answer": ["20"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "每年夏天，丽塔都会从她的植物上手工摘取一些害虫。  星期一，她摘掉了39只象鼻虫。  周二和周三，她摘除的害虫是周一的两倍。  周四她清除了48只，周五她清除了57只。  她每天平均清除的害虫数量是多少？", "answer": ["60"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "Elise正在学习写字，她决定一直重复写字母表，直到她学会为止。她写了两次完整的，又写了一次一半的字母表，然后又把已经写过的所有字母重新写一遍。伊莉斯一共写了多少个字母？", "answer": ["130"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "托尼正在粉刷一个有四面墙的房间。南北两面墙是10 x 8英尺。东面和西面的墙是5x8英尺。一加仑的油漆可以粉刷20平方英尺，成本为12美元，刷这个房间需要多少钱？", "answer": ["144"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "迈克决定把他的电影收藏换成数字版本。  他有600部电影。  三分之一的电影是各种系列的，他知道只要把这些系列的电影放在一起买，就可以用6美元的普通电影的价格买到。  剩下的40%的电影是老电影，价格为5美元。如果一部普通电影的价格为10美元，更换电影的成本是多少？", "answer": ["4400"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "Gomer 吃了比23勺少5勺的土豆泥。  如果用3个到6个的土豆可以做一个1到3勺的土豆泥，那么Gomer一共吃了多少个土豆？", "answer": ["27"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "亚伯拉罕拥有80平方米的未使用土地。他把一半的土地以50元卖掉，一个月后，他又把剩余的1/4的土地以30元卖掉。然后他把剩下的土地以每平方米3美元的价格出售。卖掉所有未使用的土地后，他能赚多少钱？", "answer": ["170"], "label": "QA", "source": "gsm8kmain.jsonl"}
+{"instruction": "请解决以下数学问题\n请使用\"答案是 \"表示最终结果。", "question": "在一年中，校园里的学生人数在每个月底都会增加一倍。如果年初校园里有10名学生，到5月底，除了年初已经在校园里的学生人数外，还有多少学生加入了校园？", "answer": ["310"], "label": "QA", "source": "gsm8kmain.jsonl"}
