@@ -37,10 +37,7 @@ src/agents/api_agents/api.py
 toxigen_*
 src/agents/http_agent.py
 get_toxigen.py
-configs/tasks/toxiGen/test.yaml
-src/agents/api_agents/api.py
-src/agents/api_agents/__init__.py
-src/agents/__init__.py
+configs/tasks/toxiGen/test.∂
 code-result/*
 download/*
 analysis-code.py
