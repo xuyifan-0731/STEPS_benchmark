@@ -23,7 +23,7 @@ from_log.py
 configs/agents/fastchat_clients/*
 configs/tasks/07*
 src/tasks/extract_again/*
-src/agents/api_agents/api.py
+
 configs/tasks/0804/
 configs/tasks/extraction/
 configs/tasks/glm-test/
@@ -33,11 +33,11 @@ src/tasks/extraction/
 toxigen-cut.py
 src/agents/chatglm/
 .hypothesis/
-src/agents/api_agents/api.py
+
 toxigen_*
 src/agents/http_agent.py
 get_toxigen.py
-configs/tasks/toxiGen/test.∂
+configs/tasks/toxiGen/*
 code-result/*
 download/*
 analysis-code.py
