@@ -1,0 +1,7 @@
+module: src.agents.FastChatAgent
+parameters:
+  controller_address: http://localhost:10010
+  max_new_tokens: 1024
+  model_name: internlm-chat-7b-v1_1
+  name: FastChat-internlm-chat-7b-v1_1
+  temperature: 0

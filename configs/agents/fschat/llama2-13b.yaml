@@ -1,0 +1,9 @@
+module: "src.agents.FastChatAgent"
+parameters:
+    name: "FastChat Llama-2-13b-chat-hf"
+    # worker_address: "http://166.111.5.162:49991" # Do not use worker_address directly
+    controller_address: "http://localhost:10010"
+    model_name: "Llama-2-13b-chat-hf"
+    max_new_tokens: 1024
+    temperature: 0
+    top_p: 0

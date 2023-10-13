@@ -1,0 +1,4 @@
+module: "src.agents.APIAgent"
+parameters:
+    name: "ErnieBot"
+    model_name: "ErnieBot"

@@ -1,0 +1,7 @@
+module: src.agents.FastChatAgent
+parameters:
+  controller_address: http://localhost:10010
+  max_new_tokens: 1024
+  model_name: Qwen-7B-Chat
+  name: FastChat-Qwen-7B-Chat
+  temperature: 0
