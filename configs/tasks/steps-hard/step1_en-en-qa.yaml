@@ -8,4 +8,4 @@ parameters:
     real-world_QA: '**/real-world_QA.jsonl'
   language: en
   name: steps-hard-step1-en-mul-qa
-  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step1_en
+  path: data/steps_hard/step1_en

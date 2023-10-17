@@ -3,7 +3,7 @@ parameters:
   acc_type: MATHQA
   extract_answer: true
   file-pattern:
-    math_MATH: '**/math_MATH.jsonl'
+    math_MATH: 'math_QA.jsonl'
   language: cn
-  name: steps-hard-step1-cn-mathqa
-  path: data/steps_hard/step1_cn
+  name: steps-hard-cn-mathqa
+  path: data/steps_hard/math/step1_cn/math

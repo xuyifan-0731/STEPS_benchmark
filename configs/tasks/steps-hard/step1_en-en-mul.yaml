@@ -12,4 +12,4 @@ parameters:
     sentimental-analysis_MUL: '**/sentimental-analysis_MUL.jsonl'
   language: en
   name: steps-hard-step1-en-mul
-  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step1_en
+  path: data/steps_hard/step1_en

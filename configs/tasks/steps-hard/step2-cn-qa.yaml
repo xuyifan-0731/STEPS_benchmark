@@ -6,4 +6,4 @@ parameters:
     K12_QA: '**/K12_QA.jsonl'
   language: cn
   name: steps-hard-step2-cn-qa
-  path: /workspace/xuyifan/xuyifan-old/STEPS_benchmark/data/steps_hard/step2
+  path: data/steps_hard/step2
