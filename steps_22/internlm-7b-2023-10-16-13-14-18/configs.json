@@ -1,0 +1,392 @@
+{
+    "args": {
+        "task": [
+            "configs/tasks/steps-hard"
+        ],
+        "agent": "configs/agents/fschat/internlm-7b.yaml",
+        "output_dir": "outputs",
+        "workers": 1
+    },
+    "command_line": [
+        "evaluate.py",
+        "--task",
+        "configs/tasks/steps-hard",
+        "--agent",
+        "configs/agents/fschat/internlm-7b.yaml"
+    ],
+    "create_time": "2023-10-16-13-14-18",
+    "output_root_dir": "outputs/2023-10-16-13-14-18",
+    "tasks": [
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step1-cn-mul",
+                    "path": "data/steps_hard/step1_cn",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "commonsense-qa_MUL": "**/commonsense-qa_MUL.jsonl",
+                        "inference_MUL": "**/inference_MUL.jsonl",
+                        "math_MUL": "**/math_MUL.jsonl",
+                        "real-world_MUL": "**/real-world_MUL.jsonl",
+                        "science-qa_MUL": "**/science-qa_MUL.jsonl",
+                        "sentimental-analysis_MUL": "**/sentimental-analysis_MUL.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "cn",
+                    "acc_type": "MUL",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step1-cn-mul",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step1_cn-cn-mul.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "commonsense-qa_MUL": [
+                        "commonsense-qa_MUL.jsonl"
+                    ],
+                    "inference_MUL": [
+                        "inference_MUL.jsonl"
+                    ],
+                    "math_MUL": [
+                        "math_MUL.jsonl"
+                    ],
+                    "real-world_MUL": [
+                        "real-world_MUL.jsonl"
+                    ],
+                    "science-qa_MUL": [
+                        "science-qa_MUL.jsonl"
+                    ],
+                    "sentimental-analysis_MUL": [
+                        "sentimental-analysis_MUL.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step2-cn-qa",
+                    "path": "data/steps_hard/step2",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "K12_QA": "**/K12_QA.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "cn",
+                    "acc_type": "QA",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step2-cn-qa",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step2-cn-qa.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "K12_QA": [
+                        "K12_QA.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step2-cn-mul",
+                    "path": "data/steps_hard/step2",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "K12_MUL": "**/K12_MUL.jsonl",
+                        "chinese-gov-test_MUL": "**/chinese-gov-test_MUL.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "cn",
+                    "acc_type": "MUL",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step2-cn-mul",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step2-cn-mul.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "K12_MUL": [
+                        "K12_MUL.jsonl"
+                    ],
+                    "chinese-gov-test_MUL": [
+                        "chinese-gov-test_MUL.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step1-cn-mathqa",
+                    "path": "data/steps_hard/step1_cn",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "math_MATH": "**/math_MATH.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "cn",
+                    "acc_type": "MATHQA",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step1-cn-mathqa",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step1_cn-math.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "math_MATH": [
+                        "math_MATH.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step1-en-mul",
+                    "path": "data/steps_hard/step1_en",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "commonsense-qa_MUL": "**/commonsense-qa_MUL.jsonl",
+                        "logic_MUL": "**/logic_MUL.jsonl",
+                        "math_MUL": "**/math_MUL.jsonl",
+                        "reading-comprehension_MUL": "**/reading-comprehension_MUL.jsonl",
+                        "real-world_MUL": "**/real-world_MUL.jsonl",
+                        "science-qa_MUL": "**/science-qa_MUL.jsonl",
+                        "sentimental-analysis_MUL": "**/sentimental-analysis_MUL.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "en",
+                    "acc_type": "MUL",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step1-en-mul",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step1_en-en-mul.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "commonsense-qa_MUL": [
+                        "commonsense-qa_MUL.jsonl"
+                    ],
+                    "logic_MUL": [
+                        "logic_MUL.jsonl"
+                    ],
+                    "math_MUL": [
+                        "math_MUL.jsonl"
+                    ],
+                    "reading-comprehension_MUL": [
+                        "reading-comprehension_MUL.jsonl"
+                    ],
+                    "real-world_MUL": [
+                        "real-world_MUL.jsonl"
+                    ],
+                    "science-qa_MUL": [
+                        "science-qa_MUL.jsonl"
+                    ],
+                    "sentimental-analysis_MUL": [
+                        "sentimental-analysis_MUL.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step1-en-mul-qa",
+                    "path": "data/steps_hard/step1_en",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "factual-qa_QA": "**/factual-qa_QA.jsonl",
+                        "logic_QA": "**/logic_QA.jsonl",
+                        "real-world_QA": "**/real-world_QA.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "en",
+                    "acc_type": "QA",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step1-en-mul-qa",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step1_en-en-qa.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "factual-qa_QA": [
+                        "factual-qa_QA.jsonl"
+                    ],
+                    "logic_QA": [
+                        "logic_QA.jsonl"
+                    ],
+                    "real-world_QA": [
+                        "real-world_QA.jsonl"
+                    ]
+                }
+            }
+        },
+        {
+            "class": "<class 'src.tasks.single_round_tasks.singleround_task.SingleRoundTask'>",
+            "fields": {
+                "config": {
+                    "name": "steps-hard-step1-cn-qa",
+                    "path": "data/steps_hard/step1_cn",
+                    "module": null,
+                    "metrics": [
+                        "ACC",
+                        "BLEU",
+                        "ROUGE"
+                    ],
+                    "save_prediction": true,
+                    "save_evaluation": true,
+                    "file_pattern": {
+                        "factual-qa_QA": "**/factual-qa_QA.jsonl",
+                        "inference_QA": "**/inference_QA.jsonl",
+                        "math_QA": "**/math_QA.jsonl",
+                        "reading-comprehension_QA": "**/reading-comprehension_QA.jsonl",
+                        "real-world_QA": "**/real-world_QA.jsonl"
+                    },
+                    "workers": 1,
+                    "prompt": null,
+                    "cot": null,
+                    "shot": 0,
+                    "max_length": 2048,
+                    "language": "cn",
+                    "acc_type": "QA",
+                    "extract_answer": true,
+                    "extract_template": null
+                },
+                "start_time": "2023-10-16-13-14-18",
+                "name": "steps-hard-step1-cn-qa",
+                "worker_limit": null,
+                "workers": 1,
+                "category": null,
+                "src": "configs/tasks/steps-hard/step1_cn-cn-qa.yaml",
+                "output_root_dir": "outputs/2023-10-16-13-14-18",
+                "file_groups": {
+                    "factual-qa_QA": [
+                        "factual-qa_QA.jsonl"
+                    ],
+                    "inference_QA": [
+                        "inference_QA.jsonl"
+                    ],
+                    "math_QA": [
+                        "math_QA.jsonl"
+                    ],
+                    "reading-comprehension_QA": [
+                        "reading-comprehension_QA.jsonl"
+                    ],
+                    "real-world_QA": [
+                        "real-world_QA.jsonl"
+                    ]
+                }
+            }
+        }
+    ],
+    "agent": {
+        "class": "<class 'src.agents.api_agents.fschat.FSChatAgent'>",
+        "fields": {
+            "model_name": "internlm-7b",
+            "temperature": 0,
+            "max_new_tokens": 512,
+            "top_p": 0,
+            "url": "http://0.0.0.0:6006/v1/chat/completions",
+            "name": "internlm-7b",
+            "src": "configs/agents/fschat/internlm-7b.yaml"
+        }
+    }
+}

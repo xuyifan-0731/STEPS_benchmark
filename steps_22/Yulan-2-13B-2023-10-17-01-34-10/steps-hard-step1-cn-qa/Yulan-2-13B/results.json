@@ -1,0 +1,368 @@
+{
+  "calculate": {
+    "groups": {
+      "factual-qa_QA": {
+        "BLEU": {
+          "max": 0.02190524074715531,
+          "median": 0.02190524074715531,
+          "fine_grained_average": 0.02190524074715531,
+          "coarse_grained_average": 0.02190524074715531
+        },
+        "F1": {
+          "max": 0.13846172433193557,
+          "median": 0.13846172433193557,
+          "fine_grained_average": 0.13846172433193557,
+          "coarse_grained_average": 0.13846172433193557
+        },
+        "ROUGE-1": {
+          "max": 0.1375423319196898,
+          "median": 0.1375423319196898,
+          "fine_grained_average": 0.1375423319196898,
+          "coarse_grained_average": 0.1375423319196898
+        },
+        "ROUGE-2": {
+          "max": 0.019954608650269497,
+          "median": 0.019954608650269497,
+          "fine_grained_average": 0.019954608650269497,
+          "coarse_grained_average": 0.019954608650269497
+        },
+        "ROUGE-L": {
+          "max": 0.12771929712077454,
+          "median": 0.12771929712077454,
+          "fine_grained_average": 0.12771929712077454,
+          "coarse_grained_average": 0.12771929712077454
+        },
+        "ACC-prefix": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC-in": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "length": {
+          "max": 155,
+          "median": 155.0,
+          "fine_grained_average": 155.0,
+          "coarse_grained_average": 155.0
+        }
+      },
+      "inference_QA": {
+        "BLEU": {
+          "max": 0.016501312804077163,
+          "median": 0.016501312804077163,
+          "fine_grained_average": 0.016501312804077163,
+          "coarse_grained_average": 0.016501312804077163
+        },
+        "F1": {
+          "max": 0.07440476190476189,
+          "median": 0.07440476190476189,
+          "fine_grained_average": 0.07440476190476189,
+          "coarse_grained_average": 0.07440476190476189
+        },
+        "ROUGE-1": {
+          "max": 0.0749999994952381,
+          "median": 0.0749999994952381,
+          "fine_grained_average": 0.0749999994952381,
+          "coarse_grained_average": 0.0749999994952381
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0749999994952381,
+          "median": 0.0749999994952381,
+          "fine_grained_average": 0.0749999994952381,
+          "coarse_grained_average": 0.0749999994952381
+        },
+        "ACC-prefix": {
+          "max": 0.11607142857142858,
+          "median": 0.11607142857142858,
+          "fine_grained_average": 0.11607142857142858,
+          "coarse_grained_average": 0.11607142857142858
+        },
+        "ACC-in": {
+          "max": 0.11607142857142858,
+          "median": 0.11607142857142858,
+          "fine_grained_average": 0.11607142857142858,
+          "coarse_grained_average": 0.11607142857142858
+        },
+        "length": {
+          "max": 112,
+          "median": 112.0,
+          "fine_grained_average": 112.0,
+          "coarse_grained_average": 112.0
+        }
+      },
+      "math_QA": {
+        "BLEU": {
+          "max": 0.016692436857343063,
+          "median": 0.016692436857343063,
+          "fine_grained_average": 0.016692436857343063,
+          "coarse_grained_average": 0.016692436857343063
+        },
+        "F1": {
+          "max": 0.05283210198464436,
+          "median": 0.05283210198464436,
+          "fine_grained_average": 0.05283210198464436,
+          "coarse_grained_average": 0.05283210198464436
+        },
+        "ROUGE-1": {
+          "max": 0.031587056762851944,
+          "median": 0.031587056762851944,
+          "fine_grained_average": 0.031587056762851944,
+          "coarse_grained_average": 0.031587056762851944
+        },
+        "ROUGE-2": {
+          "max": 0.01232665631040762,
+          "median": 0.01232665631040762,
+          "fine_grained_average": 0.01232665631040762,
+          "coarse_grained_average": 0.01232665631040762
+        },
+        "ROUGE-L": {
+          "max": 0.024475524233823546,
+          "median": 0.024475524233823546,
+          "fine_grained_average": 0.024475524233823546,
+          "coarse_grained_average": 0.024475524233823546
+        },
+        "ACC-prefix": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC-in": {
+          "max": 0.01694915254237288,
+          "median": 0.01694915254237288,
+          "fine_grained_average": 0.01694915254237288,
+          "coarse_grained_average": 0.01694915254237288
+        },
+        "length": {
+          "max": 59,
+          "median": 59.0,
+          "fine_grained_average": 59.0,
+          "coarse_grained_average": 59.0
+        }
+      },
+      "reading-comprehension_QA": {
+        "BLEU": {
+          "max": 0.1923800289177002,
+          "median": 0.1923800289177002,
+          "fine_grained_average": 0.1923800289177002,
+          "coarse_grained_average": 0.1923800289177002
+        },
+        "F1": {
+          "max": 0.5099749668859592,
+          "median": 0.5099749668859592,
+          "fine_grained_average": 0.5099749668859592,
+          "coarse_grained_average": 0.5099749668859592
+        },
+        "ROUGE-1": {
+          "max": 0.514326611703521,
+          "median": 0.514326611703521,
+          "fine_grained_average": 0.514326611703521,
+          "coarse_grained_average": 0.514326611703521
+        },
+        "ROUGE-2": {
+          "max": 0.2725884290783193,
+          "median": 0.2725884290783193,
+          "fine_grained_average": 0.2725884290783193,
+          "coarse_grained_average": 0.2725884290783193
+        },
+        "ROUGE-L": {
+          "max": 0.5113523964148411,
+          "median": 0.5113523964148411,
+          "fine_grained_average": 0.5113523964148411,
+          "coarse_grained_average": 0.5113523964148411
+        },
+        "ACC-prefix": {
+          "max": 0.46,
+          "median": 0.46,
+          "fine_grained_average": 0.46,
+          "coarse_grained_average": 0.46
+        },
+        "ACC-in": {
+          "max": 0.7666666666666667,
+          "median": 0.7666666666666667,
+          "fine_grained_average": 0.7666666666666667,
+          "coarse_grained_average": 0.7666666666666667
+        },
+        "length": {
+          "max": 150,
+          "median": 150.0,
+          "fine_grained_average": 150.0,
+          "coarse_grained_average": 150.0
+        }
+      },
+      "real-world_QA": {
+        "BLEU": {
+          "max": 0.008364505896146478,
+          "median": 0.008364505896146478,
+          "fine_grained_average": 0.008364505896146478,
+          "coarse_grained_average": 0.008364505896146478
+        },
+        "F1": {
+          "max": 0.0356853203568532,
+          "median": 0.0356853203568532,
+          "fine_grained_average": 0.0356853203568532,
+          "coarse_grained_average": 0.0356853203568532
+        },
+        "ROUGE-1": {
+          "max": 0.03880778559782036,
+          "median": 0.03880778559782036,
+          "fine_grained_average": 0.03880778559782036,
+          "coarse_grained_average": 0.03880778559782036
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.03860502809734163,
+          "median": 0.03860502809734163,
+          "fine_grained_average": 0.03860502809734163,
+          "coarse_grained_average": 0.03860502809734163
+        },
+        "ACC-prefix": {
+          "max": 0.029197080291970802,
+          "median": 0.029197080291970802,
+          "fine_grained_average": 0.029197080291970802,
+          "coarse_grained_average": 0.029197080291970802
+        },
+        "ACC-in": {
+          "max": 0.043795620437956206,
+          "median": 0.043795620437956206,
+          "fine_grained_average": 0.043795620437956206,
+          "coarse_grained_average": 0.043795620437956206
+        },
+        "length": {
+          "max": 137,
+          "median": 137.0,
+          "fine_grained_average": 137.0,
+          "coarse_grained_average": 137.0
+        }
+      }
+    },
+    "overall": {
+      "BLEU": {
+        "max": 0.1923800289177002,
+        "median": 0.016692436857343063,
+        "fine_grained_average": 0.05910482017924315,
+        "coarse_grained_average": 0.05116870504448444
+      },
+      "F1": {
+        "max": 0.5099749668859592,
+        "median": 0.07440476190476189,
+        "fine_grained_average": 0.18645534835833627,
+        "coarse_grained_average": 0.16227177509283086
+      },
+      "ROUGE-1": {
+        "max": 0.514326611703521,
+        "median": 0.0749999994952381,
+        "fine_grained_average": 0.18604952059128288,
+        "coarse_grained_average": 0.15945275709582424
+      },
+      "ROUGE-2": {
+        "max": 0.2725884290783193,
+        "median": 0.01232665631040762,
+        "fine_grained_average": 0.07293393380889678,
+        "coarse_grained_average": 0.06097393880779929
+      },
+      "ROUGE-L": {
+        "max": 0.5113523964148411,
+        "median": 0.0749999994952381,
+        "fine_grained_average": 0.18210814883938706,
+        "coarse_grained_average": 0.15543044907240378
+      },
+      "ACC-prefix": {
+        "max": 0.46,
+        "median": 0.029197080291970802,
+        "fine_grained_average": 0.1402936378466558,
+        "coarse_grained_average": 0.12105370177267986
+      },
+      "ACC-in": {
+        "max": 0.7666666666666667,
+        "median": 0.043795620437956206,
+        "fine_grained_average": 0.22022838499184338,
+        "coarse_grained_average": 0.1886965736436849
+      },
+      "length": {
+        "max": 155,
+        "median": 137.0,
+        "fine_grained_average": 132.65742251223492,
+        "coarse_grained_average": 122.6
+      }
+    }
+  },
+  "results": {
+    "factual-qa_QA": {
+      "factual-qa_QA.jsonl": {
+        "BLEU": 0.02190524074715531,
+        "F1": 0.13846172433193557,
+        "ROUGE-1": 0.1375423319196898,
+        "ROUGE-2": 0.019954608650269497,
+        "ROUGE-L": 0.12771929712077454,
+        "ACC-prefix": 0.0,
+        "ACC-in": 0.0,
+        "length": 155
+      }
+    },
+    "inference_QA": {
+      "inference_QA.jsonl": {
+        "BLEU": 0.016501312804077163,
+        "F1": 0.07440476190476189,
+        "ROUGE-1": 0.0749999994952381,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0749999994952381,
+        "ACC-prefix": 0.11607142857142858,
+        "ACC-in": 0.11607142857142858,
+        "length": 112
+      }
+    },
+    "math_QA": {
+      "math_QA.jsonl": {
+        "BLEU": 0.016692436857343063,
+        "F1": 0.05283210198464436,
+        "ROUGE-1": 0.031587056762851944,
+        "ROUGE-2": 0.01232665631040762,
+        "ROUGE-L": 0.024475524233823546,
+        "ACC-prefix": 0.0,
+        "ACC-in": 0.01694915254237288,
+        "length": 59
+      }
+    },
+    "reading-comprehension_QA": {
+      "reading-comprehension_QA.jsonl": {
+        "BLEU": 0.1923800289177002,
+        "F1": 0.5099749668859592,
+        "ROUGE-1": 0.514326611703521,
+        "ROUGE-2": 0.2725884290783193,
+        "ROUGE-L": 0.5113523964148411,
+        "ACC-prefix": 0.46,
+        "ACC-in": 0.7666666666666667,
+        "length": 150
+      }
+    },
+    "real-world_QA": {
+      "real-world_QA.jsonl": {
+        "BLEU": 0.008364505896146478,
+        "F1": 0.0356853203568532,
+        "ROUGE-1": 0.03880778559782036,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.03860502809734163,
+        "ACC-prefix": 0.029197080291970802,
+        "ACC-in": 0.043795620437956206,
+        "length": 137
+      }
+    }
+  }
+}

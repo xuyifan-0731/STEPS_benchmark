@@ -1,0 +1,382 @@
+{
+  "calculate": {
+    "groups": {
+      "commonsense-qa_MUL": {
+        "BLEU": {
+          "max": 0.04655073575379162,
+          "median": 0.04655073575379162,
+          "fine_grained_average": 0.04655073575379162,
+          "coarse_grained_average": 0.04655073575379162
+        },
+        "F1": {
+          "max": 0.24319260163050893,
+          "median": 0.24319260163050893,
+          "fine_grained_average": 0.24319260163050893,
+          "coarse_grained_average": 0.24319260163050893
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.2550335570469799,
+          "median": 0.2550335570469799,
+          "fine_grained_average": 0.2550335570469799,
+          "coarse_grained_average": 0.2550335570469799
+        },
+        "length": {
+          "max": 149,
+          "median": 149.0,
+          "fine_grained_average": 149.0,
+          "coarse_grained_average": 149.0
+        }
+      },
+      "inference_MUL": {
+        "BLEU": {
+          "max": 0.017242969495511535,
+          "median": 0.017242969495511535,
+          "fine_grained_average": 0.017242969495511535,
+          "coarse_grained_average": 0.017242969495511535
+        },
+        "F1": {
+          "max": 0.09470998964666484,
+          "median": 0.09470998964666484,
+          "fine_grained_average": 0.09470998964666484,
+          "coarse_grained_average": 0.09470998964666484
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.15,
+          "median": 0.15,
+          "fine_grained_average": 0.15,
+          "coarse_grained_average": 0.15
+        },
+        "length": {
+          "max": 420,
+          "median": 420.0,
+          "fine_grained_average": 420.0,
+          "coarse_grained_average": 420.0
+        }
+      },
+      "math_MUL": {
+        "BLEU": {
+          "max": 0.01915838304353414,
+          "median": 0.01915838304353414,
+          "fine_grained_average": 0.01915838304353414,
+          "coarse_grained_average": 0.01915838304353414
+        },
+        "F1": {
+          "max": 0.10967027251924276,
+          "median": 0.10967027251924276,
+          "fine_grained_average": 0.10967027251924276,
+          "coarse_grained_average": 0.10967027251924276
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.21739130434782608,
+          "median": 0.21739130434782608,
+          "fine_grained_average": 0.21739130434782608,
+          "coarse_grained_average": 0.21739130434782608
+        },
+        "length": {
+          "max": 115,
+          "median": 115.0,
+          "fine_grained_average": 115.0,
+          "coarse_grained_average": 115.0
+        }
+      },
+      "real-world_MUL": {
+        "BLEU": {
+          "max": 0.013578047790734335,
+          "median": 0.013578047790734335,
+          "fine_grained_average": 0.013578047790734335,
+          "coarse_grained_average": 0.013578047790734335
+        },
+        "F1": {
+          "max": 0.06852578068264342,
+          "median": 0.06852578068264342,
+          "fine_grained_average": 0.06852578068264342,
+          "coarse_grained_average": 0.06852578068264342
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.25925925925925924,
+          "median": 0.25925925925925924,
+          "fine_grained_average": 0.25925925925925924,
+          "coarse_grained_average": 0.25925925925925924
+        },
+        "length": {
+          "max": 135,
+          "median": 135.0,
+          "fine_grained_average": 135.0,
+          "coarse_grained_average": 135.0
+        }
+      },
+      "science-qa_MUL": {
+        "BLEU": {
+          "max": 0.021987114549099924,
+          "median": 0.021987114549099924,
+          "fine_grained_average": 0.021987114549099924,
+          "coarse_grained_average": 0.021987114549099924
+        },
+        "F1": {
+          "max": 0.1121201813038087,
+          "median": 0.1121201813038087,
+          "fine_grained_average": 0.1121201813038087,
+          "coarse_grained_average": 0.1121201813038087
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.3140495867768595,
+          "median": 0.3140495867768595,
+          "fine_grained_average": 0.3140495867768595,
+          "coarse_grained_average": 0.3140495867768595
+        },
+        "length": {
+          "max": 121,
+          "median": 121.0,
+          "fine_grained_average": 121.0,
+          "coarse_grained_average": 121.0
+        }
+      },
+      "sentimental-analysis_MUL": {
+        "BLEU": {
+          "max": 0.004867134428055243,
+          "median": 0.004867134428055243,
+          "fine_grained_average": 0.004867134428055243,
+          "coarse_grained_average": 0.004867134428055243
+        },
+        "F1": {
+          "max": 0.027122153209109733,
+          "median": 0.027122153209109733,
+          "fine_grained_average": 0.027122153209109733,
+          "coarse_grained_average": 0.027122153209109733
+        },
+        "ROUGE-1": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-2": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ROUGE-L": {
+          "max": 0.0,
+          "median": 0.0,
+          "fine_grained_average": 0.0,
+          "coarse_grained_average": 0.0
+        },
+        "ACC": {
+          "max": 0.2956521739130435,
+          "median": 0.2956521739130435,
+          "fine_grained_average": 0.2956521739130435,
+          "coarse_grained_average": 0.2956521739130435
+        },
+        "length": {
+          "max": 115,
+          "median": 115.0,
+          "fine_grained_average": 115.0,
+          "coarse_grained_average": 115.0
+        }
+      }
+    },
+    "overall": {
+      "BLEU": {
+        "max": 0.04655073575379162,
+        "median": 0.018200676269522837,
+        "fine_grained_average": 0.020317079276637725,
+        "coarse_grained_average": 0.020564064176787796
+      },
+      "F1": {
+        "max": 0.24319260163050893,
+        "median": 0.1021901310829538,
+        "fine_grained_average": 0.10859008965234437,
+        "coarse_grained_average": 0.10922349649866307
+      },
+      "ROUGE-1": {
+        "max": 0.0,
+        "median": 0.0,
+        "fine_grained_average": 0.0,
+        "coarse_grained_average": 0.0
+      },
+      "ROUGE-2": {
+        "max": 0.0,
+        "median": 0.0,
+        "fine_grained_average": 0.0,
+        "coarse_grained_average": 0.0
+      },
+      "ROUGE-L": {
+        "max": 0.0,
+        "median": 0.0,
+        "fine_grained_average": 0.0,
+        "coarse_grained_average": 0.0
+      },
+      "ACC": {
+        "max": 0.3140495867768595,
+        "median": 0.25714640815311957,
+        "fine_grained_average": 0.22085308056872038,
+        "coarse_grained_average": 0.24856431355732803
+      },
+      "length": {
+        "max": 420,
+        "median": 128.0,
+        "fine_grained_average": 244.47109004739337,
+        "coarse_grained_average": 175.83333333333334
+      }
+    }
+  },
+  "results": {
+    "commonsense-qa_MUL": {
+      "commonsense-qa_MUL.jsonl": {
+        "BLEU": 0.04655073575379162,
+        "F1": 0.24319260163050893,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.2550335570469799,
+        "length": 149
+      }
+    },
+    "inference_MUL": {
+      "inference_MUL.jsonl": {
+        "BLEU": 0.017242969495511535,
+        "F1": 0.09470998964666484,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.15,
+        "length": 420
+      }
+    },
+    "math_MUL": {
+      "math_MUL.jsonl": {
+        "BLEU": 0.01915838304353414,
+        "F1": 0.10967027251924276,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.21739130434782608,
+        "length": 115
+      }
+    },
+    "real-world_MUL": {
+      "real-world_MUL.jsonl": {
+        "BLEU": 0.013578047790734335,
+        "F1": 0.06852578068264342,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.25925925925925924,
+        "length": 135
+      }
+    },
+    "science-qa_MUL": {
+      "science-qa_MUL.jsonl": {
+        "BLEU": 0.021987114549099924,
+        "F1": 0.1121201813038087,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.3140495867768595,
+        "length": 121
+      }
+    },
+    "sentimental-analysis_MUL": {
+      "sentimental-analysis_MUL.jsonl": {
+        "BLEU": 0.004867134428055243,
+        "F1": 0.027122153209109733,
+        "ROUGE-1": 0.0,
+        "ROUGE-2": 0.0,
+        "ROUGE-L": 0.0,
+        "ACC": 0.2956521739130435,
+        "length": 115
+      }
+    }
+  }
+}
