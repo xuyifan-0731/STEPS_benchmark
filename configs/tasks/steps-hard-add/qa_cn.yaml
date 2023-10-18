@@ -4,7 +4,7 @@ parameters:
   extract_answer: true
   file-pattern:
     factual-qa_QA_new: '**/factual-qa_QA_cn.jsonl'
-    K12_new: '**/K12_QA.jsonl'
+    K12_new: '**/K12_QA_new.jsonl'
   language: cn
   name: steps-hard-step1-cn-qa-add
   path: data/steps_hard
